@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMap.CareerComparisonPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F0F4FF">
+
+    <ContentPage.Resources>
+        <Color x:Key="Ink">#17203B</Color>
+        <Color x:Key="Muted">#7D849A</Color>
+        <Color x:Key="Surface">#FFFFFF</Color>
+        <Color x:Key="Accent">#2E7D6B</Color>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- Header -->
+        <VerticalStackLayout Grid.Row="0" Padding="20,52,20,16" Spacing="12">
+            <Grid ColumnDefinitions="Auto,*">
+                <Border BackgroundColor="{StaticResource Surface}"
+                        WidthRequest="42" HeightRequest="42" StrokeThickness="0">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="21" /></Border.StrokeShape>
+                    <Border.Shadow><Shadow Brush="#12000000" Offset="0,3" Radius="8" Opacity="1" /></Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackTapped" />
+                    </Border.GestureRecognizers>
+                    <Label Text="&#8592;" FontSize="22" TextColor="{StaticResource Ink}"
+                           HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+            </Grid>
+            <Label Text="Compare Careers" FontFamily="OpenSansSemibold" FontSize="24" TextColor="{StaticResource Ink}" />
+            <Label Text="A side-by-side, informational comparison. No career is declared better than another."
+                   FontSize="13" TextColor="{StaticResource Muted}" LineBreakMode="WordWrap" />
+        </VerticalStackLayout>
+
+        <!-- Body -->
+        <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout Padding="20,0,20,32" Spacing="16">
+
+                <ScrollView Orientation="Horizontal" VerticalScrollBarVisibility="Never">
+                    <Border StrokeThickness="0" Padding="16" BackgroundColor="White">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                        <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
+                        <Grid x:Name="ComparisonGrid" RowSpacing="0" ColumnSpacing="10" />
+                    </Border>
+                </ScrollView>
+
+                <Label Text="Career information is intended for exploration and general guidance. Salary, demand, stability and career opportunities can vary by location, employer, experience, skills and economic conditions."
+                       FontSize="11" TextColor="{StaticResource Muted}" LineBreakMode="WordWrap" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

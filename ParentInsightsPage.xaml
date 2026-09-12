@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMap.ParentInsightsPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F0F4FF">
+
+    <ContentPage.Resources>
+        <Color x:Key="Ink">#17203B</Color>
+        <Color x:Key="Muted">#7D849A</Color>
+        <Color x:Key="Surface">#FFFFFF</Color>
+        <Color x:Key="SoftBorder">#EEF0F6</Color>
+        <Color x:Key="Accent">#2E7D6B</Color>
+
+        <Style x:Key="SectionTitle" TargetType="Label">
+            <Setter Property="FontFamily" Value="OpenSansSemibold" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="{StaticResource Ink}" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*,Auto">
+
+        <ScrollView Grid.Row="0" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout Padding="20,52,20,24" Spacing="18">
+
+                <!-- Header -->
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Parent Insights"
+                               FontFamily="OpenSansSemibold" FontSize="26"
+                               TextColor="{StaticResource Ink}" />
+                        <Label Text="Understand the opportunities, challenges and future of different careers."
+                               FontSize="14" TextColor="{StaticResource Muted}" LineBreakMode="WordWrap" />
+                    </VerticalStackLayout>
+
+                    <Button Grid.Column="1"
+                            x:Name="CompareToggleButton"
+                            Text="Compare"
+                            BackgroundColor="{StaticResource Surface}"
+                            TextColor="{StaticResource Accent}"
+                            FontFamily="OpenSansSemibold" FontSize="12"
+                            CornerRadius="14" Padding="14,8"
+                            MinimumHeightRequest="0" MinimumWidthRequest="0"
+                            VerticalOptions="Start"
+                            Clicked="OnCompareToggleClicked" />
+                </Grid>
+
+                <!-- Search -->
+                <Border BackgroundColor="{StaticResource Surface}"
+                        Stroke="{StaticResource SoftBorder}" StrokeThickness="1"
+                        Padding="14,4">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="14" /></Border.StrokeShape>
+                    <Entry x:Name="SearchEntry"
+                           Placeholder="Search a career..."
+                           FontSize="15"
+                           TextColor="{StaticResource Ink}"
+                           PlaceholderColor="{StaticResource Muted}"
+                           TextChanged="OnSearchTextChanged" />
+                </Border>
+
+                <!-- Category chips -->
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Browse by Category" Style="{StaticResource SectionTitle}" />
+                    <ScrollView Orientation="Horizontal" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
+                        <HorizontalStackLayout x:Name="CategoryChipsLayout" Spacing="8" />
+                    </ScrollView>
+                </VerticalStackLayout>
+
+                <!-- Career list -->
+                <VerticalStackLayout Spacing="10">
+                    <Label x:Name="ResultsTitleLabel" Text="Popular Careers" Style="{StaticResource SectionTitle}" />
+                    <VerticalStackLayout x:Name="CareersLayout" Spacing="12" />
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Compare bar -->
+        <Border Grid.Row="1" x:Name="CompareBar" IsVisible="False"
+                StrokeThickness="0" Padding="18,14"
+                BackgroundColor="{StaticResource Surface}">
+            <Border.Shadow><Shadow Brush="#20000000" Offset="0,-4" Radius="16" Opacity="1" /></Border.Shadow>
+            <Grid ColumnDefinitions="*,Auto">
+                <Label x:Name="CompareCountLabel" Text="Select 2-3 careers to compare"
+                       FontSize="13" TextColor="{StaticResource Muted}" VerticalOptions="Center" />
+                <Button Grid.Column="1"
+                        x:Name="CompareGoButton"
+                        Text="Compare →"
+                        BackgroundColor="{StaticResource Accent}"
+                        TextColor="White"
+                        FontFamily="OpenSansSemibold" FontSize="14"
+                        CornerRadius="14" Padding="18,10"
+                        IsEnabled="False" Opacity="0.5"
+                        Clicked="OnCompareGoClicked" />
+            </Grid>
+        </Border>
+
+    </Grid>
+
+</ContentPage>

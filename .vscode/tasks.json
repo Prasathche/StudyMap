@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run StudyMap Windows",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"run",
+				"--project",
+				"StudyMap.csproj",
+				"-f",
+				"net8.0-windows10.0.19041.0"
+			],
+			"isBackground": true,
+			"group": "build"
+		}
+	]
+}

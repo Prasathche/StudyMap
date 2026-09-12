@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMap.CareerInsightsPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F0F4FF">
+
+    <ContentPage.Resources>
+        <Color x:Key="Ink">#17203B</Color>
+        <Color x:Key="Muted">#7D849A</Color>
+        <Color x:Key="Surface">#FFFFFF</Color>
+        <Color x:Key="SoftBorder">#EEF0F6</Color>
+        <Color x:Key="Accent">#2E7D6B</Color>
+
+        <Style x:Key="SectionCard" TargetType="Border">
+            <Setter Property="StrokeThickness" Value="0" />
+            <Setter Property="BackgroundColor" Value="{StaticResource Surface}" />
+            <Setter Property="Padding" Value="18" />
+        </Style>
+
+        <Style x:Key="SectionTitle" TargetType="Label">
+            <Setter Property="FontFamily" Value="OpenSansSemibold" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextColor" Value="{StaticResource Ink}" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- Header -->
+        <Border Grid.Row="0" StrokeThickness="0" Padding="20,52,20,24">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#E4F3EF" Offset="0.0" />
+                    <GradientStop Color="#D2ECE3" Offset="1.0" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <VerticalStackLayout Spacing="14">
+                <Grid ColumnDefinitions="Auto,*">
+                    <Border BackgroundColor="{StaticResource Surface}"
+                            WidthRequest="42" HeightRequest="42" StrokeThickness="0">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="21" /></Border.StrokeShape>
+                        <Border.Shadow><Shadow Brush="#12000000" Offset="0,3" Radius="8" Opacity="1" /></Border.Shadow>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnBackTapped" />
+                        </Border.GestureRecognizers>
+                        <Label Text="&#8592;" FontSize="22" TextColor="{StaticResource Ink}"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
+                    <Border WidthRequest="56" HeightRequest="56" StrokeThickness="0"
+                            BackgroundColor="{StaticResource Surface}">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="18" /></Border.StrokeShape>
+                        <Label x:Name="CareerIconLabel" FontSize="30" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                        <Label x:Name="CareerNameLabel" FontFamily="OpenSansSemibold" FontSize="22" TextColor="{StaticResource Ink}" />
+                        <Label x:Name="CareerCategoryLabel" FontSize="13" TextColor="{StaticResource Muted}" />
+                    </VerticalStackLayout>
+                </Grid>
+
+                <Label x:Name="SnapshotLabel"
+                       FontSize="14" TextColor="{StaticResource Ink}"
+                       LineBreakMode="WordWrap" />
+            </VerticalStackLayout>
+        </Border>
+
+        <!-- Body -->
+        <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout Padding="16,18,16,32" Spacing="14">
+
+                <!-- Indicator cards (Earning, Stability, Demand, Difficulty, Competition) -->
+                <VerticalStackLayout x:Name="IndicatorsLayout" Spacing="14" />
+
+                <!-- Education Investment -->
+                <Border Style="{StaticResource SectionCard}">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                    <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="&#127891; Education Investment" Style="{StaticResource SectionTitle}" />
+
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Typical Duration" FontSize="12" TextColor="{StaticResource Muted}" />
+                            <Label x:Name="DurationLabel" FontFamily="OpenSansSemibold" FontSize="14" TextColor="{StaticResource Ink}" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Common UG Options" FontSize="12" TextColor="{StaticResource Muted}" />
+                            <FlexLayout x:Name="UgCoursesLayout" Wrap="Wrap" Direction="Row" JustifyContent="Start" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Optional PG" FontSize="12" TextColor="{StaticResource Muted}" />
+                            <FlexLayout x:Name="PgCoursesLayout" Wrap="Wrap" Direction="Row" JustifyContent="Start" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout x:Name="ExamsSection" Spacing="6">
+                            <Label Text="Entrance Exams" FontSize="12" TextColor="{StaticResource Muted}" />
+                            <FlexLayout x:Name="ExamsLayout" Wrap="Wrap" Direction="Row" JustifyContent="Start" />
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Career Path -->
+                <Border Style="{StaticResource SectionCard}">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                    <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="&#128506; Career Path" Style="{StaticResource SectionTitle}" />
+                        <Label Text="Class 10 → Stream → Class 11-12 → Entrance/Admission → UG Course → Skills &amp; Internships → Career"
+                               FontSize="13" TextColor="{StaticResource Muted}" LineBreakMode="WordWrap" />
+                        <Button Text="View Full Career Roadmap  →"
+                                BackgroundColor="{StaticResource Accent}"
+                                TextColor="White" FontFamily="OpenSansSemibold" FontSize="14"
+                                CornerRadius="14" HeightRequest="48"
+                                Clicked="OnViewRoadmapClicked" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Parent Considerations -->
+                <Border Style="{StaticResource SectionCard}">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                    <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Things Parents Should Consider" Style="{StaticResource SectionTitle}" />
+                        <VerticalStackLayout x:Name="ConsiderationsLayout" Spacing="10" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Suitable for -->
+                <Border Style="{StaticResource SectionCard}">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                    <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="This Career May Suit Students Who..." Style="{StaticResource SectionTitle}" />
+                        <FlexLayout x:Name="SuitableForLayout" Wrap="Wrap" Direction="Row" JustifyContent="Start" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Things to consider -->
+                <Border Style="{StaticResource SectionCard}">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                    <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Things to Consider" Style="{StaticResource SectionTitle}" />
+                        <VerticalStackLayout x:Name="ThingsToConsiderLayout" Spacing="10" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Disclaimer -->
+                <Label Text="Career information is intended for exploration and general guidance. Salary, demand, stability and career opportunities can vary by location, employer, experience, skills and economic conditions. No career is guaranteed to be secure or successful. Consider your child's interests, strengths, academic performance and goals before making education decisions."
+                       FontSize="11" TextColor="{StaticResource Muted}"
+                       LineBreakMode="WordWrap" Margin="4,4,4,0" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Loading overlay -->
+        <Grid Grid.Row="1" x:Name="LoadingOverlay" IsVisible="False" BackgroundColor="#E8F0FEBB">
+            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="14">
+                <ActivityIndicator IsRunning="True" Color="{StaticResource Accent}" WidthRequest="44" HeightRequest="44" />
+                <Label Text="Loading insights..." FontSize="14" TextColor="{StaticResource Muted}" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

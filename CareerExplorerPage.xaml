@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:StudyMap.Models"
+             x:Class="StudyMap.CareerExplorerPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F6F7FB">
+
+    <ContentPage.Resources>
+
+        <Color x:Key="PageBg">#F6F7FB</Color>
+        <Color x:Key="Surface">#FFFFFF</Color>
+        <Color x:Key="Ink">#17203B</Color>
+        <Color x:Key="Muted">#7D849A</Color>
+        <Color x:Key="Accent">#FF9259</Color>
+        <Color x:Key="SoftBorder">#EEF0F6</Color>
+
+        <Style x:Key="SectionTitle" TargetType="Label">
+            <Setter Property="FontFamily" Value="OpenSansSemibold" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="{StaticResource Ink}" />
+        </Style>
+
+        <Style x:Key="ChipBtn" TargetType="Button">
+            <Setter Property="CornerRadius" Value="16" />
+            <Setter Property="Padding" Value="18,10" />
+            <Setter Property="FontFamily" Value="OpenSansSemibold" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="MinimumHeightRequest" Value="0" />
+            <Setter Property="MinimumWidthRequest" Value="0" />
+            <Setter Property="BackgroundColor" Value="{StaticResource Surface}" />
+            <Setter Property="TextColor" Value="{StaticResource Muted}" />
+        </Style>
+
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20,30,20,40"
+            Spacing="20">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="5">
+                <Label
+                    Text="Explore Careers"
+                    FontFamily="OpenSansSemibold"
+                    FontSize="28"
+                    TextColor="{StaticResource Ink}" />
+
+                <Label
+                    Text="Discover careers that match your interests and strengths."
+                    FontSize="14"
+                    TextColor="{StaticResource Muted}" />
+            </VerticalStackLayout>
+
+            <!-- Search -->
+            <Border
+                BackgroundColor="{StaticResource Surface}"
+                Stroke="{StaticResource SoftBorder}"
+                StrokeThickness="1"
+                Padding="14,4">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14" />
+                </Border.StrokeShape>
+
+                <Entry
+                    x:Name="SearchEntry"
+                    Placeholder="Search careers"
+                    FontSize="15"
+                    TextColor="{StaticResource Ink}"
+                    PlaceholderColor="{StaticResource Muted}"
+                    Completed="OnSearchCompleted" />
+            </Border>
+
+            <!-- Categories -->
+            <VerticalStackLayout Spacing="10">
+
+                <Label
+                    Text="Category"
+                    Style="{StaticResource SectionTitle}" />
+
+                <HorizontalStackLayout
+                    Spacing="8">
+
+                    <Button
+                        x:Name="AllCategoryButton"
+                        Text="All"
+                        Style="{StaticResource ChipBtn}"
+                        Clicked="OnCategoryClicked" />
+
+                    <Button
+                        x:Name="ScienceCategoryButton"
+                        Text="Science"
+                        Style="{StaticResource ChipBtn}"
+                        Clicked="OnCategoryClicked" />
+
+                    <Button
+                        x:Name="CommerceCategoryButton"
+                        Text="Commerce"
+                        Style="{StaticResource ChipBtn}"
+                        Clicked="OnCategoryClicked" />
+
+                    <Button
+                        x:Name="ArtsCategoryButton"
+                        Text="Arts"
+                        Style="{StaticResource ChipBtn}"
+                        Clicked="OnCategoryClicked" />
+
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+
+            <!-- Career list -->
+            <VerticalStackLayout Spacing="10">
+
+                <Label
+                    Text="Careers"
+                    Style="{StaticResource SectionTitle}" />
+
+                <CollectionView
+                    ItemsSource="{Binding FilteredCareers}"
+                    SelectionMode="None">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Career">
+
+                            <Border
+                                Margin="0,0,0,10"
+                                Padding="16"
+                                BackgroundColor="{StaticResource Surface}"
+                                Stroke="{StaticResource SoftBorder}"
+                                StrokeThickness="1">
+
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="16" />
+                                </Border.StrokeShape>
+
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnCareerTapped"
+                                        CommandParameter="{Binding .}" />
+                                </Border.GestureRecognizers>
+
+                                <VerticalStackLayout Spacing="6">
+
+                                    <Label
+                                        Text="{Binding Name}"
+                                        FontFamily="OpenSansSemibold"
+                                        FontSize="17"
+                                        TextColor="{StaticResource Ink}" />
+
+                                    <Label
+                                        Text="{Binding Category}"
+                                        FontSize="13"
+                                        TextColor="{StaticResource Accent}" />
+
+                                    <Label
+                                        Text="{Binding Description}"
+                                        FontSize="13"
+                                        TextColor="{StaticResource Muted}"
+                                        MaxLines="3" />
+
+                                </VerticalStackLayout>
+
+                            </Border>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+            <!-- Popular careers -->
+            <VerticalStackLayout Spacing="10">
+
+                <Label
+                    Text="Popular Careers"
+                    Style="{StaticResource SectionTitle}" />
+
+                <CollectionView
+                    ItemsSource="{Binding PopularCareers}"
+                    SelectionMode="None"
+                    HeightRequest="180">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout
+                            Orientation="Horizontal"
+                            ItemSpacing="12" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Career">
+
+                            <Border
+                                WidthRequest="220"
+                                Padding="16"
+                                BackgroundColor="{StaticResource Surface}"
+                                Stroke="{StaticResource SoftBorder}"
+                                StrokeThickness="1">
+
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="16" />
+                                </Border.StrokeShape>
+
+                                <VerticalStackLayout Spacing="8">
+
+                                    <Label
+                                        Text="{Binding Name}"
+                                        FontFamily="OpenSansSemibold"
+                                        FontSize="16"
+                                        TextColor="{StaticResource Ink}" />
+
+                                    <Label
+                                        Text="{Binding Category}"
+                                        FontSize="13"
+                                        TextColor="{StaticResource Accent}" />
+
+                                    <Label
+                                        Text="{Binding Description}"
+                                        FontSize="12"
+                                        TextColor="{StaticResource Muted}"
+                                        MaxLines="4" />
+
+                                </VerticalStackLayout>
+
+                            </Border>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

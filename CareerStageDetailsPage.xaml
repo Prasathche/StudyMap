@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMap.CareerStageDetailsPage"
+             BackgroundColor="#F6F7FB"
+             Title="Stage Details">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="14,14,14,20"
+                             Spacing="16">
+            <Border Stroke="#E8E8EA"
+                    StrokeThickness="1"
+                    BackgroundColor="White"
+                    Padding="14,14,14,16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="18" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="14">
+                    <!-- Header with Icon -->
+                    <Grid ColumnDefinitions="Auto,*"
+                          ColumnSpacing="10"
+                          RowSpacing="0">
+                        <Frame Grid.Column="0"
+                               BackgroundColor="{Binding SelectedStage.AccentColor}"
+                               WidthRequest="48"
+                               HeightRequest="48"
+                               CornerRadius="24"
+                               HasShadow="False"
+                               Padding="6"
+                               VerticalOptions="Start">
+                            <Label Text="{Binding SelectedStage.Icon}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   FontSize="22" />
+                        </Frame>
+                        <VerticalStackLayout Grid.Column="1"
+                                             Spacing="4"
+                                             VerticalOptions="Start">
+                            <Label Text="{Binding SelectedStage.Title}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="#17203B"
+                                   LineBreakMode="WordWrap"
+                                   MaxLines="3" />
+                            <Label Text="{Binding SelectedStage.Description}"
+                                   FontSize="12"
+                                   TextColor="#5C667F"
+                                   LineBreakMode="WordWrap"
+                                   MaxLines="4" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <!-- What you will learn Section -->
+                    <Label Text="What you will learn"
+                           FontAttributes="Bold"
+                           FontSize="15"
+                           TextColor="#17203B"
+                           Margin="0,4,0,0" />
+                    <VerticalStackLayout Spacing="8"
+                                         Padding="0">
+                        <CollectionView ItemsSource="{Binding SelectedStage.Details}"
+                                        SelectionMode="None"
+                                        VerticalScrollBarVisibility="Never">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="24,*"
+                                          ColumnSpacing="8"
+                                          Padding="2,6"
+                                          RowSpacing="0">
+                                        <Label Grid.Column="0"
+                                               Text="•"
+                                               FontSize="16"
+                                               TextColor="#4A61F8"
+                                               VerticalOptions="Start"
+                                               HorizontalOptions="Start"
+                                               WidthRequest="24" />
+                                        <Label Grid.Column="1"
+                                               Text="{Binding .}"
+                                               FontSize="12"
+                                               TextColor="#505770"
+                                               LineBreakMode="WordWrap"
+                                               VerticalOptions="Start"
+                                               HorizontalOptions="Fill" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+
+                    <!-- Tips for success Section -->
+                    <Label Text="Tips for success"
+                           FontAttributes="Bold"
+                           FontSize="15"
+                           TextColor="#17203B"
+                           Margin="0,4,0,0" />
+                    <VerticalStackLayout Spacing="8"
+                                         Padding="0">
+                        <CollectionView ItemsSource="{Binding SelectedStage.Tips}"
+                                        SelectionMode="None"
+                                        VerticalScrollBarVisibility="Never">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="24,*"
+                                          ColumnSpacing="8"
+                                          Padding="2,6"
+                                          RowSpacing="0">
+                                        <Label Grid.Column="0"
+                                               Text="✓"
+                                               FontSize="14"
+                                               TextColor="#27AE60"
+                                               VerticalOptions="Start"
+                                               HorizontalOptions="Start"
+                                               WidthRequest="24" />
+                                        <Label Grid.Column="1"
+                                               Text="{Binding .}"
+                                               FontSize="12"
+                                               TextColor="#505770"
+                                               LineBreakMode="WordWrap"
+                                               VerticalOptions="Start"
+                                               HorizontalOptions="Fill" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

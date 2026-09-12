@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug' and ( '$(TargetFramework)' == 'net8.0-android' or '$(IsCrossTargetingBuild)' == 'true' )">
+    <BaseIntermediateOutputPath>obj\android-deploy\</BaseIntermediateOutputPath>
+    <MSBuildProjectExtensionsPath>obj\android-deploy\</MSBuildProjectExtensionsPath>
+  </PropertyGroup>
+</Project>
