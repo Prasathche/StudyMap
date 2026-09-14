@@ -28,35 +28,35 @@
         <!-- Tab 1: Discover all careers -->
         <ShellContent
             Title="Explore"
-            Icon="home.png"
+            Icon="explore.png"
             ContentTemplate="{DataTemplate local:CareerExplorerPage}"
             Route="CareerExplorerPage" />
 
         <!-- Tab 2: Stream-Based Career Module -->
         <ShellContent
             Title="Filter"
-            Icon="navigation.png"
+            Icon="filter.png"
             ContentTemplate="{DataTemplate local:StreamSelectionPage}"
             Route="StreamSelectionPage" />
 
         <!-- Tab 3: Roadmap -->
         <ShellContent
             Title="Plan"
-            Icon="navigation.png"
+            Icon="plan.png"
             ContentTemplate="{DataTemplate local:CareerRoadmapPage}"
             Route="CareerRoadmapPage" />
 
         <!-- Tab 4: Not Sure What to Choose -->
         <ShellContent
             Title="Discover"
-            Icon="navigation.png"
+            Icon="discover.png"
             ContentTemplate="{DataTemplate local:CareerDiscoveryPage}"
             Route="CareerDiscoveryPage" />
 
         <!-- Tab 5: Parent Insights -->
         <ShellContent
             Title="Decide"
-            Icon="navigation.png"
+            Icon="decide.png"
             ContentTemplate="{DataTemplate local:ParentInsightsPage}"
             Route="ParentInsightsPage" />
     </TabBar>

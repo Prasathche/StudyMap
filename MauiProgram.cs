@@ -14,6 +14,14 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+			#if ANDROID
+			builder.ConfigureMauiHandlers(handlers =>
+			{
+				handlers.AddHandler(
+					typeof(Shell),
+					typeof(Platforms.Android.StudyMapShellRenderer));
+			});
+			#endif
 
 #if DEBUG
 		builder.Logging.AddDebug();
