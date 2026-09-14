@@ -199,28 +199,6 @@
     "WorkStyles": ["Independently", "Business / Corporate"]
   },
   {
-    "Id": "career-company-secretary",
-    "Name": "Company Secretary",
-    "Description": "Lead corporate compliance, governance, board processes, and regulatory filing work.",
-    "Category": "Commerce",
-    "Icon": "📚",
-    "AccentColor": "#A6D8FF",
-    "IsPopular": false,
-    "SalaryRangeIndia": "INR 5-18 LPA",
-    "FutureDemand": "High",
-    "EducationPath": "Choose Commerce or Arts, register with ICSI, and clear CSEET, Executive, and Professional stages.",
-    "EntranceExams": ["CSEET", "CS Executive", "CS Professional"],
-    "KeySkills": ["Corporate law", "Documentation", "Governance", "Communication"],
-    "Workplaces": ["Listed companies", "Compliance firms", "Legal and secretarial departments"],
-    "RoadmapSteps": ["Choose Commerce or Arts and strengthen business law basics.", "Prepare for CSEET and understand the ICSI progression.", "Clear Executive and Professional stages while building compliance knowledge.", "Build experience in company secretarial, compliance, or governance teams and grow toward leadership roles."],
-    "SalaryInsights": ["Entry-level opportunities often begin around INR 5-8 LPA, depending on city, training, and internship exposure.", "Professionals who strengthen corporate law and documentation can move toward the upper end of INR 5-18 LPA.", "Demand is high across listed companies, compliance firms, and governance teams in India."],
-    "TopColleges": ["Shri Ram College of Commerce", "Christ University", "Symbiosis Centre for Management Studies"],
-    "CareerCategories": ["Business & Finance", "Law & Public Service"],
-    "Interests": ["Understanding money and investments", "Attention to detail"],
-    "PreferredSubjects": ["Business & Economics", "Languages"],
-    "WorkStyles": ["With a small team", "Business / Corporate"]
-  },
-  {
     "Id": "career-investment-banker",
     "Name": "Investment Banker",
     "Description": "Support fundraising, mergers, valuations, and strategic financial transactions.",

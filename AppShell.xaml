@@ -17,10 +17,10 @@
             <Setter Property="Shell.UnselectedColor" Value="#949494" />
         </Style>
         <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}">
-            <Setter Property="Shell.TabBarBackgroundColor" Value="White" />
-            <Setter Property="Shell.TabBarForegroundColor" Value="#17203B" />
-            <Setter Property="Shell.TabBarUnselectedColor" Value="#A0A0A0" />
-            <Setter Property="Shell.TabBarTitleColor" Value="#17203B" />
+            <Setter Property="Shell.TabBarBackgroundColor" Value="#FFFFFF" />
+            <Setter Property="Shell.TabBarForegroundColor" Value="#7C57F5" />
+            <Setter Property="Shell.TabBarUnselectedColor" Value="#6F7180" />
+            <Setter Property="Shell.TabBarTitleColor" Value="#7C57F5" />
         </Style>
     </Shell.Resources>
 
