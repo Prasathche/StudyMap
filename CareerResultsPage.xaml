@@ -19,7 +19,7 @@
         </Style>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="Auto,*">
+    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
 
         <!-- Header -->
         <Border Grid.Row="0" StrokeThickness="0" Padding="20,52,20,24">

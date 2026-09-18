@@ -36,7 +36,10 @@ public partial class StreamCareerListPage : ContentPage
         _vm.RefreshFavoriteStates();
         UpdateResultsLabel();
     }
-
+private async void OnHomeTapped(object? sender, TappedEventArgs e)
+{
+    await Shell.Current.GoToAsync(nameof(MyCareerPage));
+}
     // ── Data loading ─────────────────────────────────────────────────
     private async Task LoadStreamAsync(string streamName)
     {

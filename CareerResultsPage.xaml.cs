@@ -62,7 +62,10 @@ public partial class CareerResultsPage : ContentPage
             ResultsLayout.Children.Add(CreateResultCard(recommendation));
         }
     }
-
+private async void OnHomeTapped(object? sender, TappedEventArgs e)
+{
+    await Shell.Current.GoToAsync(nameof(MyCareerPage));
+}
     private Border CreateResultCard(CareerRecommendation recommendation)
     {
         var career = recommendation.Career;

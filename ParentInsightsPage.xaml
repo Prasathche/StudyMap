@@ -19,7 +19,8 @@
         </Style>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="*,Auto">
+    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+        
 
         <ScrollView Grid.Row="0" VerticalScrollBarVisibility="Never">
             <VerticalStackLayout Padding="20,52,20,24" Spacing="18">

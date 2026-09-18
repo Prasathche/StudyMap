@@ -20,6 +20,7 @@
                     <Grid ColumnDefinitions="Auto,*"
                           ColumnSpacing="10"
                           RowSpacing="0">
+                          
                         <Frame Grid.Column="0"
                                BackgroundColor="{Binding SelectedStage.AccentColor}"
                                WidthRequest="48"

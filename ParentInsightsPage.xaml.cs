@@ -58,7 +58,10 @@ public partial class ParentInsightsPage : ContentPage
             CategoryChipsLayout.Children.Add(button);
         }
     }
-
+private async void OnHomeTapped(object? sender, TappedEventArgs e)
+{
+    await Shell.Current.GoToAsync(nameof(MyCareerPage));
+}
     private async Task OnCategoryChipClicked(string chip)
     {
         _selectedChip = chip;

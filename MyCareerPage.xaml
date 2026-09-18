@@ -16,7 +16,7 @@
         <Grid
             Grid.Row="0"
             Padding="20,18,20,10"
-            ColumnDefinitions="Auto,*,Auto">
+            ColumnDefinitions="Auto,*">
 
             <!-- Back -->
             <ImageButton
@@ -45,15 +45,6 @@
                     TextColor="#777777" />
 
             </VerticalStackLayout>
-
-            <!-- Home -->
-            <ImageButton
-                Grid.Column="2"
-                Source="home.png"
-                WidthRequest="28"
-                HeightRequest="28"
-                BackgroundColor="Transparent"
-                Clicked="OnHomeClicked" />
 
         </Grid>
 
@@ -141,7 +132,7 @@
             Padding="20,10"
             ColumnDefinitions="*,*">
 
-            <!-- Saved Careers -->
+            <!-- Saved Careers Tab -->
             <Border
                 x:Name="CareersTab"
                 Grid.Column="0"
@@ -167,7 +158,7 @@
             </Border>
 
 
-            <!-- Roadmaps -->
+            <!-- Roadmaps Tab -->
             <Border
                 x:Name="RoadmapsTab"
                 Grid.Column="1"
@@ -200,118 +191,235 @@
         <!-- CONTENT -->
         <!-- ========================================================= -->
 
-        <ScrollView
-            Grid.Row="3">
-
-            <VerticalStackLayout
-                Padding="20,5,20,30"
-                Spacing="14">
+        <Grid
+            Grid.Row="3"
+            Padding="20,5,20,20">
 
 
-                <!-- ================================================= -->
-                <!-- SAVED CAREERS -->
-                <!-- ================================================= -->
+            <!-- ===================================================== -->
+            <!-- SAVED CAREERS CONTENT -->
+            <!-- ===================================================== -->
 
-                <VerticalStackLayout
-                    x:Name="SavedCareersSection"
-                    Spacing="12">
+            <Grid
+                x:Name="SavedCareersSection"
+                RowDefinitions="Auto,*">
 
-                    <Label
-                        Text="Saved Careers"
-                        FontSize="18"
-                        FontAttributes="Bold"
-                        TextColor="#222222" />
-
-                    <!-- Empty state for now -->
-                    <Border
-                        BackgroundColor="White"
-                        StrokeThickness="0"
-                        StrokeShape="RoundRectangle 18"
-                        Padding="25">
-
-                        <VerticalStackLayout
-                            HorizontalOptions="Center"
-                            Spacing="8">
-
-                            <Label
-                                Text="♥"
-                                FontSize="42"
-                                TextColor="#5B3FD3"
-                                HorizontalTextAlignment="Center" />
-
-                            <Label
-                                Text="Your saved careers will appear here"
-                                FontSize="14"
-                                TextColor="#777777"
-                                HorizontalTextAlignment="Center" />
-
-                        </VerticalStackLayout>
-
-                    </Border>
-
-                </VerticalStackLayout>
+                <!-- Section Title -->
+                <Label
+                    Grid.Row="0"
+                    Text="Saved Careers"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    TextColor="#222222"
+                    Margin="0,0,0,12" />
 
 
-                <!-- ================================================= -->
-                <!-- ROADMAPS -->
-                <!-- ================================================= -->
+                <!-- Saved Careers List -->
+                <CollectionView
+                    Grid.Row="1"
+                    x:Name="SavedCareersCollection"
+                    SelectionMode="None">
 
-                <VerticalStackLayout
-                    x:Name="RoadmapsSection"
-                    IsVisible="False"
-                    Spacing="12">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
 
-                    <Label
-                        Text="My Roadmaps"
-                        FontSize="18"
-                        FontAttributes="Bold"
-                        TextColor="#222222" />
+                            <Border
+                                BackgroundColor="White"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 18"
+                                Padding="16"
+                                Margin="0,0,0,10">
 
-                    <!-- Empty state for now -->
-                    <Border
-                        BackgroundColor="White"
-                        StrokeThickness="0"
-                        StrokeShape="RoundRectangle 18"
-                        Padding="25">
-
-                        <VerticalStackLayout
-                            HorizontalOptions="Center"
-                            Spacing="8">
-
-                            <Label
-                                Text="🗺"
-                                FontSize="42"
-                                HorizontalTextAlignment="Center" />
-
-                            <Label
-                                Text="Your saved roadmaps will appear here"
-                                FontSize="14"
-                                TextColor="#777777"
-                                HorizontalTextAlignment="Center" />
-
-                        </VerticalStackLayout>
-
-                    </Border>
-
-                </VerticalStackLayout>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnSavedCareerTapped"
+                                        CommandParameter="{Binding .}" />
+                                </Border.GestureRecognizers>
 
 
-                <!-- ================================================= -->
-                <!-- EXPLORE BUTTON -->
-                <!-- ================================================= -->
+                                <Grid
+                                    ColumnDefinitions="Auto,*,Auto"
+                                    ColumnSpacing="12">
 
-                <Button
-                    Text="Explore Careers"
-                    BackgroundColor="#5B3FD3"
-                    TextColor="White"
-                    CornerRadius="20"
-                    HeightRequest="44"
-                    Margin="0,5,0,0"
-                    Clicked="OnExploreClicked" />
+                                    <!-- Career Icon -->
+                                    <Border
+                                        Grid.Column="0"
+                                        WidthRequest="48"
+                                        HeightRequest="48"
+                                        BackgroundColor="#F1EDFF"
+                                        StrokeThickness="0">
 
-            </VerticalStackLayout>
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="14" />
+                                        </Border.StrokeShape>
 
-        </ScrollView>
+                                        <Label
+                                            Text="{Binding Icon}"
+                                            FontSize="25"
+                                            HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="Center" />
+
+                                    </Border>
+
+
+                                    <!-- Career Information -->
+                                    <VerticalStackLayout
+                                        Grid.Column="1"
+                                        Spacing="3"
+                                        VerticalOptions="Center">
+
+                                        <Label
+                                            Text="{Binding Name}"
+                                            FontSize="16"
+                                            FontAttributes="Bold"
+                                            TextColor="#222222"
+                                            LineBreakMode="TailTruncation" />
+
+                                        <Label
+                                            Text="{Binding Category}"
+                                            FontSize="12"
+                                            TextColor="#5B3FD3" />
+
+                                        <Label
+                                            Text="{Binding Description}"
+                                            FontSize="12"
+                                            TextColor="#777777"
+                                            MaxLines="2"
+                                            LineBreakMode="TailTruncation" />
+
+                                    </VerticalStackLayout>
+
+
+                                    <!-- Arrow -->
+                                   <!-- Remove Saved Career -->
+<Button
+    Grid.Column="2"
+    Text="🗑"
+    FontSize="18"
+    BackgroundColor="Transparent"
+    TextColor="#C62828"
+    WidthRequest="44"
+    HeightRequest="44"
+    Padding="0"
+    Clicked="OnRemoveSavedCareerClicked"
+    CommandParameter="{Binding .}"
+    VerticalOptions="Center" />
+
+                                </Grid>
+
+                            </Border>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+
+                <!-- Empty State -->
+                <Border
+                    x:Name="SavedCareersEmptyState"
+                    Grid.Row="1"
+                    BackgroundColor="White"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 18"
+                    Padding="25"
+                    IsVisible="False">
+
+                    <VerticalStackLayout
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Spacing="8">
+
+                        <Label
+                            Text="♥"
+                            FontSize="42"
+                            TextColor="#5B3FD3"
+                            HorizontalTextAlignment="Center" />
+
+                        <Label
+                            Text="Your saved careers will appear here"
+                            FontSize="14"
+                            TextColor="#777777"
+                            HorizontalTextAlignment="Center" />
+
+                        <Label
+                            Text="Tap the heart on a career to save it."
+                            FontSize="12"
+                            TextColor="#999999"
+                            HorizontalTextAlignment="Center" />
+
+                        <Button
+                            Text="Explore Careers"
+                            BackgroundColor="#5B3FD3"
+                            TextColor="White"
+                            CornerRadius="20"
+                            HeightRequest="44"
+                            Margin="0,8,0,0"
+                            Clicked="OnExploreClicked" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+            </Grid>
+
+
+            <!-- ===================================================== -->
+            <!-- ROADMAPS CONTENT -->
+            <!-- ===================================================== -->
+
+            <Grid
+                x:Name="RoadmapsSection"
+                IsVisible="False"
+                RowDefinitions="Auto,*">
+
+                <!-- Section Title -->
+                <Label
+                    Grid.Row="0"
+                    Text="My Roadmaps"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    TextColor="#222222"
+                    Margin="0,0,0,12" />
+
+
+                <!-- Roadmap Empty State -->
+                <Border
+                    Grid.Row="1"
+                    BackgroundColor="White"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 18"
+                    Padding="25">
+
+                    <VerticalStackLayout
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Spacing="8">
+
+                        <Label
+                            Text="🗺"
+                            FontSize="42"
+                            HorizontalTextAlignment="Center" />
+
+                        <Label
+                            Text="Your saved roadmaps will appear here"
+                            FontSize="14"
+                            TextColor="#777777"
+                            HorizontalTextAlignment="Center" />
+
+                        <Label
+                            Text="Roadmaps you save will appear here."
+                            FontSize="12"
+                            TextColor="#999999"
+                            HorizontalTextAlignment="Center" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+            </Grid>
+
+        </Grid>
 
     </Grid>
 

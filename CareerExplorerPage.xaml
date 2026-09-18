@@ -40,7 +40,7 @@
             Spacing="20">
 
             <!-- Header -->
-           <!-- Header -->
+            <!-- Header -->
 <Grid
     ColumnDefinitions="*,Auto"
     ColumnSpacing="12">
@@ -63,8 +63,7 @@
 
     </VerticalStackLayout>
 
-
-    <!-- My Career Button -->
+    <!-- Home Button -->
     <Border
         Grid.Column="1"
         WidthRequest="48"
@@ -79,17 +78,18 @@
         </Border.StrokeShape>
 
         <Label
-            Text="♥"
-            FontSize="23"
+            Text="⌂"
+            FontSize="28"
+            FontAttributes="Bold"
             TextColor="#7C57F5"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
             HorizontalTextAlignment="Center"
             VerticalTextAlignment="Center" />
 
         <Border.GestureRecognizers>
-
             <TapGestureRecognizer
-                Tapped="OnMyCareerTapped" />
-
+                Tapped="OnHomeTapped" />
         </Border.GestureRecognizers>
 
     </Border>

@@ -161,8 +161,10 @@ public class CareerDetailsViewModel : INotifyPropertyChanged
             // Record as recently viewed
             _recentlyViewedService.Record(careerId);
 
-            Career = career;
-            IsFavorite = _favoritesService.IsFavorite(careerId);
+           _career = career;
+Career = career;
+
+IsFavorite = _favoritesService.IsFavorite(careerId);
 
             // Populate observable lists
             Reset(EntranceExams,        career.EntranceExams);
@@ -195,12 +197,22 @@ public class CareerDetailsViewModel : INotifyPropertyChanged
     }
 
     private void OnToggleFavorite()
-    {
-        if (_career is null) return;
-        var isNow = _favoritesService.Toggle(_career.Id);
-        IsFavorite = isNow;
-        ShowStatus(isNow ? "❤ Added to Favorites" : "Removed from Favorites");
-    }
+{
+    if (_career is null)
+        return;
+
+    var isNow = _favoritesService.Toggle(_career.Id);
+
+    IsFavorite = isNow;
+
+    OnPropertyChanged(nameof(IsFavorite));
+    OnPropertyChanged(nameof(FavoriteButtonText));
+
+    ShowStatus(
+        isNow
+            ? "❤ Added to Favorites"
+            : "♡ Removed from Favorites");
+}
 
     private void OnSaveCareer()
     {

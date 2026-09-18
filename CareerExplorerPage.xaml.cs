@@ -74,21 +74,36 @@ public partial class CareerExplorerPage : ContentPage
 		ApplyCategoryStyles();
 		ApplyFilters();
 	}
+private async void OnCareerTapped(object? sender, TappedEventArgs e)
+{
+    if (e.Parameter is not Career career)
+    {
+        return;
+    }
 
-	private async void OnCareerTapped(object? sender, TappedEventArgs e)
-	{
-		if (e.Parameter is not Career career)
-		{
-			return;
-		}
+    var route =
+        $"{nameof(CareerDetailPage)}" +
+        $"?careerId={Uri.EscapeDataString(career.Id)}";
 
-		var route =
-			$"{nameof(CareerDetailPage)}" +
-			$"?careerId={Uri.EscapeDataString(career.Id)}";
+    await Shell.Current.GoToAsync(route);
+}
 
-		await Shell.Current.GoToAsync(route);
-	}
 
+	
+private async void OnHomeTapped(object? sender, TappedEventArgs e)
+{
+    try
+    {
+        await Shell.Current.GoToAsync(nameof(MyCareerPage));
+    }
+    catch (Exception ex)
+    {
+        await DisplayAlert(
+            "Navigation Error",
+            ex.ToString(),
+            "OK");
+    }
+}
 	private async void OnMyCareerTapped(object? sender, TappedEventArgs e)
 	{
 		await Shell.Current.GoToAsync(nameof(MyCareerPage));
