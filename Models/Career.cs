@@ -3,7 +3,7 @@ namespace StudyMap.Models;
 public class Career
 {
 	public string Id { get; set; } = string.Empty;
-
+	
 	public string Name { get; set; } = string.Empty;
 
 	public string Description { get; set; } = string.Empty;
@@ -21,6 +21,8 @@ public class Career
 	public string FutureDemand { get; set; } = string.Empty;
 
 	public string EducationPath { get; set; } = string.Empty;
+
+	public List<string> SearchAliases { get; set; } = [];
 
 	public List<string> EntranceExams { get; set; } = [];
 

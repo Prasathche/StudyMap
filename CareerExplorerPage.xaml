@@ -40,18 +40,61 @@
             Spacing="20">
 
             <!-- Header -->
-            <VerticalStackLayout Spacing="5">
-                <Label
-                    Text="Explore Careers"
-                    FontFamily="OpenSansSemibold"
-                    FontSize="28"
-                    TextColor="{StaticResource Ink}" />
+           <!-- Header -->
+<Grid
+    ColumnDefinitions="*,Auto"
+    ColumnSpacing="12">
 
-                <Label
-                    Text="Discover careers that match your interests and strengths."
-                    FontSize="14"
-                    TextColor="{StaticResource Muted}" />
-            </VerticalStackLayout>
+    <!-- Header Text -->
+    <VerticalStackLayout
+        Grid.Column="0"
+        Spacing="5">
+
+        <Label
+            Text="Explore Careers"
+            FontFamily="OpenSansSemibold"
+            FontSize="28"
+            TextColor="{StaticResource Ink}" />
+
+        <Label
+            Text="Discover careers that match your interests and strengths."
+            FontSize="14"
+            TextColor="{StaticResource Muted}" />
+
+    </VerticalStackLayout>
+
+
+    <!-- My Career Button -->
+    <Border
+        Grid.Column="1"
+        WidthRequest="48"
+        HeightRequest="48"
+        BackgroundColor="{StaticResource Surface}"
+        Stroke="{StaticResource SoftBorder}"
+        StrokeThickness="1"
+        VerticalOptions="Start">
+
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="16" />
+        </Border.StrokeShape>
+
+        <Label
+            Text="♥"
+            FontSize="23"
+            TextColor="#7C57F5"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center" />
+
+        <Border.GestureRecognizers>
+
+            <TapGestureRecognizer
+                Tapped="OnMyCareerTapped" />
+
+        </Border.GestureRecognizers>
+
+    </Border>
+
+</Grid>
 
             <!-- Search -->
             <Border

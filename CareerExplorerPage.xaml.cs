@@ -89,38 +89,70 @@ public partial class CareerExplorerPage : ContentPage
 		await Shell.Current.GoToAsync(route);
 	}
 
-	private void ApplyFilters()
+	private async void OnMyCareerTapped(object? sender, TappedEventArgs e)
 	{
-		var filtered = _allCareers
-			.Where(career =>
-				(_selectedCategory == "All" || career.Category.Equals(_selectedCategory, StringComparison.OrdinalIgnoreCase)) &&
-				(string.IsNullOrWhiteSpace(_searchText) ||
-					career.Name.Contains(_searchText, StringComparison.OrdinalIgnoreCase) ||
-					career.Description.Contains(_searchText, StringComparison.OrdinalIgnoreCase) ||
-					career.Category.Contains(_searchText, StringComparison.OrdinalIgnoreCase) ||
-					career.SalaryRangeIndia.Contains(_searchText, StringComparison.OrdinalIgnoreCase) ||
-					career.FutureDemand.Contains(_searchText, StringComparison.OrdinalIgnoreCase) ||
-					career.EducationPath.Contains(_searchText, StringComparison.OrdinalIgnoreCase) ||
-					career.KeySkills.Any(skill => skill.Contains(_searchText, StringComparison.OrdinalIgnoreCase)) ||
-					career.EntranceExams.Any(exam => exam.Contains(_searchText, StringComparison.OrdinalIgnoreCase)) ||
-					career.Workplaces.Any(workplace => workplace.Contains(_searchText, StringComparison.OrdinalIgnoreCase))))
-			.OrderBy(career => career.Name)
-			.ToList();
-
-		ResetCollection(FilteredCareers, filtered);
-
-		var popular = filtered
-			.Where(career => career.IsPopular)
-			.Take(6)
-			.ToList();
-
-		if (popular.Count == 0)
-		{
-			popular = filtered.Take(6).ToList();
-		}
-
-		ResetCollection(PopularCareers, popular);
+		await Shell.Current.GoToAsync(nameof(MyCareerPage));
 	}
+	private void ApplyFilters()
+{
+    var filtered = _allCareers
+        .Where(career =>
+            (_selectedCategory == "All" ||
+             career.Category.Equals(
+                 _selectedCategory,
+                 StringComparison.OrdinalIgnoreCase))
+            &&
+            (string.IsNullOrWhiteSpace(_searchText) ||
+             career.Name.Contains(
+                 _searchText,
+                 StringComparison.OrdinalIgnoreCase) ||
+             career.Description.Contains(
+                 _searchText,
+                 StringComparison.OrdinalIgnoreCase) ||
+             career.Category.Contains(
+                 _searchText,
+                 StringComparison.OrdinalIgnoreCase) ||
+             career.SalaryRangeIndia.Contains(
+                 _searchText,
+                 StringComparison.OrdinalIgnoreCase) ||
+             career.FutureDemand.Contains(
+                 _searchText,
+                 StringComparison.OrdinalIgnoreCase) ||
+             career.EducationPath.Contains(
+                 _searchText,
+                 StringComparison.OrdinalIgnoreCase) ||
+             career.KeySkills.Any(skill =>
+                 skill.Contains(
+                     _searchText,
+                     StringComparison.OrdinalIgnoreCase)) ||
+             career.EntranceExams.Any(exam =>
+                 exam.Contains(
+                     _searchText,
+                     StringComparison.OrdinalIgnoreCase)) ||
+					 career.SearchAliases.Any(alias => alias.Contains(_searchText, StringComparison.OrdinalIgnoreCase)) ||
+             career.Workplaces.Any(workplace =>
+                 workplace.Contains(
+                     _searchText,
+                     StringComparison.OrdinalIgnoreCase))))
+        .OrderBy(career => career.Name)
+        .ToList();
+
+    ResetCollection(FilteredCareers, filtered);
+
+    var popular = filtered
+        .Where(career => career.IsPopular)
+        .Take(6)
+        .ToList();
+
+    if (!popular.Any())
+    {
+        popular = filtered
+            .Take(6)
+            .ToList();
+    }
+
+    ResetCollection(PopularCareers, popular);
+}
 
 	private void ResetCollection(ObservableCollection<Career> collection, IReadOnlyCollection<Career> items)
 	{

@@ -6,6 +6,8 @@ public partial class AppShell : Shell
     {
         InitializeComponent();
 
+        Routing.RegisterRoute(nameof(MyCareerPage), typeof(MyCareerPage));
+
         // Modal / pushed routes for stream-based career flow
         Routing.RegisterRoute(nameof(StreamCareerListPage), typeof(StreamCareerListPage));
         Routing.RegisterRoute(nameof(CareerDetailPage),     typeof(CareerDetailPage));

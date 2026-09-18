@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="StudyMap.MyCareerPage"
+    BackgroundColor="#F7F7FB"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*">
+
+        <!-- ========================================================= -->
+        <!-- HEADER -->
+        <!-- ========================================================= -->
+
+        <Grid
+            Grid.Row="0"
+            Padding="20,18,20,10"
+            ColumnDefinitions="Auto,*,Auto">
+
+            <!-- Back -->
+            <ImageButton
+                Grid.Column="0"
+                Source="arrow_back.png"
+                WidthRequest="28"
+                HeightRequest="28"
+                BackgroundColor="Transparent"
+                Clicked="OnBackClicked" />
+
+            <!-- Title -->
+            <VerticalStackLayout
+                Grid.Column="1"
+                Margin="12,0,0,0"
+                Spacing="2">
+
+                <Label
+                    Text="My Career"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="#222222" />
+
+                <Label
+                    Text="Your saved career journey"
+                    FontSize="13"
+                    TextColor="#777777" />
+
+            </VerticalStackLayout>
+
+            <!-- Home -->
+            <ImageButton
+                Grid.Column="2"
+                Source="home.png"
+                WidthRequest="28"
+                HeightRequest="28"
+                BackgroundColor="Transparent"
+                Clicked="OnHomeClicked" />
+
+        </Grid>
+
+
+        <!-- ========================================================= -->
+        <!-- SUMMARY CARDS -->
+        <!-- ========================================================= -->
+
+        <Grid
+            Grid.Row="1"
+            Padding="20,12"
+            ColumnDefinitions="*,*"
+            ColumnSpacing="12">
+
+            <!-- Saved Careers -->
+            <Border
+                Grid.Column="0"
+                BackgroundColor="White"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 16"
+                Padding="16">
+
+                <VerticalStackLayout
+                    HorizontalOptions="Center"
+                    Spacing="3">
+
+                    <Label
+                        x:Name="CareerCountLabel"
+                        Text="0"
+                        FontSize="26"
+                        FontAttributes="Bold"
+                        TextColor="#5B3FD3"
+                        HorizontalTextAlignment="Center" />
+
+                    <Label
+                        Text="Saved Careers"
+                        FontSize="12"
+                        TextColor="#777777"
+                        HorizontalTextAlignment="Center" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- Saved Roadmaps -->
+            <Border
+                Grid.Column="1"
+                BackgroundColor="White"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 16"
+                Padding="16">
+
+                <VerticalStackLayout
+                    HorizontalOptions="Center"
+                    Spacing="3">
+
+                    <Label
+                        x:Name="RoadmapCountLabel"
+                        Text="0"
+                        FontSize="26"
+                        FontAttributes="Bold"
+                        TextColor="#5B3FD3"
+                        HorizontalTextAlignment="Center" />
+
+                    <Label
+                        Text="Saved Roadmaps"
+                        FontSize="12"
+                        TextColor="#777777"
+                        HorizontalTextAlignment="Center" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+        </Grid>
+
+
+        <!-- ========================================================= -->
+        <!-- TABS -->
+        <!-- ========================================================= -->
+
+        <Grid
+            Grid.Row="2"
+            Padding="20,10"
+            ColumnDefinitions="*,*">
+
+            <!-- Saved Careers -->
+            <Border
+                x:Name="CareersTab"
+                Grid.Column="0"
+                BackgroundColor="#5B3FD3"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 12"
+                Margin="0,0,5,0">
+
+                <Label
+                    Text="♥  Saved Careers"
+                    TextColor="White"
+                    FontSize="14"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    Padding="8" />
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnCareersTabTapped" />
+                </Border.GestureRecognizers>
+
+            </Border>
+
+
+            <!-- Roadmaps -->
+            <Border
+                x:Name="RoadmapsTab"
+                Grid.Column="1"
+                BackgroundColor="White"
+                Stroke="#E2E2E8"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 12"
+                Margin="5,0,0,0">
+
+                <Label
+                    Text="🗺  Roadmaps"
+                    TextColor="#555555"
+                    FontSize="14"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    Padding="8" />
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnRoadmapsTabTapped" />
+                </Border.GestureRecognizers>
+
+            </Border>
+
+        </Grid>
+
+
+        <!-- ========================================================= -->
+        <!-- CONTENT -->
+        <!-- ========================================================= -->
+
+        <ScrollView
+            Grid.Row="3">
+
+            <VerticalStackLayout
+                Padding="20,5,20,30"
+                Spacing="14">
+
+
+                <!-- ================================================= -->
+                <!-- SAVED CAREERS -->
+                <!-- ================================================= -->
+
+                <VerticalStackLayout
+                    x:Name="SavedCareersSection"
+                    Spacing="12">
+
+                    <Label
+                        Text="Saved Careers"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#222222" />
+
+                    <!-- Empty state for now -->
+                    <Border
+                        BackgroundColor="White"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 18"
+                        Padding="25">
+
+                        <VerticalStackLayout
+                            HorizontalOptions="Center"
+                            Spacing="8">
+
+                            <Label
+                                Text="♥"
+                                FontSize="42"
+                                TextColor="#5B3FD3"
+                                HorizontalTextAlignment="Center" />
+
+                            <Label
+                                Text="Your saved careers will appear here"
+                                FontSize="14"
+                                TextColor="#777777"
+                                HorizontalTextAlignment="Center" />
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </VerticalStackLayout>
+
+
+                <!-- ================================================= -->
+                <!-- ROADMAPS -->
+                <!-- ================================================= -->
+
+                <VerticalStackLayout
+                    x:Name="RoadmapsSection"
+                    IsVisible="False"
+                    Spacing="12">
+
+                    <Label
+                        Text="My Roadmaps"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#222222" />
+
+                    <!-- Empty state for now -->
+                    <Border
+                        BackgroundColor="White"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 18"
+                        Padding="25">
+
+                        <VerticalStackLayout
+                            HorizontalOptions="Center"
+                            Spacing="8">
+
+                            <Label
+                                Text="🗺"
+                                FontSize="42"
+                                HorizontalTextAlignment="Center" />
+
+                            <Label
+                                Text="Your saved roadmaps will appear here"
+                                FontSize="14"
+                                TextColor="#777777"
+                                HorizontalTextAlignment="Center" />
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </VerticalStackLayout>
+
+
+                <!-- ================================================= -->
+                <!-- EXPLORE BUTTON -->
+                <!-- ================================================= -->
+
+                <Button
+                    Text="Explore Careers"
+                    BackgroundColor="#5B3FD3"
+                    TextColor="White"
+                    CornerRadius="20"
+                    HeightRequest="44"
+                    Margin="0,5,0,0"
+                    Clicked="OnExploreClicked" />
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>
