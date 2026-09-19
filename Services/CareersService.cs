@@ -23,6 +23,28 @@ public class CareersService
             _careers = JsonSerializer.Deserialize<List<Career>>(json, options) ?? [];
             _isLoaded = true;
 
+            System.Diagnostics.Debug.WriteLine(
+                $"[CareersService] Loaded careers.json: {_careers.Count} careers, JSON length={json.Length}");
+
+            var agriculturalScientist = _careers.FirstOrDefault(c =>
+                c.Id.Equals("career-agricultural-scientist", StringComparison.OrdinalIgnoreCase));
+
+            if (agriculturalScientist is not null)
+            {
+                System.Diagnostics.Debug.WriteLine(
+                    $"[CareersService] Agricultural Scientist: " +
+                    $"Id={agriculturalScientist.Id}, " +
+                    $"Salary={agriculturalScientist.SalaryRangeIndia}, " +
+                    $"Demand={agriculturalScientist.FutureDemand}, " +
+                    $"Category={agriculturalScientist.Category}, " +
+                    $"SalaryInsights={agriculturalScientist.SalaryInsights.Count}");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine(
+                    "[CareersService] Agricultural Scientist record NOT FOUND in packaged careers.json");
+            }
+
             return _careers;
         }
         catch (Exception ex)
@@ -35,7 +57,17 @@ public class CareersService
     public async Task<Career?> GetCareerByIdAsync(string careerId)
     {
         var careers = await GetAllCareersAsync();
-        return careers.FirstOrDefault(c => c.Id == careerId);
+        var career = careers.FirstOrDefault(c => c.Id == careerId);
+
+        System.Diagnostics.Debug.WriteLine(
+            $"[CareersService] GetCareerByIdAsync: requestedId={careerId}, " +
+            $"found={(career is not null)}, " +
+            $"salary={career?.SalaryRangeIndia}, " +
+            $"demand={career?.FutureDemand}, " +
+            $"category={career?.Category}, " +
+            $"salaryInsights={career?.SalaryInsights.Count ?? 0}");
+
+        return career;
     }
 
     public async Task<List<Career>> GetCareersByCategoryAsync(string category)
