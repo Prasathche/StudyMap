@@ -17,6 +17,6 @@ public partial class CareerDiscoveryPage : ContentPage
 
     private async void OnMaybeLaterClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//CareerExplorerPage");
+        await Shell.Current.GoToAsync("//Explore");
     }
 }
