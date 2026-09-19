@@ -77,20 +77,20 @@ public partial class CareerDetailPage : ContentPage
             ? career.Category
             : "Not specified";
 
-        MainThread.BeginInvokeOnMainThread(() =>
-        {
-            HeroIconLabel.Text = career.Icon;
-            CareerNameLabel.Text = career.Name;
-            CategoryLabel.Text = $"{stream} Stream";
+        // This method is called from the page's UI context after the ViewModel
+        // has finished loading. Update the hero controls directly so the values
+        // cannot be lost through a delayed MainThread callback or a binding
+        // refresh while navigating between careers.
+        HeroIconLabel.Text = career.Icon;
+        CareerNameLabel.Text = career.Name;
+        CategoryLabel.Text = $"{stream} Stream";
 
-            SalaryLabel.Text = salary;
-            DemandLabel.Text = demand;
-            StreamLabel.Text = stream;
+        SalaryLabel.Text = salary;
+        DemandLabel.Text = demand;
+        StreamLabel.Text = stream;
 
-            DescriptionLabel.Text = career.Description;
-            EducationPathLabel.Text = career.EducationPath;
-
-        });
+        DescriptionLabel.Text = career.Description;
+        EducationPathLabel.Text = career.EducationPath;
 
         // Apply accent colour to hero strip gradient
         var accent = Color.FromArgb(career.AccentColor);
