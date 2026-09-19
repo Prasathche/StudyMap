@@ -63,15 +63,41 @@ public partial class CareerDetailPage : ContentPage
     // ── Hero UI ───────────────────────────────────────────────────────
     private void UpdateHeroUI(Career career)
     {
-        // Text labels
-        HeroIconLabel.Text  = career.Icon;
-        CareerNameLabel.Text = career.Name;
-        CategoryLabel.Text  = $"{career.Category} Stream";
-        SalaryLabel.Text    = career.SalaryRangeIndia;
-        DemandLabel.Text    = career.FutureDemand;
-        StreamLabel.Text    = career.Category;
-        DescriptionLabel.Text   = career.Description;
-        EducationPathLabel.Text = career.EducationPath;
+        // Capture the values first. The detail page can be revisited many times
+        // and the hero labels must always be refreshed on the UI thread.
+        var salary = !string.IsNullOrWhiteSpace(career.SalaryRangeIndia)
+            ? career.SalaryRangeIndia
+            : ExtractSalaryRange(career);
+
+        var demand = !string.IsNullOrWhiteSpace(career.FutureDemand)
+            ? career.FutureDemand
+            : ExtractDemand(career);
+
+        var stream = !string.IsNullOrWhiteSpace(career.Category)
+            ? career.Category
+            : "Not specified";
+
+        MainThread.BeginInvokeOnMainThread(() =>
+        {
+            HeroIconLabel.Text = career.Icon;
+            CareerNameLabel.Text = career.Name;
+            CategoryLabel.Text = $"{stream} Stream";
+
+            SalaryLabel.Text = salary;
+            DemandLabel.Text = demand;
+            StreamLabel.Text = stream;
+
+            DescriptionLabel.Text = career.Description;
+            EducationPathLabel.Text = career.EducationPath;
+
+            // Re-measure after switching careers. This is important because these
+            // labels are inside a 3-column Grid and their content changes between
+            // detail-page navigations.
+            SalaryLabel.InvalidateMeasure();
+            DemandLabel.InvalidateMeasure();
+            StreamLabel.InvalidateMeasure();
+            HeroBanner.InvalidateMeasure();
+        });
 
         // Apply accent colour to hero strip gradient
         var accent = Color.FromArgb(career.AccentColor);
@@ -95,6 +121,52 @@ public partial class CareerDetailPage : ContentPage
                 HeroGradB.Color = Color.FromArgb("#E1BEE7");
                 break;
         }
+    }
+
+    private static string ExtractSalaryRange(Career career)
+    {
+        var insight = career.SalaryInsights.FirstOrDefault(x =>
+            x.Contains("INR", StringComparison.OrdinalIgnoreCase) &&
+            x.Contains("LPA", StringComparison.OrdinalIgnoreCase));
+
+        if (string.IsNullOrWhiteSpace(insight))
+            return "Not specified";
+
+        var start = insight.IndexOf("INR", StringComparison.OrdinalIgnoreCase);
+        var end = insight.IndexOf("LPA", start, StringComparison.OrdinalIgnoreCase);
+
+        if (start >= 0 && end > start)
+        {
+            var value = insight[start..(end + 3)];
+            var comma = value.IndexOf(',');
+            if (comma > 0)
+                value = value[..comma];
+
+            return value.Trim();
+        }
+
+        return "Not specified";
+    }
+
+    private static string ExtractDemand(Career career)
+    {
+        var insight = career.SalaryInsights.LastOrDefault(x =>
+            x.Contains("Demand", StringComparison.OrdinalIgnoreCase));
+
+        if (string.IsNullOrWhiteSpace(insight))
+            return "Not specified";
+
+        const string prefix = "Demand is ";
+        var start = insight.IndexOf(prefix, StringComparison.OrdinalIgnoreCase);
+        if (start < 0)
+            return insight.Trim();
+
+        start += prefix.Length;
+        var end = insight.IndexOf(" across", start, StringComparison.OrdinalIgnoreCase);
+        if (end < 0)
+            end = insight.Length;
+
+        return insight[start..end].TrimEnd('.', ' ');
     }
 
     // ── Dynamic chip/list builders ────────────────────────────────────
