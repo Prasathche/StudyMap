@@ -90,13 +90,6 @@ public partial class CareerDetailPage : ContentPage
             DescriptionLabel.Text = career.Description;
             EducationPathLabel.Text = career.EducationPath;
 
-            // Re-measure after switching careers. This is important because these
-            // labels are inside a 3-column Grid and their content changes between
-            // detail-page navigations.
-            SalaryLabel.InvalidateMeasure();
-            DemandLabel.InvalidateMeasure();
-            StreamLabel.InvalidateMeasure();
-            HeroBanner.InvalidateMeasure();
         });
 
         // Apply accent colour to hero strip gradient
