@@ -97,7 +97,7 @@
                             <VerticalStackLayout Spacing="3" HorizontalOptions="Center">
                                 <Label Text="&#128176; Salary" FontSize="11"
                                        TextColor="{StaticResource Muted}" HorizontalOptions="Center" />
-                                <Label x:Name="SalaryLabel" FontFamily="OpenSansSemibold"
+                                <Label x:Name="SalaryLabel" Text="{Binding SalaryDisplay}" FontFamily="OpenSansSemibold"
                                        FontSize="13" TextColor="{StaticResource Ink}"
                                        HorizontalOptions="Fill"
                                        HorizontalTextAlignment="Center"
@@ -108,7 +108,7 @@
                             <VerticalStackLayout Grid.Column="1" Spacing="3" HorizontalOptions="Center">
                                 <Label Text="&#128200; Demand" FontSize="11"
                                        TextColor="{StaticResource Muted}" HorizontalOptions="Center" />
-                                <Label x:Name="DemandLabel" FontFamily="OpenSansSemibold"
+                                <Label x:Name="DemandLabel" Text="{Binding DemandDisplay}" FontFamily="OpenSansSemibold"
                                        FontSize="13" TextColor="{StaticResource Ink}"
                                        HorizontalOptions="Fill"
                                        HorizontalTextAlignment="Center"
@@ -119,7 +119,7 @@
                             <VerticalStackLayout Grid.Column="2" Spacing="3" HorizontalOptions="Center">
                                 <Label Text="&#127891; Stream" FontSize="11"
                                        TextColor="{StaticResource Muted}" HorizontalOptions="Center" />
-                                <Label x:Name="StreamLabel" FontFamily="OpenSansSemibold"
+                                <Label x:Name="StreamLabel" Text="{Binding StreamDisplay}" FontFamily="OpenSansSemibold"
                                        FontSize="13" TextColor="{StaticResource Ink}"
                                        HorizontalOptions="Fill"
                                        HorizontalTextAlignment="Center"
