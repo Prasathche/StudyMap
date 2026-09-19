@@ -219,7 +219,7 @@ private async void OnHomeTapped(object? sender, TappedEventArgs e)
 
     private async void OnExploreCareersClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//CareerExplorerPage");
+        await Shell.Current.GoToAsync("//Explore");
     }
 
     private async void OnRetakeClicked(object? sender, EventArgs e)
