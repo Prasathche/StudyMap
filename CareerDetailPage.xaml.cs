@@ -26,9 +26,15 @@ public partial class CareerDetailPage : ContentPage
         set
         {
             _careerId = Uri.UnescapeDataString(value ?? string.Empty);
-            MainThread.BeginInvokeOnMainThread(async () =>
-                await LoadCareerAsync(_careerId));
         }
+    }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+
+        if (!string.IsNullOrWhiteSpace(_careerId))
+            await LoadCareerAsync(_careerId);
     }
 
     // ── Data loading ─────────────────────────────────────────────────
