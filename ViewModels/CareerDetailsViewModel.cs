@@ -60,11 +60,70 @@ public class CareerDetailsViewModel : INotifyPropertyChanged
             OnPropertyChanged(nameof(Icon));
             OnPropertyChanged(nameof(SalaryRangeIndia));
             OnPropertyChanged(nameof(FutureDemand));
+            OnPropertyChanged(nameof(SalaryDisplay));
+            OnPropertyChanged(nameof(DemandDisplay));
+            OnPropertyChanged(nameof(StreamDisplay));
             OnPropertyChanged(nameof(EducationPath));
             OnPropertyChanged(nameof(AccentColor));
             OnPropertyChanged(nameof(Duration));
             OnPropertyChanged(nameof(FutureScope));
         }
+    }
+
+    public string SalaryDisplay =>
+        !string.IsNullOrWhiteSpace(_career?.SalaryRangeIndia)
+            ? _career.SalaryRangeIndia
+            : ExtractSalaryFromInsights(_career);
+
+    public string DemandDisplay =>
+        !string.IsNullOrWhiteSpace(_career?.FutureDemand)
+            ? _career.FutureDemand
+            : ExtractDemandFromInsights(_career);
+
+    public string StreamDisplay =>
+        !string.IsNullOrWhiteSpace(_career?.Category)
+            ? _career.Category
+            : "Not specified";
+
+    private static string ExtractSalaryFromInsights(Career? career)
+    {
+        var insight = career?.SalaryInsights?.FirstOrDefault(x =>
+            x.Contains("INR", StringComparison.OrdinalIgnoreCase) &&
+            x.Contains("LPA", StringComparison.OrdinalIgnoreCase));
+
+        if (string.IsNullOrWhiteSpace(insight))
+            return "Not specified";
+
+        var start = insight.IndexOf("INR", StringComparison.OrdinalIgnoreCase);
+        var end = insight.IndexOf("LPA", start, StringComparison.OrdinalIgnoreCase);
+
+        if (start < 0 || end <= start)
+            return "Not specified";
+
+        var value = insight[start..(end + 3)];
+        var comma = value.IndexOf(',');
+        return (comma > 0 ? value[..comma] : value).Trim();
+    }
+
+    private static string ExtractDemandFromInsights(Career? career)
+    {
+        var insight = career?.SalaryInsights?.LastOrDefault(x =>
+            x.Contains("Demand", StringComparison.OrdinalIgnoreCase));
+
+        if (string.IsNullOrWhiteSpace(insight))
+            return "Not specified";
+
+        const string prefix = "Demand is ";
+        var start = insight.IndexOf(prefix, StringComparison.OrdinalIgnoreCase);
+        if (start < 0)
+            return insight.Trim();
+
+        start += prefix.Length;
+        var end = insight.IndexOf(" across", start, StringComparison.OrdinalIgnoreCase);
+        if (end < 0)
+            end = insight.Length;
+
+        return insight[start..end].TrimEnd('.', ' ');
     }
 
     public string Name => _career?.Name ?? string.Empty;
