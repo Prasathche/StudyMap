@@ -63,32 +63,11 @@ public partial class CareerDetailPage : ContentPage
     // ── Hero UI ───────────────────────────────────────────────────────
     private void UpdateHeroUI(Career career)
     {
-        // Capture the values first. The detail page can be revisited many times
-        // and the hero labels must always be refreshed on the UI thread.
-        var salary = !string.IsNullOrWhiteSpace(career.SalaryRangeIndia)
-            ? career.SalaryRangeIndia
-            : ExtractSalaryRange(career);
-
-        var demand = !string.IsNullOrWhiteSpace(career.FutureDemand)
-            ? career.FutureDemand
-            : ExtractDemand(career);
-
-        var stream = !string.IsNullOrWhiteSpace(career.Category)
-            ? career.Category
-            : "Not specified";
-
-        // This method is called from the page's UI context after the ViewModel
-        // has finished loading. Update the hero controls directly so the values
-        // cannot be lost through a delayed MainThread callback or a binding
-        // refresh while navigating between careers.
         HeroIconLabel.Text = career.Icon;
         CareerNameLabel.Text = career.Name;
-        CategoryLabel.Text = $"{stream} Stream";
+        CategoryLabel.Text = $"{career.Category} Stream";
 
-        SalaryLabel.Text = salary;
-        DemandLabel.Text = demand;
-        StreamLabel.Text = stream;
-
+        // Salary, demand and stream are bound directly from the Career model in XAML.
         DescriptionLabel.Text = career.Description;
         EducationPathLabel.Text = career.EducationPath;
 
