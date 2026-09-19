@@ -43,6 +43,7 @@ public partial class CareerDetailPage : ContentPage
         if (_vm.Career is not null)
         {
             UpdateHeroUI(_vm.Career);
+            UpdateFavoriteButton();
             BuildSkillChips(_vm.Career.KeySkills);
             BuildExamChips(_vm.Career.EntranceExams);
             BuildBulletList(SalaryInsightsLayout, _vm.Career.SalaryInsights, "#B85C26", "#FFF2E7");
@@ -210,14 +211,24 @@ public partial class CareerDetailPage : ContentPage
     private void OnToggleFavoriteClicked(object? sender, EventArgs e)
     {
         _vm.ToggleFavoriteCommand.Execute(null);
-        FavBtn.Text = _vm.IsFavorite ? "\u2764 Remove Favorite" : "\u2661 Add to Favorites";
-        FavBtn.BackgroundColor = _vm.IsFavorite
-            ? Color.FromArgb("#FDECEA")
-            : Colors.White;
-        FavBtn.TextColor = _vm.IsFavorite
-            ? Color.FromArgb("#C62828")
-            : Color.FromArgb("#17203B");
+        UpdateFavoriteButton();
         ShowStatus(_vm.IsFavorite ? "Added to Favorites!" : "Removed from Favorites");
+    }
+
+    private void UpdateFavoriteButton()
+    {
+        if (_vm.IsFavorite)
+        {
+            FavBtn.Text = "\u2764 Remove Favorite";
+            FavBtn.BackgroundColor = Color.FromArgb("#FDECEA");
+            FavBtn.TextColor = Color.FromArgb("#C62828");
+        }
+        else
+        {
+            FavBtn.Text = "\u2661 Add to Favorites";
+            FavBtn.BackgroundColor = Colors.White;
+            FavBtn.TextColor = Color.FromArgb("#17203B");
+        }
     }
 
     private void OnSaveCareerClicked(object? sender, EventArgs e)
