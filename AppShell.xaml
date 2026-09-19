@@ -30,14 +30,14 @@
             Title="Explore"
             Icon="explore.png"
             ContentTemplate="{DataTemplate local:CareerExplorerPage}"
-            Route="CareerExplorerPage" />
+            Route="Explore" />
 
         <!-- Tab 2: Stream-Based Career Module -->
         <ShellContent
             Title="Filter"
             Icon="filter.png"
             ContentTemplate="{DataTemplate local:StreamSelectionPage}"
-            Route="StreamSelectionPage" />
+            Route="Filter" />
 
         <!-- Tab 3: Roadmap -->
         <ShellContent
