@@ -170,6 +170,6 @@ private async void OnRemoveSavedCareerClicked(
         EventArgs e)
     {
         await Shell.Current.GoToAsync(
-            "//CareerExplorerPage");
+            "//Explore");
     }
 }
