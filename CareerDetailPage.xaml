@@ -99,7 +99,7 @@
                                        TextColor="{StaticResource Muted}" HorizontalOptions="Center" />
                                 <Label x:Name="SalaryLabel" FontFamily="OpenSansSemibold"
                                        FontSize="13" TextColor="{StaticResource Ink}"
-                                       HorizontalOptions="Center"
+                                       HorizontalOptions="Fill"
                                        HorizontalTextAlignment="Center"
                                        LineBreakMode="WordWrap" />
                             </VerticalStackLayout>
@@ -110,7 +110,9 @@
                                        TextColor="{StaticResource Muted}" HorizontalOptions="Center" />
                                 <Label x:Name="DemandLabel" FontFamily="OpenSansSemibold"
                                        FontSize="13" TextColor="{StaticResource Ink}"
-                                       HorizontalOptions="Center" />
+                                       HorizontalOptions="Fill"
+                                       HorizontalTextAlignment="Center"
+                                       LineBreakMode="WordWrap" />
                             </VerticalStackLayout>
                             <BoxView Grid.Column="1" WidthRequest="1" Color="{StaticResource SoftBorder}"
                                      HorizontalOptions="End" VerticalOptions="Fill" Margin="0,4" />
@@ -119,7 +121,9 @@
                                        TextColor="{StaticResource Muted}" HorizontalOptions="Center" />
                                 <Label x:Name="StreamLabel" FontFamily="OpenSansSemibold"
                                        FontSize="13" TextColor="{StaticResource Ink}"
-                                       HorizontalOptions="Center" />
+                                       HorizontalOptions="Fill"
+                                       HorizontalTextAlignment="Center"
+                                       LineBreakMode="WordWrap" />
                             </VerticalStackLayout>
                         </Grid>
                     </Grid>
