@@ -181,7 +181,7 @@ public partial class CareerDetailPage : ContentPage
         layout.Children.Clear();
         foreach (var item in items)
         {
-            var row = new HorizontalStackLayout { Spacing = 10 };
+            var row = new Grid { ColumnSpacing = 10 };
 
             var bullet = new Border
             {
@@ -207,8 +207,10 @@ public partial class CareerDetailPage : ContentPage
                 HorizontalOptions = LayoutOptions.Fill
             };
 
-            row.Children.Add(bullet);
-            row.Children.Add(lbl);
+            row.Add(bullet, 0);
+            row.Add(lbl, 1);
+            row.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
+            row.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Star));
             layout.Children.Add(row);
         }
     }
@@ -220,7 +222,7 @@ public partial class CareerDetailPage : ContentPage
         int i = 1;
         foreach (var step in steps)
         {
-            var row = new HorizontalStackLayout { Spacing = 12 };
+            var row = new Grid { ColumnSpacing = 12 };
 
             var numBubble = new Border
             {
@@ -250,8 +252,10 @@ public partial class CareerDetailPage : ContentPage
                 HorizontalOptions = LayoutOptions.Fill
             };
 
-            row.Children.Add(numBubble);
-            row.Children.Add(lbl);
+            row.Add(numBubble, 0);
+            row.Add(lbl, 1);
+            row.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
+            row.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Star));
             layout.Children.Add(row);
             i++;
         }
