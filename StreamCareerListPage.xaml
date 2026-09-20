@@ -14,32 +14,7 @@
         <Color x:Key="SoftBorder">#EEF0F6</Color>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="Auto,*" ColumnDefinitions="*,Auto,Auto">
-        <Border
-    Grid.Column="2"
-    WidthRequest="48"
-    HeightRequest="48"
-    BackgroundColor="{StaticResource Surface}"
-    StrokeThickness="0"
-    VerticalOptions="Center">
-
-    <Border.StrokeShape>
-        <RoundRectangle CornerRadius="16" />
-    </Border.StrokeShape>
-
-    <Label
-        Text="⌂"
-        FontSize="28"
-        FontAttributes="Bold"
-        TextColor="#7C57F5"
-        HorizontalTextAlignment="Center"
-        VerticalTextAlignment="Center" />
-
-    <Border.GestureRecognizers>
-        <TapGestureRecognizer Tapped="OnHomeTapped" />
-    </Border.GestureRecognizers>
-</Border>
-
+    <Grid RowDefinitions="Auto,*" ColumnDefinitions="*">
         <!-- ═══════ Header Bar ═══════ -->
         <Border Grid.Row="0" StrokeThickness="0" Padding="20,52,20,18">
             <Border.Background>
