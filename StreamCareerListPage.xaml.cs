@@ -109,7 +109,7 @@ private async void OnHomeTapped(object? sender, TappedEventArgs e)
     }
 
     // ── Navigation ────────────────────────────────────────────────────
-    private async void OnBackTapped(object? sender, TappedEventArgs e)
+    private async void OnBackTapped(object? sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("..");
     }
