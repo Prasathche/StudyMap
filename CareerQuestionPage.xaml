@@ -29,7 +29,7 @@
                         BackgroundColor="Transparent"
                         Clicked="OnBackTapped"
                         VerticalOptions="Center" />
-
+                </Border>
                 <Label x:Name="QuestionCounterLabel"
                        Grid.Column="1"
                        FontFamily="OpenSansSemibold" FontSize="15"
