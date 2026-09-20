@@ -42,6 +42,7 @@
                         BackgroundColor="Transparent"
                         Clicked="OnBackTapped"
                         VerticalOptions="Center" />
+                </Border>
                 </Grid>
                 <VerticalStackLayout Grid.Row="1" Spacing="6">
                     <Label Text="Careers You Could Explore"
