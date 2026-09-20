@@ -198,7 +198,7 @@ public partial class CareerInsightsPage : ContentPage
         await Shell.Current.GoToAsync(nameof(CareerRoadmapPage));
     }
 
-    private async void OnBackTapped(object? sender, TappedEventArgs e)
+    private async void OnBackTapped(object? sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("..");
     }
