@@ -31,12 +31,13 @@
                             WidthRequest="42" HeightRequest="42" StrokeThickness="0">
                         <Border.StrokeShape><RoundRectangle CornerRadius="21" /></Border.StrokeShape>
                         <Border.Shadow><Shadow Brush="#12000000" Offset="0,3" Radius="8" Opacity="1" /></Border.Shadow>
-                        <Border.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnBackTapped" />
-                        </Border.GestureRecognizers>
-                        <Label Text="&#8592;" FontSize="22" TextColor="{StaticResource Ink}"
-                               HorizontalOptions="Center" VerticalOptions="Center" />
-                    </Border>
+                        <ImageButton
+                        Source="arrow_back.png"
+                        WidthRequest="28"
+                        HeightRequest="28"
+                        BackgroundColor="Transparent"
+                        Clicked="OnBackTapped"
+                        VerticalOptions="Center" />
 
                     <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
                         <Label x:Name="StreamTitleLabel"
