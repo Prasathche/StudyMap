@@ -48,6 +48,7 @@
                         BackgroundColor="Transparent"
                         Clicked="OnBackTapped"
                         VerticalOptions="Center" />
+                </Border>
                 </Grid>
 
                 <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
