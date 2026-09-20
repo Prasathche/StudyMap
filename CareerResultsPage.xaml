@@ -31,18 +31,13 @@
             </Border.Background>
             <Grid RowDefinitions="Auto,Auto" RowSpacing="12">
                 <Grid Grid.Row="0" ColumnDefinitions="Auto,*">
-                    <Border BackgroundColor="{StaticResource Surface}"
-                            WidthRequest="42" HeightRequest="42" StrokeThickness="0">
-                        <Border.StrokeShape><RoundRectangle CornerRadius="21" /></Border.StrokeShape>
-                        <Border.Shadow><Shadow Brush="#12000000" Offset="0,3" Radius="8" Opacity="1" /></Border.Shadow>
-                        <ImageButton
+                    <ImageButton
                         Source="arrow_back.png"
                         WidthRequest="28"
                         HeightRequest="28"
                         BackgroundColor="Transparent"
                         Clicked="OnBackTapped"
                         VerticalOptions="Center" />
-                </Border>
                 </Grid>
                 <VerticalStackLayout Grid.Row="1" Spacing="6">
                     <Label Text="Careers You Could Explore"
