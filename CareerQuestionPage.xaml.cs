@@ -183,7 +183,7 @@ public partial class CareerQuestionPage : ContentPage
         }
     }
 
-    private async void OnBackTapped(object? sender, TappedEventArgs e)
+    private async void OnBackTapped(object? sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("..");
     }
