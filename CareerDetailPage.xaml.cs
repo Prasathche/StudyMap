@@ -313,7 +313,7 @@ public partial class CareerDetailPage : ContentPage
             $"{nameof(CareerInsightsPage)}?careerId={Uri.EscapeDataString(_careerId)}");
     }
 
-    private async void OnBackTapped(object? sender, TappedEventArgs e)
+    private async void OnBackTapped(object? sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("..");
     }
