@@ -14,7 +14,7 @@
         <Color x:Key="SoftBorder">#EEF0F6</Color>
     </ContentPage.Resources>
 
-    <Grid ColumnDefinitions="*,Auto,Auto">
+    <Grid RowDefinitions="Auto,*" ColumnDefinitions="*,Auto,Auto">
         <Border
     Grid.Column="2"
     WidthRequest="48"
