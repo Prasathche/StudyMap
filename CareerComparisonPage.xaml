@@ -28,6 +28,7 @@
                         BackgroundColor="Transparent"
                         Clicked="OnBackTapped"
                         VerticalOptions="Center" />
+            </Border>
             </Grid>
             <Label Text="Compare Careers" FontFamily="OpenSansSemibold" FontSize="24" TextColor="{StaticResource Ink}" />
             <Label Text="A side-by-side, informational comparison. No career is declared better than another."
