@@ -38,7 +38,7 @@
                         BackgroundColor="Transparent"
                         Clicked="OnBackTapped"
                         VerticalOptions="Center" />
-
+                    </Border>
                     <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
                         <Label x:Name="StreamTitleLabel"
                                FontFamily="OpenSansSemibold" FontSize="22"
