@@ -163,7 +163,7 @@ public partial class CareerComparisonPage : ContentPage
         ComparisonGrid.Children.Add(cell);
     }
 
-    private async void OnBackTapped(object? sender, TappedEventArgs e)
+    private async void OnBackTapped(object? sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("..");
     }
