@@ -16,6 +16,7 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
     private bool _isSaved;
     private string _statusMessage = string.Empty;
     private readonly CareersService _careersService = new();
+    private readonly SavedRoadmapsService _savedRoadmapsService = new();
     private readonly List<CareerRoadmap> _allRoadmaps = new();
 
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -43,6 +44,7 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
             _selectedRoadmap = value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(HasSelectedCareer));
+            IsSaved = _selectedRoadmap is not null && _savedRoadmapsService.IsSaved(_selectedRoadmap.CareerId);
             RefreshRoadmap();
         }
     }
@@ -151,6 +153,7 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
     {
         return new CareerRoadmap
         {
+            CareerId = career.Id,
             Category = string.IsNullOrWhiteSpace(career.Category) ? "Other" : career.Category,
             CareerName = career.Name,
             Subtitle = $"{career.Description} - {career.SalaryRangeIndia}",
@@ -335,6 +338,7 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
             return;
         }
 
+        _savedRoadmapsService.Add(SelectedRoadmap.CareerId);
         IsSaved = true;
         StatusMessage = "✓ Roadmap saved successfully!";
 
