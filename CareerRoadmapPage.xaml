@@ -122,17 +122,20 @@
                                         VerticalOptions="Center" />
 
                                 <Button Grid.Column="1"
-                                        Text="×"
-                                        FontSize="22"
+                                        Text="✕"
+                                        FontSize="20"
                                         FontAttributes="Bold"
                                         TextColor="#5C667F"
                                         BackgroundColor="Transparent"
-                                        WidthRequest="42"
-                                        HeightRequest="44"
+                                        WidthRequest="44"
+                                        HeightRequest="48"
                                         Padding="0"
-                                        IsVisible="{Binding HasSelectedCareer}"
+                                        IsEnabled="{Binding HasSelectedCareer}"
                                         Command="{Binding ClearCareerCommand}"
-                                        VerticalOptions="Center" />
+                                        ZIndex="10"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Center"
+                                        SemanticProperties.Description="Clear selected career" />
                             </Grid>
                         </Border>
                     </VerticalStackLayout>
