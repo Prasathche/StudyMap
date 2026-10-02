@@ -84,16 +84,57 @@
                         <RoundRectangle CornerRadius="24" />
                     </Border.StrokeShape>
                     <VerticalStackLayout Spacing="12">
-                        <Label Text="Select career path" 
-                               FontAttributes="Bold" 
+                        <Label Text="Select pathway"
+                               FontAttributes="Bold"
                                TextColor="#17203B"
                                FontSize="16" />
-                        <Picker ItemsSource="{Binding AvailableRoadmaps}"
-                                ItemDisplayBinding="{Binding CareerName}"
-                                SelectedItem="{Binding SelectedRoadmap}"
+                        <Picker ItemsSource="{Binding AvailablePathways}"
+                                SelectedItem="{Binding SelectedPathway}"
                                 Title="Choose a pathway"
                                 TextColor="#17203B"
                                 TitleColor="#5C667F" />
+
+                        <Label Text="Select career path"
+                               FontAttributes="Bold"
+                               TextColor="#17203B"
+                               FontSize="16"
+                               Margin="0,4,0,0" />
+
+                        <Border Stroke="#E8E8EA"
+                                StrokeThickness="1"
+                                BackgroundColor="White"
+                                HeightRequest="52"
+                                Padding="0"
+                                HorizontalOptions="Fill">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="14" />
+                            </Border.StrokeShape>
+                            <Grid ColumnDefinitions="*,Auto"
+                                  Padding="4,0,4,0">
+                                <Picker Grid.Column="0"
+                                        ItemsSource="{Binding AvailableRoadmaps}"
+                                        ItemDisplayBinding="{Binding CareerName}"
+                                        SelectedItem="{Binding SelectedRoadmap, Mode=TwoWay}"
+                                        Title="Choose a career"
+                                        TextColor="#17203B"
+                                        TitleColor="#5C667F"
+                                        HorizontalOptions="Fill"
+                                        VerticalOptions="Center" />
+
+                                <Button Grid.Column="1"
+                                        Text="×"
+                                        FontSize="22"
+                                        FontAttributes="Bold"
+                                        TextColor="#5C667F"
+                                        BackgroundColor="Transparent"
+                                        WidthRequest="42"
+                                        HeightRequest="44"
+                                        Padding="0"
+                                        IsVisible="{Binding HasSelectedCareer}"
+                                        Command="{Binding ClearCareerCommand}"
+                                        VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
                     </VerticalStackLayout>
                 </Border>
 
