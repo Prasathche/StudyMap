@@ -22,7 +22,7 @@
                     <GradientStop Color="#F3E5F5" Offset="1.0" />
                 </LinearGradientBrush>
             </Border.Background>
-            <Grid ColumnDefinitions="*,Auto">
+            <Grid ColumnDefinitions="*,Auto,Auto">
                 <VerticalStackLayout Spacing="6">
                     <Label Text="Choose Your Stream"
                            FontFamily="OpenSansSemibold" FontSize="26"
@@ -30,6 +30,15 @@
                     <Label Text="Select your academic path to explore matching careers"
                            FontSize="14" TextColor="{StaticResource Muted}" LineBreakMode="WordWrap" />
                 </VerticalStackLayout>
+                <Border Grid.Column="2" BackgroundColor="{StaticResource Surface}"
+                        WidthRequest="42" HeightRequest="42" StrokeThickness="0"
+                        VerticalOptions="Center">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="21" /></Border.StrokeShape>
+                    <Label Text="⌂" FontSize="24" FontAttributes="Bold" TextColor="#7C57F5"
+                           HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnHomeTapped" /></Border.GestureRecognizers>
+                </Border>
+
                 <Border Grid.Column="1" StrokeThickness="0" BackgroundColor="#33FFFFFF"
                         Padding="14" VerticalOptions="Center">
                     <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
