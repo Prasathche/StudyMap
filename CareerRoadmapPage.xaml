@@ -4,8 +4,8 @@
              xmlns:models="clr-namespace:StudyMap.Models"
              x:Class="StudyMap.CareerRoadmapPage"
              x:Name="RoadmapPage"
-             BackgroundColor="#F6F7FB"
-             Title="Career Roadmap">
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F6F7FB">
 
     <ContentPage.Resources>
         <Style x:Key="SectionTitleStyle" TargetType="Label">
@@ -24,16 +24,31 @@
                     SelectionMode="None"
                     VerticalScrollBarVisibility="Always">
         <CollectionView.Header>
-            <VerticalStackLayout Padding="20,20,20,12"
+            <VerticalStackLayout Padding="20,28,20,12"
                                  Spacing="18">
 
-                <Grid ColumnDefinitions="*,Auto">
+                <!-- Page header: title on the left, home button at the top-right -->
+                <Grid ColumnDefinitions="*,Auto"
+                      ColumnSpacing="12">
+                    <VerticalStackLayout Spacing="6"
+                                         HorizontalOptions="Fill">
+                        <Label Text="Career Roadmap"
+                               Style="{StaticResource SectionTitleStyle}" />
+                        <Label Text="Follow a clear, visual path from school to career success."
+                               Style="{StaticResource SubTextStyle}"
+                               LineBreakMode="WordWrap" />
+                        <Label Text="{Binding SelectedRoadmap.Subtitle}"
+                               Style="{StaticResource SubTextStyle}"
+                               LineBreakMode="WordWrap" />
+                    </VerticalStackLayout>
+
                     <Border Grid.Column="1"
                             WidthRequest="42"
                             HeightRequest="42"
                             BackgroundColor="White"
                             Stroke="#EEF0F6"
                             StrokeThickness="1"
+                            HorizontalOptions="End"
                             VerticalOptions="Start">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="14" />
@@ -49,19 +64,6 @@
                         </Border.GestureRecognizers>
                     </Border>
                 </Grid>
-                <VerticalStackLayout Spacing="14"
-                                     HorizontalOptions="Fill">
-                    <VerticalStackLayout Spacing="6"
-                                         HorizontalOptions="FillAndExpand">
-                        <Label Text="Career Roadmap"
-                               Style="{StaticResource SectionTitleStyle}" />
-                        <Label Text="Follow a clear, visual path from school to career success."
-                               Style="{StaticResource SubTextStyle}"
-                               LineBreakMode="WordWrap" />
-                        <Label Text="{Binding SelectedRoadmap.Subtitle}"
-                               Style="{StaticResource SubTextStyle}"
-                               LineBreakMode="WordWrap" />
-                    </VerticalStackLayout>
                     <Button Text="Save Roadmap"
                             Command="{Binding SaveRoadmapCommand}"
                             BackgroundColor="#4A61F8"
