@@ -15,6 +15,7 @@ public class CareerStage
 
 public class CareerRoadmap
 {
+    public string Category { get; set; } = string.Empty;
     public string CareerName { get; set; } = string.Empty;
     public string Subtitle { get; set; } = string.Empty;
     public List<CareerStage> Stages { get; set; } = new();
