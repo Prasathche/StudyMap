@@ -18,6 +18,16 @@
         <ScrollView Grid.Row="0" VerticalScrollBarVisibility="Never">
             <VerticalStackLayout Padding="24,52,24,32" Spacing="22">
 
+                <Grid ColumnDefinitions="*,Auto">
+                    <Border Grid.Column="1" BackgroundColor="{StaticResource Surface}"
+                            WidthRequest="42" HeightRequest="42" StrokeThickness="0">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="21" /></Border.StrokeShape>
+                        <Label Text="⌂" FontSize="24" FontAttributes="Bold" TextColor="#7C57F5"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnHomeTapped" /></Border.GestureRecognizers>
+                    </Border>
+                </Grid>
+
                 <!-- Illustration -->
                 <Border StrokeThickness="0" HeightRequest="140" WidthRequest="140"
                         HorizontalOptions="Center" Margin="0,10,0,0">
