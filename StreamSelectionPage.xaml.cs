@@ -74,4 +74,9 @@ public partial class StreamSelectionPage : ContentPage
         await card.ScaleTo(0.97, 80, Easing.CubicIn);
         await card.ScaleTo(1.0, 120, Easing.CubicOut);
     }
+    private async void OnHomeTapped(object? sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(MyCareerPage));
+    }
+
 }
