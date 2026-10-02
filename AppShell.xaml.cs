@@ -2,9 +2,47 @@
 
 public partial class AppShell : Shell
 {
+    private bool _resettingTopLevelTab;
+
     public AppShell()
     {
         InitializeComponent();
+    }
+
+    protected override async void OnNavigating(ShellNavigatingEventArgs args)
+    {
+        base.OnNavigating(args);
+
+        // MyCareerPage is a global/pushed route. If a bottom tab is selected
+        // while MyCareerPage is on top of the stack, reset to that tab's root
+        // instead of leaving the pushed MyCareerPage visible.
+        if (_resettingTopLevelTab ||
+            args.Source is not (ShellNavigationSource.ShellItemChanged
+                or ShellNavigationSource.ShellSectionChanged
+                or ShellNavigationSource.ShellContentChanged) ||
+            !args.Target.Location.OriginalString.StartsWith("//", StringComparison.Ordinal))
+        {
+            return;
+        }
+
+        if (CurrentPage is not MyCareerPage)
+        {
+            return;
+        }
+
+        var target = args.Target.Location.OriginalString;
+        args.Cancel();
+
+        _resettingTopLevelTab = true;
+        try
+        {
+            await GoToAsync(target);
+        }
+        finally
+        {
+            _resettingTopLevelTab = false;
+        }
+    }
 
         Routing.RegisterRoute(nameof(MyCareerPage), typeof(MyCareerPage));
 
