@@ -44,8 +44,18 @@
                         <TapGestureRecognizer Tapped="OnHomeTapped" />
                     </Border.GestureRecognizers>
                 </Border>
-                    <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
-                    <Label Text="&#127919;" FontSize="34" HorizontalTextAlignment="Center" />
+
+                <Border Grid.Column="2"
+                        StrokeThickness="0"
+                        BackgroundColor="#33FFFFFF"
+                        Padding="14"
+                        VerticalOptions="Center">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" />
+                    </Border.StrokeShape>
+                    <Label Text="&#127919;"
+                           FontSize="34"
+                           HorizontalTextAlignment="Center" />
                 </Border>
             </Grid>
         </Border>
