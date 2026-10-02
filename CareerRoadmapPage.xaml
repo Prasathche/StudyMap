@@ -26,6 +26,29 @@
         <CollectionView.Header>
             <VerticalStackLayout Padding="20,20,20,12"
                                  Spacing="18">
+
+                <Grid ColumnDefinitions="*,Auto">
+                    <Border Grid.Column="1"
+                            WidthRequest="42"
+                            HeightRequest="42"
+                            BackgroundColor="White"
+                            Stroke="#EEF0F6"
+                            StrokeThickness="1"
+                            VerticalOptions="Start">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14" />
+                        </Border.StrokeShape>
+                        <Label Text="⌂"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               TextColor="#7C57F5"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnHomeTapped" />
+                        </Border.GestureRecognizers>
+                    </Border>
+                </Grid>
                 <VerticalStackLayout Spacing="14"
                                      HorizontalOptions="Fill">
                     <VerticalStackLayout Spacing="6"
