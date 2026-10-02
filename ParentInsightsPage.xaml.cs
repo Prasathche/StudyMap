@@ -272,6 +272,7 @@ private async void OnHomeTapped(object? sender, TappedEventArgs e)
     {
         if (_selectedForCompare.Count < 2)
         {
+            await DisplayAlert("Compare Careers", "Please select at least 2 careers to compare.", "OK");
             return;
         }
 
