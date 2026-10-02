@@ -7,6 +7,7 @@ namespace StudyMap;
 public partial class MyCareerPage : ContentPage
 {
     private readonly FavoritesService _favoritesService = new();
+    private readonly SavedRoadmapsService _savedRoadmapsService = new();
 
     private List<Career> _allCareers = [];
 
@@ -51,18 +52,22 @@ public partial class MyCareerPage : ContentPage
                 .Where(career => favoriteIds.Contains(career.Id))
                 .ToList();
 
-            // Update count
+            // Update saved career count and list.
             CareerCountLabel.Text = savedCareers.Count.ToString();
-
-    // Roadmaps are not implemented yet
-RoadmapCountLabel.Text = "0";
-
-            // Update collection
             SavedCareersCollection.ItemsSource = savedCareers;
-
-            // Show empty state only when there are no favorites
             SavedCareersCollection.IsVisible = savedCareers.Count > 0;
             SavedCareersEmptyState.IsVisible = savedCareers.Count == 0;
+
+            // Load saved roadmap career IDs using the same careers data source.
+            var savedRoadmapIds = _savedRoadmapsService.GetAll();
+            var savedRoadmaps = _allCareers
+                .Where(career => savedRoadmapIds.Contains(career.Id))
+                .ToList();
+
+            RoadmapCountLabel.Text = savedRoadmaps.Count.ToString();
+            SavedRoadmapsCollection.ItemsSource = savedRoadmaps;
+            SavedRoadmapsCollection.IsVisible = savedRoadmaps.Count > 0;
+            SavedRoadmapsEmptyState.IsVisible = savedRoadmaps.Count == 0;
         }
         catch (Exception ex)
         {
@@ -133,6 +138,29 @@ private async void OnRemoveSavedCareerClicked(
 
     await LoadSavedCareersAsync();
 }
+    private async void OnRemoveSavedRoadmapClicked(
+        object? sender,
+        EventArgs e)
+    {
+        if (sender is not Button button)
+            return;
+
+        if (button.CommandParameter is not Career career)
+            return;
+
+        bool confirm = await DisplayAlert(
+            "Remove Roadmap",
+            $"Remove the roadmap for \"{career.Name}\" from your saved roadmaps?",
+            "Remove",
+            "Cancel");
+
+        if (!confirm)
+            return;
+
+        _savedRoadmapsService.Remove(career.Id);
+        await LoadSavedCareersAsync();
+    }
+
     private void OnRoadmapsTabTapped(
         object? sender,
         TappedEventArgs e)
