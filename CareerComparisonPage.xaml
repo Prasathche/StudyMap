@@ -16,7 +16,15 @@
 
         <!-- Header -->
         <VerticalStackLayout Grid.Row="0" Padding="20,52,20,16" Spacing="12">
-            <Grid ColumnDefinitions="Auto,*">
+            <Grid ColumnDefinitions="Auto,*,Auto">
+                <Border Grid.Column="2" BackgroundColor="{StaticResource Surface}"
+                        WidthRequest="42" HeightRequest="42" StrokeThickness="0">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="21" /></Border.StrokeShape>
+                    <Label Text="⌂" FontSize="24" FontAttributes="Bold" TextColor="#7C57F5"
+                           HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnHomeTapped" /></Border.GestureRecognizers>
+                </Border>
+
                 <ImageButton
                         Source="arrow_back.png"
                         WidthRequest="28"
