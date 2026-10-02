@@ -42,7 +42,7 @@
             <Grid RowDefinitions="Auto,Auto" RowSpacing="14">
 
                 <!-- Back button row -->
-                <Grid Grid.Row="0" ColumnDefinitions="Auto,*">
+                <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto">
                     <ImageButton
                         Source="arrow_back.png"
                         WidthRequest="28"
@@ -50,6 +50,15 @@
                         BackgroundColor="Transparent"
                         Clicked="OnBackTapped"
                         VerticalOptions="Center" />
+                    <Border Grid.Column="2" BackgroundColor="{StaticResource Surface}"
+                            WidthRequest="42" HeightRequest="42" StrokeThickness="0"
+                            VerticalOptions="Center">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="21" /></Border.StrokeShape>
+                        <Label Text="⌂" FontSize="24" FontAttributes="Bold" TextColor="#7C57F5"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnHomeTapped" /></Border.GestureRecognizers>
+                    </Border>
+
                     <Label Grid.Column="1" Text="Career Details"
                            FontFamily="OpenSansSemibold" FontSize="18"
                            TextColor="{StaticResource Ink}"
