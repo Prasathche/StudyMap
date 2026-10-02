@@ -354,4 +354,9 @@ public partial class CareerDetailPage : ContentPage
             StatusLabel.IsVisible = false;
         });
     }
+    private async void OnHomeTapped(object? sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(MyCareerPage));
+    }
+
 }
