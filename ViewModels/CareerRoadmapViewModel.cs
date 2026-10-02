@@ -11,38 +11,62 @@ namespace StudyMap.ViewModels;
 
 public class CareerRoadmapViewModel : INotifyPropertyChanged
 {
-    private CareerRoadmap _selectedRoadmap = new CareerRoadmap();
+    private CareerRoadmap? _selectedRoadmap;
+    private string? _selectedPathway;
     private int _currentStageIndex;
     private bool _isSaved;
     private string _statusMessage = string.Empty;
     private readonly CareersService _careersService = new();
+    private readonly List<CareerRoadmap> _allRoadmaps = new();
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
+    public ObservableCollection<string> AvailablePathways { get; } = new();
     public ObservableCollection<CareerRoadmap> AvailableRoadmaps { get; } = new();
     public ObservableCollection<CareerStage> Stages { get; } = new();
 
     public ICommand ViewStageDetailsCommand { get; }
     public ICommand SaveRoadmapCommand { get; }
+    public ICommand ClearCareerCommand { get; }
 
     public Action<CareerStage>? NavigateToDetailsAction { get; set; }
     public Action<string>? ShowMessageAction { get; set; }
 
-    public CareerRoadmap SelectedRoadmap
+    public string? SelectedPathway
+    {
+        get => _selectedPathway;
+        set
+        {
+            if (string.Equals(value, _selectedPathway, StringComparison.Ordinal))
+            {
+                return;
+            }
+
+            _selectedPathway = value;
+            OnPropertyChanged();
+
+            FilterCareersByPathway();
+        }
+    }
+
+    public CareerRoadmap? SelectedRoadmap
     {
         get => _selectedRoadmap;
         set
         {
-            if (value == _selectedRoadmap)
+            if (ReferenceEquals(value, _selectedRoadmap))
             {
                 return;
             }
 
             _selectedRoadmap = value;
             OnPropertyChanged();
+            OnPropertyChanged(nameof(HasSelectedCareer));
             RefreshRoadmap();
         }
     }
+
+    public bool HasSelectedCareer => SelectedRoadmap is not null;
 
     public int CurrentStageIndex
     {
@@ -62,8 +86,16 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
         }
     }
 
-    public string ProgressText => Stages.Count == 0 ? "0/0 completed" : $"{Math.Min(CurrentStageIndex + 1, Stages.Count)}/{Stages.Count} completed";
-    public double CompletionProgress => Stages.Count == 0 ? 0 : Math.Clamp((CurrentStageIndex + 1) / (double)Stages.Count, 0, 1);
+    public string ProgressText =>
+        Stages.Count == 0
+            ? "0/0 completed"
+            : $"{Math.Min(CurrentStageIndex + 1, Stages.Count)}/{Stages.Count} completed";
+
+    public double CompletionProgress =>
+        Stages.Count == 0
+            ? 0
+            : Math.Clamp((CurrentStageIndex + 1) / (double)Stages.Count, 0, 1);
+
     public bool IsSaved
     {
         get => _isSaved;
@@ -98,6 +130,7 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
     {
         ViewStageDetailsCommand = new Command<CareerStage>(OnViewStageDetails);
         SaveRoadmapCommand = new Command(OnSaveRoadmap);
+        ClearCareerCommand = new Command(ClearCareer);
         InitializeAsync();
     }
 
@@ -111,16 +144,27 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
         try
         {
             var careers = await _careersService.GetAllCareersAsync();
-            
+
+            _allRoadmaps.Clear();
+            AvailablePathways.Clear();
+            AvailableRoadmaps.Clear();
+
             foreach (var career in careers)
             {
-                var roadmap = ConvertCareerToRoadmap(career);
-                AvailableRoadmaps.Add(roadmap);
+                _allRoadmaps.Add(ConvertCareerToRoadmap(career));
             }
 
-            if (AvailableRoadmaps.Count > 0)
+            foreach (var pathway in _allRoadmaps
+                         .Select(r => string.IsNullOrWhiteSpace(r.Category) ? "Other" : r.Category)
+                         .Distinct(StringComparer.OrdinalIgnoreCase)
+                         .OrderBy(x => x))
             {
-                SelectedRoadmap = AvailableRoadmaps.First();
+                AvailablePathways.Add(pathway);
+            }
+
+            if (AvailablePathways.Count > 0)
+            {
+                SelectedPathway = AvailablePathways.First();
             }
         }
         catch (Exception ex)
@@ -130,10 +174,35 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
         }
     }
 
+    private void FilterCareersByPathway()
+    {
+        AvailableRoadmaps.Clear();
+
+        if (string.IsNullOrWhiteSpace(SelectedPathway))
+        {
+            SelectedRoadmap = null;
+            return;
+        }
+
+        foreach (var roadmap in _allRoadmaps.Where(r =>
+                     string.Equals(
+                         string.IsNullOrWhiteSpace(r.Category) ? "Other" : r.Category,
+                         SelectedPathway,
+                         StringComparison.OrdinalIgnoreCase)))
+        {
+            AvailableRoadmaps.Add(roadmap);
+        }
+
+        // Selecting a pathway automatically shows its first career.
+        // The X button only clears the career, so the pathway remains selected.
+        SelectedRoadmap = AvailableRoadmaps.FirstOrDefault();
+    }
+
     private CareerRoadmap ConvertCareerToRoadmap(Career career)
     {
         return new CareerRoadmap
         {
+            Category = string.IsNullOrWhiteSpace(career.Category) ? "Other" : career.Category,
             CareerName = career.Name,
             Subtitle = $"{career.Description} - {career.SalaryRangeIndia}",
             Stages = GenerateRoadmapStages(career)
@@ -144,7 +213,6 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
     {
         var stages = new List<CareerStage>();
 
-        // Class 10 Stage
         stages.Add(new CareerStage
         {
             Title = "Class 10",
@@ -160,7 +228,6 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
             Tips = career.KeySkills.Take(2).ToList()
         });
 
-        // Stream Selection Stage
         stages.Add(new CareerStage
         {
             Title = "Choose Stream",
@@ -176,20 +243,18 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
             Tips = new List<string> { "Choose a stream aligned with your career goals.", "Connect with professionals in this field." }
         });
 
-        // Class 11-12 Stage
         stages.Add(new CareerStage
         {
             Title = "Class 11–12 Subjects",
             Description = career.RoadmapSteps.Count > 2 ? career.RoadmapSteps[2] : "Master core subjects for your pathway.",
             Icon = "📚",
             AccentColor = "#F39C12",
-            Details = career.RoadmapSteps.Count > 2 
-                ? career.RoadmapSteps.Skip(2).Take(3).ToList() 
+            Details = career.RoadmapSteps.Count > 2
+                ? career.RoadmapSteps.Skip(2).Take(3).ToList()
                 : new List<string> { "Strengthen subject knowledge", "Practice examinations", "Build relevant skills" },
             Tips = career.KeySkills.Take(3).ToList()
         });
 
-        // Entrance Exams Stage
         stages.Add(new CareerStage
         {
             Title = "Entrance Exams",
@@ -202,14 +267,13 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
                 "Create a disciplined study schedule",
                 "Practice mock tests regularly"
             },
-            Tips = new List<string> 
-            { 
+            Tips = new List<string>
+            {
                 "Master exam patterns and syllabus.",
                 "Take regular timed practice tests."
             }
         });
 
-        // Undergraduate Degree
         stages.Add(new CareerStage
         {
             Title = "Undergraduate Degree",
@@ -225,7 +289,6 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
             Tips = career.KeySkills.Take(3).ToList()
         });
 
-        // Specialization/Postgrad Stage
         stages.Add(new CareerStage
         {
             Title = "Specialization (Optional PG)",
@@ -238,14 +301,13 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
                 "Explore master's or specialized certifications",
                 "Build expertise in your focus area"
             },
-            Tips = new List<string> 
-            { 
+            Tips = new List<string>
+            {
                 "Choose specialization based on market demand.",
                 $"Future demand: {career.FutureDemand}"
             }
         });
 
-        // Career Launch Stage
         stages.Add(new CareerStage
         {
             Title = "Career Launch",
@@ -258,8 +320,8 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
                 career.Workplaces.Count > 0 ? $"Workplaces: {string.Join(", ", career.Workplaces.Take(2))}" : "Explore job opportunities",
                 "Apply for entry-level or internship positions"
             },
-            Tips = new List<string> 
-            { 
+            Tips = new List<string>
+            {
                 "Network with professionals in your field.",
                 "Keep upgrading your skills continuously."
             }
@@ -272,9 +334,12 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
     {
         Stages.Clear();
 
-        foreach (var stage in _selectedRoadmap.Stages)
+        if (SelectedRoadmap is not null)
         {
-            Stages.Add(stage);
+            foreach (var stage in SelectedRoadmap.Stages)
+            {
+                Stages.Add(stage);
+            }
         }
 
         CurrentStageIndex = FindCurrentStageIndex();
@@ -308,8 +373,19 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
         NavigateToDetailsAction?.Invoke(stage);
     }
 
+    private void ClearCareer()
+    {
+        // Clear only the career. The selected pathway intentionally remains unchanged.
+        SelectedRoadmap = null;
+    }
+
     private void OnSaveRoadmap()
     {
+        if (SelectedRoadmap is null)
+        {
+            return;
+        }
+
         IsSaved = true;
         StatusMessage = "✓ Roadmap saved successfully!";
 
