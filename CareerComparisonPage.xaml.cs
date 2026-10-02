@@ -165,7 +165,12 @@ public partial class CareerComparisonPage : ContentPage
 
     private async void OnBackTapped(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("..");
+        await Shell.Current.GoToAsync("//ParentInsightsPage");
+    }
+
+    private async void OnBackToDecideTapped(object? sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//ParentInsightsPage");
     }
     private async void OnHomeTapped(object? sender, TappedEventArgs e)
     {
