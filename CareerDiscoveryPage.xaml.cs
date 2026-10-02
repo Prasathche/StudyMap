@@ -19,4 +19,9 @@ public partial class CareerDiscoveryPage : ContentPage
     {
         await Shell.Current.GoToAsync("//Explore");
     }
+    private async void OnHomeTapped(object? sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(MyCareerPage));
+    }
+
 }
