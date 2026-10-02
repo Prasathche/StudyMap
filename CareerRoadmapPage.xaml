@@ -100,19 +100,22 @@
                                FontSize="16"
                                Margin="0,4,0,0" />
 
-                        <Border Stroke="#E8E8EA"
-                                StrokeThickness="1"
-                                BackgroundColor="White"
-                                HeightRequest="52"
-                                Padding="0"
-                                HorizontalOptions="Fill">
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="14" />
-                            </Border.StrokeShape>
-                            <Grid ColumnDefinitions="*,Auto"
-                                  Padding="4,0,4,0">
-                                <Picker Grid.Column="0"
-                                        ItemsSource="{Binding AvailableRoadmaps}"
+                        <Grid ColumnDefinitions="*,56"
+                              HeightRequest="56"
+                              ColumnSpacing="4"
+                              HorizontalOptions="Fill">
+
+                            <Border Grid.Column="0"
+                                    Stroke="#E8E8EA"
+                                    StrokeThickness="1"
+                                    BackgroundColor="White"
+                                    Padding="0"
+                                    HorizontalOptions="Fill">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="14" />
+                                </Border.StrokeShape>
+
+                                <Picker ItemsSource="{Binding AvailableRoadmaps}"
                                         ItemDisplayBinding="{Binding CareerName}"
                                         SelectedItem="{Binding SelectedRoadmap, Mode=TwoWay}"
                                         Title="Choose a career"
@@ -120,24 +123,25 @@
                                         TitleColor="#5C667F"
                                         HorizontalOptions="Fill"
                                         VerticalOptions="Center" />
+                            </Border>
 
-                                <Button Grid.Column="1"
-                                        Text="✕"
-                                        FontSize="20"
-                                        FontAttributes="Bold"
-                                        TextColor="#5C667F"
-                                        BackgroundColor="Transparent"
-                                        WidthRequest="44"
-                                        HeightRequest="48"
-                                        Padding="0"
-                                        IsEnabled="{Binding HasSelectedCareer}"
-                                        Command="{Binding ClearCareerCommand}"
-                                        ZIndex="10"
-                                        HorizontalOptions="End"
-                                        VerticalOptions="Center"
-                                        SemanticProperties.Description="Clear selected career" />
-                            </Grid>
-                        </Border>
+                            <Button Grid.Column="1"
+                                    Text="×"
+                                    FontSize="24"
+                                    FontAttributes="Bold"
+                                    TextColor="#17203B"
+                                    BackgroundColor="#EDEFF7"
+                                    CornerRadius="28"
+                                    WidthRequest="56"
+                                    HeightRequest="56"
+                                    Padding="0"
+                                    IsEnabled="{Binding HasSelectedCareer}"
+                                    Command="{Binding ClearCareerCommand}"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    SemanticProperties.Description="Clear selected career" />
+                        </Grid>
+
                     </VerticalStackLayout>
                 </Border>
 
