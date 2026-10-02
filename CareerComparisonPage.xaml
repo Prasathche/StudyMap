@@ -53,6 +53,16 @@
                 <Label Text="Career information is intended for exploration and general guidance. Salary, demand, stability and career opportunities can vary by location, employer, experience, skills and economic conditions."
                        FontSize="11" TextColor="{StaticResource Muted}" LineBreakMode="WordWrap" />
 
+                <Button Text="← Back to Decide"
+                        BackgroundColor="White"
+                        TextColor="{StaticResource Accent}"
+                        BorderColor="{StaticResource Accent}"
+                        BorderWidth="1"
+                        CornerRadius="14"
+                        Padding="18,10"
+                        HorizontalOptions="Start"
+                        Clicked="OnBackToDecideTapped" />
+
             </VerticalStackLayout>
         </ScrollView>
 
