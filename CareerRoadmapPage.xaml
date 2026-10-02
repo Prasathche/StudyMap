@@ -64,7 +64,7 @@
                         </Border.GestureRecognizers>
                     </Border>
                 </Grid>
-                    <Button Text="Save Roadmap"
+                <Button Text="Save Roadmap"
                             Command="{Binding SaveRoadmapCommand}"
                             BackgroundColor="#4A61F8"
                             TextColor="White"
@@ -73,7 +73,6 @@
                             HorizontalOptions="Fill"
                             VerticalOptions="FillAndExpand"
                             FontAttributes="Bold" />
-                </VerticalStackLayout>
 
                 <Border Stroke="#E8E8EA"
                         StrokeThickness="1"
