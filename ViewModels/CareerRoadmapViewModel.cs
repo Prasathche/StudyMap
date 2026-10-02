@@ -12,7 +12,6 @@ namespace StudyMap.ViewModels;
 public class CareerRoadmapViewModel : INotifyPropertyChanged
 {
     private CareerRoadmap? _selectedRoadmap;
-    private string? _selectedPathway;
     private int _currentStageIndex;
     private bool _isSaved;
     private string _statusMessage = string.Empty;
