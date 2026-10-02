@@ -19,8 +19,7 @@
         </Style>
     </ContentPage.Resources>
 
-    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
-        
+    <Grid ColumnDefinitions="*" ColumnSpacing="12">
 
         <ScrollView Grid.Row="0" VerticalScrollBarVisibility="Never">
             <VerticalStackLayout Padding="20,52,20,24" Spacing="18">
@@ -35,17 +34,8 @@
                                FontSize="14" TextColor="{StaticResource Muted}" LineBreakMode="WordWrap" />
                     </VerticalStackLayout>
 
-                    <Border Grid.Column="2" BackgroundColor="{StaticResource Surface}"
-                            WidthRequest="42" HeightRequest="42" StrokeThickness="0"
-                            VerticalOptions="Start">
-                        <Border.StrokeShape><RoundRectangle CornerRadius="21" /></Border.StrokeShape>
-                        <Label Text="⌂" FontSize="24" FontAttributes="Bold" TextColor="#7C57F5"
-                               HorizontalOptions="Center" VerticalOptions="Center" />
-                        <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnHomeTapped" /></Border.GestureRecognizers>
-                    </Border>
-
                     <Button Grid.Column="1"
-                            x:Name="CompareToggleButton" Grid.Column="1"
+                            x:Name="CompareToggleButton"
                             Text="Compare"
                             BackgroundColor="{StaticResource Surface}"
                             TextColor="{StaticResource Accent}"
@@ -54,6 +44,15 @@
                             MinimumHeightRequest="0" MinimumWidthRequest="0"
                             VerticalOptions="Start"
                             Clicked="OnCompareToggleClicked" />
+
+                    <Border Grid.Column="2" BackgroundColor="{StaticResource Surface}"
+                            WidthRequest="42" HeightRequest="42" StrokeThickness="0"
+                            VerticalOptions="Start">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="21" /></Border.StrokeShape>
+                        <Label Text="⌂" FontSize="24" FontAttributes="Bold" TextColor="#7C57F5"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnHomeTapped" /></Border.GestureRecognizers>
+                    </Border>
                 </Grid>
 
                 <!-- Search -->
@@ -99,13 +98,11 @@
                         Text="Compare →"
                         BackgroundColor="{StaticResource Accent}"
                         TextColor="White"
-                        FontFamily="OpenSansSemibold" FontSize="14"
-                        CornerRadius="14" Padding="18,10"
-                        IsEnabled="False" Opacity="0.5"
-                        Clicked="OnCompareGoClicked" />
+                        CornerRadius="14"
+                        Padding="14,8"
+                        Clicked="OnCompareClicked" />
             </Grid>
         </Border>
 
     </Grid>
-
 </ContentPage>
