@@ -26,7 +26,7 @@
             <Grid RowDefinitions="Auto,Auto" RowSpacing="12">
 
                 <!-- Back + Title row -->
-                <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto,Auto" ColumnSpacing="10">
                     <Border BackgroundColor="{StaticResource Surface}"
                             WidthRequest="42" HeightRequest="42" StrokeThickness="0">
                         <Border.StrokeShape><RoundRectangle CornerRadius="21" /></Border.StrokeShape>
@@ -46,6 +46,18 @@
                         <Label x:Name="StreamSubtitleLabel"
                                FontSize="13" TextColor="{StaticResource Muted}" />
                     </VerticalStackLayout>
+
+                    <!-- Home -->
+                    <Border Grid.Column="3" BackgroundColor="{StaticResource Surface}"
+                            WidthRequest="42" HeightRequest="42" StrokeThickness="0"
+                            VerticalOptions="Center">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="21" /></Border.StrokeShape>
+                        <Label Text="⌂" FontSize="24" FontAttributes="Bold"
+                               TextColor="#7C57F5" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnHomeTapped" />
+                        </Border.GestureRecognizers>
+                    </Border>
 
                     <!-- Stream icon badge -->
                     <Border Grid.Column="2" StrokeThickness="0" BackgroundColor="#33FFFFFF"
