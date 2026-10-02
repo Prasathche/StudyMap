@@ -31,4 +31,9 @@ public partial class CareerRoadmapPage : ContentPage
             await DisplayAlert("Saved", message, "OK");
         };
     }
+    private async void OnHomeTapped(object? sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(MyCareerPage));
+    }
+
 }
