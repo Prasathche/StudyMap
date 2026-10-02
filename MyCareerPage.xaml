@@ -383,13 +383,91 @@
                     Margin="0,0,0,12" />
 
 
-                <!-- Roadmap Empty State -->
+                <!-- Saved Roadmaps List -->
+                <CollectionView
+                    Grid.Row="1"
+                    x:Name="SavedRoadmapsCollection"
+                    SelectionMode="None">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border
+                                BackgroundColor="White"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 18"
+                                Padding="16"
+                                Margin="0,0,0,10">
+
+                                <Grid ColumnDefinitions="Auto,*,Auto"
+                                      ColumnSpacing="12">
+
+                                    <Border
+                                        Grid.Column="0"
+                                        WidthRequest="48"
+                                        HeightRequest="48"
+                                        BackgroundColor="#F1EDFF"
+                                        StrokeThickness="0">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="14" />
+                                        </Border.StrokeShape>
+
+                                        <Label
+                                            Text="🗺"
+                                            FontSize="24"
+                                            HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="Center" />
+                                    </Border>
+
+                                    <VerticalStackLayout
+                                        Grid.Column="1"
+                                        Spacing="3"
+                                        VerticalOptions="Center">
+
+                                        <Label
+                                            Text="{Binding Name}"
+                                            FontSize="16"
+                                            FontAttributes="Bold"
+                                            TextColor="#222222"
+                                            LineBreakMode="TailTruncation" />
+
+                                        <Label
+                                            Text="{Binding Category}"
+                                            FontSize="12"
+                                            TextColor="#5B3FD3" />
+
+                                        <Label
+                                            Text="Saved career roadmap"
+                                            FontSize="12"
+                                            TextColor="#777777" />
+                                    </VerticalStackLayout>
+
+                                    <Button
+                                        Grid.Column="2"
+                                        Text="🗑"
+                                        FontSize="18"
+                                        BackgroundColor="Transparent"
+                                        TextColor="#C62828"
+                                        WidthRequest="44"
+                                        HeightRequest="44"
+                                        Padding="0"
+                                        Clicked="OnRemoveSavedRoadmapClicked"
+                                        CommandParameter="{Binding .}"
+                                        VerticalOptions="Center" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <!-- Empty State -->
                 <Border
+                    x:Name="SavedRoadmapsEmptyState"
                     Grid.Row="1"
                     BackgroundColor="White"
                     StrokeThickness="0"
                     StrokeShape="RoundRectangle 18"
-                    Padding="25">
+                    Padding="25"
+                    IsVisible="False">
 
                     <VerticalStackLayout
                         HorizontalOptions="Center"
@@ -408,13 +486,11 @@
                             HorizontalTextAlignment="Center" />
 
                         <Label
-                            Text="Roadmaps you save will appear here."
+                            Text="Save a career roadmap to see it here."
                             FontSize="12"
                             TextColor="#999999"
                             HorizontalTextAlignment="Center" />
-
                     </VerticalStackLayout>
-
                 </Border>
 
             </Grid>
