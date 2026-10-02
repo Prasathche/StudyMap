@@ -1,0 +1,25 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build output
+bin/
+obj/
+
+# NuGet
+*.nupkg
+packages/
+
+# MAUI / Android
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

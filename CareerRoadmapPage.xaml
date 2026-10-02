@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:StudyMap.Models"
+             x:Class="StudyMap.CareerRoadmapPage"
+             x:Name="RoadmapPage"
+             BackgroundColor="#F6F7FB"
+             Title="Career Roadmap">
+
+    <ContentPage.Resources>
+        <Style x:Key="SectionTitleStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="#17203B" />
+        </Style>
+
+        <Style x:Key="SubTextStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="#5C667F" />
+        </Style>
+    </ContentPage.Resources>
+
+    <CollectionView ItemsSource="{Binding Stages}"
+                    SelectionMode="None"
+                    VerticalScrollBarVisibility="Always">
+        <CollectionView.Header>
+            <VerticalStackLayout Padding="20,20,20,12"
+                                 Spacing="18">
+                <VerticalStackLayout Spacing="14"
+                                     HorizontalOptions="Fill">
+                    <VerticalStackLayout Spacing="6"
+                                         HorizontalOptions="FillAndExpand">
+                        <Label Text="Career Roadmap"
+                               Style="{StaticResource SectionTitleStyle}" />
+                        <Label Text="Follow a clear, visual path from school to career success."
+                               Style="{StaticResource SubTextStyle}"
+                               LineBreakMode="WordWrap" />
+                        <Label Text="{Binding SelectedRoadmap.Subtitle}"
+                               Style="{StaticResource SubTextStyle}"
+                               LineBreakMode="WordWrap" />
+                    </VerticalStackLayout>
+                    <Button Text="Save Roadmap"
+                            Command="{Binding SaveRoadmapCommand}"
+                            BackgroundColor="#4A61F8"
+                            TextColor="White"
+                            CornerRadius="18"
+                            Padding="16,12"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="FillAndExpand"
+                            FontAttributes="Bold" />
+                </VerticalStackLayout>
+
+                <Border Stroke="#E8E8EA"
+                        StrokeThickness="1"
+                        BackgroundColor="White"
+                        Padding="16,16,16,16">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="24" />
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="12">
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="{Binding ProgressText}"
+                                   FontAttributes="Bold"
+                                   FontSize="16"
+                                   TextColor="#17203B"
+                                   LineBreakMode="WordWrap" />
+                            <Label Text="{Binding StatusMessage}"
+                                   FontSize="13"
+                                   TextColor="#27AE60"
+                                   LineBreakMode="WordWrap" />
+                        </VerticalStackLayout>
+                        <ProgressBar Progress="{Binding CompletionProgress}"
+                                     HeightRequest="8"
+                                     BackgroundColor="#E8E8EA"
+                                     ProgressColor="#4A61F8" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Stroke="#E8E8EA"
+                        StrokeThickness="1"
+                        BackgroundColor="White"
+                        Padding="16,16,16,16">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="24" />
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Select career path" 
+                               FontAttributes="Bold" 
+                               TextColor="#17203B"
+                               FontSize="16" />
+                        <Picker ItemsSource="{Binding AvailableRoadmaps}"
+                                ItemDisplayBinding="{Binding CareerName}"
+                                SelectedItem="{Binding SelectedRoadmap}"
+                                Title="Choose a pathway"
+                                TextColor="#17203B"
+                                TitleColor="#5C667F" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Label Text="Timeline"
+                       Style="{StaticResource SectionTitleStyle}" />
+            </VerticalStackLayout>
+        </CollectionView.Header>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="models:CareerStage">
+                <Grid Padding="20,0,20,20"
+                      ColumnDefinitions="Auto,*"
+                      ColumnSpacing="14">
+                    <VerticalStackLayout Spacing="10"
+                                         VerticalOptions="Start"
+                                         HorizontalOptions="Start">
+                        <Frame BackgroundColor="{Binding AccentColor}"
+                               WidthRequest="46"
+                               HeightRequest="46"
+                               CornerRadius="23"
+                               HasShadow="False"
+                               Padding="10"
+                               VerticalOptions="Start">
+                            <Label Text="{Binding Icon}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   FontSize="22" />
+                        </Frame>
+                        <BoxView Color="#D5D8E8"
+                                 WidthRequest="2"
+                                 VerticalOptions="FillAndExpand"
+                                 HeightRequest="120"
+                                 HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+
+                    <Border Grid.Column="1"
+                            BackgroundColor="White"
+                            Stroke="#E8E8EA"
+                            StrokeThickness="1"
+                            Padding="14,14,14,14"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Start">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20" />
+                        </Border.StrokeShape>
+                        <Border.Triggers>
+                            <DataTrigger TargetType="Border"
+                                         Binding="{Binding IsCurrent}"
+                                         Value="True">
+                                <Setter Property="Stroke" Value="#4A61F8" />
+                                <Setter Property="StrokeThickness" Value="2" />
+                            </DataTrigger>
+                        </Border.Triggers>
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="{Binding Title}"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="#17203B"
+                                   LineBreakMode="WordWrap" />
+                            <Label Text="{Binding Description}"
+                                   FontSize="13"
+                                   TextColor="#5C667F"
+                                   LineBreakMode="WordWrap"
+                                   MaxLines="4" />
+                            <Button Text="View Details"
+                                    Command="{Binding Source={x:Reference RoadmapPage}, Path=BindingContext.ViewStageDetailsCommand}"
+                                    CommandParameter="{Binding .}"
+                                    BackgroundColor="#4A61F8"
+                                    TextColor="White"
+                                    CornerRadius="14"
+                                    HeightRequest="48"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Fill" />
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>

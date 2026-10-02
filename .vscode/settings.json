@@ -1,0 +1,16 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^& \"\\$env:LOCALAPPDATA\\\\Android\\\\Sdk\\\\emulator\\\\emulator\\.exe\" -list-avds$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location 'e:\\\\Aadhya\\\\Programming\\\\StudyMap\\\\StudyMap'; dotnet build StudyMap\\.csproj -t:Run -f net8\\.0-android -p:AdbTarget=\"-s emulator-5554\" --verbosity normal 2>&1 \\| Tee-Object -FilePath \"\\$env:TEMP\\\\studymap-dotnet-build\\.log\"; Write-Output \"`n--- EXIT CODE: \\$LASTEXITCODE ---\"; Write-Output \"--- LOG PATH: \\$env:TEMP\\\\studymap-dotnet-build\\.log ---\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Get-Command dotnet -ErrorAction SilentlyContinue; \\$env:PATH -split ';' \\| Select-String dotnet$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
