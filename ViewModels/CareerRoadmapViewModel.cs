@@ -21,7 +21,6 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    public ObservableCollection<string> AvailablePathways { get; } = new();
     public ObservableCollection<CareerRoadmap> AvailableRoadmaps { get; } = new();
     public ObservableCollection<CareerStage> Stages { get; } = new();
 
@@ -31,23 +30,6 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
 
     public Action<CareerStage>? NavigateToDetailsAction { get; set; }
     public Action<string>? ShowMessageAction { get; set; }
-
-    public string? SelectedPathway
-    {
-        get => _selectedPathway;
-        set
-        {
-            if (string.Equals(value, _selectedPathway, StringComparison.Ordinal))
-            {
-                return;
-            }
-
-            _selectedPathway = value;
-            OnPropertyChanged();
-
-            FilterCareersByPathway();
-        }
-    }
 
     public CareerRoadmap? SelectedRoadmap
     {
@@ -146,56 +128,24 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
             var careers = await _careersService.GetAllCareersAsync();
 
             _allRoadmaps.Clear();
-            AvailablePathways.Clear();
             AvailableRoadmaps.Clear();
 
             foreach (var career in careers)
             {
-                _allRoadmaps.Add(ConvertCareerToRoadmap(career));
+                var roadmap = ConvertCareerToRoadmap(career);
+                _allRoadmaps.Add(roadmap);
+                AvailableRoadmaps.Add(roadmap);
             }
 
-            foreach (var pathway in _allRoadmaps
-                         .Select(r => string.IsNullOrWhiteSpace(r.Category) ? "Other" : r.Category)
-                         .Distinct(StringComparer.OrdinalIgnoreCase)
-                         .OrderBy(x => x))
-            {
-                AvailablePathways.Add(pathway);
-            }
-
-            if (AvailablePathways.Count > 0)
-            {
-                SelectedPathway = AvailablePathways.First();
-            }
+            // Start with no career selected. The timeline appears only after
+            // the student chooses a career from the dropdown.
+            SelectedRoadmap = null;
         }
         catch (Exception ex)
         {
             System.Diagnostics.Debug.WriteLine($"Error loading careers: {ex.Message}");
             ShowMessageAction?.Invoke("Failed to load careers. Please check the data file.");
         }
-    }
-
-    private void FilterCareersByPathway()
-    {
-        AvailableRoadmaps.Clear();
-
-        if (string.IsNullOrWhiteSpace(SelectedPathway))
-        {
-            SelectedRoadmap = null;
-            return;
-        }
-
-        foreach (var roadmap in _allRoadmaps.Where(r =>
-                     string.Equals(
-                         string.IsNullOrWhiteSpace(r.Category) ? "Other" : r.Category,
-                         SelectedPathway,
-                         StringComparison.OrdinalIgnoreCase)))
-        {
-            AvailableRoadmaps.Add(roadmap);
-        }
-
-        // Selecting a pathway automatically shows its first career.
-        // The X button only clears the career, so the pathway remains selected.
-        SelectedRoadmap = AvailableRoadmaps.FirstOrDefault();
     }
 
     private CareerRoadmap ConvertCareerToRoadmap(Career career)
@@ -375,7 +325,7 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
 
     private void ClearCareer()
     {
-        // Clear only the career. The selected pathway intentionally remains unchanged.
+        // Clear the career and its timeline. The student can choose another career.
         SelectedRoadmap = null;
     }
 
