@@ -29,9 +29,9 @@ public partial class AppShell : Shell
     {
         base.OnNavigating(args);
 
-        // MyCareerPage is a global/pushed route. If a bottom tab is selected
-        // while MyCareerPage is on top of the stack, reset to that tab's root
-        // instead of leaving the pushed MyCareerPage visible.
+        // MyCareerPage is a pushed route. When a bottom tab is selected
+        // while MyCareerPage is on top, remove the pushed page first so
+        // the requested top-level tab becomes visible.
         if (_resettingTopLevelTab ||
             args.Source is not (ShellNavigationSource.ShellItemChanged
                 or ShellNavigationSource.ShellSectionChanged
@@ -52,6 +52,7 @@ public partial class AppShell : Shell
         _resettingTopLevelTab = true;
         try
         {
+            await Navigation.PopAsync();
             await GoToAsync(target);
         }
         finally
