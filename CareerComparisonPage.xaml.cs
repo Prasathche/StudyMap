@@ -167,4 +167,9 @@ public partial class CareerComparisonPage : ContentPage
     {
         await Shell.Current.GoToAsync("..");
     }
+    private async void OnHomeTapped(object? sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(MyCareerPage));
+    }
+
 }
