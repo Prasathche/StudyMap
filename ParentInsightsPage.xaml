@@ -100,7 +100,7 @@
                         TextColor="White"
                         CornerRadius="14"
                         Padding="14,8"
-                        Clicked="OnCompareClicked" />
+                        Clicked="OnCompareGoClicked" />
             </Grid>
         </Border>
 
