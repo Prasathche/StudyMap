@@ -83,39 +83,30 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="24" />
                     </Border.StrokeShape>
-                    <VerticalStackLayout Spacing="12">
-                        <Label Text="Select pathway"
-                               FontAttributes="Bold"
-                               TextColor="#17203B"
-                               FontSize="16" />
-                        <Picker ItemsSource="{Binding AvailablePathways}"
-                                SelectedItem="{Binding SelectedPathway}"
-                                Title="Choose a pathway"
-                                TextColor="#17203B"
-                                TitleColor="#5C667F" />
 
+                    <VerticalStackLayout Spacing="10">
                         <Label Text="Select career path"
                                FontAttributes="Bold"
                                TextColor="#17203B"
-                               FontSize="16"
-                               Margin="0,4,0,0" />
+                               FontSize="16" />
 
-                        <Grid ColumnDefinitions="*,56"
-                              HeightRequest="56"
-                              ColumnSpacing="4"
-                              HorizontalOptions="Fill">
+                        <Border Stroke="#E8E8EA"
+                                StrokeThickness="1"
+                                BackgroundColor="White"
+                                HeightRequest="56"
+                                Padding="4"
+                                HorizontalOptions="Fill">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="14" />
+                            </Border.StrokeShape>
 
-                            <Border Grid.Column="0"
-                                    Stroke="#E8E8EA"
-                                    StrokeThickness="1"
-                                    BackgroundColor="White"
-                                    Padding="0"
-                                    HorizontalOptions="Fill">
-                                <Border.StrokeShape>
-                                    <RoundRectangle CornerRadius="14" />
-                                </Border.StrokeShape>
+                            <Grid ColumnDefinitions="*,48"
+                                  ColumnSpacing="4"
+                                  HorizontalOptions="Fill"
+                                  VerticalOptions="Fill">
 
-                                <Picker ItemsSource="{Binding AvailableRoadmaps}"
+                                <Picker Grid.Column="0"
+                                        ItemsSource="{Binding AvailableRoadmaps}"
                                         ItemDisplayBinding="{Binding CareerName}"
                                         SelectedItem="{Binding SelectedRoadmap, Mode=TwoWay}"
                                         Title="Choose a career"
@@ -123,25 +114,24 @@
                                         TitleColor="#5C667F"
                                         HorizontalOptions="Fill"
                                         VerticalOptions="Center" />
-                            </Border>
 
-                            <Button Grid.Column="1"
-                                    Text="×"
-                                    FontSize="24"
-                                    FontAttributes="Bold"
-                                    TextColor="#17203B"
-                                    BackgroundColor="#EDEFF7"
-                                    CornerRadius="28"
-                                    WidthRequest="56"
-                                    HeightRequest="56"
-                                    Padding="0"
-                                    IsEnabled="{Binding HasSelectedCareer}"
-                                    Command="{Binding ClearCareerCommand}"
-                                    HorizontalOptions="Center"
-                                    VerticalOptions="Center"
-                                    SemanticProperties.Description="Clear selected career" />
-                        </Grid>
-
+                                <Button Grid.Column="1"
+                                        Text="×"
+                                        FontSize="22"
+                                        FontAttributes="Bold"
+                                        TextColor="#17203B"
+                                        BackgroundColor="#EDEFF7"
+                                        CornerRadius="24"
+                                        WidthRequest="48"
+                                        HeightRequest="48"
+                                        Padding="0"
+                                        IsEnabled="{Binding HasSelectedCareer}"
+                                        Command="{Binding ClearCareerCommand}"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        SemanticProperties.Description="Clear selected career" />
+                            </Grid>
+                        </Border>
                     </VerticalStackLayout>
                 </Border>
 
