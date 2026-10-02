@@ -20,7 +20,7 @@ public partial class AppShell : Shell
             args.Source is not (ShellNavigationSource.ShellItemChanged
                 or ShellNavigationSource.ShellSectionChanged
                 or ShellNavigationSource.ShellContentChanged) ||
-            !args.Target.Location.OriginalString.StartsWith("//", StringComparison.Ordinal))
+            !args.Target.Location.ToString().StartsWith("//", StringComparison.Ordinal))
         {
             return;
         }
@@ -30,7 +30,7 @@ public partial class AppShell : Shell
             return;
         }
 
-        var target = args.Target.Location.OriginalString;
+        var target = args.Target.Location.ToString();
         args.Cancel();
 
         _resettingTopLevelTab = true;
