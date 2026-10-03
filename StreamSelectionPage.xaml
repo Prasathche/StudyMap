@@ -31,20 +31,6 @@
                            FontSize="14" TextColor="{StaticResource Muted}" LineBreakMode="WordWrap" />
                 </VerticalStackLayout>
 
-                <!-- Home is fixed at the top-right of the header -->
-                <Border Grid.Column="2"
-                        BackgroundColor="{StaticResource Surface}"
-                        WidthRequest="42" HeightRequest="42" StrokeThickness="0"
-                        HorizontalOptions="End"
-                        VerticalOptions="Start">
-                    <Border.StrokeShape><RoundRectangle CornerRadius="21" /></Border.StrokeShape>
-                    <Label Text="⌂" FontSize="24" FontAttributes="Bold" TextColor="#7C57F5"
-                           HorizontalOptions="Center" VerticalOptions="Center" />
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnHomeTapped" />
-                    </Border.GestureRecognizers>
-                </Border>
-
                 <Border Grid.Column="2"
                         StrokeThickness="0"
                         BackgroundColor="#33FFFFFF"
