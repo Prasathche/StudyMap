@@ -107,19 +107,22 @@ public partial class ParentInsightsPage : ContentPage
     {
         var byCategory = await _service.GetCareersByCategoryChipAsync(_selectedChip);
 
-        var filtered = string.IsNullOrWhiteSpace(_searchText)
+        var query = _searchText.Trim();
+        var filtered = string.IsNullOrWhiteSpace(query)
             ? byCategory
             : byCategory.Where(c =>
-                c.Name.Contains(_searchText, StringComparison.OrdinalIgnoreCase) ||
-                c.Category.Contains(_searchText, StringComparison.OrdinalIgnoreCase) ||
-                c.CareerCategories.Any(t => t.Contains(_searchText, StringComparison.OrdinalIgnoreCase)))
+                c.SearchAliases.Any(a => a.Contains(query, StringComparison.OrdinalIgnoreCase)) ||
+                c.Name.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+                c.Category.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+                c.CareerCategories.Any(t => t.Contains(query, StringComparison.OrdinalIgnoreCase)))
                 .ToList();
 
-        var showPopularOnly = _selectedChip == "All" && string.IsNullOrWhiteSpace(_searchText);
+        var showPopularOnly = _selectedChip == "All" && string.IsNullOrWhiteSpace(query);
         _filteredCareers = (showPopularOnly
             ? filtered.Where(c => c.IsPopular)
             : filtered)
-            .OrderBy(c => c.Name)
+            .OrderBy(c => GetSearchRank(c, query))
+            .ThenBy(c => c.Name)
             .ToList();
 
         _visibleCount = Math.Min(PageSize, _filteredCareers.Count);
@@ -129,6 +132,44 @@ public partial class ParentInsightsPage : ContentPage
 
         BuildCareerCards(_filteredCareers.Take(_visibleCount).ToList());
         UpdateLoadMoreButton();
+    }
+
+    private static int GetSearchRank(Career career, string query)
+    {
+        if (string.IsNullOrWhiteSpace(query))
+            return 100;
+
+        var aliases = career.SearchAliases ?? [];
+        var normalizedQuery = query.Trim();
+
+        // Search aliases intentionally have priority over the display name and
+        // broader category matches. This makes common terms such as "doctor",
+        // "CA", "CS" or other aliases surface the intended career first.
+        if (aliases.Any(a => string.Equals(a.Trim(), normalizedQuery, StringComparison.OrdinalIgnoreCase)))
+            return 0;
+
+        if (aliases.Any(a => a.StartsWith(normalizedQuery, StringComparison.OrdinalIgnoreCase)))
+            return 1;
+
+        if (aliases.Any(a => a.Contains(normalizedQuery, StringComparison.OrdinalIgnoreCase)))
+            return 2;
+
+        if (string.Equals(career.Name.Trim(), normalizedQuery, StringComparison.OrdinalIgnoreCase))
+            return 3;
+
+        if (career.Name.StartsWith(normalizedQuery, StringComparison.OrdinalIgnoreCase))
+            return 4;
+
+        if (career.Name.Contains(normalizedQuery, StringComparison.OrdinalIgnoreCase))
+            return 5;
+
+        if (career.CareerCategories.Any(t => t.Contains(normalizedQuery, StringComparison.OrdinalIgnoreCase)))
+            return 6;
+
+        if (career.Category.Contains(normalizedQuery, StringComparison.OrdinalIgnoreCase))
+            return 7;
+
+        return 8;
     }
 
     private void OnLoadMoreClicked(object? sender, EventArgs e)
