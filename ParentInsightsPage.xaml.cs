@@ -6,38 +6,39 @@ namespace StudyMap;
 
 public partial class ParentInsightsPage : ContentPage
 {
+    private const int PageSize = 25;
+
     private readonly ParentInsightsService _service = new();
     private readonly List<Career> _selectedForCompare = [];
     private List<Career> _allCareers = [];
+    private List<Career> _filteredCareers = [];
     private string _selectedChip = "All";
     private string _searchText = string.Empty;
     private bool _compareMode;
     private bool _isLoaded;
+    private int _visibleCount;
+    private Button? _loadMoreButton;
 
     public ParentInsightsPage()
     {
         InitializeComponent();
         BuildCategoryChips();
+        BuildLoadMoreButton();
     }
 
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        if (_isLoaded)
-        {
-            return;
-        }
+        if (_isLoaded) return;
 
         _isLoaded = true;
         _allCareers = await _service.GetAllCareersAsync();
         await ApplyFiltersAsync();
     }
 
-    // ── Category chips ───────────────────────────────────────────────
     private void BuildCategoryChips()
     {
         CategoryChipsLayout.Children.Clear();
-
         var chips = new List<string> { "All" };
         chips.AddRange(ParentInsightsService.CategoryChips.Select(c => c.Chip));
 
@@ -59,6 +60,23 @@ public partial class ParentInsightsPage : ContentPage
         }
     }
 
+    private void BuildLoadMoreButton()
+    {
+        _loadMoreButton = new Button
+        {
+            Text = "Load more careers",
+            BackgroundColor = Color.FromArgb("#2E7D6B"),
+            TextColor = Colors.White,
+            CornerRadius = 14,
+            Padding = new Thickness(22, 10),
+            FontFamily = "OpenSansSemibold",
+            FontSize = 13,
+            HorizontalOptions = LayoutOptions.Center,
+            Margin = new Thickness(0, 6, 0, 20)
+        };
+        _loadMoreButton.Clicked += OnLoadMoreClicked;
+    }
+
     private async void OnHomeTapped(object? sender, TappedEventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(MyCareerPage));
@@ -68,12 +86,7 @@ public partial class ParentInsightsPage : ContentPage
     {
         _selectedChip = chip;
         foreach (var child in CategoryChipsLayout.Children)
-        {
-            if (child is Button btn)
-            {
-                SetChipStyle(btn, btn.Text == chip);
-            }
-        }
+            if (child is Button btn) SetChipStyle(btn, btn.Text == chip);
 
         await ApplyFiltersAsync();
     }
@@ -84,14 +97,12 @@ public partial class ParentInsightsPage : ContentPage
         button.TextColor = selected ? Colors.White : Color.FromArgb("#7D849A");
     }
 
-    // ── Search ────────────────────────────────────────────────────────
     private async void OnSearchTextChanged(object? sender, TextChangedEventArgs e)
     {
         _searchText = e.NewTextValue ?? string.Empty;
         await ApplyFiltersAsync();
     }
 
-    // ── Filtering ────────────────────────────────────────────────────
     private async Task ApplyFiltersAsync()
     {
         var byCategory = await _service.GetCareersByCategoryChipAsync(_selectedChip);
@@ -100,28 +111,50 @@ public partial class ParentInsightsPage : ContentPage
             ? byCategory
             : byCategory.Where(c =>
                 c.Name.Contains(_searchText, StringComparison.OrdinalIgnoreCase) ||
-                c.Category.Contains(_searchText, StringComparison.OrdinalIgnoreCase))
+                c.Category.Contains(_searchText, StringComparison.OrdinalIgnoreCase) ||
+                c.CareerCategories.Any(t => t.Contains(_searchText, StringComparison.OrdinalIgnoreCase)))
                 .ToList();
 
         var showPopularOnly = _selectedChip == "All" && string.IsNullOrWhiteSpace(_searchText);
-        var toShow = showPopularOnly
-            ? filtered.Where(c => c.IsPopular).ToList()
-            : filtered;
+        _filteredCareers = (showPopularOnly
+            ? filtered.Where(c => c.IsPopular)
+            : filtered)
+            .OrderBy(c => c.Name)
+            .ToList();
 
-        ResultsTitleLabel.Text = showPopularOnly ? "Popular Careers" : $"{toShow.Count} Career{(toShow.Count == 1 ? "" : "s")}";
+        _visibleCount = Math.Min(PageSize, _filteredCareers.Count);
+        ResultsTitleLabel.Text = showPopularOnly
+            ? "Popular Careers"
+            : $"{_filteredCareers.Count} Career{(_filteredCareers.Count == 1 ? "" : "s")}";
 
-        BuildCareerCards(toShow.OrderBy(c => c.Name).ToList());
+        BuildCareerCards(_filteredCareers.Take(_visibleCount).ToList());
+        UpdateLoadMoreButton();
     }
 
-    // ── Career cards ─────────────────────────────────────────────────
+    private void OnLoadMoreClicked(object? sender, EventArgs e)
+    {
+        _visibleCount = Math.Min(_visibleCount + PageSize, _filteredCareers.Count);
+        BuildCareerCards(_filteredCareers.Take(_visibleCount).ToList());
+        UpdateLoadMoreButton();
+    }
+
+    private void UpdateLoadMoreButton()
+    {
+        if (_loadMoreButton is null) return;
+
+        CareersLayout.Children.Remove(_loadMoreButton);
+        if (_visibleCount < _filteredCareers.Count)
+        {
+            _loadMoreButton.Text = $"Load more careers ({_filteredCareers.Count - _visibleCount} remaining)";
+            CareersLayout.Children.Add(_loadMoreButton);
+        }
+    }
+
     private void BuildCareerCards(List<Career> careers)
     {
         CareersLayout.Children.Clear();
-
         foreach (var career in careers)
-        {
             CareersLayout.Children.Add(CreateCareerCard(career));
-        }
     }
 
     private Border CreateCareerCard(Career career)
@@ -138,20 +171,8 @@ public partial class ParentInsightsPage : ContentPage
             Content = new Label { Text = career.Icon, FontSize = 24, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center }
         };
 
-        var nameLabel = new Label
-        {
-            Text = career.Name,
-            FontFamily = "OpenSansSemibold",
-            FontSize = 16,
-            TextColor = Color.FromArgb("#17203B")
-        };
-
-        var categoryLabel = new Label
-        {
-            Text = career.Category,
-            FontSize = 12,
-            TextColor = Color.FromArgb("#7D849A")
-        };
+        var nameLabel = new Label { Text = career.Name, FontFamily = "OpenSansSemibold", FontSize = 16, TextColor = Color.FromArgb("#17203B") };
+        var categoryLabel = new Label { Text = career.Category, FontSize = 12, TextColor = Color.FromArgb("#7D849A") };
 
         var titleStack = new VerticalStackLayout
         {
@@ -192,8 +213,7 @@ public partial class ParentInsightsPage : ContentPage
         }
         else
         {
-            var chevron = new Label { Text = "›", FontSize = 22, TextColor = Color.FromArgb("#C7CCDA"), VerticalOptions = LayoutOptions.Center };
-            grid.Add(chevron, 2);
+            grid.Add(new Label { Text = "›", FontSize = 22, TextColor = Color.FromArgb("#C7CCDA"), VerticalOptions = LayoutOptions.Center }, 2);
         }
 
         var card = new Border
@@ -207,11 +227,7 @@ public partial class ParentInsightsPage : ContentPage
             Content = grid
         };
 
-        card.GestureRecognizers.Add(new TapGestureRecognizer
-        {
-            Command = new Command(() => OnCareerCardTapped(career))
-        });
-
+        card.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(() => OnCareerCardTapped(career)) });
         return card;
     }
 
@@ -223,21 +239,16 @@ public partial class ParentInsightsPage : ContentPage
             return;
         }
 
-        await Shell.Current.GoToAsync(
-            $"{nameof(CareerInsightsPage)}?careerId={Uri.EscapeDataString(career.Id)}");
+        await Shell.Current.GoToAsync($"{nameof(CareerInsightsPage)}?careerId={Uri.EscapeDataString(career.Id)}");
     }
 
-    // ── Compare mode ─────────────────────────────────────────────────
     private async void OnCompareToggleClicked(object? sender, EventArgs e)
     {
         _compareMode = !_compareMode;
         CompareToggleButton.Text = _compareMode ? "Cancel" : "Compare";
         CompareBar.IsVisible = _compareMode;
 
-        if (!_compareMode)
-        {
-            _selectedForCompare.Clear();
-        }
+        if (!_compareMode) _selectedForCompare.Clear();
 
         UpdateCompareBar();
         await ApplyFiltersAsync();
@@ -247,13 +258,9 @@ public partial class ParentInsightsPage : ContentPage
     {
         var existing = _selectedForCompare.FirstOrDefault(c => c.Id == career.Id);
         if (existing is not null)
-        {
             _selectedForCompare.Remove(existing);
-        }
         else if (_selectedForCompare.Count < 3)
-        {
             _selectedForCompare.Add(career);
-        }
 
         UpdateCompareBar();
         await ApplyFiltersAsync();
@@ -279,16 +286,11 @@ public partial class ParentInsightsPage : ContentPage
         }
 
         var ids = string.Join(",", _selectedForCompare.Select(c => Uri.EscapeDataString(c.Id)));
-
-        // Leave Decide in its normal state underneath the comparison page.
-        // This means returning with Back restores the normal Decide page rather
-        // than leaving the user in compare-selection mode.
         _compareMode = false;
         _selectedForCompare.Clear();
         CompareToggleButton.Text = "Compare";
         CompareBar.IsVisible = false;
         await ApplyFiltersAsync();
-
         await Shell.Current.GoToAsync($"{nameof(CareerComparisonPage)}?careerIds={ids}");
     }
 }
