@@ -320,7 +320,12 @@ public partial class CareerDetailPage : ContentPage
     {
         await RoadmapBtn.ScaleTo(0.96, 80, Easing.CubicIn);
         await RoadmapBtn.ScaleTo(1.0, 120, Easing.CubicOut);
-        await Shell.Current.GoToAsync(nameof(CareerRoadmapPage));
+
+        // Pass the exact career currently shown on this details page.
+        // CareerRoadmapPage uses this id to select the matching roadmap and
+        // render the correct career-specific timeline.
+        await Shell.Current.GoToAsync(
+            $"{nameof(CareerRoadmapPage)}?careerId={Uri.EscapeDataString(_careerId)}");
     }
 
     private async void OnViewParentInsightsClicked(object? sender, EventArgs e)
