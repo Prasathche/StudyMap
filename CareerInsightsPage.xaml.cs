@@ -15,7 +15,6 @@ public partial class CareerInsightsPage : ContentPage
         InitializeComponent();
     }
 
-    // ── QueryProperty ────────────────────────────────────────────────
     public string CareerId
     {
         get => _careerId;
@@ -26,13 +25,10 @@ public partial class CareerInsightsPage : ContentPage
         }
     }
 
-    // ── Data loading ─────────────────────────────────────────────────
     private async Task LoadInsightAsync(string careerId)
     {
         if (string.IsNullOrWhiteSpace(careerId))
-        {
             return;
-        }
 
         LoadingOverlay.IsVisible = true;
 
@@ -46,11 +42,9 @@ public partial class CareerInsightsPage : ContentPage
 
         var insight = _service.BuildInsight(career);
         Populate(career, insight);
-
         LoadingOverlay.IsVisible = false;
     }
 
-    // ── UI population ─────────────────────────────────────────────────
     private void Populate(Career career, CareerParentInsight insight)
     {
         CareerIconLabel.Text = career.Icon;
@@ -76,20 +70,11 @@ public partial class CareerInsightsPage : ContentPage
     {
         IndicatorsLayout.Children.Clear();
 
-        IndicatorsLayout.Children.Add(CreateIndicatorCard(
-            "💰", "Earning Potential", string.Empty, insight.SalaryRangeText, insight.SalaryDescription));
-
-        IndicatorsLayout.Children.Add(CreateIndicatorCard(
-            "🧭", "Job Stability", insight.StabilityIndicator, insight.StabilityLevel, insight.StabilityDescription));
-
-        IndicatorsLayout.Children.Add(CreateIndicatorCard(
-            "📈", "Future Demand", insight.FutureDemandIndicator, insight.FutureDemandLevel, insight.FutureDemandDescription));
-
-        IndicatorsLayout.Children.Add(CreateIndicatorCard(
-            "🎓", "Education & Skill Difficulty", insight.DifficultyIndicator, insight.DifficultyLevel, insight.DifficultyDescription));
-
-        IndicatorsLayout.Children.Add(CreateIndicatorCard(
-            "🏁", "Competition", insight.CompetitionIndicator, insight.CompetitionLevel, insight.CompetitionDescription));
+        IndicatorsLayout.Children.Add(CreateIndicatorCard("💰", "Earning Potential", string.Empty, insight.SalaryRangeText, insight.SalaryDescription));
+        IndicatorsLayout.Children.Add(CreateIndicatorCard("🧭", "Job Stability", insight.StabilityIndicator, insight.StabilityLevel, insight.StabilityDescription));
+        IndicatorsLayout.Children.Add(CreateIndicatorCard("📈", "Future Demand", insight.FutureDemandIndicator, insight.FutureDemandLevel, insight.FutureDemandDescription));
+        IndicatorsLayout.Children.Add(CreateIndicatorCard("🎓", "Education & Skill Difficulty", insight.DifficultyIndicator, insight.DifficultyLevel, insight.DifficultyDescription));
+        IndicatorsLayout.Children.Add(CreateIndicatorCard("🏁", "Competition", insight.CompetitionIndicator, insight.CompetitionLevel, insight.CompetitionDescription));
     }
 
     private static Border CreateIndicatorCard(string icon, string title, string indicator, string level, string description)
@@ -115,12 +100,14 @@ public partial class CareerInsightsPage : ContentPage
             Text = description,
             FontSize = 13,
             TextColor = Color.FromArgb("#6F7691"),
-            LineBreakMode = LineBreakMode.WordWrap
+            LineBreakMode = LineBreakMode.WordWrap,
+            HorizontalOptions = LayoutOptions.Fill
         };
 
         var content = new VerticalStackLayout
         {
             Spacing = 8,
+            HorizontalOptions = LayoutOptions.Fill,
             Children = { headerLabel, levelLabel, descriptionLabel }
         };
 
@@ -129,6 +116,7 @@ public partial class CareerInsightsPage : ContentPage
             StrokeThickness = 0,
             Padding = new Thickness(18),
             BackgroundColor = Colors.White,
+            HorizontalOptions = LayoutOptions.Fill,
             StrokeShape = new RoundRectangle { CornerRadius = 20 },
             Shadow = new Shadow { Brush = Color.FromArgb("#08000000"), Offset = new Point(0, 4), Radius = 12, Opacity = 1 },
             Content = content
@@ -153,9 +141,7 @@ public partial class CareerInsightsPage : ContentPage
         }
 
         if (!layout.Children.Any())
-        {
             layout.Children.Add(new Label { Text = "Information unavailable", FontSize = 13, TextColor = Color.FromArgb("#7D849A") });
-        }
     }
 
     private static void BuildCheckList(VerticalStackLayout layout, IEnumerable<string> items, string bullet, string bulletColor, string bubbleBg)
@@ -169,6 +155,7 @@ public partial class CareerInsightsPage : ContentPage
                 BackgroundColor = Color.FromArgb(bubbleBg),
                 Padding = new Thickness(7, 3),
                 VerticalOptions = LayoutOptions.Start,
+                HorizontalOptions = LayoutOptions.Start,
                 StrokeShape = new RoundRectangle { CornerRadius = 8 },
                 Content = new Label { Text = bullet, FontSize = 13, TextColor = Color.FromArgb(bulletColor) }
             };
@@ -179,20 +166,27 @@ public partial class CareerInsightsPage : ContentPage
                 FontSize = 14,
                 TextColor = Color.FromArgb("#6F7691"),
                 LineBreakMode = LineBreakMode.WordWrap,
+                HorizontalOptions = LayoutOptions.Fill,
+                VerticalOptions = LayoutOptions.Start
+            };
+
+            var row = new Grid
+            {
+                ColumnDefinitions = new ColumnDefinitionCollection
+                {
+                    new ColumnDefinition(GridLength.Auto),
+                    new ColumnDefinition(GridLength.Star)
+                },
+                ColumnSpacing = 10,
                 HorizontalOptions = LayoutOptions.Fill
             };
 
-            var row = new HorizontalStackLayout
-            {
-                Spacing = 10,
-                Children = { bulletBubble, textLabel }
-            };
-
+            row.Add(bulletBubble, 0);
+            row.Add(textLabel, 1);
             layout.Children.Add(row);
         }
     }
 
-    // ── Navigation ────────────────────────────────────────────────────
     private async void OnViewRoadmapClicked(object? sender, EventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(CareerRoadmapPage));
@@ -202,9 +196,9 @@ public partial class CareerInsightsPage : ContentPage
     {
         await Shell.Current.GoToAsync("..");
     }
+
     private async void OnHomeTapped(object? sender, TappedEventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(MyCareerPage));
     }
-
 }
