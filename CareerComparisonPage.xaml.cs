@@ -172,9 +172,11 @@ public partial class CareerComparisonPage : ContentPage
 
     private async Task GoBackToDecideAsync()
     {
+        // CareerComparisonPage is a pushed Shell route from Decide.
+        // Navigate to the parent route so the existing Decide page is restored.
         if (Shell.Current.Navigation.NavigationStack.Count > 1)
         {
-            await Shell.Current.Navigation.PopAsync();
+            await Shell.Current.GoToAsync("..");
             return;
         }
 
