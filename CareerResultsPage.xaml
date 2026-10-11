@@ -19,7 +19,8 @@
         </Style>
     </ContentPage.Resources>
 
-    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+    <!-- Keep the header in its own row so the scrolling results cannot overlap it. -->
+    <Grid RowDefinitions="Auto,*" ColumnDefinitions="*">
 
         <!-- Header -->
         <Border Grid.Row="0" StrokeThickness="0" Padding="20,52,20,24">
