@@ -189,7 +189,11 @@ public partial class CareerInsightsPage : ContentPage
 
     private async void OnViewRoadmapClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(CareerRoadmapPage));
+        // Pass the exact career currently displayed in Parent Insights,
+        // just like Career Details does. CareerRoadmapPage will use this
+        // id to select and render the matching career-specific roadmap.
+        await Shell.Current.GoToAsync(
+            $"{nameof(CareerRoadmapPage)}?careerId={Uri.EscapeDataString(_careerId)}");
     }
 
     private async void OnBackTapped(object? sender, EventArgs e)
