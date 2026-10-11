@@ -58,10 +58,12 @@ public partial class ParentInsightsPage : ContentPage
             CategoryChipsLayout.Children.Add(button);
         }
     }
-private async void OnHomeTapped(object? sender, TappedEventArgs e)
-{
-    await Shell.Current.GoToAsync(nameof(MyCareerPage));
-}
+
+    private async void OnHomeTapped(object? sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(MyCareerPage));
+    }
+
     private async Task OnCategoryChipClicked(string chip)
     {
         _selectedChip = chip;
@@ -277,6 +279,16 @@ private async void OnHomeTapped(object? sender, TappedEventArgs e)
         }
 
         var ids = string.Join(",", _selectedForCompare.Select(c => Uri.EscapeDataString(c.Id)));
+
+        // Leave Decide in its normal state underneath the comparison page.
+        // This means returning with Back restores the normal Decide page rather
+        // than leaving the user in compare-selection mode.
+        _compareMode = false;
+        _selectedForCompare.Clear();
+        CompareToggleButton.Text = "Compare";
+        CompareBar.IsVisible = false;
+        await ApplyFiltersAsync();
+
         await Shell.Current.GoToAsync($"{nameof(CareerComparisonPage)}?careerIds={ids}");
     }
 }
