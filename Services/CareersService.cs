@@ -23,35 +23,6 @@ public class CareersService
 
             _careers = JsonSerializer.Deserialize<List<Career>>(json, options) ?? [];
 
-            // Load the additional career catalogue separately so the original
-            // careers.json remains intact and easier to maintain.
-            try
-            {
-                using var expansionStream = await FileSystem.OpenAppPackageFileAsync("career-expansion.json");
-                using var expansionReader = new StreamReader(expansionStream);
-                var expansionJson = await expansionReader.ReadToEndAsync();
-                var expandedCareers = JsonSerializer.Deserialize<List<Career>>(expansionJson, options) ?? [];
-
-                var existingIds = _careers
-                    .Select(c => c.Id)
-                    .Where(id => !string.IsNullOrWhiteSpace(id))
-                    .ToHashSet(StringComparer.OrdinalIgnoreCase);
-
-                foreach (var career in expandedCareers)
-                {
-                    if (!string.IsNullOrWhiteSpace(career.Id) && existingIds.Add(career.Id))
-                        _careers.Add(career);
-                }
-
-                System.Diagnostics.Debug.WriteLine(
-                    $"[CareersService] Loaded career expansion: {expandedCareers.Count} records, total={_careers.Count}");
-            }
-            catch (FileNotFoundException)
-            {
-                System.Diagnostics.Debug.WriteLine(
-                    "[CareersService] career-expansion.json not found; using careers.json only.");
-            }
-
             _isLoaded = true;
 
             System.Diagnostics.Debug.WriteLine(
