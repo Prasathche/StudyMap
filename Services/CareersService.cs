@@ -5,77 +5,56 @@ namespace StudyMap.Services;
 
 public class CareersService
 {
-    private List<Career> _careers = [];
-    private bool _isLoaded = false;
+    // All pages create their own CareersService instance. Keep one shared async
+    // load so the large career catalogue is parsed only once per app process.
+    private static readonly Lazy<Task<List<Career>>> _careersTask =
+        new(LoadCareersAsync, LazyThreadSafetyMode.ExecutionAndPublication);
 
-    public async Task<List<Career>> GetAllCareersAsync()
+    public Task<List<Career>> GetAllCareersAsync() => _careersTask.Value;
+
+    private static async Task<List<Career>> LoadCareersAsync()
     {
-        if (_isLoaded)
-            return _careers;
-
         try
         {
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
 
-            using var stream = await FileSystem.OpenAppPackageFileAsync("careers.json");
-            using var reader = new StreamReader(stream);
-            var json = await reader.ReadToEndAsync();
-
-            _careers = JsonSerializer.Deserialize<List<Career>>(json, options) ?? [];
-
-            _isLoaded = true;
+            await using var stream = await FileSystem.OpenAppPackageFileAsync("careers.json");
+            var careers = await JsonSerializer.DeserializeAsync<List<Career>>(stream, options) ?? [];
 
             System.Diagnostics.Debug.WriteLine(
-                $"[CareersService] Loaded career catalogue: {_careers.Count} careers, base JSON length={json.Length}");
+                $"[CareersService] Loaded shared career catalogue once: {careers.Count} careers");
 
-            var agriculturalScientist = _careers.FirstOrDefault(c =>
-                c.Id.Equals("career-agricultural-scientist", StringComparison.OrdinalIgnoreCase));
-
-            if (agriculturalScientist is not null)
-            {
-                System.Diagnostics.Debug.WriteLine(
-                    $"[CareersService] Agricultural Scientist: " +
-                    $"Id={agriculturalScientist.Id}, " +
-                    $"Salary={agriculturalScientist.SalaryRangeIndia}, " +
-                    $"Demand={agriculturalScientist.FutureDemand}, " +
-                    $"Category={agriculturalScientist.Category}, " +
-                    $"SalaryInsights={agriculturalScientist.SalaryInsights.Count}");
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine(
-                    "[CareersService] Agricultural Scientist record NOT FOUND in packaged career catalogue");
-            }
-
-            return _careers;
+            return careers;
         }
         catch (Exception ex)
         {
-            System.Diagnostics.Debug.WriteLine($"Error loading careers: {ex.Message}");
+            System.Diagnostics.Debug.WriteLine($"[CareersService] Error loading careers: {ex}");
             return [];
         }
     }
 
     public async Task<Career?> GetCareerByIdAsync(string careerId)
     {
+        if (string.IsNullOrWhiteSpace(careerId))
+            return null;
+
         var careers = await GetAllCareersAsync();
-        var career = careers.FirstOrDefault(c => c.Id == careerId);
-
-        System.Diagnostics.Debug.WriteLine(
-            $"[CareersService] GetCareerByIdAsync: requestedId={careerId}, " +
-            $"found={(career is not null)}, " +
-            $"salary={career?.SalaryRangeIndia}, " +
-            $"demand={career?.FutureDemand}, " +
-            $"category={career?.Category}, " +
-            $"salaryInsights={career?.SalaryInsights.Count ?? 0}");
-
-        return career;
+        return careers.FirstOrDefault(c =>
+            c.Id.Equals(careerId, StringComparison.OrdinalIgnoreCase));
     }
 
     public async Task<List<Career>> GetCareersByCategoryAsync(string category)
     {
+        if (string.IsNullOrWhiteSpace(category))
+            return [];
+
         var careers = await GetAllCareersAsync();
-        return careers.Where(c => c.Category == category).ToList();
+        return careers
+            .Where(c => c.Category.Equals(category, StringComparison.OrdinalIgnoreCase))
+            .ToList();
     }
 
     public async Task<List<Career>> GetPopularCareersAsync()
@@ -87,6 +66,11 @@ public class CareersService
     public async Task<List<string>> GetAllCategoriesAsync()
     {
         var careers = await GetAllCareersAsync();
-        return careers.Select(c => c.Category).Distinct().ToList();
+        return careers
+            .Select(c => c.Category)
+            .Where(c => !string.IsNullOrWhiteSpace(c))
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .OrderBy(c => c)
+            .ToList();
     }
 }
