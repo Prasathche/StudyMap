@@ -1,0 +1,72 @@
+name: Merge career catalogue
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  merge-careers:
+    if: ${{ github.event.head_commit.message != 'Merge career catalogue into careers.json' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Merge expansion into careers.json
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          base_path = Path('Resources/Raw/careers.json')
+          expansion_path = Path('Resources/Raw/career-expansion.json')
+
+          base = json.loads(base_path.read_text(encoding='utf-8'))
+          expansion = json.loads(expansion_path.read_text(encoding='utf-8'))
+
+          by_id = {}
+          for career in base:
+              if career.get('Id'):
+                  by_id[career['Id'].lower()] = career
+
+          added = 0
+          for career in expansion:
+              career_id = career.get('Id')
+              if not career_id:
+                  continue
+              key = career_id.lower()
+              if key not in by_id:
+                  base.append(career)
+                  by_id[key] = career
+                  added += 1
+
+          base_path.write_text(json.dumps(base, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          expansion_path.unlink()
+          print(f'Merged {added} new careers; total={len(base)}')
+          PY
+
+      - name: Simplify CareersService
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('Services/CareersService.cs')
+          text = path.read_text(encoding='utf-8')
+          start = text.index('            // Load the additional career catalogue separately')
+          end = text.index('            _isLoaded = true;', start)
+          text = text[:start] + text[end:]
+          text = text.replace('            _careers = JsonSerializer.Deserialize<List<Career>>(json, options) ?? [];\n\n            _isLoaded', '            _careers = JsonSerializer.Deserialize<List<Career>>(json, options) ?? [];\n\n            _isLoaded')
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Remove temporary workflow and commit
+        run: |
+          rm -f .github/workflows/merge-career-catalogue.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Resources/Raw/careers.json Resources/Raw/career-expansion.json Services/CareersService.cs .github/workflows/merge-career-catalogue.yml
+          git diff --cached --quiet && exit 0
+          git commit -m "Merge career catalogue into careers.json"
+          git push
