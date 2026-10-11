@@ -86,7 +86,9 @@ public partial class AppShell : Shell
 
             // Back controls already wrapped in a Border should use that
             // existing circle. Only the icon itself is replaced/styled.
-            if (child is Border backBorder && backBorder.Content is ImageButton backImageButton)
+            if (child is Border backBorder &&
+                backBorder.Content is ImageButton backImageButton &&
+                IsBackButton(backImageButton))
             {
                 backBorder.WidthRequest = 44;
                 backBorder.HeightRequest = 44;
@@ -120,8 +122,7 @@ public partial class AppShell : Shell
             // 44px white circular treatment as the reference design.
             if (child is ImageButton directBackButton &&
                 !parentIsBorder &&
-                directBackButton.Source is FileImageSource fileSource &&
-                string.Equals(fileSource.File, "arrow_back.png", StringComparison.OrdinalIgnoreCase))
+                IsBackButton(directBackButton))
             {
                 directBackButton.Source = "nav_back.svg";
                 directBackButton.WidthRequest = 44;
@@ -136,6 +137,12 @@ public partial class AppShell : Shell
 
             ApplyNavigationVisualsToTree(child, child is Border);
         }
+    }
+
+    private static bool IsBackButton(ImageButton button)
+    {
+        return button.Source is FileImageSource fileSource &&
+               string.Equals(fileSource.File, "arrow_back.png", StringComparison.OrdinalIgnoreCase);
     }
 
     protected override async void OnNavigating(ShellNavigatingEventArgs args)
