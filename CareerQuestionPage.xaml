@@ -15,7 +15,6 @@
 
     <Grid RowDefinitions="Auto,*,Auto">
 
-        <!-- Header: back + progress -->
         <VerticalStackLayout Grid.Row="0" Padding="20,52,20,12" Spacing="14">
             <Grid ColumnDefinitions="Auto,*,Auto,Auto">
 
@@ -51,25 +50,29 @@
                          HeightRequest="8" />
         </VerticalStackLayout>
 
-        <!-- Question + options -->
-        <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
-            <VerticalStackLayout Padding="20,10,20,24" Spacing="18">
+        <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never"
+                    HorizontalOptions="Fill">
+            <VerticalStackLayout Padding="20,10,20,24" Spacing="18"
+                                 HorizontalOptions="Fill">
 
                 <Label x:Name="QuestionTextLabel"
                        FontFamily="OpenSansSemibold" FontSize="24"
                        TextColor="{StaticResource Ink}"
-                       LineBreakMode="WordWrap" />
+                       LineBreakMode="WordWrap"
+                       HorizontalOptions="Fill" />
 
                 <Label x:Name="HintLabel"
                        Text="Select all that apply"
-                       FontSize="13" TextColor="{StaticResource Muted}" />
+                       FontSize="13" TextColor="{StaticResource Muted}"
+                       HorizontalOptions="Fill" />
 
-                <VerticalStackLayout x:Name="OptionsLayout" Spacing="12" />
+                <VerticalStackLayout x:Name="OptionsLayout"
+                                     Spacing="12"
+                                     HorizontalOptions="Fill" />
 
             </VerticalStackLayout>
         </ScrollView>
 
-        <!-- Next button -->
         <VerticalStackLayout Grid.Row="2" Padding="20,0,20,28" Spacing="10">
             <Button x:Name="NextButton"
                     Text="Next"
