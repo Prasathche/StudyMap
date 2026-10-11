@@ -15,6 +15,7 @@ public class CareerQuestionOption
     public string Id { get; set; } = string.Empty;
     public string Text { get; set; } = string.Empty;
     public string Icon { get; set; } = string.Empty;
+    public string Info { get; set; } = string.Empty;
     public List<CareerTagWeight> TagWeights { get; set; } = [];
 }
 
