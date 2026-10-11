@@ -19,13 +19,15 @@
         </Style>
     </ContentPage.Resources>
 
-    <Grid ColumnDefinitions="*" ColumnSpacing="12">
+    <!-- The compare bar is a fixed bottom row. Without explicit RowDefinitions,
+         the old Grid could measure the bar as a very tall row on Android. -->
+    <Grid RowDefinitions="*,Auto" ColumnDefinitions="*" ColumnSpacing="12">
 
         <ScrollView Grid.Row="0" VerticalScrollBarVisibility="Never">
             <VerticalStackLayout Padding="20,52,20,24" Spacing="18">
 
                 <!-- Header -->
-                <Grid ColumnDefinitions="*,Auto,Auto">
+                <Grid ColumnDefinitions="*,Auto">
                     <VerticalStackLayout Spacing="6">
                         <Label Text="Parent Insights"
                                FontFamily="OpenSansSemibold" FontSize="26"
@@ -44,7 +46,6 @@
                             MinimumHeightRequest="0" MinimumWidthRequest="0"
                             VerticalOptions="Start"
                             Clicked="OnCompareToggleClicked" />
-
                 </Grid>
 
                 <!-- Search -->
@@ -77,12 +78,12 @@
             </VerticalStackLayout>
         </ScrollView>
 
-        <!-- Compare bar -->
+        <!-- Compact fixed compare bar -->
         <Border Grid.Row="1" x:Name="CompareBar" IsVisible="False"
-                StrokeThickness="0" Padding="18,14"
+                StrokeThickness="0" Padding="18,12"
                 BackgroundColor="{StaticResource Surface}">
             <Border.Shadow><Shadow Brush="#20000000" Offset="0,-4" Radius="16" Opacity="1" /></Border.Shadow>
-            <Grid ColumnDefinitions="*,Auto">
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
                 <Label x:Name="CompareCountLabel" Text="Select 2-3 careers to compare"
                        FontSize="13" TextColor="{StaticResource Muted}" VerticalOptions="Center" />
                 <Button Grid.Column="1"
