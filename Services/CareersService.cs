@@ -15,16 +15,47 @@ public class CareersService
 
         try
         {
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
             using var stream = await FileSystem.OpenAppPackageFileAsync("careers.json");
             using var reader = new StreamReader(stream);
             var json = await reader.ReadToEndAsync();
 
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             _careers = JsonSerializer.Deserialize<List<Career>>(json, options) ?? [];
+
+            // Load the additional career catalogue separately so the original
+            // careers.json remains intact and easier to maintain.
+            try
+            {
+                using var expansionStream = await FileSystem.OpenAppPackageFileAsync("career-expansion.json");
+                using var expansionReader = new StreamReader(expansionStream);
+                var expansionJson = await expansionReader.ReadToEndAsync();
+                var expandedCareers = JsonSerializer.Deserialize<List<Career>>(expansionJson, options) ?? [];
+
+                var existingIds = _careers
+                    .Select(c => c.Id)
+                    .Where(id => !string.IsNullOrWhiteSpace(id))
+                    .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+                foreach (var career in expandedCareers)
+                {
+                    if (!string.IsNullOrWhiteSpace(career.Id) && existingIds.Add(career.Id))
+                        _careers.Add(career);
+                }
+
+                System.Diagnostics.Debug.WriteLine(
+                    $"[CareersService] Loaded career expansion: {expandedCareers.Count} records, total={_careers.Count}");
+            }
+            catch (FileNotFoundException)
+            {
+                System.Diagnostics.Debug.WriteLine(
+                    "[CareersService] career-expansion.json not found; using careers.json only.");
+            }
+
             _isLoaded = true;
 
             System.Diagnostics.Debug.WriteLine(
-                $"[CareersService] Loaded careers.json: {_careers.Count} careers, JSON length={json.Length}");
+                $"[CareersService] Loaded career catalogue: {_careers.Count} careers, base JSON length={json.Length}");
 
             var agriculturalScientist = _careers.FirstOrDefault(c =>
                 c.Id.Equals("career-agricultural-scientist", StringComparison.OrdinalIgnoreCase));
@@ -42,7 +73,7 @@ public class CareersService
             else
             {
                 System.Diagnostics.Debug.WriteLine(
-                    "[CareersService] Agricultural Scientist record NOT FOUND in packaged careers.json");
+                    "[CareersService] Agricultural Scientist record NOT FOUND in packaged career catalogue");
             }
 
             return _careers;
