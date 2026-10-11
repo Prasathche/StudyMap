@@ -16,7 +16,6 @@ public class CareerRecommendationService
         _careersService = careersService ?? new CareersService();
     }
 
-    // ── Public API ───────────────────────────────────────────────────
     public IReadOnlyList<CareerQuestion> Questions => _questions;
 
     public async Task<List<CareerRecommendation>> GetRecommendationsAsync(
@@ -30,7 +29,6 @@ public class CareerRecommendationService
 
         var positiveWeightTotal = tagScores.Values.Where(w => w > 0).Sum();
         var maxPossibleScore = positiveWeightTotal > 0 ? positiveWeightTotal : 1;
-
         var scored = new List<CareerRecommendation>();
 
         foreach (var career in careers)
@@ -41,20 +39,20 @@ public class CareerRecommendationService
 
             foreach (var tag in careerTags)
             {
-                if (tagScores.TryGetValue(tag, out var weight))
+                foreach (var alias in ExpandTagAliases(tag))
                 {
+                    if (!tagScores.TryGetValue(alias, out var weight))
+                        continue;
+
                     score += weight;
                     if (weight > 0)
-                    {
                         matchedTags.Add(tag);
-                    }
+                    break;
                 }
             }
 
             if (score <= 0)
-            {
                 continue;
-            }
 
             var percentage = (int)Math.Round(100.0 * score / maxPossibleScore);
             percentage = Math.Clamp(percentage, 35, 97);
@@ -96,26 +94,21 @@ public class CareerRecommendationService
         return ranked;
     }
 
-    // ── Scoring helpers ──────────────────────────────────────────────
     private static Dictionary<string, int> BuildTagScores(IEnumerable<CareerAnswer> answers)
     {
-        var scores = new Dictionary<string, int>();
+        var scores = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
         foreach (var answer in answers)
         {
             var question = _questions.FirstOrDefault(q => q.Number == answer.QuestionNumber);
             if (question is null)
-            {
                 continue;
-            }
 
             foreach (var optionId in answer.SelectedOptionIds)
             {
                 var option = question.Options.FirstOrDefault(o => o.Id == optionId);
                 if (option is null)
-                {
                     continue;
-                }
 
                 foreach (var tagWeight in option.TagWeights)
                 {
@@ -138,25 +131,130 @@ public class CareerRecommendationService
         return tags;
     }
 
+    // The expanded catalogue contains more specific labels than the original
+    // questionnaire. These aliases let broad questionnaire choices match those
+    // more specific career attributes without hard-coding individual careers.
+    private static IEnumerable<string> ExpandTagAliases(string tag)
+    {
+        yield return tag;
+
+        var normalized = tag.Trim().ToLowerInvariant();
+
+        if (normalized.Contains("technology") || normalized.Contains("computer"))
+        {
+            yield return "Technology";
+            yield return "Computers";
+            yield return "Computer Science";
+            yield return "Information Technology";
+            yield return "Software";
+            yield return "Software Development";
+            yield return "Artificial Intelligence";
+            yield return "Data Science";
+            yield return "Cybersecurity";
+        }
+
+        if (normalized.Contains("engineering"))
+        {
+            yield return "Engineering";
+            yield return "Mathematics";
+            yield return "Physics";
+            yield return "Problem solving";
+            yield return "Building things";
+        }
+
+        if (normalized.Contains("health") || normalized.Contains("medical") || normalized.Contains("healthcare"))
+        {
+            yield return "Healthcare";
+            yield return "Health Sciences";
+            yield return "Medicine";
+            yield return "Biology";
+            yield return "Helping people";
+        }
+
+        if (normalized.Contains("science") || normalized.Contains("research"))
+        {
+            yield return "Science";
+            yield return "Science & Research";
+            yield return "Research and discovery";
+            yield return "Research";
+        }
+
+        if (normalized.Contains("business") || normalized.Contains("finance") || normalized.Contains("management"))
+        {
+            yield return "Business & Finance";
+            yield return "Business & Economics";
+            yield return "Finance";
+            yield return "Management";
+            yield return "Working with numbers";
+            yield return "Leadership";
+        }
+
+        if (normalized.Contains("design") || normalized.Contains("creative") || normalized.Contains("media"))
+        {
+            yield return "Design & Media";
+            yield return "Art & Design";
+            yield return "Creativity";
+            yield return "Creating designs";
+        }
+
+        if (normalized.Contains("law") || normalized.Contains("public") || normalized.Contains("government"))
+        {
+            yield return "Law & Public Service";
+            yield return "Social Studies";
+            yield return "Communication";
+            yield return "Leadership";
+        }
+
+        if (normalized.Contains("education") || normalized.Contains("teaching"))
+        {
+            yield return "Education";
+            yield return "Communication";
+            yield return "Helping people";
+        }
+
+        if (normalized.Contains("agriculture") || normalized.Contains("environment") || normalized.Contains("nature"))
+        {
+            yield return "Protecting the environment";
+            yield return "Science & Research";
+            yield return "Science";
+        }
+
+        if (normalized.Contains("communication") || normalized.Contains("language") || normalized.Contains("writing"))
+        {
+            yield return "Languages";
+            yield return "Communication";
+            yield return "Writing or communicating";
+        }
+
+        if (normalized.Contains("people") || normalized.Contains("helping"))
+        {
+            yield return "Working with people";
+            yield return "Helping people";
+        }
+
+        if (normalized.Contains("math") || normalized.Contains("number"))
+        {
+            yield return "Mathematics";
+            yield return "Working with numbers";
+        }
+    }
+
     private static string BuildWhyItMatches(List<string> matchedTags)
     {
         if (matchedTags.Count == 0)
-        {
             return "This career is a popular starting point worth exploring.";
-        }
 
         var shown = matchedTags.Take(4).ToList();
         var bullets = string.Join(" · ", shown.Select(t => $"✓ {t}"));
         return $"You selected: {bullets}\n\nThese interests are commonly useful in this field.";
     }
 
-    // ── Question bank ────────────────────────────────────────────────
     private static readonly List<CareerQuestion> _questions = BuildQuestions();
 
     private static List<CareerQuestion> BuildQuestions()
     {
-        return
-        [
+        var questions = new List<CareerQuestion>
+        {
             new CareerQuestion
             {
                 Number = 1,
@@ -248,7 +346,6 @@ public class CareerRecommendationService
                     Opt("q6-independent", "Independently", "🧍", "Independently"),
                     Opt("q6-small-team", "With a small team", "👥", "With a small team"),
                     Opt("q6-lots-people", "With lots of people", "👨‍👩‍👧‍👦", "With lots of people"),
-                    OptNoTag("q6-unsure", "I don't know yet", "🤷"),
                 ]
             },
             new CareerQuestion
@@ -281,7 +378,6 @@ public class CareerRecommendationService
                     Opt("q8-studio", "Creative Studio", "🎨", "Creative Studio"),
                     Opt("q8-outdoors", "Outdoors", "🌳", "Outdoors"),
                     Opt("q8-government", "Government / Public Service", "🏛️", "Government / Public Service"),
-                    OptNoTag("q8-unsure", "I'm not sure", "🤷"),
                 ]
             },
             new CareerQuestion
@@ -316,10 +412,24 @@ public class CareerRecommendationService
                     OptWeighted3("q10-design", "Design & Media", "🎨", "Design & Media"),
                     OptWeighted3("q10-law", "Law & Public Service", "⚖️", "Law & Public Service"),
                     OptWeighted3("q10-education", "Education", "📚", "Education"),
-                    OptNoTag("q10-unsure", "Not sure", "🤷"),
                 ]
-            },
-        ];
+            }
+        };
+
+        // Every question gets a neutral escape hatch. Selecting this option
+        // contributes no score; it simply means the student has no preference.
+        foreach (var question in questions)
+        {
+            question.Options.Add(new CareerQuestionOption
+            {
+                Id = $"q{question.Number}-none",
+                Text = "None of the above",
+                Icon = "➖",
+                TagWeights = []
+            });
+        }
+
+        return questions;
     }
 
     private static CareerQuestionOption Opt(string id, string text, string icon, string tag) =>
