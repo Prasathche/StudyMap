@@ -1,3 +1,5 @@
+using Microsoft.Maui.Controls.Shapes;
+
 namespace StudyMap;
 
 public partial class AppShell : Shell
