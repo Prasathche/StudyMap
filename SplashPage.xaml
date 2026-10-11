@@ -8,70 +8,11 @@
     Shell.NavBarIsVisible="False"
     NavigationPage.HasNavigationBar="False">
 
-    <Grid
-        Padding="24,40,24,32"
-        RowDefinitions="*,Auto,Auto,Auto,*"
-        RowSpacing="0">
-
-        <!-- Large responsive logo -->
-        <Image
-            Grid.Row="0"
-            Source="splash_logo.svg"
-            WidthRequest="250"
-            HeightRequest="250"
-            MaximumWidthRequest="300"
-            MaximumHeightRequest="300"
-            Aspect="AspectFit"
-            HorizontalOptions="Center"
-            VerticalOptions="End"
-            Margin="0,0,0,18" />
-
-        <!-- App name -->
-        <Label
-            Grid.Row="1"
-            Text="Study Map"
-            FontSize="44"
-            FontAttributes="Bold"
-            CharacterSpacing="-1"
-            HorizontalTextAlignment="Center"
-            HorizontalOptions="Fill"
-            TextColor="#123B82"
-            Margin="0,0,0,8">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="Study" TextColor="#123B82" />
-                    <Span Text=" Map" TextColor="#1688F5" />
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-
-        <!-- Tagline -->
-        <Label
-            Grid.Row="2"
-            Text="From learning to career."
-            FontSize="20"
-            FontAttributes="Bold"
-            TextColor="#5E759C"
-            HorizontalTextAlignment="Center"
-            HorizontalOptions="Fill"
-            Margin="0,0,0,22" />
-
-        <!-- Plain text audience label -->
-        <Border
-            Grid.Row="3"
-            BackgroundColor="#F0F7FF"
-            StrokeThickness="0"
-            StrokeShape="RoundRectangle 28"
-            Padding="20,10"
-            HorizontalOptions="Center">
-            <Label
-                Text="For Indian Students 🇮🇳"
-                FontSize="18"
-                FontAttributes="Bold"
-                TextColor="#123B82"
-                HorizontalTextAlignment="Center" />
-        </Border>
-
-    </Grid>
+    <!-- One responsive image contains the complete StudyMap branding. -->
+    <Image
+        Source="splash_screen.svg"
+        Aspect="AspectFit"
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill" />
 
 </ContentPage>
