@@ -101,7 +101,7 @@
                                 CornerRadius="14" HeightRequest="48"
                                 Clicked="OnExploreCareersClicked" />
 
-                        <Button Text="Reset & Start Again"
+                        <Button Text="Reset &amp; Start Again"
                                 BackgroundColor="Transparent"
                                 TextColor="{StaticResource Accent}"
                                 FontFamily="OpenSansSemibold" FontSize="14"
