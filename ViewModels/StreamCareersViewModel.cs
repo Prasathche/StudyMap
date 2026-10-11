@@ -9,12 +9,12 @@ namespace StudyMap.ViewModels;
 
 public class StreamCareersViewModel : INotifyPropertyChanged
 {
-    // ── Dependencies ──────────────────────────────────────────────
+    private const int PageSize = 25;
+
     private readonly CareersService _careersService;
     private readonly FavoritesService _favoritesService;
     private readonly RecentlyViewedService _recentlyViewedService;
 
-    // ── Backing fields ────────────────────────────────────────────
     private string _selectedStreamName = string.Empty;
     private string _selectedStreamIcon = string.Empty;
     private string _selectedStreamDescription = string.Empty;
@@ -26,22 +26,21 @@ public class StreamCareersViewModel : INotifyPropertyChanged
     private string _activeFilter = "All";
     private bool _hasResults;
     private List<Career> _streamCareersRaw = [];
+    private List<Career> _filteredCareers = [];
+    private int _visibleCount;
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    // ── Observable collections ────────────────────────────────────
     public ObservableCollection<Career> StreamCareers { get; } = [];
     public ObservableCollection<Career> FavoriteCareers { get; } = [];
     public ObservableCollection<Career> RecentlyViewedCareers { get; } = [];
     public ObservableCollection<string> FilterChips { get; } = ["All", "Popular", "Favorite", "High Salary"];
 
-    // ── Commands ──────────────────────────────────────────────────
     public ICommand ToggleFavoriteCommand { get; }
     public ICommand FilterCommand { get; }
     public ICommand SearchCommand { get; }
     public ICommand ViewCareerDetailCommand { get; }
 
-    // ── Bindable properties ───────────────────────────────────────
     public string SelectedStreamName
     {
         get => _selectedStreamName;
@@ -121,23 +120,22 @@ public class StreamCareersViewModel : INotifyPropertyChanged
     }
 
     public bool HasNoResults => !_hasResults;
-
     public int CareerCount => StreamCareers.Count;
+    public int TotalMatchingCareers => _filteredCareers.Count;
+    public bool HasMoreCareers => _visibleCount < _filteredCareers.Count;
 
-    // ── Constructor ───────────────────────────────────────────────
     public StreamCareersViewModel()
     {
-        _careersService        = new CareersService();
-        _favoritesService      = new FavoritesService();
+        _careersService = new CareersService();
+        _favoritesService = new FavoritesService();
         _recentlyViewedService = new RecentlyViewedService();
 
-        ToggleFavoriteCommand    = new Command<Career>(OnToggleFavorite);
-        FilterCommand            = new Command<string>(chip => ActiveFilter = chip ?? "All");
-        SearchCommand            = new Command<string>(q => SearchQuery = q ?? string.Empty);
-        ViewCareerDetailCommand  = new Command<Career>(async c => await OnViewCareerDetail(c));
+        ToggleFavoriteCommand = new Command<Career>(OnToggleFavorite);
+        FilterCommand = new Command<string>(chip => ActiveFilter = chip ?? "All");
+        SearchCommand = new Command<string>(q => SearchQuery = q ?? string.Empty);
+        ViewCareerDetailCommand = new Command<Career>(async c => await OnViewCareerDetail(c));
     }
 
-    // ── Public API ────────────────────────────────────────────────
     public async Task LoadCareersForStreamAsync(string streamName)
     {
         if (string.IsNullOrWhiteSpace(streamName)) return;
@@ -148,17 +146,15 @@ public class StreamCareersViewModel : INotifyPropertyChanged
             ApplyStreamMetadata(streamName);
 
             var all = await _careersService.GetAllCareersAsync();
-
             _streamCareersRaw = all
                 .Where(c => c.Category.Equals(streamName, StringComparison.OrdinalIgnoreCase))
                 .ToList();
 
-            // Inject live favorite state
             foreach (var c in _streamCareersRaw)
                 c.IsFavorite = _favoritesService.IsFavorite(c.Id);
 
-            _activeFilter  = "All";
-            _searchQuery   = string.Empty;
+            _activeFilter = "All";
+            _searchQuery = string.Empty;
             OnPropertyChanged(nameof(ActiveFilter));
             OnPropertyChanged(nameof(SearchQuery));
 
@@ -167,12 +163,19 @@ public class StreamCareersViewModel : INotifyPropertyChanged
         }
         catch (Exception ex)
         {
-            System.Diagnostics.Debug.WriteLine($"[StreamCareersViewModel] {ex.Message}");
+            System.Diagnostics.Debug.WriteLine($"[StreamCareersViewModel] {ex}");
         }
         finally
         {
             IsLoading = false;
         }
+    }
+
+    public void LoadMoreCareers()
+    {
+        if (!HasMoreCareers) return;
+        _visibleCount = Math.Min(_visibleCount + PageSize, _filteredCareers.Count);
+        RefreshVisibleCollection();
     }
 
     public void RefreshFavoriteStates()
@@ -182,32 +185,31 @@ public class StreamCareersViewModel : INotifyPropertyChanged
         ApplyFilters();
     }
 
-    // ── Private helpers ───────────────────────────────────────────
     private void ApplyStreamMetadata(string streamName)
     {
         SelectedStreamName = streamName;
         switch (streamName.ToLowerInvariant())
         {
             case "science":
-                SelectedStreamIcon         = "🔬";
-                SelectedStreamDescription  = "Technology, Healthcare & Engineering";
-                SelectedStreamAccentColor  = "#2979FF";
+                SelectedStreamIcon = "🔬";
+                SelectedStreamDescription = "Technology, Healthcare & Engineering";
+                SelectedStreamAccentColor = "#2979FF";
                 SelectedStreamGradientStart = "#E3F2FD";
-                SelectedStreamGradientEnd   = "#BBDEFB";
+                SelectedStreamGradientEnd = "#BBDEFB";
                 break;
             case "commerce":
-                SelectedStreamIcon         = "📈";
-                SelectedStreamDescription  = "Business, Finance & Economics";
-                SelectedStreamAccentColor  = "#00897B";
+                SelectedStreamIcon = "📈";
+                SelectedStreamDescription = "Business, Finance & Economics";
+                SelectedStreamAccentColor = "#00897B";
                 SelectedStreamGradientStart = "#E8F5E9";
-                SelectedStreamGradientEnd   = "#C8E6C9";
+                SelectedStreamGradientEnd = "#C8E6C9";
                 break;
             case "arts":
-                SelectedStreamIcon         = "🎨";
-                SelectedStreamDescription  = "Design, Media & Social Sciences";
-                SelectedStreamAccentColor  = "#7B1FA2";
+                SelectedStreamIcon = "🎨";
+                SelectedStreamDescription = "Design, Media & Social Sciences";
+                SelectedStreamAccentColor = "#7B1FA2";
                 SelectedStreamGradientStart = "#F3E5F5";
-                SelectedStreamGradientEnd   = "#E1BEE7";
+                SelectedStreamGradientEnd = "#E1BEE7";
                 break;
         }
     }
@@ -216,10 +218,9 @@ public class StreamCareersViewModel : INotifyPropertyChanged
     {
         var query = _searchQuery.Trim();
 
-        var filtered = _streamCareersRaw
+        _filteredCareers = _streamCareersRaw
             .Where(c =>
             {
-                // Text search
                 if (!string.IsNullOrWhiteSpace(query))
                 {
                     var hit = c.Name.Contains(query, StringComparison.OrdinalIgnoreCase)
@@ -227,55 +228,55 @@ public class StreamCareersViewModel : INotifyPropertyChanged
                            || c.KeySkills.Any(s => s.Contains(query, StringComparison.OrdinalIgnoreCase));
                     if (!hit) return false;
                 }
-                // Chip filter
+
                 return _activeFilter switch
                 {
-                    "Popular"     => c.IsPopular,
-                    "Favorite"    => c.IsFavorite,
+                    "Popular" => c.IsPopular,
+                    "Favorite" => c.IsFavorite,
                     "High Salary" => c.FutureDemand.Contains("Very High", StringComparison.OrdinalIgnoreCase),
-                    _             => true
+                    _ => true
                 };
             })
             .OrderByDescending(c => c.IsPopular)
             .ThenBy(c => c.Name)
             .ToList();
 
+        _visibleCount = Math.Min(PageSize, _filteredCareers.Count);
+        RefreshVisibleCollection();
+    }
+
+    private void RefreshVisibleCollection()
+    {
         StreamCareers.Clear();
-        foreach (var c in filtered)
+        foreach (var c in _filteredCareers.Take(_visibleCount))
             StreamCareers.Add(c);
 
         HasResults = StreamCareers.Count > 0;
         OnPropertyChanged(nameof(CareerCount));
+        OnPropertyChanged(nameof(TotalMatchingCareers));
+        OnPropertyChanged(nameof(HasMoreCareers));
     }
 
     private async Task LoadSideCareersAsync(List<Career> all)
     {
-        // Favorites for this stream
         var favIds = _favoritesService.GetAll();
         FavoriteCareers.Clear();
         foreach (var c in all.Where(c => favIds.Contains(c.Id)))
             FavoriteCareers.Add(c);
 
-        // Recently viewed
         var recentIds = _recentlyViewedService.GetAll();
         RecentlyViewedCareers.Clear();
         foreach (var id in recentIds)
         {
             var c = all.FirstOrDefault(x => x.Id == id);
-            if (c is not null)
-                RecentlyViewedCareers.Add(c);
+            if (c is not null) RecentlyViewedCareers.Add(c);
         }
-
-        await Task.CompletedTask;
     }
 
     private void OnToggleFavorite(Career? career)
     {
         if (career is null) return;
-        var isNowFav = _favoritesService.Toggle(career.Id);
-        career.IsFavorite = isNowFav;
-
-        // Refresh chips that depend on favorite state
+        career.IsFavorite = _favoritesService.Toggle(career.Id);
         if (_activeFilter == "Favorite") ApplyFilters();
     }
 
@@ -283,8 +284,7 @@ public class StreamCareersViewModel : INotifyPropertyChanged
     {
         if (career is null) return;
         _recentlyViewedService.Record(career.Id);
-        await Shell.Current.GoToAsync(
-            $"{nameof(StudyMap.CareerDetailPage)}?careerId={Uri.EscapeDataString(career.Id)}");
+        await Shell.Current.GoToAsync($"{nameof(StudyMap.CareerDetailPage)}?careerId={Uri.EscapeDataString(career.Id)}");
     }
 
     protected void OnPropertyChanged([CallerMemberName] string? propertyName = null) =>
