@@ -39,27 +39,29 @@ public partial class AppShell : Shell
         if (page is null)
             return;
 
-        ApplyNavigationVisualsToTree(page);
+        ApplyNavigationVisualsToTree(page, parentIsBorder: false);
     }
 
-    private static void ApplyNavigationVisualsToTree(Microsoft.Maui.IVisualTreeElement element)
+    private static void ApplyNavigationVisualsToTree(
+        Microsoft.Maui.IVisualTreeElement element,
+        bool parentIsBorder)
     {
         foreach (var child in element.GetVisualChildren())
         {
-            // My Career: convert the existing home icon into the selected
-            // design — a compact pill containing the home icon and label.
+            // Home: replace the existing home glyph with the filled purple
+            // home icon shown in the reference, inside a clean white circle.
             if (child is Border homeBorder &&
                 homeBorder.Content is Label { Text: "⌂" })
             {
-                homeBorder.WidthRequest = 118;
-                homeBorder.HeightRequest = 46;
-                homeBorder.Padding = new Thickness(10, 0);
-                homeBorder.BackgroundColor = Color.FromArgb("#F8F5FF");
-                homeBorder.Stroke = Color.FromArgb("#E6D9FF");
-                homeBorder.StrokeThickness = 1;
+                homeBorder.WidthRequest = 44;
+                homeBorder.HeightRequest = 44;
+                homeBorder.Padding = 0;
+                homeBorder.BackgroundColor = Colors.White;
+                homeBorder.Stroke = Colors.Transparent;
+                homeBorder.StrokeThickness = 0;
                 homeBorder.StrokeShape = new RoundRectangle
                 {
-                    CornerRadius = new CornerRadius(23)
+                    CornerRadius = new CornerRadius(22)
                 };
                 homeBorder.Shadow = new Shadow
                 {
@@ -69,59 +71,70 @@ public partial class AppShell : Shell
                     Opacity = 1
                 };
 
-                var navigationGrid = new Grid
+                homeBorder.Content = new Image
                 {
-                    ColumnDefinitions = new ColumnDefinitionCollection
-                    {
-                        new ColumnDefinition(GridLength.Auto),
-                        new ColumnDefinition(GridLength.Star)
-                    },
-                    ColumnSpacing = 7,
+                    Source = "nav_home.svg",
+                    WidthRequest = 26,
+                    HeightRequest = 26,
+                    Aspect = Aspect.AspectFit,
+                    HorizontalOptions = LayoutOptions.Center,
                     VerticalOptions = LayoutOptions.Center
                 };
 
-                navigationGrid.Add(new Label
-                {
-                    Text = "⌂",
-                    FontSize = 22,
-                    FontAttributes = FontAttributes.Bold,
-                    TextColor = Color.FromArgb("#7C57F5"),
-                    HorizontalOptions = LayoutOptions.Center,
-                    VerticalOptions = LayoutOptions.Center
-                });
-
-                navigationGrid.Add(new Label
-                {
-                    Text = "My Career",
-                    FontFamily = "OpenSansSemibold",
-                    FontSize = 12,
-                    TextColor = Color.FromArgb("#4E3AA8"),
-                    VerticalOptions = LayoutOptions.Center,
-                    HorizontalOptions = LayoutOptions.Start
-                }, 1);
-
-                homeBorder.Content = navigationGrid;
                 SemanticProperties.SetDescription(homeBorder, "My Career");
             }
 
-            // Back buttons: make every arrow_back.png button a consistent,
-            // touch-friendly circular control. Existing Border wrappers are
-            // preserved, so pages that already have one keep their layout.
-            if (child is ImageButton backButton &&
-                backButton.Source is FileImageSource fileSource &&
-                string.Equals(fileSource.File, "arrow_back.png", StringComparison.OrdinalIgnoreCase))
+            // Back controls already wrapped in a Border should use that
+            // existing circle. Only the icon itself is replaced/styled.
+            if (child is Border backBorder && backBorder.Content is ImageButton backImageButton)
             {
-                backButton.WidthRequest = 44;
-                backButton.HeightRequest = 44;
-                backButton.Padding = 9;
-                backButton.BackgroundColor = Colors.White;
-                backButton.BorderColor = Color.FromArgb("#E6D9FF");
-                backButton.BorderWidth = 1;
-                backButton.CornerRadius = 22;
-                SemanticProperties.SetDescription(backButton, "Back");
+                backBorder.WidthRequest = 44;
+                backBorder.HeightRequest = 44;
+                backBorder.Padding = 0;
+                backBorder.BackgroundColor = Colors.White;
+                backBorder.Stroke = Colors.Transparent;
+                backBorder.StrokeThickness = 0;
+                backBorder.StrokeShape = new RoundRectangle
+                {
+                    CornerRadius = new CornerRadius(22)
+                };
+                backBorder.Shadow = new Shadow
+                {
+                    Brush = Color.FromArgb("#18000000"),
+                    Offset = new Point(0, 3),
+                    Radius = 8,
+                    Opacity = 1
+                };
+
+                backImageButton.Source = "nav_back.svg";
+                backImageButton.WidthRequest = 32;
+                backImageButton.HeightRequest = 32;
+                backImageButton.Padding = 5;
+                backImageButton.BackgroundColor = Colors.Transparent;
+                backImageButton.BorderWidth = 0;
+                backImageButton.CornerRadius = 0;
+                SemanticProperties.SetDescription(backBorder, "Back");
             }
 
-            ApplyNavigationVisualsToTree(child);
+            // Direct back buttons (without a Border wrapper) get the same
+            // 44px white circular treatment as the reference design.
+            if (child is ImageButton directBackButton &&
+                !parentIsBorder &&
+                directBackButton.Source is FileImageSource fileSource &&
+                string.Equals(fileSource.File, "arrow_back.png", StringComparison.OrdinalIgnoreCase))
+            {
+                directBackButton.Source = "nav_back.svg";
+                directBackButton.WidthRequest = 44;
+                directBackButton.HeightRequest = 44;
+                directBackButton.Padding = 5;
+                directBackButton.BackgroundColor = Colors.White;
+                directBackButton.BorderColor = Colors.Transparent;
+                directBackButton.BorderWidth = 0;
+                directBackButton.CornerRadius = 22;
+                SemanticProperties.SetDescription(directBackButton, "Back");
+            }
+
+            ApplyNavigationVisualsToTree(child, child is Border);
         }
     }
 
