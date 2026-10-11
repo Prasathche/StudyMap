@@ -161,9 +161,59 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
         };
     }
 
+    private static string GetRecommendedStream(Career career)
+    {
+        return career.Id switch
+        {
+            "career-doctor" => "Choose Science with PCB (Physics, Chemistry, Biology) in Class 11–12.",
+            "career-dentist" => "Choose Science with PCB (Physics, Chemistry, Biology) in Class 11–12.",
+            "career-nurse" => "Choose Science with PCB (Physics, Chemistry, Biology) in Class 11–12.",
+            "career-pharmacist" => "Choose Science with PCB or PCM (Physics, Chemistry, Biology/Mathematics) in Class 11–12.",
+            "career-software-engineer" => "Choose Science with PCM (Physics, Chemistry, Mathematics) in Class 11–12; Computer Science is recommended if available.",
+            "career-data-scientist" => "Choose Science with PCM (Physics, Chemistry, Mathematics) in Class 11–12.",
+            "career-civil-engineer" => "Choose Science with PCM (Physics, Chemistry, Mathematics) in Class 11–12.",
+            "career-architect" => "Choose Science with Physics and Mathematics in Class 11–12; PCM is the clearest route.",
+            "career-chartered-accountant" => "Choose Commerce in Class 11–12, preferably with Accountancy, Business Studies and Economics.",
+            "career-investment-banker" => "Choose Commerce in Class 11–12; Science with Mathematics is also a strong route.",
+            "career-business-analyst" => "Choose Commerce, Science or Arts/Humanities in Class 11–12; Mathematics and/or Computer Science are helpful.",
+            "career-financial-planner" => "Choose Commerce in Class 11–12, preferably with Accountancy, Economics and Mathematics.",
+            "career-marketing-manager" => "Choose Commerce in Class 11–12; Arts/Humanities is also a good option for communication-focused students.",
+            "career-human-resources-manager" => "Choose Commerce or Arts/Humanities in Class 11–12; Science is also eligible.",
+            "career-supply-chain-manager" => "Choose Commerce in Class 11–12; Science with Mathematics is also a strong option.",
+            "career-lawyer" => "Choose Arts/Humanities, Commerce or Science in Class 11–12; there is no mandatory stream for law.",
+            "career-psychologist" => "Choose Arts/Humanities in Class 11–12, preferably with Psychology if available; other streams are also eligible.",
+            "career-journalist" => "Choose Arts/Humanities in Class 11–12; Commerce or Science is also eligible.",
+            "career-graphic-designer" => "Choose Arts/Humanities in Class 11–12; Art/Design subjects are helpful if available.",
+            "career-ui-ux-designer" => "Choose Arts/Humanities in Class 11–12 if you want a design-focused route; Science or Commerce also work.",
+            "career-fashion-designer" => "Choose Arts/Humanities in Class 11–12; Art/Design subjects are helpful if available.",
+            "career-hotel-manager" => "Choose any stream in Class 11–12; Commerce or Arts/Humanities can be especially useful for hospitality.",
+            "career-interior-designer" => "Choose Arts/Humanities in Class 11–12; Science or Commerce are also eligible.",
+            "career-ias-officer" => "Choose any stream in Class 11–12; select the stream and subjects that best match your strengths and future degree plans.",
+            "career-ips-officer" => "Choose any stream in Class 11–12; focus on academics, fitness and general awareness.",
+            "career-defence-officer" => "Choose Science with PCM for NDA Navy/Air Force routes; for NDA Army, other streams are eligible, and graduation-based entries have different requirements.",
+            "career-pilot" => "Choose Science with PCM (Physics, Chemistry, Mathematics) in Class 11–12.",
+            "career-biotechnologist" => "Choose Science with PCB or PCM in Class 11–12; PCB is preferred for biology/life-science routes.",
+            "career-agricultural-scientist" => "Choose Science with PCB or PCM in Class 11–12; PCB is a natural fit for life-science and agriculture pathways.",
+            "career-physiotherapist" => "Choose Science with PCB (Physics, Chemistry, Biology) in Class 11–12.",
+            "career-radiologic-technologist" => "Choose Science with PCB (Physics, Chemistry, Biology) in Class 11–12.",
+            "career-occupational-therapist" => "Choose Science with PCB (Physics, Chemistry, Biology) in Class 11–12.",
+            "career-animator" => "Choose Arts/Humanities in Class 11–12 for a design-focused route; any stream is eligible and Computer Science can also help.",
+            "career-social-worker" => "Choose Arts/Humanities in Class 11–12; other streams are also eligible.",
+            "career-content-creator" => "Choose any stream in Class 11–12; Arts/Humanities or Commerce can be useful for communication and media skills.",
+            "pharmacist" => "Choose Science with PCB or PCM in Class 11–12.",
+            "police-officer" => "Choose any stream in Class 11–12; eligibility depends on the post, with graduation required for many SI/IPS routes.",
+            "advocate" => "Choose Arts/Humanities, Commerce or Science in Class 11–12; there is no mandatory stream for law.",
+            "entrepreneur" => "Choose any stream in Class 11–12; Commerce is useful for business fundamentals but is not mandatory.",
+            "civil-services-officer" => "Choose any stream in Class 11–12; select subjects that match your strengths and future graduation plans.",
+            "company-secretary" => "Choose Commerce in Class 11–12 for the strongest foundation; other streams are also eligible.",
+            _ => "Choose the Class 11–12 stream that best matches the career's subject requirements and your strengths."
+        };
+    }
+
     private List<CareerStage> GenerateRoadmapStages(Career career)
     {
         var stages = new List<CareerStage>();
+        var recommendedStream = GetRecommendedStream(career);
 
         stages.Add(new CareerStage
         {
@@ -183,16 +233,20 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
         stages.Add(new CareerStage
         {
             Title = "Choose Stream",
-            Description = career.RoadmapSteps.Count > 0 ? career.RoadmapSteps[0] : "Select appropriate subjects for your career.",
+            Description = recommendedStream,
             Icon = "🧪",
             AccentColor = "#16A085",
             Details = new List<string>
             {
-                $"Career Category: {career.Category}",
-                "Consult with mentors and educators",
-                "Evaluate your interests and strengths"
+                $"Class 11–12 recommendation: {recommendedStream}",
+                "Check the eligibility requirements of the colleges and entrance exams you plan to target.",
+                "Choose subjects you can perform well in while keeping the career pathway open."
             },
-            Tips = new List<string> { "Choose a stream aligned with your career goals.", "Connect with professionals in this field." }
+            Tips = new List<string>
+            {
+                "Confirm the subject combination before finalizing your Class 11 admission.",
+                "Discuss the choice with parents, teachers and a career counsellor if you are unsure."
+            }
         });
 
         stages.Add(new CareerStage
