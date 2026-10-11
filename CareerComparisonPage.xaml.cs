@@ -1,3 +1,4 @@
+using Microsoft.Maui.Controls.Shapes;
 using StudyMap.Models;
 using StudyMap.Services;
 
@@ -60,121 +61,148 @@ public partial class CareerComparisonPage : ContentPage
             return;
         }
 
-        BuildComparisonGrid(careers);
+        BuildComparison(careers);
     }
 
-    private void BuildComparisonGrid(List<Career> careers)
+    private void BuildComparison(List<Career> careers)
     {
-        ComparisonGrid.Children.Clear();
-        ComparisonGrid.RowDefinitions.Clear();
-        ComparisonGrid.ColumnDefinitions.Clear();
+        ComparisonContent.Children.Clear();
+        SelectedCareersLayout.Children.Clear();
 
-        // Column 0 = factor labels, one column per career after that.
-        ComparisonGrid.ColumnDefinitions.Add(new ColumnDefinition(new GridLength(130)));
-        foreach (var _ in careers)
+        // Show the selected careers as compact chips instead of making
+        // the comparison table wider than a phone screen.
+        foreach (var career in careers)
         {
-            ComparisonGrid.ColumnDefinitions.Add(new ColumnDefinition(new GridLength(130)));
-        }
-
-        var rowCount = FactorLabels.Length + 1; // + header row
-        for (var i = 0; i < rowCount; i++)
-        {
-            ComparisonGrid.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
-        }
-
-        // Header row: career icon + name.
-        AddCell(0, 0, string.Empty, isHeader: true);
-        for (var c = 0; c < careers.Count; c++)
-        {
-            var career = careers[c];
-            var headerStack = new VerticalStackLayout
+            var chip = new Border
             {
-                Spacing = 4,
-                HorizontalOptions = LayoutOptions.Center,
-                Children =
+                BackgroundColor = Color.FromArgb("#E4F3EF"),
+                StrokeThickness = 0,
+                Padding = new Thickness(10, 7),
+                Margin = new Thickness(0, 0, 8, 8),
+                StrokeShape = new RoundRectangle { CornerRadius = 12 },
+                Content = new Label
                 {
-                    new Label { Text = career.Icon, FontSize = 24, HorizontalOptions = LayoutOptions.Center },
-                    new Label
-                    {
-                        Text = career.Name,
-                        FontFamily = "OpenSansSemibold",
-                        FontSize = 12,
-                        TextColor = Color.FromArgb("#17203B"),
-                        HorizontalTextAlignment = TextAlignment.Center,
-                        LineBreakMode = LineBreakMode.WordWrap,
-                        MaxLines = 2
-                    }
+                    Text = $"{career.Icon}  {career.Name}",
+                    FontFamily = "OpenSansSemibold",
+                    FontSize = 12,
+                    TextColor = Color.FromArgb("#2E7D6B"),
+                    LineBreakMode = LineBreakMode.WordWrap
                 }
             };
-            Grid.SetRow(headerStack, 0);
-            Grid.SetColumn(headerStack, c + 1);
-            ComparisonGrid.Children.Add(headerStack);
+            SelectedCareersLayout.Children.Add(chip);
         }
 
-        // Factor rows.
-        for (var f = 0; f < FactorLabels.Length; f++)
+        // Each comparison factor is now a vertical card. This is much easier
+        // to read on a phone than the old horizontally scrolling table.
+        foreach (var factor in FactorLabels)
         {
-            var row = f + 1;
-            AddCell(row, 0, FactorLabels[f], isHeader: true);
-
-            for (var c = 0; c < careers.Count; c++)
+            var card = new Border
             {
-                var insight = _service.BuildInsight(careers[c]);
-                var value = FactorLabels[f] switch
+                BackgroundColor = Colors.White,
+                StrokeThickness = 0,
+                Padding = new Thickness(16),
+                StrokeShape = new RoundRectangle { CornerRadius = 18 },
+                Shadow = new Shadow
                 {
-                    "Earning Potential" => insight.SalaryRangeText,
-                    "Job Stability" => insight.StabilityLevel,
-                    "Future Demand" => insight.FutureDemandLevel,
-                    "Difficulty" => insight.DifficultyLevel,
-                    "Competition" => insight.CompetitionLevel,
-                    "Typical UG Duration" => insight.TypicalUGDuration,
-                    "Education Cost" => "Information unavailable",
-                    _ => "Information unavailable"
+                    Brush = Color.FromArgb("#08000000"),
+                    Offset = new Point(0, 3),
+                    Radius = 10,
+                    Opacity = 1
+                }
+            };
+
+            var content = new VerticalStackLayout { Spacing = 10 };
+            content.Children.Add(new Label
+            {
+                Text = factor,
+                FontFamily = "OpenSansSemibold",
+                FontSize = 15,
+                TextColor = Color.FromArgb("#17203B")
+            });
+
+            foreach (var career in careers)
+            {
+                var insight = _service.BuildInsight(career);
+                var value = GetFactorValue(factor, insight);
+
+                var row = new Grid
+                {
+                    ColumnDefinitions =
+                    {
+                        new ColumnDefinition(GridLength.Auto),
+                        new ColumnDefinition(GridLength.Star)
+                    },
+                    ColumnSpacing = 10,
+                    Padding = new Thickness(0, 8)
                 };
 
-                AddCell(row, c + 1, value, isHeader: false);
+                row.Add(new Label
+                {
+                    Text = $"{career.Icon} {career.Name}",
+                    FontFamily = "OpenSansSemibold",
+                    FontSize = 12,
+                    TextColor = Color.FromArgb("#5C6478"),
+                    VerticalOptions = LayoutOptions.Start,
+                    LineBreakMode = LineBreakMode.WordWrap
+                }, 0);
+
+                row.Add(new Label
+                {
+                    Text = value,
+                    FontSize = 13,
+                    TextColor = Color.FromArgb("#17203B"),
+                    HorizontalTextAlignment = TextAlignment.End,
+                    VerticalOptions = LayoutOptions.Start,
+                    LineBreakMode = LineBreakMode.WordWrap
+                }, 1);
+
+                content.Children.Add(row);
             }
+
+            card.Content = content;
+            ComparisonContent.Children.Add(card);
         }
     }
 
-    private void AddCell(int row, int column, string text, bool isHeader)
+    private static string GetFactorValue(string factor, CareerParentInsight insight) => factor switch
     {
-        var label = new Label
-        {
-            Text = text,
-            FontSize = isHeader ? 12 : 13,
-            FontFamily = isHeader ? "OpenSansSemibold" : "OpenSansRegular",
-            TextColor = isHeader ? Color.FromArgb("#17203B") : Color.FromArgb("#6F7691"),
-            LineBreakMode = LineBreakMode.WordWrap,
-            HorizontalTextAlignment = column == 0 ? TextAlignment.Start : TextAlignment.Center,
-            VerticalOptions = LayoutOptions.Center
-        };
+        "Earning Potential" => insight.SalaryRangeText,
+        "Job Stability" => insight.StabilityLevel,
+        "Future Demand" => insight.FutureDemandLevel,
+        "Difficulty" => insight.DifficultyLevel,
+        "Competition" => insight.CompetitionLevel,
+        "Typical UG Duration" => insight.TypicalUGDuration,
+        "Education Cost" => "Information unavailable",
+        _ => "Information unavailable"
+    };
 
-        var cell = new Border
+    private async Task GoBackToDecideAsync()
+    {
+        // CareerComparisonPage is pushed from ParentInsightsPage. Pop the
+        // current page so the user returns to the exact Decide tab state,
+        // rather than starting a new ParentInsightsPage instance.
+        if (Shell.Current.Navigation.NavigationStack.Count > 1)
         {
-            Padding = new Thickness(8, 12),
-            StrokeThickness = 0,
-            BackgroundColor = row % 2 == 0 ? Colors.Transparent : Color.FromArgb("#F7F8FC"),
-            Content = label
-        };
+            await Shell.Current.Navigation.PopAsync();
+            return;
+        }
 
-        Grid.SetRow(cell, row);
-        Grid.SetColumn(cell, column);
-        ComparisonGrid.Children.Add(cell);
+        // Fallback for an unusual direct launch of this page.
+        await Shell.Current.GoToAsync("//ParentInsightsPage");
     }
 
     private async void OnBackTapped(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//ParentInsightsPage");
+        await GoBackToDecideAsync();
     }
 
     private async void OnBackToDecideTapped(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//ParentInsightsPage");
+        await GoBackToDecideAsync();
     }
+
     private async void OnHomeTapped(object? sender, TappedEventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(MyCareerPage));
     }
-
 }
