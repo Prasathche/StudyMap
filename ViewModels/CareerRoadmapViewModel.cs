@@ -138,8 +138,6 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
                 AvailableRoadmaps.Add(roadmap);
             }
 
-            // Start with no career selected. The timeline appears only after
-            // the student chooses a career from the dropdown.
             SelectedRoadmap = null;
         }
         catch (Exception ex)
@@ -165,49 +163,153 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
     {
         return career.Id switch
         {
-            "career-doctor" => "Choose Science with PCB (Physics, Chemistry, Biology) in Class 11–12.",
-            "career-dentist" => "Choose Science with PCB (Physics, Chemistry, Biology) in Class 11–12.",
-            "career-nurse" => "Choose Science with PCB (Physics, Chemistry, Biology) in Class 11–12.",
-            "career-pharmacist" => "Choose Science with PCB or PCM (Physics, Chemistry, Biology/Mathematics) in Class 11–12.",
-            "career-software-engineer" => "Choose Science with PCM (Physics, Chemistry, Mathematics) in Class 11–12; Computer Science is recommended if available.",
-            "career-data-scientist" => "Choose Science with PCM (Physics, Chemistry, Mathematics) in Class 11–12.",
-            "career-civil-engineer" => "Choose Science with PCM (Physics, Chemistry, Mathematics) in Class 11–12.",
-            "career-architect" => "Choose Science with Physics and Mathematics in Class 11–12; PCM is the clearest route.",
-            "career-chartered-accountant" => "Choose Commerce in Class 11–12, preferably with Accountancy, Business Studies and Economics.",
-            "career-investment-banker" => "Choose Commerce in Class 11–12; Science with Mathematics is also a strong route.",
-            "career-business-analyst" => "Choose Commerce, Science or Arts/Humanities in Class 11–12; Mathematics and/or Computer Science are helpful.",
-            "career-financial-planner" => "Choose Commerce in Class 11–12, preferably with Accountancy, Economics and Mathematics.",
-            "career-marketing-manager" => "Choose Commerce in Class 11–12; Arts/Humanities is also a good option for communication-focused students.",
-            "career-human-resources-manager" => "Choose Commerce or Arts/Humanities in Class 11–12; Science is also eligible.",
-            "career-supply-chain-manager" => "Choose Commerce in Class 11–12; Science with Mathematics is also a strong option.",
-            "career-lawyer" => "Choose Arts/Humanities, Commerce or Science in Class 11–12; there is no mandatory stream for law.",
-            "career-psychologist" => "Choose Arts/Humanities in Class 11–12, preferably with Psychology if available; other streams are also eligible.",
-            "career-journalist" => "Choose Arts/Humanities in Class 11–12; Commerce or Science is also eligible.",
-            "career-graphic-designer" => "Choose Arts/Humanities in Class 11–12; Art/Design subjects are helpful if available.",
-            "career-ui-ux-designer" => "Choose Arts/Humanities in Class 11–12 if you want a design-focused route; Science or Commerce also work.",
-            "career-fashion-designer" => "Choose Arts/Humanities in Class 11–12; Art/Design subjects are helpful if available.",
-            "career-hotel-manager" => "Choose any stream in Class 11–12; Commerce or Arts/Humanities can be especially useful for hospitality.",
-            "career-interior-designer" => "Choose Arts/Humanities in Class 11–12; Science or Commerce are also eligible.",
-            "career-ias-officer" => "Choose any stream in Class 11–12; select the stream and subjects that best match your strengths and future degree plans.",
-            "career-ips-officer" => "Choose any stream in Class 11–12; focus on academics, fitness and general awareness.",
-            "career-defence-officer" => "Choose Science with PCM for NDA Navy/Air Force routes; for NDA Army, other streams are eligible, and graduation-based entries have different requirements.",
-            "career-pilot" => "Choose Science with PCM (Physics, Chemistry, Mathematics) in Class 11–12.",
-            "career-biotechnologist" => "Choose Science with PCB or PCM in Class 11–12; PCB is preferred for biology/life-science routes.",
-            "career-agricultural-scientist" => "Choose Science with PCB or PCM in Class 11–12; PCB is a natural fit for life-science and agriculture pathways.",
-            "career-physiotherapist" => "Choose Science with PCB (Physics, Chemistry, Biology) in Class 11–12.",
-            "career-radiologic-technologist" => "Choose Science with PCB (Physics, Chemistry, Biology) in Class 11–12.",
-            "career-occupational-therapist" => "Choose Science with PCB (Physics, Chemistry, Biology) in Class 11–12.",
-            "career-animator" => "Choose Arts/Humanities in Class 11–12 for a design-focused route; any stream is eligible and Computer Science can also help.",
-            "career-social-worker" => "Choose Arts/Humanities in Class 11–12; other streams are also eligible.",
-            "career-content-creator" => "Choose any stream in Class 11–12; Arts/Humanities or Commerce can be useful for communication and media skills.",
-            "pharmacist" => "Choose Science with PCB or PCM in Class 11–12.",
-            "police-officer" => "Choose any stream in Class 11–12; eligibility depends on the post, with graduation required for many SI/IPS routes.",
-            "advocate" => "Choose Arts/Humanities, Commerce or Science in Class 11–12; there is no mandatory stream for law.",
-            "entrepreneur" => "Choose any stream in Class 11–12; Commerce is useful for business fundamentals but is not mandatory.",
-            "civil-services-officer" => "Choose any stream in Class 11–12; select subjects that match your strengths and future graduation plans.",
-            "company-secretary" => "Choose Commerce in Class 11–12 for the strongest foundation; other streams are also eligible.",
-            _ => "Choose the Class 11–12 stream that best matches the career's subject requirements and your strengths."
+            "career-doctor" => "Science with PCB (Physics, Chemistry, Biology)",
+            "career-dentist" => "Science with PCB (Physics, Chemistry, Biology)",
+            "career-nurse" => "Science with PCB (Physics, Chemistry, Biology)",
+            "career-pharmacist" or "pharmacist" => "Science with PCB or PCM (Physics, Chemistry, Biology/Mathematics)",
+            "career-software-engineer" => "Science with PCM (Physics, Chemistry, Mathematics); Computer Science is recommended if available",
+            "career-data-scientist" => "Science with PCM (Physics, Chemistry, Mathematics)",
+            "career-civil-engineer" => "Science with PCM (Physics, Chemistry, Mathematics)",
+            "career-architect" => "Science with Physics and Mathematics; PCM is the clearest route",
+            "career-chartered-accountant" => "Commerce; Accountancy, Business Studies and Economics are recommended",
+            "career-investment-banker" => "Commerce; Science with Mathematics is also a strong route",
+            "career-business-analyst" => "Commerce, Science or Arts/Humanities; Mathematics and/or Computer Science are helpful",
+            "career-financial-planner" => "Commerce; Accountancy, Economics and Mathematics are recommended",
+            "career-marketing-manager" => "Commerce or Arts/Humanities; Science is also eligible",
+            "career-human-resources-manager" => "Commerce or Arts/Humanities; Science is also eligible",
+            "career-supply-chain-manager" => "Commerce; Science with Mathematics is also a strong route",
+            "career-lawyer" or "advocate" => "Arts/Humanities, Commerce or Science; there is no mandatory stream for law",
+            "career-psychologist" => "Arts/Humanities, preferably with Psychology if available",
+            "career-journalist" => "Arts/Humanities; Commerce or Science is also eligible",
+            "career-graphic-designer" => "Arts/Humanities; Art/Design subjects are helpful if available",
+            "career-ui-ux-designer" => "Arts/Humanities for a design-focused route; Science or Commerce also work",
+            "career-fashion-designer" => "Arts/Humanities; Art/Design subjects are helpful if available",
+            "career-hotel-manager" => "Any stream; Commerce or Arts/Humanities can be especially useful",
+            "career-interior-designer" => "Arts/Humanities; Science or Commerce are also eligible",
+            "career-ias-officer" or "career-civil-services-officer" => "Any stream; choose subjects that match your strengths and future degree plans",
+            "career-ips-officer" or "police-officer" => "Any stream; focus on academics, fitness and general awareness",
+            "career-defence-officer" => "Science with PCM for NDA Navy/Air Force; NDA Army also accepts other streams",
+            "career-pilot" => "Science with PCM (Physics, Chemistry, Mathematics)",
+            "career-biotechnologist" => "Science with PCB or PCM; PCB is preferred for biology/life-science routes",
+            "career-agricultural-scientist" => "Science with PCB or PCM; PCB is a natural fit for life-science routes",
+            "career-physiotherapist" => "Science with PCB (Physics, Chemistry, Biology)",
+            "career-radiologic-technologist" => "Science with PCB (Physics, Chemistry, Biology)",
+            "career-occupational-therapist" => "Science with PCB (Physics, Chemistry, Biology)",
+            "career-animator" => "Arts/Humanities for a design-focused route; any stream is eligible and Computer Science can help",
+            "career-social-worker" => "Arts/Humanities; other streams are also eligible",
+            "career-content-creator" => "Any stream; Arts/Humanities or Commerce can be useful for communication and media skills",
+            "entrepreneur" => "Any stream; Commerce is useful for business fundamentals but is not mandatory",
+            "company-secretary" => "Commerce for the strongest foundation; other streams are also eligible",
+            _ => GetFallbackStream(career)
         };
+    }
+
+    private static string GetFallbackStream(Career career)
+    {
+        var category = career.Category?.Trim().ToLowerInvariant() ?? string.Empty;
+        var preferred = career.PreferredSubjects.Count > 0
+            ? string.Join(", ", career.PreferredSubjects.Take(3))
+            : "subjects relevant to the career";
+
+        if (category.Contains("commerce") || category.Contains("finance") || category.Contains("business"))
+        {
+            return $"Commerce; focus on {preferred}";
+        }
+
+        if (category.Contains("design") || category.Contains("media") || category.Contains("arts"))
+        {
+            return $"Arts/Humanities; focus on {preferred}";
+        }
+
+        if (category.Contains("engineering") || category.Contains("technology") || category.Contains("science"))
+        {
+            return $"Science; choose the Mathematics/Science combination required by the target course, with {preferred} as useful subjects";
+        }
+
+        return "Any stream; choose subjects that match the career's college/entrance requirements and your strengths";
+    }
+
+    private static string GetClass11To12Subjects(Career career)
+    {
+        var stream = GetRecommendedStream(career);
+        var preferredSubjects = career.PreferredSubjects.Count > 0
+            ? string.Join(", ", career.PreferredSubjects.Take(4))
+            : string.Empty;
+
+        if (stream.Contains("PCB", StringComparison.OrdinalIgnoreCase))
+        {
+            return "Focus on Physics, Chemistry and Biology (PCB). Keep English strong and meet the subject eligibility of the target course.";
+        }
+
+        if (stream.Contains("PCM", StringComparison.OrdinalIgnoreCase))
+        {
+            return "Focus on Physics, Chemistry and Mathematics (PCM). Keep English strong; add Computer Science if it supports your target course.";
+        }
+
+        if (stream.StartsWith("Commerce", StringComparison.OrdinalIgnoreCase))
+        {
+            return string.IsNullOrWhiteSpace(preferredSubjects)
+                ? "Focus on Accountancy, Business Studies and Economics; take Mathematics when useful for your target degree."
+                : $"Focus on Accountancy, Business Studies and Economics; relevant subjects include {preferredSubjects}.";
+        }
+
+        if (stream.StartsWith("Arts/Humanities", StringComparison.OrdinalIgnoreCase))
+        {
+            return string.IsNullOrWhiteSpace(preferredSubjects)
+                ? "Focus on English and relevant Humanities/Social Science subjects; choose Psychology, Economics or other relevant subjects when available."
+                : $"Focus on English and relevant Humanities/Social Science subjects; useful subjects include {preferredSubjects}.";
+        }
+
+        return string.IsNullOrWhiteSpace(preferredSubjects)
+            ? "Choose Class 11–12 subjects that keep the target degree and entrance requirements open; strengthen English and the subjects most relevant to the career."
+            : $"Keep the pathway flexible and strengthen these relevant subjects: {preferredSubjects}. Check the target course eligibility before finalizing subjects.";
+    }
+
+    private static string GetEntranceExamGuidance(Career career)
+    {
+        if (career.EntranceExams.Count == 0)
+        {
+            return "Check the admission route for the target undergraduate course; some colleges admit through merit rather than a common entrance exam.";
+        }
+
+        return $"Prepare for {string.Join(", ", career.EntranceExams)}. Confirm the current eligibility, subject requirements and exam pattern before applying.";
+    }
+
+    private static string GetUndergraduateGuidance(Career career)
+    {
+        if (career.RoadmapSteps.Count > 2 && !string.IsNullOrWhiteSpace(career.RoadmapSteps[2]))
+        {
+            return career.RoadmapSteps[2];
+        }
+
+        return string.IsNullOrWhiteSpace(career.EducationPath)
+            ? $"Complete the appropriate undergraduate qualification for {career.Name}."
+            : career.EducationPath;
+    }
+
+    private static string GetAdvancedPathGuidance(Career career)
+    {
+        if (career.RoadmapSteps.Count > 3 && !string.IsNullOrWhiteSpace(career.RoadmapSteps[3]))
+        {
+            return career.RoadmapSteps[3];
+        }
+
+        return "Consider postgraduate study, specialization, certification or deeper industry experience based on your career goals.";
+    }
+
+    private static List<string> GetCareerLaunchDetails(Career career)
+    {
+        var details = new List<string>();
+
+        if (career.Workplaces.Count > 0)
+        {
+            details.Add($"Target workplaces: {string.Join(", ", career.Workplaces.Take(3))}");
+        }
+
+        details.Add($"Build the key skills employers expect: {string.Join(", ", career.KeySkills.Take(3))}.");
+        details.Add("Apply for relevant internships, trainee roles or entry-level opportunities and build practical evidence of your skills.");
+
+        return details;
     }
 
     private List<CareerStage> GenerateRoadmapStages(Career career)
@@ -218,14 +320,14 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
         stages.Add(new CareerStage
         {
             Title = "Class 10",
-            Description = $"Build a strong foundation and start exploring the subjects and stream needed for {career.Name}.",
+            Description = $"Build the foundation needed for {career.Name} and prepare for the right Class 11–12 subject combination.",
             Icon = "📘",
             AccentColor = "#4A61F8",
             Details = new List<string>
             {
-                $"Prepare for stream selection towards {career.Name}",
-                "Focus on core subjects based on the stream",
-                $"Entrance requirements: {(career.EntranceExams.Count > 0 ? career.EntranceExams[0] : "Check requirements")}"
+                $"Explore what {career.Name} involves and whether it matches your interests.",
+                $"Strengthen your current school subjects, especially: {(career.PreferredSubjects.Count > 0 ? string.Join(", ", career.PreferredSubjects.Take(3)) : "the subjects relevant to your pathway")}.",
+                "Research the Class 11 stream and subject eligibility for the courses you may target after Class 12."
             },
             Tips = career.KeySkills.Take(2).ToList()
         });
@@ -233,103 +335,101 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
         stages.Add(new CareerStage
         {
             Title = "Choose Stream",
-            Description = recommendedStream,
+            Description = $"For Class 11–12: choose {recommendedStream}.",
             Icon = "🧪",
             AccentColor = "#16A085",
             Details = new List<string>
             {
-                $"Class 11–12 recommendation: {recommendedStream}",
-                "Check the eligibility requirements of the colleges and entrance exams you plan to target.",
-                "Choose subjects you can perform well in while keeping the career pathway open."
+                $"Class 11–12 recommendation: {recommendedStream}.",
+                "Check the eligibility requirements of the colleges and entrance exams you plan to target before finalizing subjects.",
+                "Choose a combination you can perform well in while keeping the intended career pathway open."
             },
             Tips = new List<string>
             {
-                "Confirm the subject combination before finalizing your Class 11 admission.",
-                "Discuss the choice with parents, teachers and a career counsellor if you are unsure."
+                "Confirm the subject combination before Class 11 admission.",
+                "Discuss the choice with parents, teachers or a career counsellor if you are unsure."
             }
         });
 
         stages.Add(new CareerStage
         {
             Title = "Class 11–12 Subjects",
-            Description = career.RoadmapSteps.Count > 1 ? career.RoadmapSteps[1] : "Master core subjects for your pathway.",
+            Description = GetClass11To12Subjects(career),
             Icon = "📚",
             AccentColor = "#F39C12",
-            Details = career.RoadmapSteps.Count > 1
-                ? new List<string> { career.RoadmapSteps[1] }
-                : new List<string> { "Strengthen subject knowledge", "Practice examinations", "Build relevant skills" },
+            Details = new List<string>
+            {
+                GetClass11To12Subjects(career),
+                $"Build the academic foundation required for {career.Name} and keep your target course eligibility in mind.",
+                "Track the subject-specific requirements of the colleges and entrance exams you intend to apply for."
+            },
             Tips = career.KeySkills.Take(3).ToList()
         });
 
         stages.Add(new CareerStage
         {
             Title = "Entrance Exams",
-            Description = career.EntranceExams.Count > 0 ? $"Prepare for {string.Join(", ", career.EntranceExams)}" : "Prepare for competitive exams",
+            Description = GetEntranceExamGuidance(career),
             Icon = "📝",
             AccentColor = "#E74C3C",
             Details = new List<string>
             {
-                career.EntranceExams.Count > 0 ? $"Key exams: {string.Join(", ", career.EntranceExams)}" : "Check entrance requirements",
-                "Create a disciplined study schedule",
-                "Practice mock tests regularly"
+                career.EntranceExams.Count > 0 ? $"Key exams: {string.Join(", ", career.EntranceExams)}" : "No single common entrance exam is specified for this career.",
+                "Check the latest eligibility, subject requirements, application dates and syllabus before applying.",
+                "Use mock tests and a structured preparation plan where an entrance exam is required."
             },
             Tips = new List<string>
             {
-                "Master exam patterns and syllabus.",
-                "Take regular timed practice tests."
+                "Start exam preparation early when the target course has a competitive entrance process.",
+                "Do not assume every college uses the same admission route."
             }
         });
 
         stages.Add(new CareerStage
         {
             Title = "Undergraduate Degree",
-            Description = career.RoadmapSteps.Count > 2 ? career.RoadmapSteps[2] : "Complete your bachelor's degree from a reputable institution.",
+            Description = GetUndergraduateGuidance(career),
             Icon = "🎓",
             AccentColor = "#8E44AD",
             Details = new List<string>
             {
-                career.TopColleges.Count > 0 ? $"Top colleges: {string.Join(", ", career.TopColleges.Take(2))}" : "Attend top colleges",
-                "Practical and internship experience",
-                "Build projects relevant to the career"
+                career.TopColleges.Count > 0 ? $"Example colleges: {string.Join(", ", career.TopColleges.Take(3))}" : "Shortlist colleges that offer the required qualification.",
+                "Build practical experience through projects, labs, internships, clinical training or fieldwork as appropriate.",
+                "Choose electives and activities that strengthen the skills required for the career."
             },
             Tips = career.KeySkills.Take(3).ToList()
         });
 
         stages.Add(new CareerStage
         {
-            Title = "Specialization (Optional PG)",
-            Description = career.RoadmapSteps.Count > 3 ? career.RoadmapSteps[3] : "Consider advanced specialization or certification.",
+            Title = "Specialization / Advanced Path",
+            Description = GetAdvancedPathGuidance(career),
             Icon = "🎯",
             AccentColor = "#2C3E50",
             Details = new List<string>
             {
-                "Evaluate career growth opportunities",
-                "Explore master's or specialized certifications",
-                "Build expertise in your focus area"
+                "Decide whether you need postgraduate study, professional certification or deeper industry experience.",
+                "Choose specialization based on your interests, eligibility and the roles you want to pursue.",
+                $"Future demand for this career: {career.FutureDemand}."
             },
             Tips = new List<string>
             {
-                "Choose specialization based on market demand.",
-                $"Future demand: {career.FutureDemand}"
+                "Compare the cost, duration and career value of advanced study before enrolling.",
+                "Continue building practical expertise even when postgraduate study is optional."
             }
         });
 
         stages.Add(new CareerStage
         {
             Title = "Career Launch",
-            Description = "Begin your professional journey in the field.",
+            Description = $"Start your professional journey as a {career.Name} and build experience in the relevant work environment.",
             Icon = "🚀",
             AccentColor = "#27AE60",
-            Details = new List<string>
-            {
-                $"Salary range: {career.SalaryRangeIndia}",
-                career.Workplaces.Count > 0 ? $"Workplaces: {string.Join(", ", career.Workplaces.Take(2))}" : "Explore job opportunities",
-                "Apply for entry-level or internship positions"
-            },
+            Details = GetCareerLaunchDetails(career),
             Tips = new List<string>
             {
-                "Network with professionals in your field.",
-                "Keep upgrading your skills continuously."
+                "Build a strong resume or portfolio with measurable evidence of your skills.",
+                "Keep upgrading your skills as the role and industry evolve."
             }
         });
 
@@ -381,7 +481,6 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
 
     private void ClearCareer()
     {
-        // Clear the career and its timeline. The student can choose another career.
         SelectedRoadmap = null;
     }
 
