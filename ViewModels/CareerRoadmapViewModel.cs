@@ -168,7 +168,7 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
         stages.Add(new CareerStage
         {
             Title = "Class 10",
-            Description = career.RoadmapSteps.Count > 0 ? career.RoadmapSteps[0] : "Build foundation for your chosen career.",
+            Description = $"Build a strong foundation and start exploring the subjects and stream needed for {career.Name}.",
             Icon = "📘",
             AccentColor = "#4A61F8",
             Details = new List<string>
@@ -183,7 +183,7 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
         stages.Add(new CareerStage
         {
             Title = "Choose Stream",
-            Description = career.RoadmapSteps.Count > 1 ? career.RoadmapSteps[1] : "Select appropriate subjects for your career.",
+            Description = career.RoadmapSteps.Count > 0 ? career.RoadmapSteps[0] : "Select appropriate subjects for your career.",
             Icon = "🧪",
             AccentColor = "#16A085",
             Details = new List<string>
@@ -198,11 +198,11 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
         stages.Add(new CareerStage
         {
             Title = "Class 11–12 Subjects",
-            Description = career.RoadmapSteps.Count > 2 ? career.RoadmapSteps[2] : "Master core subjects for your pathway.",
+            Description = career.RoadmapSteps.Count > 1 ? career.RoadmapSteps[1] : "Master core subjects for your pathway.",
             Icon = "📚",
             AccentColor = "#F39C12",
-            Details = career.RoadmapSteps.Count > 2
-                ? career.RoadmapSteps.Skip(2).Take(3).ToList()
+            Details = career.RoadmapSteps.Count > 1
+                ? new List<string> { career.RoadmapSteps[1] }
                 : new List<string> { "Strengthen subject knowledge", "Practice examinations", "Build relevant skills" },
             Tips = career.KeySkills.Take(3).ToList()
         });
@@ -229,7 +229,7 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
         stages.Add(new CareerStage
         {
             Title = "Undergraduate Degree",
-            Description = "Complete your bachelor's degree from a reputable institution.",
+            Description = career.RoadmapSteps.Count > 2 ? career.RoadmapSteps[2] : "Complete your bachelor's degree from a reputable institution.",
             Icon = "🎓",
             AccentColor = "#8E44AD",
             Details = new List<string>
@@ -244,7 +244,7 @@ public class CareerRoadmapViewModel : INotifyPropertyChanged
         stages.Add(new CareerStage
         {
             Title = "Specialization (Optional PG)",
-            Description = "Consider advanced specialization or certification.",
+            Description = career.RoadmapSteps.Count > 3 ? career.RoadmapSteps[3] : "Consider advanced specialization or certification.",
             Icon = "🎯",
             AccentColor = "#2C3E50",
             Details = new List<string>
