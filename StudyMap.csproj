@@ -148,6 +148,10 @@ Decide → Parent Insights
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+
+		<!-- Android 12+ always has a system launch splash. Use a blank one so
+		     the branded SplashPage is the only visible StudyMap splash. -->
+		<EnableBlankMauiSplashScreen>true</EnableBlankMauiSplashScreen>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)' == 'Debug|net8.0-android'">
@@ -158,8 +162,7 @@ Decide → Parent Insights
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#F6F7FB" />
 
-		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#FFFFFF" BaseSize="512,512" />
+		<!-- Splash Screen is intentionally blank. The branded SplashPage is shown after Android startup. -->
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
