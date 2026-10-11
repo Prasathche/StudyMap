@@ -82,6 +82,23 @@ public partial class CareerQuestionPage : ContentPage
             HorizontalOptions = LayoutOptions.Fill
         };
 
+        var infoButton = new Button
+        {
+            Text = "i",
+            FontFamily = "OpenSansSemibold",
+            FontSize = 14,
+            TextColor = isSelected ? Colors.White : Color.FromArgb("#7C57F5"),
+            BackgroundColor = Colors.Transparent,
+            Padding = 0,
+            WidthRequest = 30,
+            HeightRequest = 30,
+            CornerRadius = 15,
+            VerticalOptions = LayoutOptions.Center,
+            HorizontalOptions = LayoutOptions.End
+        };
+
+        infoButton.Clicked += async (_, _) => await ShowOptionInfoAsync(option);
+
         var checkLabel = new Label
         {
             Text = "✓",
@@ -92,15 +109,27 @@ public partial class CareerQuestionPage : ContentPage
             VerticalOptions = LayoutOptions.Center
         };
 
-        var row = new HorizontalStackLayout
+        var row = new Grid
         {
-            Spacing = 14,
-            Children = { iconLabel, textLabel, checkLabel }
+            ColumnDefinitions = new ColumnDefinitionCollection
+            {
+                new ColumnDefinition(GridLength.Auto),
+                new ColumnDefinition(GridLength.Star),
+                new ColumnDefinition(GridLength.Auto),
+                new ColumnDefinition(GridLength.Auto)
+            },
+            ColumnSpacing = 10,
+            VerticalOptions = LayoutOptions.Center
         };
+
+        row.Add(iconLabel, 0);
+        row.Add(textLabel, 1);
+        row.Add(infoButton, 2);
+        row.Add(checkLabel, 3);
 
         var card = new Border
         {
-            Padding = new Thickness(16, 14),
+            Padding = new Thickness(16, 12),
             StrokeThickness = isSelected ? 0 : 1,
             Stroke = Color.FromArgb("#EEF0F6"),
             BackgroundColor = isSelected ? Color.FromArgb("#7C57F5") : Colors.White,
@@ -114,6 +143,15 @@ public partial class CareerQuestionPage : ContentPage
         });
 
         return card;
+    }
+
+    private async Task ShowOptionInfoAsync(CareerQuestionOption option)
+    {
+        var info = string.IsNullOrWhiteSpace(option.Info)
+            ? $"This option helps describe an interest, strength, preference, or career area. Selecting it helps StudyMap suggest relevant careers to explore."
+            : option.Info;
+
+        await DisplayAlert(option.Text, info, "Got it");
     }
 
     private void OnOptionTapped(CareerQuestionOption option)
