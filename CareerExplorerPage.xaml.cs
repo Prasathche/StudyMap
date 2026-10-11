@@ -7,7 +7,6 @@ namespace StudyMap;
 public partial class CareerExplorerPage : ContentPage
 {
     private const int PageSize = 30;
-
     private readonly CareersService _careersService = new();
     private readonly List<Career> _allCareers = [];
     private List<Career> _filteredCareers = [];
@@ -31,7 +30,6 @@ public partial class CareerExplorerPage : ContentPage
     {
         base.OnAppearing();
         if (_isLoaded) return;
-
         _isLoaded = true;
         await LoadCareersAsync();
     }
@@ -61,7 +59,6 @@ public partial class CareerExplorerPage : ContentPage
     private void OnCategoryClicked(object? sender, EventArgs e)
     {
         if (sender is not Button button) return;
-
         _selectedCategory = button.Text;
         ApplyCategoryStyles();
         ApplyFilters();
@@ -70,21 +67,13 @@ public partial class CareerExplorerPage : ContentPage
     private async void OnCareerTapped(object? sender, TappedEventArgs e)
     {
         if (e.Parameter is not Career career) return;
-
-        await Shell.Current.GoToAsync(
-            $"{nameof(CareerDetailPage)}?careerId={Uri.EscapeDataString(career.Id)}");
+        await Shell.Current.GoToAsync($"{nameof(CareerDetailPage)}?careerId={Uri.EscapeDataString(career.Id)}");
     }
 
     private async void OnHomeTapped(object? sender, TappedEventArgs e)
     {
-        try
-        {
-            await Shell.Current.GoToAsync(nameof(MyCareerPage));
-        }
-        catch (Exception ex)
-        {
-            await DisplayAlert("Navigation Error", ex.ToString(), "OK");
-        }
+        try { await Shell.Current.GoToAsync(nameof(MyCareerPage)); }
+        catch (Exception ex) { await DisplayAlert("Navigation Error", ex.ToString(), "OK"); }
     }
 
     private async void OnMyCareerTapped(object? sender, TappedEventArgs e)
@@ -157,12 +146,11 @@ public partial class CareerExplorerPage : ContentPage
         _loadMoreButton.IsVisible = _visibleCount < _filteredCareers.Count;
         _loadMoreButton.Text = $"Load more careers ({Math.Max(0, _filteredCareers.Count - _visibleCount)} remaining)";
 
-        var footer = new VerticalStackLayout
+        CareerCollectionView.Footer = new VerticalStackLayout
         {
             Children = { _loadMoreButton },
             HorizontalOptions = LayoutOptions.Fill
         };
-        ((CollectionView)FindByName("FilteredCareersCollectionView"))?.ToString();
     }
 
     private void OnLoadMoreClicked(object? sender, EventArgs e)
