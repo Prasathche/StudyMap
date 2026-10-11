@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 using System.Text.Json;
 using StudyMap.Models;
 using StudyMap.Services;
@@ -50,6 +50,7 @@ public partial class CareerDetailPage : ContentPage
         {
             UpdateHeroUI(_vm.Career);
             UpdateFavoriteButton();
+            BuildInternationalOpportunity(_vm.Career);
             BuildSkillChips(_vm.Career.KeySkills);
             BuildExamChips(_vm.Career.EntranceExams);
             BuildBulletList(SalaryInsightsLayout, _vm.Career.SalaryInsights, "#B85C26", "#FFF2E7");
@@ -93,6 +94,129 @@ public partial class CareerDetailPage : ContentPage
                 HeroGradB.Color = Color.FromArgb("#E1BEE7");
                 break;
         }
+    }
+
+    private void BuildInternationalOpportunity(Career career)
+    {
+        var scrollView = FindScrollView(Content);
+        if (scrollView?.Content is not VerticalStackLayout body)
+            return;
+
+        // Keep the section immediately after "About This Career".
+        for (var i = body.Children.Count - 1; i >= 0; i--)
+        {
+            if (body.Children[i] is Border border && border.ClassId == "InternationalOpportunity")
+                body.Children.RemoveAt(i);
+        }
+
+        var (level, summary) = GetInternationalOpportunity(career);
+
+        var levelLabel = new Label
+        {
+            Text = level,
+            FontFamily = "OpenSansSemibold",
+            FontSize = 15,
+            TextColor = Color.FromArgb("#2E7D32")
+        };
+
+        var summaryLabel = new Label
+        {
+            Text = summary,
+            FontSize = 14,
+            TextColor = Color.FromArgb("#7D849A"),
+            LineBreakMode = LineBreakMode.WordWrap,
+            HorizontalOptions = LayoutOptions.Fill
+        };
+
+        var content = new VerticalStackLayout
+        {
+            Spacing = 8,
+            Children =
+            {
+                new Label
+                {
+                    Text = "🌍 International Opportunity",
+                    FontFamily = "OpenSansSemibold",
+                    FontSize = 17,
+                    TextColor = Color.FromArgb("#17203B")
+                },
+                levelLabel,
+                summaryLabel
+            }
+        };
+
+        var card = new Border
+        {
+            ClassId = "InternationalOpportunity",
+            StrokeThickness = 0,
+            BackgroundColor = Colors.White,
+            Padding = 20,
+            Content = content
+        };
+        card.StrokeShape = new Microsoft.Maui.Controls.Shapes.RoundRectangle { CornerRadius = 20 };
+        card.Shadow = new Shadow
+        {
+            Brush = Color.FromArgb("#08000000"),
+            Offset = new Point(0, 4),
+            Radius = 12,
+            Opacity = 1
+        };
+
+        // Index 2 is the existing About This Career card.
+        body.Children.Insert(Math.Min(3, body.Children.Count), card);
+    }
+
+    private static (string Level, string Summary) GetInternationalOpportunity(Career career)
+    {
+        var text = $"{career.Name} {career.Category}".ToLowerInvariant();
+
+        if (text.Contains("software") || text.Contains("developer") || text.Contains("computer") ||
+            text.Contains("data scientist") || text.Contains("data analyst") || text.Contains("machine learning") ||
+            text.Contains("cyber") || text.Contains("cloud") || text.Contains("devops") || text.Contains("technology"))
+        {
+            return ("🟢 Very High", $"{career.Name} is one of the careers with strong international mobility.");
+        }
+
+        if (text.Contains("doctor") || text.Contains("physician") || text.Contains("dentist") ||
+            text.Contains("nurse") || text.Contains("pharmac") || text.Contains("physiotherapist") ||
+            text.Contains("medical") || text.Contains("health") || text.Contains("therapist"))
+        {
+            return ("🟢 High", $"{career.Name} has good international opportunities, although local licensing or registration may be required.");
+        }
+
+        if (text.Contains("acca") || text.Contains("accountant") || text.Contains("chartered") ||
+            text.Contains("finance") || text.Contains("investment") || text.Contains("financial") ||
+            text.Contains("business analyst") || text.Contains("supply chain") || text.Contains("marketing"))
+        {
+            return ("🟢 High", $"{career.Name} can offer strong opportunities with multinational companies and overseas employers.");
+        }
+
+        if (text.Contains("engineer") || text.Contains("engineering") || text.Contains("architect") ||
+            text.Contains("designer") || text.Contains("scientist") || text.Contains("research") ||
+            text.Contains("aviation") || text.Contains("pilot"))
+        {
+            return ("🟢 High", $"{career.Name} can have good international opportunities, depending on the country, qualification and experience required.");
+        }
+
+        return ("🟡 Good", $"{career.Name} can provide international opportunities as you build relevant qualifications, skills and experience.");
+    }
+
+    private static ScrollView? FindScrollView(Element? element)
+    {
+        if (element is ScrollView scrollView)
+            return scrollView;
+
+        if (element is IElementController controller)
+        {
+            foreach (var child in controller.LogicalChildren)
+            {
+                var result = FindScrollView(child as Element);
+                if (result is not null)
+                    return result;
+            }
+        }
+
+        return null;
     }
 
     private static string ExtractSalaryRange(Career career)
