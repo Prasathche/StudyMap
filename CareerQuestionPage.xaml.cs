@@ -84,15 +84,13 @@ public partial class CareerQuestionPage : ContentPage
 
         var infoButton = new Button
         {
-            Text = "i",
-            FontFamily = "OpenSansSemibold",
-            FontSize = 14,
+            Text = "ⓘ",
+            FontSize = 21,
             TextColor = isSelected ? Colors.White : Color.FromArgb("#7C57F5"),
             BackgroundColor = Colors.Transparent,
             Padding = 0,
-            WidthRequest = 30,
-            HeightRequest = 30,
-            CornerRadius = 15,
+            WidthRequest = 32,
+            HeightRequest = 32,
             VerticalOptions = LayoutOptions.Center,
             HorizontalOptions = LayoutOptions.End
         };
