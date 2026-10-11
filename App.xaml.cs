@@ -6,6 +6,9 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+		// Show the responsive branded launch screen first. The Android system
+		// splash remains intentionally minimal; SplashPage provides the full
+		// Study Map branding before the normal Shell starts.
+		MainPage = new SplashPage();
 	}
 }
