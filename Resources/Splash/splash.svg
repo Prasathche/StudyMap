@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
   <rect width="1200" height="1200" fill="#FFFFFF"/>
-
-  <!-- StudyMap graduation logo -->
-  <g transform="translate(600 340) scale(1.18)">
+  <g transform="translate(600 320) scale(1.48)">
     <circle cx="0" cy="0" r="185" fill="none" stroke="#1688F5" stroke-width="18"/>
     <path d="M-150 -70 L0 -140 L150 -70 L0 0 Z" fill="#50D6F0" stroke="#123B82" stroke-width="16" stroke-linejoin="round"/>
     <path d="M-105 -10 H105 V70 C105 145 55 180 0 180 C-55 180 -105 145 -105 70 Z" fill="#29C8EF" stroke="#123B82" stroke-width="16"/>
@@ -13,25 +11,17 @@
     <path d="M-55 20 Q0 50 55 20" fill="none" stroke="#8AE8F7" stroke-width="16" stroke-linecap="round" opacity=".7"/>
     <rect x="120" y="120" width="130" height="55" rx="27" transform="rotate(-45 120 120)" fill="#66E97D" stroke="#123B82" stroke-width="12"/>
   </g>
-
-  <!-- App name -->
-  <text x="600" y="730" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="162" font-weight="700">
+  <text x="600" y="745" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="190" font-weight="700">
     <tspan fill="#123B82">Study</tspan><tspan fill="#1688F5"> Map</tspan>
   </text>
-
-  <!-- Tagline -->
-  <text x="600" y="815" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="600" fill="#5E759C">
+  <text x="600" y="835" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="600" fill="#5E759C">
     From learning to career.
   </text>
-
-  <!-- Indian student audience label -->
-  <rect x="335" y="865" width="530" height="92" rx="46" fill="#F0F7FF"/>
-  <text x="555" y="925" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#123B82">
+  <rect x="285" y="885" width="630" height="105" rx="52" fill="#F0F7FF"/>
+  <text x="580" y="954" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" fill="#123B82">
     For Indian Students
   </text>
-
-  <!-- Minimal Indian flag mark -->
-  <g transform="translate(760 890)">
+  <g transform="translate(795 915) scale(1.15)">
     <rect x="0" y="0" width="66" height="44" rx="3" fill="#FFFFFF" stroke="#D7E2F0" stroke-width="2"/>
     <rect x="2" y="2" width="62" height="13" fill="#FF9933"/>
     <rect x="2" y="29" width="62" height="13" fill="#138808"/>
