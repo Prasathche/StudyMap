@@ -16,7 +16,6 @@ public partial class CareerQuestionPage : ContentPage
         InitializeComponent();
     }
 
-    // ── QueryProperty ────────────────────────────────────────────────
     public string Index
     {
         set
@@ -29,15 +28,12 @@ public partial class CareerQuestionPage : ContentPage
         }
     }
 
-    // ── Question loading ─────────────────────────────────────────────
     private void LoadQuestion()
     {
         var total = _recommendationService.Questions.Count;
         _question = _recommendationService.Questions.FirstOrDefault(q => q.Number == _index);
         if (_question is null)
-        {
             return;
-        }
 
         QuestionCounterLabel.Text = $"Question {_index} of {total}";
         ProgressBarControl.Progress = (double)_index / total;
@@ -48,9 +44,7 @@ public partial class CareerQuestionPage : ContentPage
         _selectedOptionIds.Clear();
         var existingAnswer = CareerDiscoverySessionService.Instance.GetAnswer(_index);
         if (existingAnswer is not null)
-        {
             _selectedOptionIds.AddRange(existingAnswer.SelectedOptionIds);
-        }
 
         BuildOptionCards();
         UpdateNextButtonState();
@@ -60,14 +54,10 @@ public partial class CareerQuestionPage : ContentPage
     {
         OptionsLayout.Children.Clear();
         if (_question is null)
-        {
             return;
-        }
 
         foreach (var option in _question.Options)
-        {
             OptionsLayout.Children.Add(CreateOptionCard(option));
-        }
     }
 
     private Border CreateOptionCard(CareerQuestionOption option)
@@ -129,15 +119,25 @@ public partial class CareerQuestionPage : ContentPage
     private void OnOptionTapped(CareerQuestionOption option)
     {
         if (_question is null)
-        {
             return;
-        }
+
+        var isNoneOption = option.Id.EndsWith("-none", StringComparison.OrdinalIgnoreCase);
 
         if (_question.AllowMultiple)
         {
-            if (!_selectedOptionIds.Remove(option.Id))
+            if (isNoneOption)
             {
+                // "None of the above" is mutually exclusive with all other choices.
+                _selectedOptionIds.Clear();
                 _selectedOptionIds.Add(option.Id);
+            }
+            else
+            {
+                // Selecting any real preference removes the neutral option.
+                _selectedOptionIds.RemoveAll(id => id.EndsWith("-none", StringComparison.OrdinalIgnoreCase));
+
+                if (!_selectedOptionIds.Remove(option.Id))
+                    _selectedOptionIds.Add(option.Id);
             }
         }
         else
@@ -157,20 +157,20 @@ public partial class CareerQuestionPage : ContentPage
         NextButton.Opacity = hasSelection ? 1 : 0.5;
     }
 
-    // ── Navigation ────────────────────────────────────────────────────
     private async void OnNextClicked(object? sender, EventArgs e)
     {
         if (_question is null || _selectedOptionIds.Count == 0)
-        {
             return;
-        }
 
         var selectedTexts = _question.Options
             .Where(o => _selectedOptionIds.Contains(o.Id))
             .Select(o => o.Text)
             .ToList();
 
-        CareerDiscoverySessionService.Instance.SetAnswer(_index, [.. _selectedOptionIds], selectedTexts);
+        CareerDiscoverySessionService.Instance.SetAnswer(
+            _index,
+            [.. _selectedOptionIds],
+            selectedTexts);
 
         var total = _recommendationService.Questions.Count;
         if (_index < total)
@@ -187,9 +187,9 @@ public partial class CareerQuestionPage : ContentPage
     {
         await Shell.Current.GoToAsync("..");
     }
+
     private async void OnHomeTapped(object? sender, TappedEventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(MyCareerPage));
     }
-
 }
