@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <rect width="512" height="512" fill="#FFFFFF"/>
-  <g transform="translate(256 235)">
-    <circle cx="0" cy="0" r="145" fill="none" stroke="#1688F5" stroke-width="15"/>
-    <path d="M-118 -55 L0 -110 L118 -55 L0 0 Z" fill="#50D6F0" stroke="#123B82" stroke-width="13" stroke-linejoin="round"/>
-    <path d="M-82 -8 H82 V55 C82 114 43 140 0 140 C-43 140 -82 114 -82 55 Z" fill="#29C8EF" stroke="#123B82" stroke-width="13"/>
-    <path d="M82 -55 V55" stroke="#123B82" stroke-width="10"/>
-    <circle cx="82" cy="10" r="8" fill="#123B82"/>
-    <path d="M82 21 V58 M82 58 l-15 27 h30 Z" fill="none" stroke="#123B82" stroke-width="7" stroke-linejoin="round"/>
-    <path d="M-43 16 Q0 39 43 16" fill="none" stroke="#8AE8F7" stroke-width="13" stroke-linecap="round" opacity=".7"/>
-    <rect x="95" y="94" width="105" height="45" rx="22" transform="rotate(-45 95 94)" fill="#66E97D" stroke="#123B82" stroke-width="10"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 0 800 320">
+  <rect width="800" height="320" fill="#FFFFFF"/>
+
+  <!-- StudyMap graduation mark -->
+  <g transform="translate(40 40) scale(.47)">
+    <circle cx="256" cy="235" r="145" fill="none" stroke="#1688F5" stroke-width="15"/>
+    <path d="M138 180 L256 125 L374 180 L256 235 Z" fill="#50D6F0" stroke="#123B82" stroke-width="13" stroke-linejoin="round"/>
+    <path d="M174 227 H338 V290 C338 349 299 375 256 375 C213 375 174 349 174 290 Z" fill="#29C8EF" stroke="#123B82" stroke-width="13"/>
+    <path d="M338 180 V290" stroke="#123B82" stroke-width="10"/>
+    <circle cx="338" cy="245" r="8" fill="#123B82"/>
+    <path d="M338 256 V293 M338 293 l-15 27 h30 Z" fill="none" stroke="#123B82" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M213 251 Q256 274 299 251" fill="none" stroke="#8AE8F7" stroke-width="13" stroke-linecap="round" opacity=".7"/>
+    <rect x="351" y="329" width="105" height="45" rx="22" transform="rotate(-45 351 329)" fill="#66E97D" stroke="#123B82" stroke-width="10"/>
   </g>
+
+  <!-- App name: deliberately horizontal so Android 12+ keeps the branding visible. -->
+  <text x="300" y="172" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="700">
+    <tspan fill="#123B82">Study</tspan><tspan fill="#1688F5"> Map</tspan>
+  </text>
+  <text x="303" y="218" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="600" fill="#5E759C">From learning to career.</text>
 </svg>
