@@ -74,100 +74,176 @@ public partial class CareerExplorerPage : ContentPage
 		ApplyCategoryStyles();
 		ApplyFilters();
 	}
-private async void OnCareerTapped(object? sender, TappedEventArgs e)
-{
-    if (e.Parameter is not Career career)
-    {
-        return;
-    }
 
-    var route =
-        $"{nameof(CareerDetailPage)}" +
-        $"?careerId={Uri.EscapeDataString(career.Id)}";
+	private async void OnCareerTapped(object? sender, TappedEventArgs e)
+	{
+		if (e.Parameter is not Career career)
+		{
+			return;
+		}
 
-    await Shell.Current.GoToAsync(route);
-}
+		var route =
+			$"{nameof(CareerDetailPage)}" +
+			$"?careerId={Uri.EscapeDataString(career.Id)}";
 
+		await Shell.Current.GoToAsync(route);
+	}
 
-	
-private async void OnHomeTapped(object? sender, TappedEventArgs e)
-{
-    try
-    {
-        await Shell.Current.GoToAsync(nameof(MyCareerPage));
-    }
-    catch (Exception ex)
-    {
-        await DisplayAlert(
-            "Navigation Error",
-            ex.ToString(),
-            "OK");
-    }
-}
+	private async void OnHomeTapped(object? sender, TappedEventArgs e)
+	{
+		try
+		{
+			await Shell.Current.GoToAsync(nameof(MyCareerPage));
+		}
+		catch (Exception ex)
+		{
+			await DisplayAlert(
+				"Navigation Error",
+				ex.ToString(),
+				"OK");
+		}
+	}
+
 	private async void OnMyCareerTapped(object? sender, TappedEventArgs e)
 	{
 		await Shell.Current.GoToAsync(nameof(MyCareerPage));
 	}
+
 	private void ApplyFilters()
-{
-    var filtered = _allCareers
-        .Where(career =>
-            (_selectedCategory == "All" ||
-             career.Category.Equals(
-                 _selectedCategory,
-                 StringComparison.OrdinalIgnoreCase))
-            &&
-            (string.IsNullOrWhiteSpace(_searchText) ||
-             career.Name.Contains(
-                 _searchText,
-                 StringComparison.OrdinalIgnoreCase) ||
-             career.Description.Contains(
-                 _searchText,
-                 StringComparison.OrdinalIgnoreCase) ||
-             career.Category.Contains(
-                 _searchText,
-                 StringComparison.OrdinalIgnoreCase) ||
-             career.SalaryRangeIndia.Contains(
-                 _searchText,
-                 StringComparison.OrdinalIgnoreCase) ||
-             career.FutureDemand.Contains(
-                 _searchText,
-                 StringComparison.OrdinalIgnoreCase) ||
-             career.EducationPath.Contains(
-                 _searchText,
-                 StringComparison.OrdinalIgnoreCase) ||
-             career.KeySkills.Any(skill =>
-                 skill.Contains(
-                     _searchText,
-                     StringComparison.OrdinalIgnoreCase)) ||
-             career.EntranceExams.Any(exam =>
-                 exam.Contains(
-                     _searchText,
-                     StringComparison.OrdinalIgnoreCase)) ||
-					 career.SearchAliases.Any(alias => alias.Contains(_searchText, StringComparison.OrdinalIgnoreCase)) ||
-             career.Workplaces.Any(workplace =>
-                 workplace.Contains(
-                     _searchText,
-                     StringComparison.OrdinalIgnoreCase))))
-        .OrderBy(career => career.Name)
-        .ToList();
+	{
+		var filtered = _allCareers
+			.Where(career =>
+				(_selectedCategory == "All" ||
+				 career.Category.Equals(
+					 _selectedCategory,
+					 StringComparison.OrdinalIgnoreCase))
+				&&
+				(string.IsNullOrWhiteSpace(_searchText) ||
+				 career.Name.Contains(
+					 _searchText,
+					 StringComparison.OrdinalIgnoreCase) ||
+				 career.Description.Contains(
+					 _searchText,
+					 StringComparison.OrdinalIgnoreCase) ||
+				 career.Category.Contains(
+					 _searchText,
+					 StringComparison.OrdinalIgnoreCase) ||
+				 career.SalaryRangeIndia.Contains(
+					 _searchText,
+					 StringComparison.OrdinalIgnoreCase) ||
+				 career.FutureDemand.Contains(
+					 _searchText,
+					 StringComparison.OrdinalIgnoreCase) ||
+				 career.EducationPath.Contains(
+					 _searchText,
+					 StringComparison.OrdinalIgnoreCase) ||
+				 career.KeySkills.Any(skill =>
+					 skill.Contains(
+						 _searchText,
+						 StringComparison.OrdinalIgnoreCase)) ||
+				 career.EntranceExams.Any(exam =>
+					 exam.Contains(
+						 _searchText,
+						 StringComparison.OrdinalIgnoreCase)) ||
+				 career.SearchAliases.Any(alias =>
+					 alias.Contains(
+						 _searchText,
+						 StringComparison.OrdinalIgnoreCase)) ||
+				 career.Workplaces.Any(workplace =>
+					 workplace.Contains(
+						 _searchText,
+						 StringComparison.OrdinalIgnoreCase))))
+			.ToList();
 
-    ResetCollection(FilteredCareers, filtered);
+		if (!string.IsNullOrWhiteSpace(_searchText))
+		{
+			filtered = filtered
+				.OrderBy(career => GetSearchPriority(career, _searchText))
+				.ThenBy(career => GetMatchingAliasLength(career, _searchText))
+				.ThenBy(career => career.Name)
+				.ToList();
+		}
+		else
+		{
+			filtered = filtered
+				.OrderBy(career => career.Name)
+				.ToList();
+		}
 
-    var popular = filtered
-        .Where(career => career.IsPopular)
-        .Take(6)
-        .ToList();
+		ResetCollection(FilteredCareers, filtered);
 
-    if (!popular.Any())
-    {
-        popular = filtered
-            .Take(6)
-            .ToList();
-    }
+		var popular = filtered
+			.Where(career => career.IsPopular)
+			.Take(6)
+			.ToList();
 
-    ResetCollection(PopularCareers, popular);
-}
+		if (!popular.Any())
+		{
+			popular = filtered
+				.Take(6)
+				.ToList();
+		}
+
+		ResetCollection(PopularCareers, popular);
+	}
+
+	private static int GetSearchPriority(Career career, string searchText)
+	{
+		// 0 = exact SearchAlias match
+		if (career.SearchAliases.Any(alias =>
+			alias.Equals(searchText, StringComparison.OrdinalIgnoreCase)))
+		{
+			return 0;
+		}
+
+		// 1 = SearchAlias starts with search text
+		if (career.SearchAliases.Any(alias =>
+			alias.StartsWith(searchText, StringComparison.OrdinalIgnoreCase)))
+		{
+			return 1;
+		}
+
+		// 2 = SearchAlias contains search text
+		if (career.SearchAliases.Any(alias =>
+			alias.Contains(searchText, StringComparison.OrdinalIgnoreCase)))
+		{
+			return 2;
+		}
+
+		// 3 = career name starts with search text
+		if (career.Name.StartsWith(
+			searchText,
+			StringComparison.OrdinalIgnoreCase))
+		{
+			return 3;
+		}
+
+		// 4 = career name contains search text
+		if (career.Name.Contains(
+			searchText,
+			StringComparison.OrdinalIgnoreCase))
+		{
+			return 4;
+		}
+
+		// 5 = description/category/skills/etc. match
+		return 5;
+	}
+
+	private static int GetMatchingAliasLength(
+		Career career,
+		string searchText)
+	{
+		var matchingAlias = career.SearchAliases
+			.Where(alias =>
+				alias.Contains(
+					searchText,
+					StringComparison.OrdinalIgnoreCase))
+			.OrderBy(alias => alias.Length)
+			.FirstOrDefault();
+
+		return matchingAlias?.Length ?? int.MaxValue;
+	}
 
 	private void ResetCollection(ObservableCollection<Career> collection, IReadOnlyCollection<Career> items)
 	{
