@@ -61,9 +61,46 @@ public partial class CareerInsightsPage : ContentPage
         ExamsSection.IsVisible = insight.EntranceExams.Count > 0;
         BuildChips(ExamsLayout, insight.EntranceExams, "#FFF2E7", "#B85C26");
 
+        BuildInternationalOpportunity(career);
         BuildCheckList(ConsiderationsLayout, insight.ParentConsiderations, "❓", "#2E7D6B", "#E4F3EF");
         BuildChips(SuitableForLayout, insight.SuitableFor, "#E4F3EF", "#2E7D6B");
         BuildCheckList(ThingsToConsiderLayout, insight.ThingsToConsider, "•", "#B85C26", "#FFF2E7");
+    }
+
+    private void BuildInternationalOpportunity(Career career)
+    {
+        var name = career.Name.ToLowerInvariant();
+
+        string level;
+        string description;
+
+        if (name.Contains("software") || name.Contains("developer") || name.Contains("data") ||
+            name.Contains("cyber") || name.Contains("cloud") || name.Contains("ai") ||
+            name.Contains("machine learning") || name.Contains("engineering"))
+        {
+            level = "🟢 Very High";
+            description = $"{career.Name} has strong international mobility, with opportunities across global companies and markets. Strong technical skills, relevant experience and communication skills can improve overseas opportunities.";
+        }
+        else if (name.Contains("account") || name.Contains("acca") || name.Contains("finance") ||
+                 name.Contains("audit") || name.Contains("econom") || name.Contains("business"))
+        {
+            level = "🟢 High";
+            description = $"{career.Name} can offer good international opportunities, especially with multinational companies and globally recognised qualifications or professional experience.";
+        }
+        else if (name.Contains("doctor") || name.Contains("physician") || name.Contains("nurse") ||
+                 name.Contains("pharmac") || name.Contains("physiotherap") || name.Contains("medical"))
+        {
+            level = "🟡 Good, but regulated";
+            description = $"{career.Name} has international demand, but working abroad usually requires country-specific licensing, registration and qualification recognition.";
+        }
+        else
+        {
+            level = "🟡 Varies by country";
+            description = $"{career.Name} may offer international opportunities depending on the country, employer, qualifications and relevant experience. Check local licensing or qualification requirements where applicable.";
+        }
+
+        InternationalOpportunityLevelLabel.Text = level;
+        InternationalOpportunityDescriptionLabel.Text = description;
     }
 
     private void BuildIndicatorCards(CareerParentInsight insight)
@@ -189,9 +226,6 @@ public partial class CareerInsightsPage : ContentPage
 
     private async void OnViewRoadmapClicked(object? sender, EventArgs e)
     {
-        // Pass the exact career currently displayed in Parent Insights,
-        // just like Career Details does. CareerRoadmapPage will use this
-        // id to select and render the matching career-specific roadmap.
         await Shell.Current.GoToAsync(
             $"{nameof(CareerRoadmapPage)}?careerId={Uri.EscapeDataString(_careerId)}");
     }
