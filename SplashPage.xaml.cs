@@ -19,14 +19,15 @@ public partial class SplashPage : ContentPage
         _started = true;
 
         // Keep the branded launch screen visible briefly, then hand control
-        // to the normal Shell-based app without any animation or loading UI.
+        // to the normal Shell-based app without animation or loading UI.
         await Task.Delay(900);
 
         if (Application.Current is null)
             return;
 
-        Application.Current.MainPage = new AppShell();
+        var shell = new AppShell();
+        Application.Current.MainPage = shell;
 
-        await Shell.Current.GoToAsync(nameof(MyCareerPage));
+        await shell.GoToAsync(nameof(MyCareerPage));
     }
 }
