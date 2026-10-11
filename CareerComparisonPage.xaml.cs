@@ -18,7 +18,7 @@ public partial class CareerComparisonPage : ContentPage
         "Difficulty",
         "Competition",
         "Typical UG Duration",
-        "Education Cost"
+        "Entrance Exams"
     ];
 
     public CareerComparisonPage()
@@ -26,7 +26,6 @@ public partial class CareerComparisonPage : ContentPage
         InitializeComponent();
     }
 
-    // ── QueryProperty ────────────────────────────────────────────────
     public string CareerIds
     {
         get => _careerIds;
@@ -41,18 +40,14 @@ public partial class CareerComparisonPage : ContentPage
     {
         var ids = careerIdsCsv.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         if (ids.Length == 0)
-        {
             return;
-        }
 
         var careers = new List<Career>();
         foreach (var id in ids)
         {
             var career = await _service.GetCareerByIdAsync(id);
             if (career is not null)
-            {
                 careers.Add(career);
-            }
         }
 
         if (careers.Count == 0)
@@ -69,8 +64,6 @@ public partial class CareerComparisonPage : ContentPage
         ComparisonContent.Children.Clear();
         SelectedCareersLayout.Children.Clear();
 
-        // Show the selected careers as compact chips instead of making
-        // the comparison table wider than a phone screen.
         foreach (var career in careers)
         {
             var chip = new Border
@@ -92,8 +85,6 @@ public partial class CareerComparisonPage : ContentPage
             SelectedCareersLayout.Children.Add(chip);
         }
 
-        // Each comparison factor is now a vertical card. This is much easier
-        // to read on a phone than the old horizontally scrolling table.
         foreach (var factor in FactorLabels)
         {
             var card = new Border
@@ -111,13 +102,14 @@ public partial class CareerComparisonPage : ContentPage
                 }
             };
 
-            var content = new VerticalStackLayout { Spacing = 10 };
+            var content = new VerticalStackLayout { Spacing = 6 };
             content.Children.Add(new Label
             {
                 Text = factor,
                 FontFamily = "OpenSansSemibold",
                 FontSize = 15,
-                TextColor = Color.FromArgb("#17203B")
+                TextColor = Color.FromArgb("#17203B"),
+                Margin = new Thickness(0, 0, 0, 4)
             });
 
             foreach (var career in careers)
@@ -129,11 +121,11 @@ public partial class CareerComparisonPage : ContentPage
                 {
                     ColumnDefinitions =
                     {
-                        new ColumnDefinition(GridLength.Auto),
+                        new ColumnDefinition(GridLength.Star),
                         new ColumnDefinition(GridLength.Star)
                     },
-                    ColumnSpacing = 10,
-                    Padding = new Thickness(0, 8)
+                    ColumnSpacing = 12,
+                    Padding = new Thickness(0, 7)
                 };
 
                 row.Add(new Label
@@ -172,22 +164,20 @@ public partial class CareerComparisonPage : ContentPage
         "Difficulty" => insight.DifficultyLevel,
         "Competition" => insight.CompetitionLevel,
         "Typical UG Duration" => insight.TypicalUGDuration,
-        "Education Cost" => "Information unavailable",
+        "Entrance Exams" => insight.EntranceExams.Count == 0
+            ? "No specific exam listed"
+            : string.Join(", ", insight.EntranceExams),
         _ => "Information unavailable"
     };
 
     private async Task GoBackToDecideAsync()
     {
-        // CareerComparisonPage is pushed from ParentInsightsPage. Pop the
-        // current page so the user returns to the exact Decide tab state,
-        // rather than starting a new ParentInsightsPage instance.
         if (Shell.Current.Navigation.NavigationStack.Count > 1)
         {
             await Shell.Current.Navigation.PopAsync();
             return;
         }
 
-        // Fallback for an unusual direct launch of this page.
         await Shell.Current.GoToAsync("//ParentInsightsPage");
     }
 
