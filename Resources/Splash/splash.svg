@@ -14,9 +14,20 @@
     <rect x="351" y="329" width="105" height="45" rx="22" transform="rotate(-45 351 329)" fill="#66E97D" stroke="#123B82" stroke-width="10"/>
   </g>
 
-  <!-- App name: deliberately horizontal so Android 12+ keeps the branding visible. -->
-  <text x="300" y="172" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="700">
+  <!-- App name -->
+  <text x="300" y="160" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700">
     <tspan fill="#123B82">Study</tspan><tspan fill="#1688F5"> Map</tspan>
   </text>
-  <text x="303" y="218" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="600" fill="#5E759C">From learning to career.</text>
+  <text x="303" y="203" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="600" fill="#5E759C">From learning to career.</text>
+
+  <!-- Indian student branding -->
+  <rect x="300" y="225" width="430" height="58" rx="29" fill="#F0F7FF"/>
+  <text x="325" y="263" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#123B82">For Indian Students</text>
+  <g transform="translate(665 235) scale(.52)">
+    <rect x="0" y="0" width="120" height="80" fill="#FFFFFF" stroke="#D6E5F5" stroke-width="2"/>
+    <rect x="0" y="0" width="120" height="26.67" fill="#FF9933"/>
+    <rect x="0" y="53.33" width="120" height="26.67" fill="#138808"/>
+    <circle cx="60" cy="40" r="12" fill="none" stroke="#000080" stroke-width="2"/>
+    <circle cx="60" cy="40" r="2.5" fill="#000080"/>
+  </g>
 </svg>
