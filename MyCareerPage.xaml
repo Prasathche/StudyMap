@@ -5,7 +5,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="StudyMap.MyCareerPage"
     Shell.NavBarIsVisible="False"
-    Shell.TabBarIsVisible="False"
     BackgroundColor="#F7F7FB"
     NavigationPage.HasNavigationBar="False">
 
