@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="80" viewBox="0 0 200 80">
+  <rect width="200" height="80" fill="none"/>
+  <text x="100" y="27" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#17203B">Study Map</text>
+  <text x="100" y="48" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="600" fill="#697386">from learning to career</text>
+  <text x="100" y="66" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="700" fill="#6D4AE8">For Indian Students</text>
+</svg>
