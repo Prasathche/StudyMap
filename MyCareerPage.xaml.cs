@@ -16,8 +16,6 @@ public partial class MyCareerPage : ContentPage
         InitializeComponent();
 
         CareerCountLabel.Text = "0";
-        
-       
     }
 
     protected override async void OnAppearing()
@@ -31,7 +29,6 @@ public partial class MyCareerPage : ContentPage
     {
         try
         {
-            // Load careers from careers.json
             await using var stream =
                 await FileSystem.OpenAppPackageFileAsync("careers.json");
 
@@ -44,21 +41,17 @@ public partial class MyCareerPage : ContentPage
                     })
                 ?? [];
 
-            // Get favourite career IDs
             var favoriteIds = _favoritesService.GetAll();
 
-            // Find matching career objects
             var savedCareers = _allCareers
                 .Where(career => favoriteIds.Contains(career.Id))
                 .ToList();
 
-            // Update saved career count and list.
             CareerCountLabel.Text = savedCareers.Count.ToString();
             SavedCareersCollection.ItemsSource = savedCareers;
             SavedCareersCollection.IsVisible = savedCareers.Count > 0;
             SavedCareersEmptyState.IsVisible = savedCareers.Count == 0;
 
-            // Load saved roadmap career IDs using the same careers data source.
             var savedRoadmapIds = _savedRoadmapsService.GetAll();
             var savedRoadmaps = _allCareers
                 .Where(career => savedRoadmapIds.Contains(career.Id))
@@ -85,6 +78,17 @@ public partial class MyCareerPage : ContentPage
 
         await Shell.Current.GoToAsync(
             $"{nameof(CareerDetailPage)}?careerId={Uri.EscapeDataString(career.Id)}");
+    }
+
+    private async void OnSavedRoadmapTapped(
+        object? sender,
+        TappedEventArgs e)
+    {
+        if (e.Parameter is not Career career)
+            return;
+
+        await Shell.Current.GoToAsync(
+            $"{nameof(CareerRoadmapPage)}?careerId={Uri.EscapeDataString(career.Id)}");
     }
 
     private async void OnBackClicked(
@@ -115,29 +119,31 @@ public partial class MyCareerPage : ContentPage
             RoadmapsTab,
             Color.FromArgb("#555555"));
     }
-private async void OnRemoveSavedCareerClicked(
-    object? sender,
-    EventArgs e)
-{
-    if (sender is not Button button)
-        return;
 
-    if (button.CommandParameter is not Career career)
-        return;
+    private async void OnRemoveSavedCareerClicked(
+        object? sender,
+        EventArgs e)
+    {
+        if (sender is not Button button)
+            return;
 
-    bool confirm = await DisplayAlert(
-        "Remove Career",
-        $"Remove \"{career.Name}\" from your saved careers?",
-        "Remove",
-        "Cancel");
+        if (button.CommandParameter is not Career career)
+            return;
 
-    if (!confirm)
-        return;
+        bool confirm = await DisplayAlert(
+            "Remove Career",
+            $"Remove \"{career.Name}\" from your saved careers?",
+            "Remove",
+            "Cancel");
 
-    _favoritesService.Remove(career.Id);
+        if (!confirm)
+            return;
 
-    await LoadSavedCareersAsync();
-}
+        _favoritesService.Remove(career.Id);
+
+        await LoadSavedCareersAsync();
+    }
+
     private async void OnRemoveSavedRoadmapClicked(
         object? sender,
         EventArgs e)
