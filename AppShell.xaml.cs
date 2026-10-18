@@ -29,8 +29,34 @@ public partial class AppShell : Shell
     {
         base.OnNavigated(args);
 
+        // My Career is a pushed page above the current Shell tab. Keep the
+        // bottom menu visible, but make all five tabs look unselected while
+        // My Career is displayed.
+        SetMyCareerTabVisualState(CurrentPage is MyCareerPage);
+
         // Apply the shared navigation treatment after each page is loaded.
         Dispatcher.Dispatch(() => ApplyNavigationVisuals(CurrentPage));
+    }
+
+    private void SetMyCareerTabVisualState(bool myCareerVisible)
+    {
+        if (myCareerVisible)
+        {
+            // The Shell still has an internal CurrentItem, but visually all
+            // tabs use the same unselected color. This makes it appear that
+            // no tab is selected while My Career is on screen.
+            Shell.SetTabBarForegroundColor(this, Color.FromArgb("#6F7180"));
+            Shell.SetTabBarTitleColor(this, Color.FromArgb("#6F7180"));
+            Shell.SetTabBarUnselectedColor(this, Color.FromArgb("#6F7180"));
+        }
+        else
+        {
+            // Restore the normal selected/unselected colors for the actual
+            // top-level Shell pages.
+            Shell.SetTabBarForegroundColor(this, Color.FromArgb("#7C57F5"));
+            Shell.SetTabBarTitleColor(this, Color.FromArgb("#7C57F5"));
+            Shell.SetTabBarUnselectedColor(this, Color.FromArgb("#6F7180"));
+        }
     }
 
     private static void ApplyNavigationVisuals(Page? page)
