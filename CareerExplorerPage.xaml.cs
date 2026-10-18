@@ -144,7 +144,7 @@ public partial class CareerExplorerPage : ContentPage
         _loadMoreButton.Clicked -= OnLoadMoreClicked;
         _loadMoreButton.Clicked += OnLoadMoreClicked;
         _loadMoreButton.IsVisible = _visibleCount < _filteredCareers.Count;
-        _loadMoreButton.Text = $"Load more careers ({Math.Max(0, _filteredCareers.Count - _visibleCount)} remaining)";
+        _loadMoreButton.Text = $"Load more careers\n{Math.Max(0, _filteredCareers.Count - _visibleCount)} remaining";
 
         CareerCollectionView.Footer = new VerticalStackLayout
         {
