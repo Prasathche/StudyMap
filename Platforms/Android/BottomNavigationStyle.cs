@@ -62,12 +62,13 @@ public class StudyMapBottomNavAppearanceTracker
         bool myCareerVisible =
             Shell.Current?.CurrentPage is MyCareerPage;
 
-        var selectedColor = myCareerVisible
-            ? global::Android.Graphics.Color.Rgb(111, 113, 128)
-            : global::Android.Graphics.Color.Rgb(124, 87, 245);
+        int selectedColor =
+            (myCareerVisible
+                ? global::Android.Graphics.Color.Rgb(111, 113, 128)
+                : global::Android.Graphics.Color.Rgb(124, 87, 245)).ToArgb();
 
-        var unselectedColor =
-            global::Android.Graphics.Color.Rgb(111, 113, 128);
+        int unselectedColor =
+            global::Android.Graphics.Color.Rgb(111, 113, 128).ToArgb();
 
         var states = new[]
         {
@@ -75,6 +76,8 @@ public class StudyMapBottomNavAppearanceTracker
             Array.Empty<int>()
         };
 
+        // ColorStateList expects Android ARGB integer values, not
+        // Android.Graphics.Color objects.
         var colors = new[]
         {
             selectedColor,
