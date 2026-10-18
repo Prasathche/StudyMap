@@ -4,8 +4,6 @@ namespace StudyMap;
 
 public partial class AppShell : Shell
 {
-    private bool _resettingTopLevelTab;
-
     public AppShell()
     {
         InitializeComponent();
@@ -27,28 +25,11 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(CareerComparisonPage), typeof(CareerComparisonPage));
     }
 
-    public async Task NavigateToExploreAsync()
-    {
-        // Explore is a ShellContent route. Absolute navigation resets the
-        // pushed My Career page and selects the Explore tab. Set the guard
-        // before navigating so OnNavigating does not intercept this request.
-        _resettingTopLevelTab = true;
-        try
-        {
-            await GoToAsync("//Explore");
-        }
-        finally
-        {
-            _resettingTopLevelTab = false;
-        }
-    }
-
     protected override void OnNavigated(ShellNavigatedEventArgs args)
     {
         base.OnNavigated(args);
 
         // Apply the shared navigation treatment after each page is loaded.
-        // This keeps the existing navigation handlers and routes unchanged.
         Dispatcher.Dispatch(() => ApplyNavigationVisuals(CurrentPage));
     }
 
@@ -161,41 +142,5 @@ public partial class AppShell : Shell
     {
         return button.Source is FileImageSource fileSource &&
                string.Equals(fileSource.File, "arrow_back.png", StringComparison.OrdinalIgnoreCase);
-    }
-
-    protected override async void OnNavigating(ShellNavigatingEventArgs args)
-    {
-        base.OnNavigating(args);
-
-        // MyCareerPage is a pushed route. When a bottom tab is selected
-        // while MyCareerPage is on top, remove the pushed page first so
-        // the requested top-level tab becomes visible.
-        if (_resettingTopLevelTab ||
-            args.Source is not (ShellNavigationSource.ShellItemChanged
-                or ShellNavigationSource.ShellSectionChanged
-                or ShellNavigationSource.ShellContentChanged) ||
-            !args.Target.Location.ToString().StartsWith("//", StringComparison.Ordinal))
-        {
-            return;
-        }
-
-        if (CurrentPage is not MyCareerPage)
-        {
-            return;
-        }
-
-        var target = args.Target.Location.ToString();
-        args.Cancel();
-
-        _resettingTopLevelTab = true;
-        try
-        {
-            await Navigation.PopAsync();
-            await GoToAsync(target);
-        }
-        finally
-        {
-            _resettingTopLevelTab = false;
-        }
     }
 }
