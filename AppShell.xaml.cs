@@ -27,6 +27,22 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(CareerComparisonPage), typeof(CareerComparisonPage));
     }
 
+    public async Task NavigateToExploreAsync()
+    {
+        // Explore is a ShellContent route. Absolute navigation resets the
+        // pushed My Career page and selects the Explore tab. Set the guard
+        // before navigating so OnNavigating does not intercept this request.
+        _resettingTopLevelTab = true;
+        try
+        {
+            await GoToAsync("//Explore");
+        }
+        finally
+        {
+            _resettingTopLevelTab = false;
+        }
+    }
+
     protected override void OnNavigated(ShellNavigatedEventArgs args)
     {
         base.OnNavigated(args);
