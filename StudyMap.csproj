@@ -26,8 +26,7 @@
 
 	<ItemGroup>
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#F6F7FB" />
-
-		<!-- Android 12+ supplies the native system splash using the launcher icon. -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#F6F7FB" BaseSize="456,456" />
 
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
