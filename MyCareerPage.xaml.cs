@@ -203,14 +203,9 @@ public partial class MyCareerPage : ContentPage
         object? sender,
         EventArgs e)
     {
-        // My Career is a pushed page. Pop it first, then select the
-        // top-level Explore tab. This avoids the AppShell top-level-tab
-        // interception that occurs while MyCareerPage is on the stack.
-        if (Shell.Current.CurrentPage is MyCareerPage)
+        if (Shell.Current is AppShell appShell)
         {
-            await Shell.Current.Navigation.PopAsync();
+            await appShell.NavigateToExploreAsync();
         }
-
-        await Shell.Current.GoToAsync("//Explore");
     }
 }
