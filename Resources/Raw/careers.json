@@ -3894,58 +3894,6 @@
     ]
   },
   {
-    "Id": "career-solutions-architect",
-    "Name": "Solutions Architect",
-    "Description": "Design technology solutions that connect business needs, software, infrastructure, and security.",
-    "Category": "Science",
-    "Icon": "🏛️",
-    "SalaryRangeIndia": "INR 10-30 LPA",
-    "FutureDemand": "Very High",
-    "EducationPath": "Study PCM and pursue Computer Science, IT, or related engineering followed by technology experience.",
-    "EntranceExams": [
-      "JEE Main",
-      "BITSAT",
-      "University admissions"
-    ],
-    "KeySkills": [
-      "System design",
-      "Cloud",
-      "Communication",
-      "Architecture"
-    ],
-    "Workplaces": [
-      "Technology companies",
-      "Consulting firms",
-      "IT services"
-    ],
-    "RoadmapSteps": [
-      "Choose PCM or computer subjects and build technical foundations.",
-      "Complete a computing or engineering degree.",
-      "Build software, cloud, and systems experience through projects and internships.",
-      "Progress from engineering or consulting into solution architecture and technical leadership."
-    ],
-    "TopColleges": [
-      "IIT Madras",
-      "IIIT Hyderabad",
-      "NIT Trichy"
-    ],
-    "CareerCategories": [
-      "Technology"
-    ],
-    "Interests": [
-      "Technology",
-      "Solving complex problems"
-    ],
-    "PreferredSubjects": [
-      "Mathematics",
-      "Computers"
-    ],
-    "WorkStyles": [
-      "With a small team",
-      "Office / Technology"
-    ]
-  },
-  {
     "Id": "career-network-engineer",
     "Name": "Network Engineer",
     "Description": "Design, configure, and maintain computer networks and connectivity.",
@@ -4150,58 +4098,6 @@
     ],
     "WorkStyles": [
       "Laboratory / Technology",
-      "With a small team"
-    ]
-  },
-  {
-    "Id": "career-qa-test-engineer",
-    "Name": "QA / Software Test Engineer",
-    "Description": "Ensure software quality through testing, automation, and defect prevention.",
-    "Category": "Science",
-    "Icon": "🧪",
-    "SalaryRangeIndia": "INR 4-15 LPA",
-    "FutureDemand": "High",
-    "EducationPath": "Study computer subjects and pursue Computer Science, IT, BCA, or related education.",
-    "EntranceExams": [
-      "JEE Main",
-      "CUET",
-      "University admissions"
-    ],
-    "KeySkills": [
-      "Testing",
-      "Automation",
-      "Debugging",
-      "Attention to detail"
-    ],
-    "Workplaces": [
-      "Software companies",
-      "IT services",
-      "Product teams"
-    ],
-    "RoadmapSteps": [
-      "Build logical thinking and basic programming skills.",
-      "Choose a computing education path.",
-      "Complete a degree and learn manual testing, APIs, and automation.",
-      "Start in QA and progress toward automation, performance, security, or quality leadership."
-    ],
-    "TopColleges": [
-      "IIT Madras",
-      "IIIT Hyderabad",
-      "VIT Vellore"
-    ],
-    "CareerCategories": [
-      "Technology"
-    ],
-    "Interests": [
-      "Solving puzzles",
-      "Attention to detail"
-    ],
-    "PreferredSubjects": [
-      "Computers",
-      "Mathematics"
-    ],
-    "WorkStyles": [
-      "Office / Technology",
       "With a small team"
     ]
   },
@@ -6469,59 +6365,6 @@
     ]
   },
   {
-    "Id": "career-project-manager",
-    "Name": "Project Manager",
-    "Description": "Plan and coordinate people, schedules, budgets, risks, and delivery for projects.",
-    "Category": "Commerce",
-    "Icon": "📅",
-    "SalaryRangeIndia": "INR 5-20 LPA",
-    "FutureDemand": "Very High",
-    "EducationPath": "Choose any suitable stream and build domain expertise through an undergraduate degree, projects, and professional experience.",
-    "EntranceExams": [
-      "CUET",
-      "University admissions"
-    ],
-    "KeySkills": [
-      "Planning",
-      "Leadership",
-      "Communication",
-      "Risk management"
-    ],
-    "Workplaces": [
-      "Technology",
-      "Construction",
-      "Consulting",
-      "Engineering"
-    ],
-    "RoadmapSteps": [
-      "Develop communication, organization, and problem-solving skills.",
-      "Choose an undergraduate field aligned to your target industry.",
-      "Lead college projects and internships.",
-      "Start in a functional role and grow into project coordination and project management."
-    ],
-    "TopColleges": [
-      "IIT Madras",
-      "IIM Indore",
-      "Christ University"
-    ],
-    "CareerCategories": [
-      "Business",
-      "Management"
-    ],
-    "Interests": [
-      "Leading teams",
-      "Solving problems"
-    ],
-    "PreferredSubjects": [
-      "English",
-      "Mathematics"
-    ],
-    "WorkStyles": [
-      "With a small team",
-      "Office / Corporate"
-    ]
-  },
-  {
     "Id": "career-entrepreneur",
     "Name": "Entrepreneur",
     "Description": "Create and grow a business by solving customer problems and managing risk.",
@@ -8786,6 +8629,391 @@
     "WorkStyles": [
       "With people",
       "Office / Technology"
+    ]
+  },
+  {
+    "Id": "career-cinematographer",
+    "Name": "Cinematographer",
+    "Description": "Create the visual look of films, series, advertisements, and video productions through camera, lighting, and composition.",
+    "Category": "Arts",
+    "Icon": "🎬",
+    "SalaryRangeIndia": "INR 4-18 LPA",
+    "FutureDemand": "High",
+    "EducationPath": "Any stream can lead to cinematography; develop camera, lighting, visual storytelling, and production skills through film or media education and practical projects.",
+    "EntranceExams": [
+      "University media admissions",
+      "Film school admissions"
+    ],
+    "KeySkills": [
+      "Cinematography",
+      "Camera operation",
+      "Lighting",
+      "Composition",
+      "Visual storytelling"
+    ],
+    "Workplaces": [
+      "Film production",
+      "Streaming platforms",
+      "Advertising",
+      "Production houses"
+    ],
+    "RoadmapSteps": [
+      "Build photography, visual observation, and storytelling skills.",
+      "Explore film, cinematography, or media education.",
+      "Gain practical experience with cameras, lighting, framing, and short-film projects.",
+      "Build a showreel and work as a camera or cinematography assistant before taking independent projects."
+    ],
+    "TopColleges": [
+      "FTII Pune",
+      "Satyajit Ray Film and Television Institute",
+      "Whistling Woods International"
+    ],
+    "CareerCategories": [
+      "Design & Media"
+    ],
+    "Interests": [
+      "Film and media",
+      "Photography",
+      "Storytelling"
+    ],
+    "PreferredSubjects": [
+      "Art & Design",
+      "English"
+    ],
+    "WorkStyles": [
+      "Creative Studio",
+      "With a small team"
+    ]
+  },
+  {
+    "Id": "career-video-editor",
+    "Name": "Video Editor",
+    "Description": "Turn raw video footage into engaging films, social media content, advertisements, and digital stories through editing, sound, and visual effects.",
+    "Category": "Arts",
+    "Icon": "🎞️",
+    "SalaryRangeIndia": "INR 3-12 LPA",
+    "FutureDemand": "High",
+    "EducationPath": "Any stream can lead to video editing; learn editing software, storytelling, sound, and visual techniques through courses and portfolio projects.",
+    "EntranceExams": [
+      "University media admissions",
+      "Film school admissions"
+    ],
+    "KeySkills": [
+      "Video editing",
+      "Storytelling",
+      "Sound editing",
+      "Motion graphics",
+      "Visual effects"
+    ],
+    "Workplaces": [
+      "Film studios",
+      "Advertising agencies",
+      "Digital media companies",
+      "Streaming and content teams",
+      "Freelance"
+    ],
+    "RoadmapSteps": [
+      "Develop storytelling and visual communication skills.",
+      "Learn professional editing software and basic sound and motion graphics.",
+      "Create a portfolio using short films, reels, advertisements, or digital content.",
+      "Gain internship or freelance experience and specialize in film, advertising, social media, or other video content."
+    ],
+    "TopColleges": [
+      "Whistling Woods International",
+      "FTII Pune",
+      "Srishti Manipal Institute"
+    ],
+    "CareerCategories": [
+      "Design & Media"
+    ],
+    "Interests": [
+      "Film and media",
+      "Creating videos",
+      "Storytelling"
+    ],
+    "PreferredSubjects": [
+      "Art & Design",
+      "English"
+    ],
+    "WorkStyles": [
+      "Creative Studio",
+      "Independently"
+    ]
+  },
+  {
+    "Id": "career-game-designer",
+    "Name": "Game Designer",
+    "Description": "Design gameplay, game mechanics, player experiences, stories, levels, and systems for video games.",
+    "Category": "Technology",
+    "Icon": "🎮",
+    "SalaryRangeIndia": "INR 4-18 LPA",
+    "FutureDemand": "High",
+    "EducationPath": "Any stream can lead to game design; develop game design, storytelling, visual, and basic technology skills through projects and relevant education.",
+    "EntranceExams": [
+      "University design admissions",
+      "Portfolio-based admissions"
+    ],
+    "KeySkills": [
+      "Game design",
+      "Storytelling",
+      "Level design",
+      "Game mechanics",
+      "User experience"
+    ],
+    "Workplaces": [
+      "Game studios",
+      "Technology companies",
+      "Indie game studios",
+      "Mobile game companies"
+    ],
+    "RoadmapSteps": [
+      "Explore games critically and learn how game mechanics and player experiences are designed.",
+      "Learn game engines and basic scripting along with design fundamentals.",
+      "Create small playable games and build a portfolio.",
+      "Gain internships or junior roles in game studios and specialize in gameplay, level design, narrative, or systems."
+    ],
+    "TopColleges": [
+      "NID Ahmedabad",
+      "Srishti Manipal Institute",
+      "MIT Institute of Design"
+    ],
+    "CareerCategories": [
+      "Design & Media",
+      "Technology"
+    ],
+    "Interests": [
+      "Gaming",
+      "Designing creative things",
+      "Technology"
+    ],
+    "PreferredSubjects": [
+      "Computers",
+      "Art & Design"
+    ],
+    "WorkStyles": [
+      "Creative Studio",
+      "With a small team"
+    ]
+  },
+  {
+    "Id": "career-3d-artist",
+    "Name": "3D Artist",
+    "Description": "Create 3D models, environments, characters, assets, and visual content for games, films, animation, advertising, and immersive experiences.",
+    "Category": "Arts",
+    "Icon": "🧊",
+    "SalaryRangeIndia": "INR 3-15 LPA",
+    "FutureDemand": "High",
+    "EducationPath": "Any stream can lead to 3D art; learn modelling, texturing, lighting, rendering, and animation through design or media education and portfolio projects.",
+    "EntranceExams": [
+      "University design admissions",
+      "NID DAT"
+    ],
+    "KeySkills": [
+      "3D modelling",
+      "Texturing",
+      "Lighting",
+      "Rendering",
+      "Digital art"
+    ],
+    "Workplaces": [
+      "Animation studios",
+      "VFX studios",
+      "Game studios",
+      "Advertising",
+      "Design studios"
+    ],
+    "RoadmapSteps": [
+      "Build drawing, visual observation, and digital-art skills.",
+      "Learn 3D software and fundamentals of modelling, texturing, lighting, and rendering.",
+      "Create a strong portfolio of characters, environments, products, or other 3D assets.",
+      "Gain internship or junior studio experience and specialize in games, VFX, animation, product visualization, or immersive media."
+    ],
+    "TopColleges": [
+      "NID Ahmedabad",
+      "Srishti Manipal Institute",
+      "Whistling Woods International"
+    ],
+    "CareerCategories": [
+      "Design & Media"
+    ],
+    "Interests": [
+      "Designing creative things",
+      "Film and media",
+      "Gaming"
+    ],
+    "PreferredSubjects": [
+      "Art & Design",
+      "Computers"
+    ],
+    "WorkStyles": [
+      "Creative Studio",
+      "With a small team"
+    ]
+  },
+  {
+    "Id": "career-advertising-professional",
+    "Name": "Advertising Professional",
+    "Description": "Develop creative campaigns, brand communication, and advertising ideas across digital, print, video, and other media.",
+    "Category": "Arts",
+    "Icon": "📢",
+    "SalaryRangeIndia": "INR 4-15 LPA",
+    "FutureDemand": "High",
+    "EducationPath": "Any stream can lead to advertising; develop communication, creative thinking, consumer understanding, and digital media skills through relevant education and projects.",
+    "EntranceExams": [
+      "CUET",
+      "University admissions"
+    ],
+    "KeySkills": [
+      "Creative thinking",
+      "Communication",
+      "Copywriting",
+      "Brand strategy",
+      "Consumer insights"
+    ],
+    "Workplaces": [
+      "Advertising agencies",
+      "Brand teams",
+      "Digital agencies",
+      "Media companies"
+    ],
+    "RoadmapSteps": [
+      "Build strong communication, observation, and creative thinking skills.",
+      "Study advertising, communication, marketing, media, or a related subject.",
+      "Create campaign concepts and a creative portfolio through college or personal projects.",
+      "Gain internships in agencies or brand teams and develop expertise in creative, strategy, accounts, or digital advertising."
+    ],
+    "TopColleges": [
+      "MICA Ahmedabad",
+      "IIMC New Delhi",
+      "Symbiosis Institute of Media and Communication"
+    ],
+    "CareerCategories": [
+      "Design & Media",
+      "Business"
+    ],
+    "Interests": [
+      "Creativity",
+      "Writing or communicating",
+      "Marketing"
+    ],
+    "PreferredSubjects": [
+      "English",
+      "Art & Design",
+      "Business Studies"
+    ],
+    "WorkStyles": [
+      "Creative Studio",
+      "With a small team"
+    ]
+  },
+  {
+    "Id": "career-copywriter",
+    "Name": "Copywriter",
+    "Description": "Write persuasive and engaging words for advertisements, brands, websites, social media, campaigns, and digital content.",
+    "Category": "Arts",
+    "Icon": "✍️",
+    "SalaryRangeIndia": "INR 3-12 LPA",
+    "FutureDemand": "High",
+    "EducationPath": "Any stream can lead to copywriting; develop strong language, storytelling, research, and creative writing skills through practice and portfolio work.",
+    "EntranceExams": [
+      "CUET",
+      "University admissions"
+    ],
+    "KeySkills": [
+      "Writing",
+      "Storytelling",
+      "Creative thinking",
+      "Research",
+      "Brand communication"
+    ],
+    "Workplaces": [
+      "Advertising agencies",
+      "Brand teams",
+      "Digital agencies",
+      "Media companies",
+      "Freelance"
+    ],
+    "RoadmapSteps": [
+      "Build strong reading, writing, and observation skills.",
+      "Study communication, advertising, journalism, English, marketing, or a related subject.",
+      "Create sample advertisements, headlines, scripts, social posts, and campaign concepts for a portfolio.",
+      "Gain internships or freelance experience and specialize in advertising, digital content, branding, or social media."
+    ],
+    "TopColleges": [
+      "MICA Ahmedabad",
+      "IIMC New Delhi",
+      "Symbiosis Institute of Media and Communication"
+    ],
+    "CareerCategories": [
+      "Design & Media"
+    ],
+    "Interests": [
+      "Writing or communicating",
+      "Creativity",
+      "Storytelling"
+    ],
+    "PreferredSubjects": [
+      "English",
+      "Languages"
+    ],
+    "WorkStyles": [
+      "Creative Studio",
+      "Independently"
+    ]
+  },
+  {
+    "Id": "career-music-producer",
+    "Name": "Music Producer",
+    "Description": "Create, arrange, record, edit, and produce music for films, streaming, advertising, games, artists, and other media.",
+    "Category": "Arts",
+    "Icon": "🎵",
+    "SalaryRangeIndia": "Variable",
+    "FutureDemand": "High",
+    "EducationPath": "Any stream can lead to music production; develop music, audio, software, and production skills through formal study, practice, and portfolio projects.",
+    "EntranceExams": [
+      "University music admissions",
+      "Music institute auditions"
+    ],
+    "KeySkills": [
+      "Music production",
+      "Audio engineering",
+      "Arrangement",
+      "Sound design",
+      "Creativity"
+    ],
+    "Workplaces": [
+      "Recording studios",
+      "Film and media production",
+      "Music companies",
+      "Advertising",
+      "Freelance"
+    ],
+    "RoadmapSteps": [
+      "Develop musical listening, rhythm, and basic theory skills.",
+      "Learn digital audio workstations, recording, mixing, and arrangement.",
+      "Produce original tracks and build a portfolio across music, film, advertising, or digital media.",
+      "Gain practical studio experience and collaborate with artists while developing an independent production style."
+    ],
+    "TopColleges": [
+      "KM Music Conservatory",
+      "Whistling Woods International",
+      "Berklee College of Music"
+    ],
+    "CareerCategories": [
+      "Design & Media"
+    ],
+    "Interests": [
+      "Music",
+      "Creating things",
+      "Technology"
+    ],
+    "PreferredSubjects": [
+      "Music",
+      "Art & Design"
+    ],
+    "WorkStyles": [
+      "Creative Studio",
+      "Independently"
     ]
   }
 ]
