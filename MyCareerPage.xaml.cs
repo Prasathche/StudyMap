@@ -203,9 +203,14 @@ public partial class MyCareerPage : ContentPage
         object? sender,
         EventArgs e)
     {
-        if (Shell.Current is AppShell appShell)
+        // My Career is a pushed page. Pop it first so Shell is no longer
+        // sitting on top of the Explore page, then explicitly select the
+        // Explore ShellContent route.
+        if (Shell.Current.CurrentPage is MyCareerPage)
         {
-            await appShell.NavigateToExploreAsync();
+            await Shell.Current.Navigation.PopAsync();
         }
+
+        await Shell.Current.GoToAsync("//Explore");
     }
 }
