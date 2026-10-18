@@ -30,6 +30,8 @@ public class StudyMapShellRenderer : ShellRenderer
 public class StudyMapBottomNavAppearanceTracker
     : ShellBottomNavViewAppearanceTracker
 {
+    private bool _itemReselectedSubscribed;
+
     public StudyMapBottomNavAppearanceTracker(
         IShellContext shellContext,
         ShellItem shellItem)
@@ -53,6 +55,38 @@ public class StudyMapBottomNavAppearanceTracker
             return (int)(value * density + 0.5f);
         }
 
+        // The My Career page is a pushed page above the Explore tab.
+        // Shell therefore keeps Explore as its internal CurrentItem.
+        // Override the native Android tab colors so My Career shows
+        // all five tabs as genuinely unselected.
+        bool myCareerVisible =
+            Shell.Current?.CurrentPage is MyCareerPage;
+
+        var selectedColor = myCareerVisible
+            ? global::Android.Graphics.Color.Rgb(111, 113, 128)
+            : global::Android.Graphics.Color.Rgb(124, 87, 245);
+
+        var unselectedColor =
+            global::Android.Graphics.Color.Rgb(111, 113, 128);
+
+        var states = new[]
+        {
+            new[] { global::Android.Resource.Attribute.StateChecked },
+            Array.Empty<int>()
+        };
+
+        var colors = new[]
+        {
+            selectedColor,
+            unselectedColor
+        };
+
+        var colorStateList =
+            new ColorStateList(states, colors);
+
+        bottomView.ItemIconTintList = colorStateList;
+        bottomView.ItemTextColor = colorStateList;
+
         // Remove the default Material active indicator.
         bottomView.ItemActiveIndicatorEnabled = false;
 
@@ -60,6 +94,16 @@ public class StudyMapBottomNavAppearanceTracker
         bottomView.ItemRippleColor =
             ColorStateList.ValueOf(
                 global::Android.Graphics.Color.Transparent);
+
+        // When My Career is visible, Explore is already the internally
+        // selected Shell tab. Tapping Explore therefore raises ItemReselected
+        // instead of performing a normal tab navigation. Pop My Career so the
+        // existing Explore page underneath becomes visible.
+        if (!_itemReselectedSubscribed)
+        {
+            bottomView.ItemReselected += OnItemReselected;
+            _itemReselectedSubscribed = true;
+        }
 
         // White navigation background.
         bottomView.SetBackgroundColor(
@@ -104,6 +148,24 @@ public class StudyMapBottomNavAppearanceTracker
         ReduceIconLabelGap(bottomView, Dp(2));
     }
 
+    private static async void OnItemReselected(
+        object? sender,
+        EventArgs e)
+    {
+        if (Shell.Current?.CurrentPage is not MyCareerPage)
+            return;
+
+        try
+        {
+            await Shell.Current.Navigation.PopAsync();
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine(
+                $"[StudyMapShellRenderer] Failed to return from My Career: {ex}");
+        }
+    }
+
     private static void ReduceIconLabelGap(
         BottomNavigationView bottomView,
         int extraAdjustment)
@@ -120,38 +182,38 @@ public class StudyMapBottomNavAppearanceTracker
     }
 
     private static void AdjustMenuView(
-    ViewGroup parent,
-    int adjustment)
-{
-    for (int i = 0; i < parent.ChildCount; i++)
+        ViewGroup parent,
+        int adjustment)
     {
-        var child = parent.GetChildAt(i);
-
-        if (child is TextView textView)
+        for (int i = 0; i < parent.ChildCount; i++)
         {
-            // Move the label upward to reduce the
-            // visual gap between icon and text.
-            textView.TranslationY = -DpValue(
-                textView,
-                6);
-        }
+            var child = parent.GetChildAt(i);
 
-        if (child is ViewGroup childGroup)
-        {
-            AdjustMenuView(childGroup, adjustment);
+            if (child is TextView textView)
+            {
+                // Move the label upward to reduce the
+                // visual gap between icon and text.
+                textView.TranslationY = -DpValue(
+                    textView,
+                    6);
+            }
+
+            if (child is ViewGroup childGroup)
+            {
+                AdjustMenuView(childGroup, adjustment);
+            }
         }
     }
-}
 
-private static float DpValue(
-    global::Android.Views.View view,
-    float dp)
-{
-    float density =
-        view.Resources?.DisplayMetrics?.Density ?? 1f;
+    private static float DpValue(
+        global::Android.Views.View view,
+        float dp)
+    {
+        float density =
+            view.Resources?.DisplayMetrics?.Density ?? 1f;
 
-    return dp * density;
-}
+        return dp * density;
+    }
 }
 
 #endif
