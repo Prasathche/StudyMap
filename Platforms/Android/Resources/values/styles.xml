@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Keep Android 12+ as the single native splash screen.
+      Maui.SplashTheme supplies the centered StudyMap icon and this
+      branding image adds the text at the bottom of that same splash.
+    -->
+    <style name="StudyMap.SplashTheme" parent="Maui.SplashTheme">
+        <item name="android:windowSplashScreenBrandingImage">@drawable/studymap_branding</item>
+    </style>
+</resources>
