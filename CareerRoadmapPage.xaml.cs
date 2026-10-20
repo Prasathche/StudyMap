@@ -18,21 +18,13 @@ public partial class CareerRoadmapPage : ContentPage
         BindingContext = _viewModel;
         _viewModel.NavigateToDetailsAction = async stage =>
         {
-            if (stage is null)
-            {
-                return;
-            }
-
+            if (stage is null) return;
             await Shell.Current.Navigation.PushAsync(new CareerStageDetailsPage(stage));
         };
 
         _viewModel.ShowMessageAction = async message =>
         {
-            if (string.IsNullOrWhiteSpace(message))
-            {
-                return;
-            }
-
+            if (string.IsNullOrWhiteSpace(message)) return;
             await DisplayAlert("Saved", message, "OK");
         };
     }
@@ -40,10 +32,7 @@ public partial class CareerRoadmapPage : ContentPage
     public string CareerId
     {
         get => _careerId;
-        set
-        {
-            _careerId = Uri.UnescapeDataString(value ?? string.Empty);
-        }
+        set => _careerId = Uri.UnescapeDataString(value ?? string.Empty);
     }
 
     protected override async void OnAppearing()
@@ -82,10 +71,10 @@ public partial class CareerRoadmapPage : ContentPage
 
     private void OnCareerSearchTextChanged(object? sender, TextChangedEventArgs e)
     {
-        if (_settingCareerText)
-        {
-            return;
-        }
+        // The custom clear button is shown only while the user has text.
+        CareerClearButton.IsVisible = !string.IsNullOrWhiteSpace(e.NewTextValue);
+
+        if (_settingCareerText) return;
 
         var text = e.NewTextValue?.Trim() ?? string.Empty;
         var careers = _viewModel.AvailableRoadmaps.AsEnumerable();
@@ -113,18 +102,16 @@ public partial class CareerRoadmapPage : ContentPage
 
     private async void OnCareerSearchUnfocused(object? sender, FocusEventArgs e)
     {
-        // Give the suggestion row time to receive the tap before hiding it.
         await Task.Delay(150);
         if (!_keepSuggestionsOpen)
-        {
             CareerSuggestionsBorder.IsVisible = false;
-        }
         _keepSuggestionsOpen = false;
     }
 
     private void ShowCareerSuggestions()
     {
         var text = CareerSearchEntry.Text?.Trim() ?? string.Empty;
+        CareerClearButton.IsVisible = !string.IsNullOrWhiteSpace(text);
         var careers = _viewModel.AvailableRoadmaps.AsEnumerable();
 
         if (!string.IsNullOrWhiteSpace(text))
@@ -146,10 +133,7 @@ public partial class CareerRoadmapPage : ContentPage
     private void OnCareerSuggestionSelected(object? sender, SelectionChangedEventArgs e)
     {
         var selected = e.CurrentSelection.FirstOrDefault() as CareerRoadmap;
-        if (selected is null)
-        {
-            return;
-        }
+        if (selected is null) return;
 
         _keepSuggestionsOpen = true;
         _viewModel.SelectedRoadmap = selected;
@@ -164,6 +148,7 @@ public partial class CareerRoadmapPage : ContentPage
     {
         _viewModel.ClearCareerCommand.Execute(null);
         SetCareerSearchText(string.Empty);
+        CareerClearButton.IsVisible = false;
         CareerSuggestionsBorder.IsVisible = false;
         _loadedCareerId = string.Empty;
     }
@@ -172,6 +157,7 @@ public partial class CareerRoadmapPage : ContentPage
     {
         _settingCareerText = true;
         CareerSearchEntry.Text = text;
+        CareerClearButton.IsVisible = !string.IsNullOrWhiteSpace(text);
         _settingCareerText = false;
     }
 
@@ -179,5 +165,4 @@ public partial class CareerRoadmapPage : ContentPage
     {
         await Shell.Current.GoToAsync(nameof(MyCareerPage));
     }
-
 }
