@@ -3,13 +3,9 @@ using StudyMap.Models;
 namespace StudyMap.Services;
 
 /// <summary>
-/// Rule-based (no AI, no external API) recommendation engine for the
-/// "Not Sure What to Choose" career discovery module.
-///
-/// Directional activities and career interests are intentionally weighted
-/// more strongly than school subjects. This prevents a broad subject such as
-/// Mathematics from making unrelated engineering or science careers outrank
-/// a student's actual career direction.
+/// Rule-based career discovery for Class 8-12 students.
+/// The assessment focuses on interests, activities, problem types and strengths
+/// rather than asking students to already know professional career names.
 /// </summary>
 public class CareerRecommendationService
 {
@@ -32,40 +28,40 @@ public class CareerRecommendationService
         if (careers.Count == 0)
             return [];
 
-        var positiveWeightTotal = tagScores.Values.Where(w => w > 0).Sum();
+        var positiveWeightTotal = tagScores.Values.Where(v => v > 0).Sum();
         var maxPossibleScore = Math.Max(positiveWeightTotal, 1);
         var scored = new List<CareerRecommendation>();
 
         foreach (var career in careers)
         {
             var evidence = GetCareerEvidence(career);
-            var matchedSignals = new List<string>();
             var score = 0.0;
+            var matchedSignals = new List<string>();
 
             foreach (var signal in tagScores)
             {
-                if (signal.Value == 0)
+                if (signal.Value <= 0)
                     continue;
 
                 if (MatchesSignalToCareer(signal.Key, evidence))
                 {
                     score += signal.Value;
-                    if (signal.Value > 0)
-                        matchedSignals.Add(signal.Key);
+                    matchedSignals.Add(signal.Key);
                 }
             }
 
-            // A negative Mathematics response should count against genuinely
-            // mathematics-heavy careers.
+            // Mathematics is a supporting signal, not a career selector.
+            // Students who dislike Maths should be less likely to receive
+            // strongly mathematics-dependent careers.
             if (tagScores.TryGetValue("Mathematics", out var mathWeight) && mathWeight < 0 &&
                 IsMathHeavyCareer(evidence))
             {
                 score += mathWeight * 2;
             }
 
-            // Specialist domains need explicit supporting signals. For example,
-            // Biomedical Engineer should not become a strong recommendation
-            // merely because the student likes Mathematics and puzzles.
+            // A specialist direction must have direct evidence. This is the
+            // important guard against Biomedical Engineer winning from generic
+            // Maths + puzzles + computers alone.
             score -= GetMissingDomainPenalty(evidence, tagScores);
 
             if (score <= 0)
@@ -148,7 +144,6 @@ public class CareerRecommendationService
     private static HashSet<string> GetCareerEvidence(Career career)
     {
         var evidence = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-
         AddEvidence(evidence, career.Name);
         AddEvidence(evidence, career.Category);
         AddEvidence(evidence, career.CareerCategories);
@@ -157,7 +152,6 @@ public class CareerRecommendationService
         AddEvidence(evidence, career.WorkStyles);
         AddEvidence(evidence, career.KeySkills);
         AddEvidence(evidence, career.Workplaces);
-
         return evidence;
     }
 
@@ -178,146 +172,69 @@ public class CareerRecommendationService
 
     private static bool MatchesSignalToCareer(string signal, HashSet<string> evidence)
     {
-        if (evidence.Contains(signal))
-            return true;
-
         var normalizedSignal = Normalize(signal);
         var normalizedEvidence = evidence.Select(Normalize).ToList();
 
-        // Keep aliases deliberately narrow. A broad alias such as
-        // Mathematics -> Engineering was the reason careers such as
-        // Biomedical Engineer could score too highly.
+        // These are intentionally directional and narrow. Broad aliases such as
+        // Mathematics -> Engineering are avoided because they create false matches.
         string[] aliases = normalizedSignal switch
         {
-            "creating technology" => [
-                "technology", "computer science", "information technology",
-                "software", "software development", "programming", "coding",
-                "artificial intelligence", "machine learning", "cybersecurity"
-            ],
-            "working with computers" => [
-                "computers", "computer science", "information technology", "technology",
-                "software", "software development", "programming", "coding"
-            ],
-            "technology problems" => [
-                "technology", "computer science", "information technology",
-                "software", "software development", "programming", "coding",
-                "artificial intelligence", "machine learning", "cybersecurity"
-            ],
-            "technology" => [
-                "technology", "computer science", "information technology",
-                "software", "software development", "programming", "coding",
-                "artificial intelligence", "machine learning", "cybersecurity"
-            ],
-            "solving puzzles" => [
-                "solving puzzles", "problem-solving", "problem solving", "logical thinking",
-                "programming", "debugging", "system design"
-            ],
-            "logical thinking" => [
-                "logical thinking", "problem-solving", "problem solving", "programming",
-                "debugging", "statistics", "probability"
-            ],
-            "problem solving" => [
-                "problem-solving", "problem solving", "logical thinking", "programming",
-                "debugging", "system design"
-            ],
-            "working with numbers" => [
-                "working with numbers", "mathematics", "statistics", "probability",
-                "financial modelling", "financial modeling", "accounting"
-            ],
-            "business & economics" => [
-                "business & economics", "business & finance", "business", "finance",
-                "management", "economics", "markets", "corporate"
-            ],
-            "business & finance" => [
-                "business & finance", "business & economics", "business", "finance",
-                "management", "economics", "markets", "financial"
-            ],
-            "understanding money and investments" => [
-                "finance", "business & finance", "markets", "investments", "investment",
-                "financial modelling", "financial modeling", "fintech"
-            ],
-            "financial problems" => [
-                "finance", "business & finance", "financial", "financial modelling",
-                "financial modeling", "accounting", "markets", "investments"
-            ],
-            "research and discovery" => [
-                "research and discovery", "science & research", "research", "laboratory",
-                "statistics", "probability"
-            ],
-            "science & research" => [
-                "science & research", "research", "science", "laboratory", "research and discovery"
-            ],
-            "mathematics" => [
-                "mathematics", "statistics", "probability", "quantitative",
-                "financial modelling", "financial modeling", "mathematical"
-            ],
-            "computers" => [
-                "computers", "computer science", "information technology", "technology",
-                "software", "programming", "coding"
-            ],
-            _ => []
+            "technology" => ["technology", "computer science", "information technology", "software", "programming", "coding", "artificial intelligence", "machine learning", "cybersecurity", "data science"],
+            "engineering" => ["engineering", "mechanical", "civil", "electrical", "electronics", "aerospace", "automotive", "robotics", "mechatronics"],
+            "healthcare" => ["healthcare", "medicine", "medical", "hospital", "clinical", "biomedical", "nursing", "pharmacy", "physiotherapy", "dentistry"],
+            "science & research" => ["science & research", "science", "research", "laboratory", "laboratory / research"],
+            "design & media" => ["design & media", "art & design", "design", "media", "creative", "animation", "film", "visual"],
+            "business & finance" => ["business & finance", "business", "finance", "economics", "commerce", "accounting", "marketing", "management", "corporate"],
+            "law & public service" => ["law & public service", "law", "legal", "government", "public service", "civil services", "policy"],
+            "education" => ["education", "teaching", "teacher", "academic", "professor", "lecturer"],
+            "environment & sustainability" => ["environment", "environmental", "sustainability", "agriculture", "forestry", "wildlife", "conservation"],
+            "communication" => ["communication", "writing", "languages", "journalism", "media", "public relations", "content"],
+            "helping people" => ["healthcare", "medicine", "education", "teaching", "social", "community", "counselling", "psychology", "public service"],
+            "creativity" => ["design", "creative", "media", "art", "animation", "film", "fashion", "architecture"],
+            "leadership" => ["leadership", "management", "business", "corporate", "public service", "government"],
+            "mathematics" => ["mathematics", "statistics", "probability", "quantitative", "financial modelling", "financial modeling", "mathematical"],
+            "analytical thinking" => ["analytical", "analysis", "problem-solving", "problem solving", "logical thinking", "statistics", "research", "data"],
+            "building & practical work" => ["engineering", "construction", "architecture", "manufacturing", "automotive", "mechanical", "civil", "workshop"],
+            "curiosity & research" => ["research", "science", "laboratory", "analysis", "discovery"],
+            "nature & environment" => ["environment", "environmental", "sustainability", "agriculture", "forestry", "wildlife", "conservation", "outdoors"],
+            "working with numbers" => ["mathematics", "statistics", "accounting", "finance", "economics", "quantitative", "data"],
+            _ => [normalizedSignal]
         };
 
-        if (aliases.Length == 0)
-            return normalizedEvidence.Contains(normalizedSignal);
-
-        return aliases.Any(alias => normalizedEvidence.Any(evidenceValue =>
-            evidenceValue.Equals(alias, StringComparison.OrdinalIgnoreCase) ||
-            evidenceValue.Contains(alias, StringComparison.OrdinalIgnoreCase)));
+        return aliases.Any(alias => normalizedEvidence.Any(value =>
+            value.Equals(Normalize(alias), StringComparison.OrdinalIgnoreCase) ||
+            value.Contains(Normalize(alias), StringComparison.OrdinalIgnoreCase)));
     }
 
     private static bool IsMathHeavyCareer(HashSet<string> evidence)
     {
-        var mathTerms = new[]
-        {
-            "mathematics", "statistics", "probability", "quantitative",
-            "financial modelling", "financial modeling", "mathematical"
-        };
-
-        return evidence.Select(Normalize).Any(value =>
-            mathTerms.Any(term => value.Contains(term, StringComparison.OrdinalIgnoreCase)));
+        var mathTerms = new[] { "mathematics", "statistics", "probability", "quantitative", "financial modelling", "financial modeling", "mathematical" };
+        return evidence.Select(Normalize).Any(value => mathTerms.Any(term => value.Contains(term, StringComparison.OrdinalIgnoreCase)));
     }
 
     private static int GetMissingDomainPenalty(HashSet<string> evidence, Dictionary<string, int> signals)
     {
         var penalty = 0;
 
-        if (ContainsAny(evidence, "finance", "markets", "investment", "investments", "financial modelling", "financial modeling", "fintech", "quantitative") &&
-            !HasAnyPositiveSignal(signals,
-                "business & economics", "business & finance", "understanding money and investments",
-                "financial problems", "business problems", "working with numbers"))
-        {
-            penalty += 5;
-        }
-
-        // Healthcare/medical careers need a health or biology signal. This
-        // prevents Biomedical Engineer and similar careers from winning on
-        // generic mathematics + problem-solving overlap.
         if (ContainsAny(evidence, "healthcare", "medicine", "hospital", "clinical", "medical", "biomedical") &&
-            !HasAnyPositiveSignal(signals,
-                "biology", "discovering how the human body works", "healthcare",
-                "health-related problems", "helping people"))
-        {
-            penalty += 5;
-        }
+            !HasAnyPositiveSignal(signals, "Biology", "Healthcare", "Helping people", "Understanding the human body", "Health-related problems"))
+            penalty += 8;
+
+        if (ContainsAny(evidence, "finance", "markets", "investment", "financial modelling", "fintech", "quantitative") &&
+            !HasAnyPositiveSignal(signals, "Business & Finance", "Understanding money and investments", "Business problems", "Financial problems", "Working with numbers"))
+            penalty += 7;
 
         if (ContainsAny(evidence, "law", "legal", "public service", "government") &&
-            !HasAnyPositiveSignal(signals, "law & public service", "social problems", "social studies"))
-        {
-            penalty += 4;
-        }
+            !HasAnyPositiveSignal(signals, "Law & Public Service", "Social problems", "Social Studies", "People & Community"))
+            penalty += 6;
 
-        if (ContainsAny(evidence, "design & media", "art & design", "creative studio", "creating designs") &&
-            !HasAnyPositiveSignal(signals, "art & design", "design & media", "designing creative things", "design problems", "creativity"))
-        {
-            penalty += 4;
-        }
+        if (ContainsAny(evidence, "design & media", "art & design", "creative studio", "animation", "film") &&
+            !HasAnyPositiveSignal(signals, "Design & Media", "Creativity", "Design problems", "Creating designs"))
+            penalty += 6;
 
-        if (ContainsAny(evidence, "education", "teaching") &&
-            !HasAnyPositiveSignal(signals, "education", "helping people", "communication"))
-        {
-            penalty += 3;
-        }
+        if (ContainsAny(evidence, "education", "teaching", "teacher", "professor", "lecturer") &&
+            !HasAnyPositiveSignal(signals, "Education", "Teaching & explaining", "Helping people", "Communication"))
+            penalty += 5;
 
         return penalty;
     }
@@ -329,23 +246,26 @@ public class CareerRecommendationService
 
     private static bool ContainsAny(HashSet<string> evidence, params string[] terms)
     {
-        return evidence.Select(Normalize).Any(value =>
-            terms.Any(term => value.Contains(Normalize(term), StringComparison.OrdinalIgnoreCase)));
+        return evidence.Select(Normalize).Any(value => terms.Any(term => value.Contains(Normalize(term), StringComparison.OrdinalIgnoreCase)));
     }
 
-    private static string Normalize(string value)
-    {
-        return value.Trim().ToLowerInvariant();
-    }
+    private static string Normalize(string value) => value.Trim().ToLowerInvariant();
 
     private static string BuildWhyItMatches(List<string> matchedTags)
     {
         if (matchedTags.Count == 0)
-            return "This career is a popular starting point worth exploring.";
+            return "This is a career worth exploring further.";
 
-        var shown = matchedTags.Take(4).ToList();
+        var shown = matchedTags
+            .Where(t => !t.Equals("Mathematics", StringComparison.OrdinalIgnoreCase))
+            .Take(4)
+            .ToList();
+
+        if (shown.Count == 0)
+            shown = matchedTags.Take(4).ToList();
+
         var bullets = string.Join(" · ", shown.Select(t => $"✓ {t}"));
-        return $"You selected: {bullets}\n\nThese are strong signals for this career direction.";
+        return $"Your answers point towards: {bullets}\n\nThese are strong signals for this career direction. Explore the career to learn what it involves and which subjects can help you get there.";
     }
 
     private static readonly List<CareerQuestion> _questions = BuildQuestions();
@@ -357,35 +277,35 @@ public class CareerRecommendationService
             new CareerQuestion
             {
                 Number = 1,
-                Text = "What subjects do you enjoy the most?",
+                Text = "Which school subjects do you enjoy the most?",
                 AllowMultiple = true,
                 Options =
                 [
                     OptSubject("q1-math", "Mathematics", "🔢", "Mathematics"),
-                    OptSubject("q1-science", "Science", "🔬", "Science"),
+                    OptSubject("q1-science", "Science", "🔬", "Science & Research"),
                     OptSubject("q1-biology", "Biology", "🧬", "Biology"),
-                    OptSubject("q1-computers", "Computers", "💻", "Computers"),
-                    OptSubject("q1-business", "Business & Economics", "📈", "Business & Economics"),
-                    OptSubject("q1-languages", "Languages", "🗣️", "Languages"),
-                    OptSubject("q1-art", "Art & Design", "🎨", "Art & Design"),
-                    OptSubject("q1-social", "Social Studies", "🌍", "Social Studies"),
+                    OptSubject("q1-computers", "Computers", "💻", "Technology"),
+                    OptSubject("q1-business", "Business & Economics", "📈", "Business & Finance"),
+                    OptSubject("q1-languages", "Languages", "🗣️", "Communication"),
+                    OptSubject("q1-art", "Art & Design", "🎨", "Design & Media"),
+                    OptSubject("q1-social", "Social Studies", "🌍", "Law & Public Service"),
                 ]
             },
             new CareerQuestion
             {
                 Number = 2,
-                Text = "What kind of activities do you enjoy?",
+                Text = "What do you enjoy doing in your free time?",
                 AllowMultiple = true,
                 Options =
                 [
-                    OptActivity("q2-puzzles", "Solving puzzles", "🧩", "Solving puzzles"),
-                    OptActivity("q2-building", "Building things", "🛠️", "Building things"),
-                    OptActivity("q2-helping", "Helping people", "🤝", "Helping people"),
-                    OptActivity("q2-designing", "Creating designs", "🖌️", "Creating designs"),
-                    OptActivity("q2-computers", "Working with computers", "💻", "Working with computers"),
-                    OptActivity("q2-leading", "Leading a team", "👥", "Leading a team"),
-                    OptActivity("q2-writing", "Writing or communicating", "✍️", "Writing or communicating"),
-                    OptActivity("q2-understanding", "Understanding how things work", "⚙️", "Understanding how things work"),
+                    OptActivity("q2-puzzles", "Solving puzzles or brain teasers", "🧩", "Analytical Thinking"),
+                    OptActivity("q2-building", "Building or fixing things", "🛠️", "Building & Practical Work"),
+                    OptActivity("q2-helping", "Helping or caring for people", "🤝", "Helping People"),
+                    OptActivity("q2-designing", "Drawing, designing or creating", "🎨", "Creativity"),
+                    OptActivity("q2-computers", "Using computers or technology", "💻", "Technology"),
+                    OptActivity("q2-leading", "Organising or leading a group", "👥", "Leadership"),
+                    OptActivity("q2-writing", "Writing, speaking or telling stories", "✍️", "Communication"),
+                    OptActivity("q2-understanding", "Finding out how things work", "⚙️", "Curiosity & Research"),
                 ]
             },
             new CareerQuestion
@@ -398,119 +318,94 @@ public class CareerRecommendationService
                     OptWeighted("q3-love", "I love it", "😍", "Mathematics", 3),
                     OptWeighted("q3-enjoy", "I enjoy it", "🙂", "Mathematics", 2),
                     OptWeighted("q3-okay", "It's okay", "😐", "Mathematics", 1),
-                    OptWeighted("q3-not", "I don't enjoy it", "😕", "Mathematics", -2),
+                    OptWeighted("q3-not", "I don't enjoy it", "😕", "Mathematics", -3),
                 ]
             },
             new CareerQuestion
             {
                 Number = 4,
-                Text = "Which sounds most interesting to you?",
+                Text = "Which of these would you most like to spend time doing?",
                 AllowMultiple = true,
                 Options =
                 [
-                    Opt("q4-technology", "Creating technology", "💻", "Creating technology"),
-                    Opt("q4-body", "Discovering how the human body works", "🩺", "Discovering how the human body works"),
-                    Opt("q4-business", "Running a business", "💼", "Running a business"),
-                    Opt("q4-design", "Designing creative things", "🎨", "Designing creative things"),
-                    Opt("q4-environment", "Protecting the environment", "🌱", "Protecting the environment"),
-                    Opt("q4-money", "Understanding money and investments", "💰", "Understanding money and investments"),
-                    Opt("q4-helping", "Helping people", "🤝", "Helping people"),
-                    Opt("q4-research", "Research and discovery", "🔍", "Research and discovery"),
+                    OptWeighted("q4-technology", "Create an app, website or other technology", "💻", "Technology", 4),
+                    OptWeighted("q4-research", "Do experiments and discover how things work", "🔬", "Science & Research", 4),
+                    OptWeighted("q4-body", "Understand the human body and help people stay healthy", "🩺", "Healthcare", 4),
+                    OptWeighted("q4-engineering", "Design and build machines or useful things", "⚙️", "Engineering", 4),
+                    OptWeighted("q4-design", "Create drawings, designs, videos or animations", "🎨", "Design & Media", 4),
+                    OptWeighted("q4-environment", "Protect nature and solve environmental problems", "🌱", "Environment & Sustainability", 4),
+                    OptWeighted("q4-business", "Start or run a business and make decisions", "💼", "Business & Finance", 4),
+                    OptWeighted("q4-law", "Solve social problems and help through rules or laws", "⚖️", "Law & Public Service", 4),
+                    OptWeighted("q4-education", "Teach, explain things and help others learn", "📚", "Education", 4),
                 ]
             },
             new CareerQuestion
             {
                 Number = 5,
-                Text = "What are you naturally good at?",
+                Text = "Which kind of problem would you enjoy solving?",
                 AllowMultiple = true,
                 Options =
                 [
-                    Opt("q5-logical", "Logical thinking", "🧠", "Logical thinking"),
-                    Opt("q5-communication", "Communication", "🗣️", "Communication"),
-                    Opt("q5-creativity", "Creativity", "🎨", "Creativity"),
-                    Opt("q5-problem", "Problem solving", "🧩", "Problem solving"),
-                    Opt("q5-leadership", "Leadership", "👑", "Leadership"),
-                    Opt("q5-numbers", "Working with numbers", "🔢", "Working with numbers"),
-                    Opt("q5-people", "Working with people", "🤝", "Working with people"),
-                    Opt("q5-detail", "Attention to detail", "🔎", "Attention to detail"),
+                    Opt("q5-technology", "A technology or computer problem", "💻", "Technology"),
+                    Opt("q5-building", "A machine, structure or practical problem", "🛠️", "Engineering"),
+                    Opt("q5-health", "A health or wellbeing problem", "🩺", "Healthcare"),
+                    Opt("q5-business", "A business, money or customer problem", "💼", "Business & Finance"),
+                    Opt("q5-environment", "A nature or environmental problem", "🌱", "Environment & Sustainability"),
+                    Opt("q5-social", "A people or community problem", "🌍", "People & Community"),
+                    Opt("q5-design", "A design or creative problem", "🎨", "Design & Media"),
+                    Opt("q5-learning", "A learning or teaching problem", "📚", "Education"),
                 ]
             },
             new CareerQuestion
             {
                 Number = 6,
-                Text = "How do you prefer to work?",
-                AllowMultiple = false,
+                Text = "Where would you enjoy spending time while doing your work?",
+                AllowMultiple = true,
                 Options =
                 [
-                    Opt("q6-independent", "Independently", "🧍", "Independently"),
-                    Opt("q6-small-team", "With a small team", "👥", "With a small team"),
-                    Opt("q6-lots-people", "With lots of people", "👨‍👩‍👧‍👦", "With lots of people"),
+                    Opt("q6-office", "Office with computers and technology", "💻", "Technology"),
+                    Opt("q6-lab", "Laboratory where I can test and discover things", "🔬", "Science & Research"),
+                    Opt("q6-hospital", "Hospital or healthcare setting", "🏥", "Healthcare"),
+                    Opt("q6-workshop", "Workshop, site or place where things are built", "🛠️", "Engineering"),
+                    Opt("q6-studio", "Creative studio or media space", "🎨", "Design & Media"),
+                    Opt("q6-outdoors", "Outdoors, nature or environmental settings", "🌳", "Environment & Sustainability"),
+                    Opt("q6-school", "School or learning environment", "📚", "Education"),
+                    Opt("q6-government", "Government, court or public service setting", "🏛️", "Law & Public Service"),
                 ]
             },
             new CareerQuestion
             {
                 Number = 7,
-                Text = "Which type of problems would you enjoy solving?",
+                Text = "Which of these do you think you are naturally good at?",
                 AllowMultiple = true,
                 Options =
                 [
-                    Opt("q7-technology", "Technology problems", "💻", "Technology"),
-                    Opt("q7-business", "Business problems", "💼", "Business & Finance"),
-                    Opt("q7-health", "Health-related problems", "🩺", "Healthcare"),
-                    Opt("q7-design", "Design problems", "🎨", "Design & Media"),
-                    OptMulti("q7-environment", "Environmental problems", "🌱", ("Science & Research", 2), ("Protecting the environment", 2)),
-                    Opt("q7-financial", "Financial problems", "💰", "Business & Finance"),
-                    Opt("q7-social", "Social problems", "🌍", "Law & Public Service"),
+                    Opt("q7-logical", "Thinking logically and spotting patterns", "🧠", "Analytical Thinking"),
+                    Opt("q7-creativity", "Coming up with creative ideas", "🎨", "Creativity"),
+                    Opt("q7-building", "Making, building or working with things", "🛠️", "Building & Practical Work"),
+                    Opt("q7-communication", "Explaining ideas and communicating", "🗣️", "Communication"),
+                    Opt("q7-people", "Understanding and working with people", "🤝", "Helping People"),
+                    Opt("q7-numbers", "Working with numbers", "🔢", "Working with Numbers"),
+                    Opt("q7-leadership", "Taking the lead and organising others", "👑", "Leadership"),
+                    Opt("q7-curiosity", "Asking questions and finding out why", "🔍", "Curiosity & Research"),
                 ]
             },
             new CareerQuestion
             {
                 Number = 8,
-                Text = "What kind of work environment sounds interesting?",
+                Text = "Which areas would you like to explore more?",
                 AllowMultiple = true,
                 Options =
                 [
-                    Opt("q8-office", "Office / Technology", "💻", "Office / Technology"),
-                    Opt("q8-hospital", "Hospital / Healthcare", "🏥", "Hospital / Healthcare"),
-                    Opt("q8-lab", "Laboratory / Research", "🔬", "Laboratory / Research"),
-                    Opt("q8-corporate", "Business / Corporate", "🏢", "Business / Corporate"),
-                    Opt("q8-studio", "Creative Studio", "🎨", "Creative Studio"),
-                    Opt("q8-outdoors", "Outdoors", "🌳", "Outdoors"),
-                    Opt("q8-government", "Government / Public Service", "🏛️", "Government / Public Service"),
-                ]
-            },
-            new CareerQuestion
-            {
-                Number = 9,
-                Text = "What matters most to you in a future career?",
-                AllowMultiple = true,
-                Options =
-                [
-                    OptMulti("q9-earning", "High earning potential", "💵", ("Technology", 1), ("Business & Finance", 1)),
-                    OptMulti("q9-stability", "Job stability", "🛡️", ("Government / Public Service", 1), ("Healthcare", 1)),
-                    OptMulti("q9-creativity", "Creativity", "🎨", ("Design & Media", 1), ("Creativity", 1)),
-                    OptMulti("q9-helping", "Helping people", "🤝", ("Helping people", 2), ("Healthcare", 1)),
-                    OptMulti("q9-innovation", "Innovation", "💡", ("Technology", 1), ("Science & Research", 1)),
-                    OptMulti("q9-leadership", "Leadership", "👑", ("Leading a team", 1)),
-                    OptNoTag("q9-balance", "Work-life balance", "⚖️"),
-                    OptNoTag("q9-international", "Working internationally", "🌐"),
-                ]
-            },
-            new CareerQuestion
-            {
-                Number = 10,
-                Text = "Which career areas would you like to explore?",
-                AllowMultiple = true,
-                Options =
-                [
-                    OptWeighted3("q10-technology", "Technology", "💻", "Technology"),
-                    OptWeighted3("q10-healthcare", "Healthcare", "🩺", "Healthcare"),
-                    OptWeighted3("q10-business", "Business & Finance", "💼", "Business & Finance"),
-                    OptWeighted3("q10-engineering", "Engineering", "⚙️", "Engineering"),
-                    OptWeighted3("q10-science", "Science & Research", "🔬", "Science & Research"),
-                    OptWeighted3("q10-design", "Design & Media", "🎨", "Design & Media"),
-                    OptWeighted3("q10-law", "Law & Public Service", "⚖️", "Law & Public Service"),
-                    OptWeighted3("q10-education", "Education", "📚", "Education"),
+                    OptWeighted3("q8-technology", "Technology and computers", "💻", "Technology"),
+                    OptWeighted3("q8-healthcare", "Health and the human body", "🩺", "Healthcare"),
+                    OptWeighted3("q8-engineering", "Engineering and how things are built", "⚙️", "Engineering"),
+                    OptWeighted3("q8-science", "Science and discovery", "🔬", "Science & Research"),
+                    OptWeighted3("q8-design", "Design, art and media", "🎨", "Design & Media"),
+                    OptWeighted3("q8-business", "Business, money and entrepreneurship", "💼", "Business & Finance"),
+                    OptWeighted3("q8-law", "Law, government and public service", "⚖️", "Law & Public Service"),
+                    OptWeighted3("q8-education", "Teaching and learning", "📚", "Education"),
+                    OptWeighted3("q8-environment", "Environment, nature and sustainability", "🌱", "Environment & Sustainability"),
                 ]
             }
         };
@@ -530,59 +425,17 @@ public class CareerRecommendationService
     }
 
     private static CareerQuestionOption Opt(string id, string text, string icon, string tag) =>
-        new()
-        {
-            Id = id,
-            Text = text,
-            Icon = icon,
-            TagWeights = [new CareerTagWeight { Tag = tag, Weight = 2 }]
-        };
+        new() { Id = id, Text = text, Icon = icon, TagWeights = [new CareerTagWeight { Tag = tag, Weight = 3 }] };
 
     private static CareerQuestionOption OptSubject(string id, string text, string icon, string tag) =>
-        new()
-        {
-            Id = id,
-            Text = text,
-            Icon = icon,
-            TagWeights = [new CareerTagWeight { Tag = tag, Weight = 1 }]
-        };
+        new() { Id = id, Text = text, Icon = icon, TagWeights = [new CareerTagWeight { Tag = tag, Weight = 1 }] };
 
     private static CareerQuestionOption OptActivity(string id, string text, string icon, string tag) =>
-        new()
-        {
-            Id = id,
-            Text = text,
-            Icon = icon,
-            TagWeights = [new CareerTagWeight { Tag = tag, Weight = 3 }]
-        };
+        new() { Id = id, Text = text, Icon = icon, TagWeights = [new CareerTagWeight { Tag = tag, Weight = 3 }] };
 
     private static CareerQuestionOption OptWeighted(string id, string text, string icon, string tag, int weight) =>
-        new()
-        {
-            Id = id,
-            Text = text,
-            Icon = icon,
-            TagWeights = [new CareerTagWeight { Tag = tag, Weight = weight }]
-        };
+        new() { Id = id, Text = text, Icon = icon, TagWeights = [new CareerTagWeight { Tag = tag, Weight = weight }] };
 
     private static CareerQuestionOption OptWeighted3(string id, string text, string icon, string tag) =>
-        new()
-        {
-            Id = id,
-            Text = text,
-            Icon = icon,
-            TagWeights = [new CareerTagWeight { Tag = tag, Weight = 3 }]
-        };
-
-    private static CareerQuestionOption OptMulti(string id, string text, string icon, params (string Tag, int Weight)[] tagWeights) =>
-        new()
-        {
-            Id = id,
-            Text = text,
-            Icon = icon,
-            TagWeights = [.. tagWeights.Select(tw => new CareerTagWeight { Tag = tw.Tag, Weight = tw.Weight })]
-        };
-
-    private static CareerQuestionOption OptNoTag(string id, string text, string icon) =>
-        new() { Id = id, Text = text, Icon = icon, TagWeights = [] };
+        new() { Id = id, Text = text, Icon = icon, TagWeights = [new CareerTagWeight { Tag = tag, Weight = 3 }] };
 }
