@@ -20,10 +20,13 @@
         </Style>
     </ContentPage.Resources>
 
-    <CollectionView ItemsSource="{Binding Stages}"
-                    SelectionMode="None"
-                    VerticalScrollBarVisibility="Always">
-        <CollectionView.Header>
+    <!-- Keep the career selector outside the timeline CollectionView.
+         This prevents nested CollectionView scrolling from stealing gestures. -->
+    <Grid RowDefinitions="Auto,*">
+
+        <ScrollView Grid.Row="0"
+                    MaximumHeightRequest="520"
+                    VerticalScrollBarVisibility="Never">
             <VerticalStackLayout Padding="20,28,20,12"
                                  Spacing="18">
 
@@ -130,20 +133,22 @@
                             </Grid>
                         </Border>
 
+                        <!-- A dedicated scrollable suggestion list. It now contains
+                             all matching careers, not just the first eight. -->
                         <Border x:Name="CareerSuggestionsBorder"
                                 IsVisible="False"
                                 Stroke="#E8E8EA"
                                 StrokeThickness="1"
                                 BackgroundColor="White"
                                 Padding="4"
-                                MaximumHeightRequest="240">
+                                HeightRequest="260">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="14" />
                             </Border.StrokeShape>
                             <CollectionView x:Name="CareerSuggestionsView"
                                             SelectionMode="Single"
                                             SelectionChanged="OnCareerSuggestionSelected"
-                                            HeightRequest="220">
+                                            VerticalScrollBarVisibility="Always">
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid Padding="12,10"
@@ -163,75 +168,81 @@
                                 </CollectionView.ItemTemplate>
                             </CollectionView>
                         </Border>
+
+                        <Label Text="Timeline"
+                               Style="{StaticResource SectionTitleStyle}" />
                     </VerticalStackLayout>
                 </Border>
-
-                <Label Text="Timeline"
-                       Style="{StaticResource SectionTitleStyle}" />
             </VerticalStackLayout>
-        </CollectionView.Header>
+        </ScrollView>
 
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="models:CareerStage">
-                <Grid Padding="20,0,20,20"
-                      ColumnDefinitions="Auto,*"
-                      ColumnSpacing="14">
-                    <VerticalStackLayout Spacing="10"
-                                         VerticalOptions="Start"
-                                         HorizontalOptions="Start">
-                        <Frame BackgroundColor="{Binding AccentColor}"
-                               WidthRequest="46"
-                               HeightRequest="46"
-                               CornerRadius="23"
-                               HasShadow="False"
-                               Padding="10"
-                               VerticalOptions="Start">
-                            <Label Text="{Binding Icon}"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center"
-                                   FontSize="22" />
-                        </Frame>
-                        <BoxView Color="#D5D8E8"
-                                 WidthRequest="2"
-                                 VerticalOptions="FillAndExpand"
-                                 HeightRequest="120"
-                                 HorizontalOptions="Center" />
-                    </VerticalStackLayout>
-
-                    <Border Grid.Column="1"
-                            BackgroundColor="White"
-                            Stroke="#E8E8EA"
-                            StrokeThickness="1"
-                            Padding="14,14,14,14"
-                            HorizontalOptions="Fill"
-                            VerticalOptions="Start">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="20" />
-                        </Border.StrokeShape>
-                        <VerticalStackLayout Spacing="10">
-                            <Label Text="{Binding Title}"
-                                   FontSize="16"
-                                   FontAttributes="Bold"
-                                   TextColor="#17203B"
-                                   LineBreakMode="WordWrap" />
-                            <Label Text="{Binding Description}"
-                                   FontSize="13"
-                                   TextColor="#5C667F"
-                                   LineBreakMode="WordWrap"
-                                   MaxLines="4" />
-                            <Button Text="View Details"
-                                    Command="{Binding Source={x:Reference RoadmapPage}, Path=BindingContext.ViewStageDetailsCommand}"
-                                    CommandParameter="{Binding .}"
-                                    BackgroundColor="#4A61F8"
-                                    TextColor="White"
-                                    CornerRadius="14"
-                                    HeightRequest="48"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="Fill" />
+        <!-- The timeline owns the remaining page space and can scroll independently. -->
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Stages}"
+                        SelectionMode="None"
+                        VerticalScrollBarVisibility="Always">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:CareerStage">
+                    <Grid Padding="20,0,20,20"
+                          ColumnDefinitions="Auto,*"
+                          ColumnSpacing="14">
+                        <VerticalStackLayout Spacing="10"
+                                             VerticalOptions="Start"
+                                             HorizontalOptions="Start">
+                            <Frame BackgroundColor="{Binding AccentColor}"
+                                   WidthRequest="46"
+                                   HeightRequest="46"
+                                   CornerRadius="23"
+                                   HasShadow="False"
+                                   Padding="10"
+                                   VerticalOptions="Start">
+                                <Label Text="{Binding Icon}"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       FontSize="22" />
+                            </Frame>
+                            <BoxView Color="#D5D8E8"
+                                     WidthRequest="2"
+                                     VerticalOptions="FillAndExpand"
+                                     HeightRequest="120"
+                                     HorizontalOptions="Center" />
                         </VerticalStackLayout>
-                    </Border>
-                </Grid>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+
+                        <Border Grid.Column="1"
+                                BackgroundColor="White"
+                                Stroke="#E8E8EA"
+                                StrokeThickness="1"
+                                Padding="14,14,14,14"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Start">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20" />
+                            </Border.StrokeShape>
+                            <VerticalStackLayout Spacing="10">
+                                <Label Text="{Binding Title}"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="#17203B"
+                                       LineBreakMode="WordWrap" />
+                                <Label Text="{Binding Description}"
+                                       FontSize="13"
+                                       TextColor="#5C667F"
+                                       LineBreakMode="WordWrap"
+                                       MaxLines="4" />
+                                <Button Text="View Details"
+                                        Command="{Binding Source={x:Reference RoadmapPage}, Path=BindingContext.ViewStageDetailsCommand}"
+                                        CommandParameter="{Binding .}"
+                                        BackgroundColor="#4A61F8"
+                                        TextColor="White"
+                                        CornerRadius="14"
+                                        HeightRequest="48"
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Fill" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>
