@@ -192,7 +192,7 @@ public class CareerRecommendationService
         // High-value directional signals. These are intentionally controlled
         // rather than using the previous broad "technology => everything
         // technical" alias expansion.
-        var aliases = normalizedSignal switch
+        string[] aliases = normalizedSignal switch
         {
             "creating technology" => [
                 "technology", "computers", "computer science", "information technology",
@@ -572,3 +572,4 @@ public class CareerRecommendationService
     private static CareerQuestionOption OptNoTag(string id, string text, string icon) =>
         new() { Id = id, Text = text, Icon = icon, TagWeights = [] };
 }
+
