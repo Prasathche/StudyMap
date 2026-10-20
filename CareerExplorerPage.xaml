@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:StudyMap.Models"
@@ -50,7 +50,13 @@
 
             <Border BackgroundColor="{StaticResource Surface}" Stroke="{StaticResource SoftBorder}" StrokeThickness="1" Padding="14,4">
                 <Border.StrokeShape><RoundRectangle CornerRadius="14" /></Border.StrokeShape>
-                <Entry x:Name="SearchEntry" Placeholder="Search careers" FontSize="15" TextColor="{StaticResource Ink}" PlaceholderColor="{StaticResource Muted}" Completed="OnSearchCompleted" />
+                <Entry x:Name="SearchEntry"
+                       Placeholder="Search careers"
+                       FontSize="15"
+                       TextColor="{StaticResource Ink}"
+                       PlaceholderColor="{StaticResource Muted}"
+                       TextChanged="OnSearchTextChanged"
+                       Completed="OnSearchCompleted" />
             </Border>
 
             <VerticalStackLayout Spacing="10">
@@ -58,7 +64,7 @@
                 <HorizontalStackLayout Spacing="8">
                     <Button x:Name="AllCategoryButton" Text="All" Style="{StaticResource ChipBtn}" Clicked="OnCategoryClicked" />
                     <Button x:Name="ScienceCategoryButton" Text="Science" Style="{StaticResource ChipBtn}" Clicked="OnCategoryClicked" />
-                    <Button x:Name="CommerceCategoryButton" Text="Commerce" Style="{StaticResource ChipBtn}" Clicked="OnCategoryClicked" />
+                    <Button x:Name="CommerceCategoryButton" Text="Commerce" Style="{StaticResource ChipBtn}" />
                     <Button x:Name="ArtsCategoryButton" Text="Arts" Style="{StaticResource ChipBtn}" Clicked="OnCategoryClicked" />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
