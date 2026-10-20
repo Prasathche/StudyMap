@@ -50,6 +50,14 @@ public partial class CareerExplorerPage : ContentPage
         }
     }
 
+    private void OnSearchTextChanged(object? sender, TextChangedEventArgs e)
+    {
+        // TextChanged is the authoritative search event. This also fires when
+        // the Entry clear (X) button removes the text, so the full list returns.
+        _searchText = e.NewTextValue?.Trim() ?? string.Empty;
+        ApplyFilters();
+    }
+
     private void OnSearchCompleted(object? sender, EventArgs e)
     {
         _searchText = SearchEntry?.Text?.Trim() ?? string.Empty;
