@@ -48,15 +48,30 @@
                 </Border>
             </Grid>
 
-            <Border BackgroundColor="{StaticResource Surface}" Stroke="{StaticResource SoftBorder}" StrokeThickness="1" Padding="14,4">
+            <Border BackgroundColor="{StaticResource Surface}" Stroke="{StaticResource SoftBorder}" StrokeThickness="1" Padding="10,4,6,4">
                 <Border.StrokeShape><RoundRectangle CornerRadius="14" /></Border.StrokeShape>
-                <Entry x:Name="SearchEntry"
-                       Placeholder="Search careers"
-                       FontSize="15"
-                       TextColor="{StaticResource Ink}"
-                       PlaceholderColor="{StaticResource Muted}"
-                       TextChanged="OnSearchTextChanged"
-                       Completed="OnSearchCompleted" />
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="4">
+                    <Entry x:Name="SearchEntry"
+                           Grid.Column="0"
+                           Placeholder="Search careers"
+                           FontSize="15"
+                           TextColor="{StaticResource Ink}"
+                           PlaceholderColor="{StaticResource Muted}"
+                           TextChanged="OnSearchTextChanged"
+                           Completed="OnSearchCompleted" />
+                    <Button x:Name="ClearSearchButton"
+                            Grid.Column="1"
+                            Text="✕"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource Muted}"
+                            BackgroundColor="Transparent"
+                            Padding="8"
+                            WidthRequest="40"
+                            HeightRequest="40"
+                            IsVisible="False"
+                            Clicked="OnClearSearchClicked" />
+                </Grid>
             </Border>
 
             <VerticalStackLayout Spacing="10">
