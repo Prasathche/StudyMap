@@ -5,7 +5,11 @@ namespace StudyMap.Services;
 /// <summary>
 /// Rule-based (no AI, no external API) recommendation engine for the
 /// "Not Sure What to Choose" career discovery module.
-/// Scores careers against questionnaire answers and returns a ranked list.
+///
+/// The scoring model deliberately gives more importance to career direction
+/// and activities than to broad subjects. This prevents shared subjects such
+/// as Mathematics + Computers from making unrelated specialist careers rank
+/// above the student's actual interests.
 /// </summary>
 public class CareerRecommendationService
 {
@@ -21,54 +25,79 @@ public class CareerRecommendationService
     public async Task<List<CareerRecommendation>> GetRecommendationsAsync(
         IEnumerable<CareerAnswer> answers, int topCount = 5)
     {
-        var tagScores = BuildTagScores(answers);
+        var answerList = answers?.ToList() ?? [];
+        var tagScores = BuildTagScores(answerList);
         var careers = await _careersService.GetAllCareersAsync();
 
         if (careers.Count == 0)
             return [];
 
         var positiveWeightTotal = tagScores.Values.Where(w => w > 0).Sum();
-        var maxPossibleScore = positiveWeightTotal > 0 ? positiveWeightTotal : 1;
+        var maxPossibleScore = Math.Max(positiveWeightTotal, 1);
         var scored = new List<CareerRecommendation>();
 
         foreach (var career in careers)
         {
-            var careerTags = GetCareerTags(career);
-            var matchedTags = new List<string>();
-            var score = 0;
+            var evidence = GetCareerEvidence(career);
+            var matchedSignals = new List<string>();
+            var score = 0.0;
 
-            foreach (var tag in careerTags)
+            // Score each selected questionnaire signal once. The previous
+            // implementation scored every career tag that happened to match,
+            // which allowed broad aliases to inflate specialist careers.
+            foreach (var signal in tagScores)
             {
-                foreach (var alias in ExpandTagAliases(tag))
-                {
-                    if (!tagScores.TryGetValue(alias, out var weight))
-                        continue;
+                if (signal.Value == 0)
+                    continue;
 
-                    score += weight;
-                    if (weight > 0)
-                        matchedTags.Add(tag);
-                    break;
+                if (MatchesSignalToCareer(signal.Key, evidence))
+                {
+                    score += signal.Value;
+                    if (signal.Value > 0)
+                        matchedSignals.Add(signal.Key);
                 }
             }
+
+            // A negative Mathematics response should actually count against
+            // math-heavy careers rather than being lost in the alias matching.
+            if (tagScores.TryGetValue("Mathematics", out var mathWeight) && mathWeight < 0 &&
+                IsMathHeavyCareer(evidence))
+            {
+                score += mathWeight * 2;
+            }
+
+            // Specialist careers need their domain to be supported by the
+            // student's answers. For example, Quantitative Researcher should
+            // not outrank Software Engineer just because both use computers
+            // and mathematics. Finance/markets/research signals are required
+            // to give a quantitative-finance career a strong score.
+            score -= GetMissingDomainPenalty(evidence, tagScores);
 
             if (score <= 0)
                 continue;
 
-            var percentage = (int)Math.Round(100.0 * score / maxPossibleScore);
-            percentage = Math.Clamp(percentage, 35, 97);
+            var coverage = Math.Clamp(score / maxPossibleScore, 0.0, 1.0);
+            var percentage = 35 + (int)Math.Round(60 * coverage);
+            percentage = Math.Clamp(percentage, 35, 95);
+
+            var distinctMatches = matchedSignals
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .Take(6)
+                .ToList();
 
             scored.Add(new CareerRecommendation
             {
                 Career = career,
-                Score = score,
+                Score = (int)Math.Round(score * 10),
                 MatchPercentage = percentage,
-                MatchedTags = matchedTags.Distinct().Take(6).ToList(),
-                WhyItMatches = BuildWhyItMatches(matchedTags.Distinct().ToList())
+                MatchedTags = distinctMatches,
+                WhyItMatches = BuildWhyItMatches(distinctMatches)
             });
         }
 
         var ranked = scored
             .OrderByDescending(r => r.Score)
+            .ThenByDescending(r => r.MatchPercentage)
             .ThenByDescending(r => r.Career.IsPopular)
             .ThenBy(r => r.Career.Name)
             .Take(topCount)
@@ -121,122 +150,194 @@ public class CareerRecommendationService
         return scores;
     }
 
-    private static List<string> GetCareerTags(Career career)
+    private static HashSet<string> GetCareerEvidence(Career career)
     {
-        var tags = new List<string>();
-        tags.AddRange(career.CareerCategories);
-        tags.AddRange(career.Interests);
-        tags.AddRange(career.PreferredSubjects);
-        tags.AddRange(career.WorkStyles);
-        return tags;
+        var evidence = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        AddEvidence(evidence, career.Name);
+        AddEvidence(evidence, career.Category);
+        AddEvidence(evidence, career.CareerCategories);
+        AddEvidence(evidence, career.Interests);
+        AddEvidence(evidence, career.PreferredSubjects);
+        AddEvidence(evidence, career.WorkStyles);
+        AddEvidence(evidence, career.KeySkills);
+        AddEvidence(evidence, career.Workplaces);
+
+        return evidence;
     }
 
-    // The expanded catalogue contains more specific labels than the original
-    // questionnaire. These aliases let broad questionnaire choices match those
-    // more specific career attributes without hard-coding individual careers.
-    private static IEnumerable<string> ExpandTagAliases(string tag)
+    private static void AddEvidence(HashSet<string> evidence, string? value)
     {
-        yield return tag;
+        if (!string.IsNullOrWhiteSpace(value))
+            evidence.Add(value.Trim());
+    }
 
-        var normalized = tag.Trim().ToLowerInvariant();
+    private static void AddEvidence(HashSet<string> evidence, IEnumerable<string>? values)
+    {
+        if (values is null)
+            return;
 
-        if (normalized.Contains("technology") || normalized.Contains("computer"))
+        foreach (var value in values)
+            AddEvidence(evidence, value);
+    }
+
+    private static bool MatchesSignalToCareer(string signal, HashSet<string> evidence)
+    {
+        if (evidence.Contains(signal))
+            return true;
+
+        var normalizedSignal = Normalize(signal);
+        var normalizedEvidence = evidence.Select(Normalize).ToList();
+
+        // High-value directional signals. These are intentionally controlled
+        // rather than using the previous broad "technology => everything
+        // technical" alias expansion.
+        var aliases = normalizedSignal switch
         {
-            yield return "Technology";
-            yield return "Computers";
-            yield return "Computer Science";
-            yield return "Information Technology";
-            yield return "Software";
-            yield return "Software Development";
-            yield return "Artificial Intelligence";
-            yield return "Data Science";
-            yield return "Cybersecurity";
+            "creating technology" => [
+                "technology", "computers", "computer science", "information technology",
+                "software", "software development", "programming", "coding",
+                "artificial intelligence", "machine learning", "cybersecurity"
+            ],
+            "working with computers" => [
+                "computers", "computer science", "information technology", "technology",
+                "software", "software development", "programming", "coding"
+            ],
+            "technology problems" => [
+                "technology", "computers", "computer science", "information technology",
+                "software", "software development", "programming", "coding",
+                "artificial intelligence", "machine learning", "cybersecurity"
+            ],
+            "technology" => [
+                "technology", "computers", "computer science", "information technology",
+                "software", "software development", "programming", "coding",
+                "artificial intelligence", "machine learning", "cybersecurity"
+            ],
+            "solving puzzles" => [
+                "solving puzzles", "problem-solving", "problem solving", "logical thinking",
+                "programming", "debugging", "analysis", "analytical"
+            ],
+            "logical thinking" => [
+                "logical thinking", "problem-solving", "problem solving", "programming",
+                "debugging", "analysis", "analytical", "statistics", "probability"
+            ],
+            "problem solving" => [
+                "problem-solving", "problem solving", "logical thinking", "programming",
+                "debugging", "analysis", "analytical", "system design"
+            ],
+            "working with numbers" => [
+                "working with numbers", "mathematics", "statistics", "probability",
+                "financial modelling", "financial modeling", "accounting", "analysis"
+            ],
+            "business & economics" => [
+                "business & economics", "business & finance", "business", "finance",
+                "management", "economics", "markets", "corporate"
+            ],
+            "business & finance" => [
+                "business & finance", "business & economics", "business", "finance",
+                "management", "economics", "markets", "financial"
+            ],
+            "understanding money and investments" => [
+                "finance", "business & finance", "markets", "investments", "investment",
+                "financial modelling", "financial modeling", "fintech"
+            ],
+            "financial problems" => [
+                "finance", "business & finance", "financial", "financial modelling",
+                "financial modeling", "accounting", "markets", "investments"
+            ],
+            "research and discovery" => [
+                "research and discovery", "science & research", "research", "laboratory",
+                "analysis", "statistics", "probability"
+            ],
+            "science & research" => [
+                "science & research", "research", "science", "laboratory", "research and discovery"
+            ],
+            "mathematics" => [
+                "mathematics", "statistics", "probability", "financial modelling",
+                "financial modeling", "quantitative", "engineering", "data science"
+            ],
+            "computers" => [
+                "computers", "computer science", "information technology", "technology",
+                "software", "programming", "coding"
+            ],
+            _ => []
+        };
+
+        if (aliases.Length == 0)
+            return normalizedEvidence.Contains(normalizedSignal);
+
+        return aliases.Any(alias => normalizedEvidence.Any(evidenceValue =>
+            evidenceValue.Contains(alias, StringComparison.OrdinalIgnoreCase)));
+    }
+
+    private static bool IsMathHeavyCareer(HashSet<string> evidence)
+    {
+        var mathTerms = new[]
+        {
+            "mathematics", "statistics", "probability", "quantitative",
+            "financial modelling", "financial modeling", "mathematical"
+        };
+
+        return evidence.Select(Normalize).Any(value =>
+            mathTerms.Any(term => value.Contains(term, StringComparison.OrdinalIgnoreCase)));
+    }
+
+    private static int GetMissingDomainPenalty(HashSet<string> evidence, Dictionary<string, int> signals)
+    {
+        var penalty = 0;
+
+        // Finance/markets is the important discriminator for quantitative
+        // finance careers. Mathematics + Computers alone must not be enough.
+        if (ContainsAny(evidence, "finance", "markets", "investment", "investments", "financial modelling", "financial modeling", "fintech", "quantitative") &&
+            !HasAnyPositiveSignal(signals,
+                "business & economics", "business & finance", "understanding money and investments",
+                "financial problems", "business problems", "working with numbers"))
+        {
+            penalty += 5;
         }
 
-        if (normalized.Contains("engineering"))
+        if (ContainsAny(evidence, "healthcare", "medicine", "hospital", "clinical", "medical") &&
+            !HasAnyPositiveSignal(signals,
+                "biology", "discovering how the human body works", "healthcare", "health-related problems", "helping people"))
         {
-            yield return "Engineering";
-            yield return "Mathematics";
-            yield return "Physics";
-            yield return "Problem solving";
-            yield return "Building things";
+            penalty += 4;
         }
 
-        if (normalized.Contains("health") || normalized.Contains("medical") || normalized.Contains("healthcare"))
+        if (ContainsAny(evidence, "law", "legal", "public service", "government") &&
+            !HasAnyPositiveSignal(signals, "law & public service", "social problems", "social studies"))
         {
-            yield return "Healthcare";
-            yield return "Health Sciences";
-            yield return "Medicine";
-            yield return "Biology";
-            yield return "Helping people";
+            penalty += 4;
         }
 
-        if (normalized.Contains("science") || normalized.Contains("research"))
+        if (ContainsAny(evidence, "design & media", "art & design", "creative studio", "creating designs") &&
+            !HasAnyPositiveSignal(signals, "art & design", "design & media", "designing creative things", "design problems", "creativity"))
         {
-            yield return "Science";
-            yield return "Science & Research";
-            yield return "Research and discovery";
-            yield return "Research";
+            penalty += 4;
         }
 
-        if (normalized.Contains("business") || normalized.Contains("finance") || normalized.Contains("management"))
+        if (ContainsAny(evidence, "education", "teaching") &&
+            !HasAnyPositiveSignal(signals, "education", "helping people", "communication"))
         {
-            yield return "Business & Finance";
-            yield return "Business & Economics";
-            yield return "Finance";
-            yield return "Management";
-            yield return "Working with numbers";
-            yield return "Leadership";
+            penalty += 3;
         }
 
-        if (normalized.Contains("design") || normalized.Contains("creative") || normalized.Contains("media"))
-        {
-            yield return "Design & Media";
-            yield return "Art & Design";
-            yield return "Creativity";
-            yield return "Creating designs";
-        }
+        return penalty;
+    }
 
-        if (normalized.Contains("law") || normalized.Contains("public") || normalized.Contains("government"))
-        {
-            yield return "Law & Public Service";
-            yield return "Social Studies";
-            yield return "Communication";
-            yield return "Leadership";
-        }
+    private static bool HasAnyPositiveSignal(Dictionary<string, int> signals, params string[] names)
+    {
+        return names.Any(name => signals.TryGetValue(name, out var weight) && weight > 0);
+    }
 
-        if (normalized.Contains("education") || normalized.Contains("teaching"))
-        {
-            yield return "Education";
-            yield return "Communication";
-            yield return "Helping people";
-        }
+    private static bool ContainsAny(HashSet<string> evidence, params string[] terms)
+    {
+        return evidence.Select(Normalize).Any(value =>
+            terms.Any(term => value.Contains(Normalize(term), StringComparison.OrdinalIgnoreCase)));
+    }
 
-        if (normalized.Contains("agriculture") || normalized.Contains("environment") || normalized.Contains("nature"))
-        {
-            yield return "Protecting the environment";
-            yield return "Science & Research";
-            yield return "Science";
-        }
-
-        if (normalized.Contains("communication") || normalized.Contains("language") || normalized.Contains("writing"))
-        {
-            yield return "Languages";
-            yield return "Communication";
-            yield return "Writing or communicating";
-        }
-
-        if (normalized.Contains("people") || normalized.Contains("helping"))
-        {
-            yield return "Working with people";
-            yield return "Helping people";
-        }
-
-        if (normalized.Contains("math") || normalized.Contains("number"))
-        {
-            yield return "Mathematics";
-            yield return "Working with numbers";
-        }
+    private static string Normalize(string value)
+    {
+        return value.Trim().ToLowerInvariant();
     }
 
     private static string BuildWhyItMatches(List<string> matchedTags)
@@ -246,7 +347,7 @@ public class CareerRecommendationService
 
         var shown = matchedTags.Take(4).ToList();
         var bullets = string.Join(" · ", shown.Select(t => $"✓ {t}"));
-        return $"You selected: {bullets}\n\nThese interests are commonly useful in this field.";
+        return $"You selected: {bullets}\n\nThese are strong signals for this career direction.";
     }
 
     private static readonly List<CareerQuestion> _questions = BuildQuestions();
