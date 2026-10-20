@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudyMap.Views.InformationDisclaimerView"
+             x:Name="Root">
+    <Grid>
+        <!-- Compact version: a quiet footer link -->
+        <Border x:Name="CompactCard"
+                BackgroundColor="Transparent"
+                StrokeThickness="0"
+                Padding="4,8"
+                HorizontalOptions="Center">
+            <HorizontalStackLayout Spacing="6" HorizontalOptions="Center">
+                <Label Text="ⓘ" FontSize="14" TextColor="#7D849A" VerticalOptions="Center" />
+                <Label Text="About this information"
+                       FontSize="12.5"
+                       TextColor="#6F7691"
+                       VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnDisclaimerTapped" />
+            </Border.GestureRecognizers>
+        </Border>
+
+        <!-- Prominent version: used only where the page gives personalized recommendations -->
+        <Border x:Name="ProminentCard"
+                IsVisible="False"
+                BackgroundColor="#FFF8E8"
+                Stroke="#F3C46B"
+                StrokeThickness="1"
+                Padding="14,12">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="16" />
+            </Border.StrokeShape>
+            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+                <Border Grid.Column="0"
+                        BackgroundColor="#F57C00"
+                        WidthRequest="34"
+                        HeightRequest="34"
+                        Padding="0"
+                        VerticalOptions="Start">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="17" />
+                    </Border.StrokeShape>
+                    <Label Text="i"
+                           FontFamily="OpenSansSemibold"
+                           FontSize="19"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                </Border>
+                <VerticalStackLayout Grid.Column="1" Spacing="4">
+                    <Label Text="Important Note"
+                           FontFamily="OpenSansSemibold"
+                           FontSize="14"
+                           TextColor="#8A4B08" />
+                    <Label Text="This information is for educational and career-exploration purposes only. Salaries, entrance requirements, demand and career opportunities may change over time and vary by location and individual experience. Please verify important details with official sources before making decisions."
+                           FontSize="12.5"
+                           TextColor="#6F6048"
+                           LineBreakMode="WordWrap" />
+                </VerticalStackLayout>
+            </Grid>
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnDisclaimerTapped" />
+            </Border.GestureRecognizers>
+        </Border>
+    </Grid>
+</ContentView>
