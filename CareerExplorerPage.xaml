@@ -64,7 +64,7 @@
                 <HorizontalStackLayout Spacing="8">
                     <Button x:Name="AllCategoryButton" Text="All" Style="{StaticResource ChipBtn}" Clicked="OnCategoryClicked" />
                     <Button x:Name="ScienceCategoryButton" Text="Science" Style="{StaticResource ChipBtn}" Clicked="OnCategoryClicked" />
-                    <Button x:Name="CommerceCategoryButton" Text="Commerce" Style="{StaticResource ChipBtn}" />
+                    <Button x:Name="CommerceCategoryButton" Text="Commerce" Style="{StaticResource ChipBtn}" Clicked="OnCategoryClicked" />
                     <Button x:Name="ArtsCategoryButton" Text="Arts" Style="{StaticResource ChipBtn}" Clicked="OnCategoryClicked" />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
