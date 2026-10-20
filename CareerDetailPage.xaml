@@ -32,7 +32,7 @@
     <Grid RowDefinitions="Auto,*">
 
         <!-- ═══════ Header ═══════ -->
-        <Border Grid.Row="0" StrokeThickness="0" Padding="20,52,20,0" x:Name="HeroBanner">
+        <Border Grid.Row="0" StrokeThickness="0" Padding="20,28,20,0" x:Name="HeroBanner">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop x:Name="HeroGradA" Color="#E3F2FD" Offset="0.0" />
@@ -192,8 +192,7 @@
                     <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
                     <VerticalStackLayout Spacing="12">
                         <Label Text="&#127919; Skills to Build" Style="{StaticResource SectionTitle}" />
-                        <FlexLayout x:Name="SkillsLayout"
-                                    Wrap="Wrap" Direction="Row" JustifyContent="Start" />
+                        <FlexLayout x:Name="SkillsLayout" Wrap="Wrap" Direction="Row" JustifyContent="Start" />
                     </VerticalStackLayout>
                 </Border>
 
@@ -203,8 +202,7 @@
                     <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
                     <VerticalStackLayout Spacing="12">
                         <Label Text="&#128221; Entrance Exams" Style="{StaticResource SectionTitle}" />
-                        <FlexLayout x:Name="ExamsLayout"
-                                    Wrap="Wrap" Direction="Row" JustifyContent="Start" />
+                        <FlexLayout x:Name="ExamsLayout" Wrap="Wrap" Direction="Row" JustifyContent="Start" />
                     </VerticalStackLayout>
                 </Border>
 
@@ -254,38 +252,20 @@
                     <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
                     <VerticalStackLayout Spacing="12">
                         <Label Text="&#128101; Related Careers" Style="{StaticResource SectionTitle}" />
-                        <CollectionView x:Name="RelatedCareersCV"
-                                        SelectionMode="None"
-                                        HeightRequest="130"
-                                        HorizontalScrollBarVisibility="Never">
-                            <CollectionView.ItemsLayout>
-                                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="12" />
-                            </CollectionView.ItemsLayout>
+                        <CollectionView x:Name="RelatedCareersCV" SelectionMode="None" HeightRequest="130" HorizontalScrollBarVisibility="Never">
+                            <CollectionView.ItemsLayout><LinearItemsLayout Orientation="Horizontal" ItemSpacing="12" /></CollectionView.ItemsLayout>
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                    <Border StrokeThickness="0" Padding="0"
-                                            WidthRequest="140" HeightRequest="126">
+                                    <Border StrokeThickness="0" Padding="0" WidthRequest="140" HeightRequest="126">
                                         <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
-                                        <Border.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="OnRelatedCareerTapped"
-                                                                  CommandParameter="{Binding .}" />
-                                        </Border.GestureRecognizers>
+                                        <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnRelatedCareerTapped" CommandParameter="{Binding .}" /></Border.GestureRecognizers>
                                         <Grid RowDefinitions="Auto,*" BackgroundColor="#F5F7FF">
-                                            <Border Grid.Row="0" StrokeThickness="0"
-                                                    BackgroundColor="{Binding AccentColor}"
-                                                    HeightRequest="56" Padding="0">
-                                                <Label Text="{Binding Icon}" FontSize="30"
-                                                       HorizontalOptions="Center"
-                                                       VerticalOptions="Center" />
+                                            <Border Grid.Row="0" StrokeThickness="0" BackgroundColor="{Binding AccentColor}" HeightRequest="56" Padding="0">
+                                                <Label Text="{Binding Icon}" FontSize="30" HorizontalOptions="Center" VerticalOptions="Center" />
                                             </Border>
-                                            <VerticalStackLayout Grid.Row="1" Padding="10,8"
-                                                                 Spacing="2">
-                                                <Label Text="{Binding Name}"
-                                                       FontFamily="OpenSansSemibold" FontSize="12"
-                                                       TextColor="{StaticResource Ink}"
-                                                       LineBreakMode="WordWrap" MaxLines="2" />
-                                                <Label Text="{Binding SalaryRangeIndia}"
-                                                       FontSize="10" TextColor="{StaticResource Muted}" />
+                                            <VerticalStackLayout Grid.Row="1" Padding="10,8" Spacing="2">
+                                                <Label Text="{Binding Name}" FontFamily="OpenSansSemibold" FontSize="12" TextColor="{StaticResource Ink}" LineBreakMode="WordWrap" MaxLines="2" />
+                                                <Label Text="{Binding SalaryRangeIndia}" FontSize="10" TextColor="{StaticResource Muted}" />
                                             </VerticalStackLayout>
                                         </Grid>
                                     </Border>
@@ -296,44 +276,14 @@
                 </Border>
 
                 <!-- View Career Roadmap CTA -->
-                <Button x:Name="RoadmapBtn"
-                        Text="&#128204; View Full Career Roadmap"
-                        FontFamily="OpenSansSemibold" FontSize="15"
-                        HeightRequest="54" CornerRadius="16"
-                        TextColor="White"
-                        Clicked="OnViewRoadmapClicked">
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop x:Name="RoadmapBtnGradA" Color="#2979FF" Offset="0.0" />
-                            <GradientStop x:Name="RoadmapBtnGradB" Color="#7B1FA2" Offset="1.0" />
-                        </LinearGradientBrush>
-                    </Button.Background>
+                <Button x:Name="RoadmapBtn" Text="&#128204; View Full Career Roadmap" FontFamily="OpenSansSemibold" FontSize="15" HeightRequest="54" CornerRadius="16" TextColor="White" Clicked="OnViewRoadmapClicked">
+                    <Button.Background><LinearGradientBrush StartPoint="0,0" EndPoint="1,0"><GradientStop x:Name="RoadmapBtnGradA" Color="#2979FF" Offset="0.0" /><GradientStop x:Name="RoadmapBtnGradB" Color="#7B1FA2" Offset="1.0" /></LinearGradientBrush></Button.Background>
                 </Button>
 
                 <!-- Parent Insights CTA -->
-                <Button Text="&#128106;&#8205;&#128105;&#8205;&#128103; View Parent Insights"
-                        BackgroundColor="White"
-                        TextColor="#2E7D6B"
-                        FontFamily="OpenSansSemibold" FontSize="15"
-                        HeightRequest="54" CornerRadius="16"
-                        Clicked="OnViewParentInsightsClicked">
-                    <Button.Shadow><Shadow Brush="#10000000" Offset="0,4" Radius="10" Opacity="1" /></Button.Shadow>
-                </Button>
+                <Button Text="&#128106;&#8205;&#128105;&#8205;&#128103; View Parent Insights" BackgroundColor="White" TextColor="{StaticResource Ink}" FontFamily="OpenSansSemibold" FontSize="14" HeightRequest="52" CornerRadius="16" Clicked="OnViewParentInsightsClicked" />
 
             </VerticalStackLayout>
         </ScrollView>
-
-        <!-- Loading overlay -->
-        <Grid Grid.Row="1" x:Name="LoadingOverlay" IsVisible="False"
-              BackgroundColor="#E8F0FEBB">
-            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="14">
-                <ActivityIndicator IsRunning="True" Color="#2979FF"
-                                   WidthRequest="44" HeightRequest="44" />
-                <Label Text="Loading career details..." FontSize="14"
-                       TextColor="{StaticResource Muted}" HorizontalOptions="Center" />
-            </VerticalStackLayout>
-        </Grid>
-
     </Grid>
-
 </ContentPage>
