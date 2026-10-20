@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:StudyMap.Views"
              x:Class="StudyMap.CareerDetailPage"
              Shell.NavBarIsVisible="False"
              BackgroundColor="#F0F4FF">
@@ -31,7 +32,7 @@
 
     <Grid RowDefinitions="Auto,*">
 
-        <!-- ═══════ Header ═══════ -->
+        <!-- Header -->
         <Border Grid.Row="0" StrokeThickness="0" Padding="20,28,20,0" x:Name="HeroBanner">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -41,39 +42,21 @@
             </Border.Background>
             <Grid RowDefinitions="Auto,Auto" RowSpacing="14">
 
-                <!-- Back button row -->
                 <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto">
-                    <ImageButton
-                        Source="arrow_back.png"
-                        WidthRequest="28"
-                        HeightRequest="28"
-                        BackgroundColor="Transparent"
-                        Clicked="OnBackTapped"
-                        VerticalOptions="Center" />
-                    <Border Grid.Column="2" BackgroundColor="{StaticResource Surface}"
-                            WidthRequest="42" HeightRequest="42" StrokeThickness="0"
-                            VerticalOptions="Center">
+                    <ImageButton Source="arrow_back.png" WidthRequest="28" HeightRequest="28" BackgroundColor="Transparent" Clicked="OnBackTapped" VerticalOptions="Center" />
+                    <Border Grid.Column="2" BackgroundColor="{StaticResource Surface}" WidthRequest="42" HeightRequest="42" StrokeThickness="0" VerticalOptions="Center">
                         <Border.StrokeShape><RoundRectangle CornerRadius="21" /></Border.StrokeShape>
-                        <Label Text="⌂" FontSize="24" FontAttributes="Bold" TextColor="#7C57F5"
-                               HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label Text="⌂" FontSize="24" FontAttributes="Bold" TextColor="#7C57F5" HorizontalOptions="Center" VerticalOptions="Center" />
                         <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnHomeTapped" /></Border.GestureRecognizers>
                     </Border>
-
-                    <Label Grid.Column="1" Text="Career Details"
-                           FontFamily="OpenSansSemibold" FontSize="18"
-                           TextColor="{StaticResource Ink}"
-                           VerticalOptions="Center" Margin="14,0,0,0" />
+                    <Label Grid.Column="1" Text="Career Details" FontFamily="OpenSansSemibold" FontSize="18" TextColor="{StaticResource Ink}" VerticalOptions="Center" Margin="14,0,0,0" />
                 </Grid>
 
-                <!-- Hero card -->
-                <Border Grid.Row="1" StrokeThickness="0" Padding="0"
-                        Margin="0">
+                <Border Grid.Row="1" StrokeThickness="0" Padding="0" Margin="0">
                     <Border.StrokeShape><RoundRectangle CornerRadius="24" /></Border.StrokeShape>
                     <Border.Shadow><Shadow Brush="#18000000" Offset="0,10" Radius="28" Opacity="1" /></Border.Shadow>
                     <Grid RowDefinitions="Auto,Auto">
-                        <!-- Coloured banner strip -->
-                        <Border x:Name="HeroStrip" Grid.Row="0" StrokeThickness="0"
-                                HeightRequest="90" Padding="20,18">
+                        <Border x:Name="HeroStrip" Grid.Row="0" StrokeThickness="0" HeightRequest="90" Padding="20,18">
                             <Border.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                     <GradientStop x:Name="StripGradA" Color="#2979FF" Offset="0.0" />
@@ -81,55 +64,30 @@
                                 </LinearGradientBrush>
                             </Border.Background>
                             <Grid ColumnDefinitions="Auto,*">
-                                <Border x:Name="HeroIconBorder" StrokeThickness="0"
-                                        BackgroundColor="#33FFFFFF" Padding="12">
+                                <Border x:Name="HeroIconBorder" StrokeThickness="0" BackgroundColor="#33FFFFFF" Padding="12">
                                     <Border.StrokeShape><RoundRectangle CornerRadius="18" /></Border.StrokeShape>
-                                    <Label x:Name="HeroIconLabel" Text="&#128204;"
-                                           FontSize="36" HorizontalTextAlignment="Center" />
+                                    <Label x:Name="HeroIconLabel" Text="&#128204;" FontSize="36" HorizontalTextAlignment="Center" />
                                 </Border>
-                                <VerticalStackLayout Grid.Column="1" Margin="16,0,0,0"
-                                                     VerticalOptions="Center" Spacing="3">
-                                    <Label x:Name="CareerNameLabel"
-                                           FontFamily="OpenSansSemibold" FontSize="20"
-                                           TextColor="White" LineBreakMode="TailTruncation" MaxLines="1" />
-                                    <Label x:Name="CategoryLabel"
-                                           FontSize="13" TextColor="#CCE5FF" />
+                                <VerticalStackLayout Grid.Column="1" Margin="16,0,0,0" VerticalOptions="Center" Spacing="3">
+                                    <Label x:Name="CareerNameLabel" FontFamily="OpenSansSemibold" FontSize="20" TextColor="White" LineBreakMode="TailTruncation" MaxLines="1" />
+                                    <Label x:Name="CategoryLabel" FontSize="13" TextColor="#CCE5FF" />
                                 </VerticalStackLayout>
                             </Grid>
                         </Border>
-                        <!-- White stat row -->
-                        <Grid Grid.Row="1" BackgroundColor="{StaticResource Surface}"
-                              ColumnDefinitions="*,*,*" Padding="14,16,14,16" ColumnSpacing="8">
+                        <Grid Grid.Row="1" BackgroundColor="{StaticResource Surface}" ColumnDefinitions="*,*,*" Padding="14,16,14,16" ColumnSpacing="8">
                             <VerticalStackLayout Spacing="3" HorizontalOptions="Center">
-                                <Label Text="&#128176; Salary" FontSize="11"
-                                       TextColor="{StaticResource Muted}" HorizontalOptions="Center" />
-                                <Label Text="{Binding Career.SalaryRangeIndia}" x:Name="SalaryLabel" FontFamily="OpenSansSemibold"
-                                       FontSize="13" TextColor="{StaticResource Ink}"
-                                       HorizontalOptions="Fill"
-                                       HorizontalTextAlignment="Center"
-                                       LineBreakMode="WordWrap" />
+                                <Label Text="&#128176; Salary" FontSize="11" TextColor="{StaticResource Muted}" HorizontalOptions="Center" />
+                                <Label Text="{Binding Career.SalaryRangeIndia}" x:Name="SalaryLabel" FontFamily="OpenSansSemibold" FontSize="13" TextColor="{StaticResource Ink}" HorizontalOptions="Fill" HorizontalTextAlignment="Center" LineBreakMode="WordWrap" />
                             </VerticalStackLayout>
-                            <BoxView Grid.Column="0" WidthRequest="1" Color="{StaticResource SoftBorder}"
-                                     HorizontalOptions="End" VerticalOptions="Fill" Margin="0,4" />
+                            <BoxView Grid.Column="0" WidthRequest="1" Color="{StaticResource SoftBorder}" HorizontalOptions="End" VerticalOptions="Fill" Margin="0,4" />
                             <VerticalStackLayout Grid.Column="1" Spacing="3" HorizontalOptions="Center">
-                                <Label Text="&#128200; Demand" FontSize="11"
-                                       TextColor="{StaticResource Muted}" HorizontalOptions="Center" />
-                                <Label Text="{Binding Career.FutureDemand}" x:Name="DemandLabel" FontFamily="OpenSansSemibold"
-                                       FontSize="13" TextColor="{StaticResource Ink}"
-                                       HorizontalOptions="Fill"
-                                       HorizontalTextAlignment="Center"
-                                       LineBreakMode="WordWrap" />
+                                <Label Text="&#128200; Demand" FontSize="11" TextColor="{StaticResource Muted}" HorizontalOptions="Center" />
+                                <Label Text="{Binding Career.FutureDemand}" x:Name="DemandLabel" FontFamily="OpenSansSemibold" FontSize="13" TextColor="{StaticResource Ink}" HorizontalOptions="Fill" HorizontalTextAlignment="Center" LineBreakMode="WordWrap" />
                             </VerticalStackLayout>
-                            <BoxView Grid.Column="1" WidthRequest="1" Color="{StaticResource SoftBorder}"
-                                     HorizontalOptions="End" VerticalOptions="Fill" Margin="0,4" />
+                            <BoxView Grid.Column="1" WidthRequest="1" Color="{StaticResource SoftBorder}" HorizontalOptions="End" VerticalOptions="Fill" Margin="0,4" />
                             <VerticalStackLayout Grid.Column="2" Spacing="3" HorizontalOptions="Center">
-                                <Label Text="&#127891; Stream" FontSize="11"
-                                       TextColor="{StaticResource Muted}" HorizontalOptions="Center" />
-                                <Label Text="{Binding Career.Category}" x:Name="StreamLabel" FontFamily="OpenSansSemibold"
-                                       FontSize="13" TextColor="{StaticResource Ink}"
-                                       HorizontalOptions="Fill"
-                                       HorizontalTextAlignment="Center"
-                                       LineBreakMode="WordWrap" />
+                                <Label Text="&#127891; Stream" FontSize="11" TextColor="{StaticResource Muted}" HorizontalOptions="Center" />
+                                <Label Text="{Binding Career.Category}" x:Name="StreamLabel" FontFamily="OpenSansSemibold" FontSize="13" TextColor="{StaticResource Ink}" HorizontalOptions="Fill" HorizontalTextAlignment="Center" LineBreakMode="WordWrap" />
                             </VerticalStackLayout>
                         </Grid>
                     </Grid>
@@ -137,73 +95,32 @@
             </Grid>
         </Border>
 
-        <!-- ═══════ Scrollable Body ═══════ -->
+        <!-- Scrollable Body -->
         <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
             <VerticalStackLayout Padding="16,14,16,32" Spacing="14">
 
-                <!-- Important Disclaimer -->
-                <Border BackgroundColor="#FFF8E8" Stroke="#F3C46B" StrokeThickness="1" Padding="14,12">
-                    <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
-                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
-                        <Border Grid.Column="0" BackgroundColor="#F57C00" WidthRequest="34" HeightRequest="34" Padding="0" VerticalOptions="Start">
-                            <Border.StrokeShape><RoundRectangle CornerRadius="17" /></Border.StrokeShape>
-                            <Label Text="i" FontFamily="OpenSansSemibold" FontSize="19" TextColor="White"
-                                   HorizontalOptions="Center" VerticalOptions="Center" />
-                        </Border>
-                        <VerticalStackLayout Grid.Column="1" Spacing="4">
-                            <Label Text="Important Note" FontFamily="OpenSansSemibold" FontSize="14" TextColor="#8A4B08" />
-                            <Label Text="This information is for educational and career-exploration purposes only. Salaries, entrance requirements, demand and career opportunities may change over time and vary by location and individual experience. Please verify important details with official sources before making decisions."
-                                   FontSize="12.5" TextColor="#6F6048" LineBreakMode="WordWrap" />
-                        </VerticalStackLayout>
-                    </Grid>
-                </Border>
-
                 <!-- Action Buttons Row -->
                 <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
-                    <Button x:Name="FavBtn"
-                            Text="&#9825; Add to Favorites"
-                            BackgroundColor="{StaticResource Surface}"
-                            TextColor="{StaticResource Ink}"
-                            FontFamily="OpenSansSemibold" FontSize="13"
-                            CornerRadius="14" HeightRequest="48"
-                            Clicked="OnToggleFavoriteClicked">
+                    <Button x:Name="FavBtn" Text="&#9825; Add to Favorites" BackgroundColor="{StaticResource Surface}" TextColor="{StaticResource Ink}" FontFamily="OpenSansSemibold" FontSize="13" CornerRadius="14" HeightRequest="48" Clicked="OnToggleFavoriteClicked">
                         <Button.Shadow><Shadow Brush="#10000000" Offset="0,4" Radius="10" Opacity="1" /></Button.Shadow>
                     </Button>
-                    <Button Grid.Column="1"
-                            x:Name="SaveBtn"
-                            Text="&#128190; Save Career"
-                            BackgroundColor="{StaticResource Surface}"
-                            TextColor="{StaticResource Ink}"
-                            FontFamily="OpenSansSemibold" FontSize="13"
-                            CornerRadius="14" HeightRequest="48"
-                            Clicked="OnSaveCareerClicked">
+                    <Button Grid.Column="1" x:Name="SaveBtn" Text="&#128190; Save Career" BackgroundColor="{StaticResource Surface}" TextColor="{StaticResource Ink}" FontFamily="OpenSansSemibold" FontSize="13" CornerRadius="14" HeightRequest="48" Clicked="OnSaveCareerClicked">
                         <Button.Shadow><Shadow Brush="#10000000" Offset="0,4" Radius="10" Opacity="1" /></Button.Shadow>
                     </Button>
                 </Grid>
 
-                <!-- Status message -->
-                <Label x:Name="StatusLabel"
-                       IsVisible="False"
-                       FontFamily="OpenSansSemibold" FontSize="13"
-                       TextColor="#2E7D32"
-                       HorizontalOptions="Center" />
+                <Label x:Name="StatusLabel" IsVisible="False" FontFamily="OpenSansSemibold" FontSize="13" TextColor="#2E7D32" HorizontalOptions="Center" />
 
-                <!-- Description -->
                 <Border Style="{StaticResource SectionCard}">
                     <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
                     <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
                     <VerticalStackLayout Spacing="10">
                         <Label Text="About This Career" Style="{StaticResource SectionTitle}" />
-                        <Label x:Name="DescriptionLabel"
-                               FontSize="14" TextColor="{StaticResource Muted}"
-                               LineBreakMode="WordWrap" />
-                        <Label x:Name="EducationPathLabel"
-                               FontSize="13" TextColor="{StaticResource Muted}"
-                               LineBreakMode="WordWrap" Margin="0,4,0,0" />
+                        <Label x:Name="DescriptionLabel" FontSize="14" TextColor="{StaticResource Muted}" LineBreakMode="WordWrap" />
+                        <Label x:Name="EducationPathLabel" FontSize="13" TextColor="{StaticResource Muted}" LineBreakMode="WordWrap" Margin="0,4,0,0" />
                     </VerticalStackLayout>
                 </Border>
 
-                <!-- Key Skills -->
                 <Border Style="{StaticResource SectionCard}">
                     <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
                     <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
@@ -213,7 +130,6 @@
                     </VerticalStackLayout>
                 </Border>
 
-                <!-- Entrance Exams -->
                 <Border Style="{StaticResource SectionCard}">
                     <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
                     <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
@@ -223,7 +139,6 @@
                     </VerticalStackLayout>
                 </Border>
 
-                <!-- Roadmap Steps -->
                 <Border Style="{StaticResource SectionCard}">
                     <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
                     <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
@@ -233,7 +148,6 @@
                     </VerticalStackLayout>
                 </Border>
 
-                <!-- Top Colleges -->
                 <Border Style="{StaticResource SectionCard}">
                     <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
                     <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
@@ -243,7 +157,6 @@
                     </VerticalStackLayout>
                 </Border>
 
-                <!-- Where You Can Work -->
                 <Border Style="{StaticResource SectionCard}">
                     <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
                     <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
@@ -253,7 +166,6 @@
                     </VerticalStackLayout>
                 </Border>
 
-                <!-- Related Careers -->
                 <Border Style="{StaticResource SectionCard}">
                     <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
                     <Border.Shadow><Shadow Brush="#08000000" Offset="0,4" Radius="12" Opacity="1" /></Border.Shadow>
@@ -282,13 +194,13 @@
                     </VerticalStackLayout>
                 </Border>
 
-                <!-- View Career Roadmap CTA -->
                 <Button x:Name="RoadmapBtn" Text="&#128204; View Full Career Roadmap" FontFamily="OpenSansSemibold" FontSize="15" HeightRequest="54" CornerRadius="16" TextColor="White" Clicked="OnViewRoadmapClicked">
                     <Button.Background><LinearGradientBrush StartPoint="0,0" EndPoint="1,0"><GradientStop x:Name="RoadmapBtnGradA" Color="#2979FF" Offset="0.0" /><GradientStop x:Name="RoadmapBtnGradB" Color="#7B1FA2" Offset="1.0" /></LinearGradientBrush></Button.Background>
                 </Button>
 
-                <!-- Parent Insights CTA -->
                 <Button Text="&#128106;&#8205;&#128105;&#8205;&#128103; View Parent Insights" BackgroundColor="White" TextColor="{StaticResource Ink}" FontFamily="OpenSansSemibold" FontSize="14" HeightRequest="52" CornerRadius="16" Clicked="OnViewParentInsightsClicked" />
+
+                <views:InformationDisclaimerView />
 
             </VerticalStackLayout>
         </ScrollView>
