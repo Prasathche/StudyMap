@@ -23,7 +23,7 @@
     <Grid RowDefinitions="*,Auto" ColumnDefinitions="*" ColumnSpacing="12">
 
         <ScrollView Grid.Row="0" VerticalScrollBarVisibility="Never">
-            <VerticalStackLayout Padding="20,52,20,24" Spacing="18">
+            <VerticalStackLayout Padding="20,28,20,24" Spacing="18">
 
                 <Grid ColumnDefinitions="*,Auto">
                     <VerticalStackLayout Spacing="6">
