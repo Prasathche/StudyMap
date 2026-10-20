@@ -176,65 +176,6 @@
     ]
   },
   {
-    "Id": "career-pharmacist",
-    "Name": "Pharmacist",
-    "Description": "Dispense medicines safely and support healthcare teams with drug knowledge and patient guidance.",
-    "Category": "Science",
-    "Icon": "💊",
-    "AccentColor": "#B4E3A0",
-    "IsPopular": false,
-    "SalaryRangeIndia": "INR 3-9 LPA",
-    "FutureDemand": "High",
-    "EducationPath": "Take PCB or PCM, complete D.Pharm or B.Pharm, register with the pharmacy council, and build experience in retail or clinical settings.",
-    "EntranceExams": [
-      "State CETs",
-      "BITSAT Pharmacy",
-      "GPAT"
-    ],
-    "KeySkills": [
-      "Drug knowledge",
-      "Accuracy",
-      "Communication",
-      "Regulatory awareness"
-    ],
-    "Workplaces": [
-      "Retail pharmacies",
-      "Hospitals",
-      "Pharma companies"
-    ],
-    "RoadmapSteps": [
-      "Take PCB or PCM and compare D.Pharm and B.Pharm options.",
-      "Prepare for state CETs, BITSAT Pharmacy, or other pharmacy entrance routes.",
-      "Complete your pharmacy degree and registration requirements.",
-      "Build experience in retail, hospital pharmacy, or pharma operations and add certifications in regulations or clinical pharmacy."
-    ],
-    "SalaryInsights": [
-      "Entry-level opportunities often begin around INR 3-6 LPA, depending on city, training, and internship exposure.",
-      "Professionals who strengthen drug knowledge and accuracy can move toward the upper end of INR 3-9 LPA.",
-      "Demand is high across retail pharmacies, hospitals, and pharma companies in India."
-    ],
-    "TopColleges": [
-      "NIPER Mohali",
-      "BITS Pilani School of Pharmacy",
-      "JSS College of Pharmacy Ooty"
-    ],
-    "CareerCategories": [
-      "Healthcare"
-    ],
-    "Interests": [
-      "Helping people",
-      "Attention to detail"
-    ],
-    "PreferredSubjects": [
-      "Biology",
-      "Science"
-    ],
-    "WorkStyles": [
-      "Independently",
-      "Hospital / Healthcare"
-    ]
-  },
-  {
     "Id": "career-software-engineer",
     "Name": "Software Engineer",
     "Description": "Build apps, websites, and enterprise systems using programming, testing, and product thinking.",
@@ -774,66 +715,7 @@
       "Creative Studio"
     ]
   },
-  {
-    "Id": "career-human-resources-manager",
-    "Name": "Human Resources Manager",
-    "Description": "Manage hiring, employee engagement, performance, and workplace policies.",
-    "Category": "Commerce",
-    "Icon": "🤝",
-    "AccentColor": "#FFB0C8",
-    "IsPopular": false,
-    "SalaryRangeIndia": "INR 5-16 LPA",
-    "FutureDemand": "High",
-    "EducationPath": "Study Commerce or any stream, complete graduation, and pursue HR specialization through MBA, PGDM, or certifications.",
-    "EntranceExams": [
-      "CAT",
-      "XAT",
-      "CMAT"
-    ],
-    "KeySkills": [
-      "People management",
-      "Conflict resolution",
-      "Recruitment",
-      "Policy understanding"
-    ],
-    "Workplaces": [
-      "Corporate HR teams",
-      "Consultancies",
-      "Startups"
-    ],
-    "RoadmapSteps": [
-      "Choose any stream and build strong communication and interpersonal skills.",
-      "Prepare for management entrances like CAT, XAT, or CMAT if you want an HR specialization.",
-      "Complete graduation and add HR-focused coursework, internships, or an MBA/PGDM.",
-      "Build experience in hiring, employee engagement, and HR operations before moving into management roles."
-    ],
-    "SalaryInsights": [
-      "Entry-level opportunities often begin around INR 5-8 LPA, depending on city, training, and internship exposure.",
-      "Professionals who strengthen people management and conflict resolution can move toward the upper end of INR 5-16 LPA.",
-      "Demand is high across corporate HR teams, consultancies, and startups in India."
-    ],
-    "TopColleges": [
-      "XLRI Jamshedpur",
-      "TISS Mumbai",
-      "MDI Gurgaon"
-    ],
-    "CareerCategories": [
-      "Business & Finance"
-    ],
-    "Interests": [
-      "Helping people",
-      "Leading a team"
-    ],
-    "PreferredSubjects": [
-      "Business & Economics",
-      "Languages"
-    ],
-    "WorkStyles": [
-      "With lots of people",
-      "Business / Corporate"
-    ]
-  },
-  {
+   {
     "Id": "career-supply-chain-manager",
     "Name": "Supply Chain Manager",
     "Description": "Oversee sourcing, warehousing, logistics, and product movement from supplier to customer.",
@@ -2330,58 +2212,7 @@
       "Sardar Vallabhbhai Patel National Police Academy"
     ]
   },
-  {
-    "Id": "company-secretary",
-    "Name": "Company Secretary",
-    "SearchAliases": [
-      "CS",
-      "ICSI",
-      "Corporate Secretary"
-    ],
-    "Description": "Ensures that companies follow legal, corporate-governance, compliance, and regulatory requirements while advising boards and management.",
-    "Category": "Commerce",
-    "Icon": "📋",
-    "AccentColor": "#4F46E5",
-    "IsPopular": true,
-    "SalaryRangeIndia": "INR 4-15 LPA",
-    "FutureDemand": "Strong demand in corporate governance, compliance, secretarial practice, listed companies, and regulatory advisory.",
-    "EducationPath": "After Class 12, register for the ICSI Company Secretary course and clear CSEET, Executive, Professional, and required practical training.",
-    "EntranceExams": [
-      "CSEET",
-      "CS Executive",
-      "CS Professional"
-    ],
-    "KeySkills": [
-      "Corporate law",
-      "Compliance",
-      "Documentation",
-      "Communication",
-      "Governance"
-    ],
-    "Workplaces": [
-      "Corporate companies",
-      "Law firms",
-      "Consulting firms",
-      "Banks",
-      "Independent practice"
-    ],
-    "RoadmapSteps": [
-      "Complete Class 12, preferably with Commerce for a strong foundation.",
-      "Register with ICSI and clear CSEET.",
-      "Clear CS Executive and CS Professional examinations.",
-      "Complete practical training and build experience in compliance and corporate governance."
-    ],
-    "SalaryInsights": [
-      "Entry-level roles often range from INR 4-7 LPA depending on the organization and location.",
-      "Experienced company secretaries in listed companies and specialized compliance roles can earn significantly more."
-    ],
-    "TopColleges": [
-      "Institute of Company Secretaries of India",
-      "Delhi University",
-      "Mumbai University"
-    ]
-  },
-  {
+   {
     "Id": "career-mechanical-engineer",
     "Name": "Mechanical Engineer",
     "Description": "Design and improve machines, products, and mechanical systems.",
@@ -4253,57 +4084,6 @@
     ],
     "WorkStyles": [
       "Laboratory / Healthcare",
-      "With a small team"
-    ]
-  },
-  {
-    "Id": "career-radiology-technologist",
-    "Name": "Radiology Technologist",
-    "Description": "Operate medical imaging equipment and support diagnostic imaging services.",
-    "Category": "Science",
-    "Icon": "🩻",
-    "SalaryRangeIndia": "INR 3-9 LPA",
-    "FutureDemand": "High",
-    "EducationPath": "Choose PCB and pursue B.Sc Medical Radiology or related imaging education.",
-    "EntranceExams": [
-      "University admissions",
-      "State entrance tests"
-    ],
-    "KeySkills": [
-      "Imaging equipment",
-      "Patient care",
-      "Safety",
-      "Precision"
-    ],
-    "Workplaces": [
-      "Hospitals",
-      "Diagnostic centres",
-      "Imaging clinics"
-    ],
-    "RoadmapSteps": [
-      "Choose PCB and strengthen Biology and Physics.",
-      "Research radiology and medical imaging programs.",
-      "Complete the degree with clinical imaging training.",
-      "Start in diagnostic imaging and specialize in CT, MRI, radiography, or related areas."
-    ],
-    "TopColleges": [
-      "AIIMS",
-      "Manipal College of Health Professions",
-      "CMC Vellore"
-    ],
-    "CareerCategories": [
-      "Healthcare"
-    ],
-    "Interests": [
-      "Technology",
-      "Helping people"
-    ],
-    "PreferredSubjects": [
-      "Biology",
-      "Physics"
-    ],
-    "WorkStyles": [
-      "Hospital / Healthcare",
       "With a small team"
     ]
   },
@@ -6258,59 +6038,6 @@
     ]
   },
   {
-    "Id": "career-hr-manager",
-    "Name": "Human Resources Manager",
-    "Description": "Help organizations hire, develop, support, and retain employees.",
-    "Category": "Commerce",
-    "Icon": "👥",
-    "SalaryRangeIndia": "INR 5-18 LPA",
-    "FutureDemand": "High",
-    "EducationPath": "Choose Commerce, Arts, or Science and pursue a relevant degree followed by HR specialization.",
-    "EntranceExams": [
-      "CUET",
-      "University admissions",
-      "CAT for MBA route"
-    ],
-    "KeySkills": [
-      "Communication",
-      "People management",
-      "Recruitment",
-      "Conflict resolution"
-    ],
-    "Workplaces": [
-      "Companies",
-      "Consulting firms",
-      "Startups"
-    ],
-    "RoadmapSteps": [
-      "Build communication and people skills in school.",
-      "Choose an undergraduate degree in business, psychology, economics, or another relevant field.",
-      "Gain internships and consider an HR specialization or MBA.",
-      "Start in HR operations or recruitment and progress into HR business partnering and leadership."
-    ],
-    "TopColleges": [
-      "TISS Mumbai",
-      "IIM Indore",
-      "XLRI Jamshedpur"
-    ],
-    "CareerCategories": [
-      "Business",
-      "Social Science"
-    ],
-    "Interests": [
-      "Working with people",
-      "Helping people"
-    ],
-    "PreferredSubjects": [
-      "English",
-      "Psychology"
-    ],
-    "WorkStyles": [
-      "With people",
-      "Office / Corporate"
-    ]
-  },
-  {
     "Id": "career-operations-manager",
     "Name": "Operations Manager",
     "Description": "Improve the day-to-day performance, quality, people, and processes of an organization.",
@@ -6364,60 +6091,7 @@
       "Office / Operations"
     ]
   },
-  {
-    "Id": "career-entrepreneur",
-    "Name": "Entrepreneur",
-    "Description": "Create and grow a business by solving customer problems and managing risk.",
-    "Category": "Commerce",
-    "Icon": "🚀",
-    "SalaryRangeIndia": "Variable",
-    "FutureDemand": "Very High",
-    "EducationPath": "Any stream can lead to entrepreneurship; build business, technology, communication, and financial skills.",
-    "EntranceExams": [
-      "CUET",
-      "University admissions"
-    ],
-    "KeySkills": [
-      "Problem-solving",
-      "Sales",
-      "Leadership",
-      "Financial awareness"
-    ],
-    "Workplaces": [
-      "Startups",
-      "Own business",
-      "Innovation hubs"
-    ],
-    "RoadmapSteps": [
-      "Explore problems you care about and build communication and financial literacy.",
-      "Choose any stream aligned to your interests and learn business fundamentals.",
-      "Build small projects, competitions, or ventures during college.",
-      "Launch or join a startup and develop product, sales, operations, and leadership skills."
-    ],
-    "TopColleges": [
-      "IIM Bangalore",
-      "IIT Madras",
-      "IIM Ahmedabad"
-    ],
-    "CareerCategories": [
-      "Business",
-      "Entrepreneurship"
-    ],
-    "Interests": [
-      "Creating things",
-      "Business",
-      "Leading teams"
-    ],
-    "PreferredSubjects": [
-      "Economics",
-      "English"
-    ],
-    "WorkStyles": [
-      "Independently",
-      "Startup"
-    ]
-  },
-  {
+   {
     "Id": "career-corporate-lawyer",
     "Name": "Corporate Lawyer",
     "Description": "Advise companies on contracts, transactions, governance, compliance, and disputes.",
@@ -7100,59 +6774,6 @@
     ]
   },
   {
-    "Id": "career-uiux-designer",
-    "Name": "UI/UX Designer",
-    "Description": "Design intuitive digital interfaces and user experiences for apps, websites, and products.",
-    "Category": "Arts",
-    "Icon": "📱",
-    "SalaryRangeIndia": "INR 4-18 LPA",
-    "FutureDemand": "Very High",
-    "EducationPath": "Any stream can lead to UI/UX; build design, research, and technology skills through a design or related degree.",
-    "EntranceExams": [
-      "NID DAT",
-      "UCEED",
-      "University design admissions"
-    ],
-    "KeySkills": [
-      "UX research",
-      "Visual design",
-      "Prototyping",
-      "User empathy"
-    ],
-    "Workplaces": [
-      "Technology companies",
-      "Design studios",
-      "Startups"
-    ],
-    "RoadmapSteps": [
-      "Build visual, communication, and problem-solving skills.",
-      "Explore design programs or relevant undergraduate pathways.",
-      "Build a portfolio with user research, wireframes, prototypes, and interface projects.",
-      "Start as a UI/UX designer and progress into product design or design leadership."
-    ],
-    "TopColleges": [
-      "IIT Bombay",
-      "NID Ahmedabad",
-      "Srishti Manipal Institute"
-    ],
-    "CareerCategories": [
-      "Design & Media",
-      "Technology"
-    ],
-    "Interests": [
-      "Designing creative things",
-      "Technology"
-    ],
-    "PreferredSubjects": [
-      "Art & Design",
-      "Computers"
-    ],
-    "WorkStyles": [
-      "Creative Studio",
-      "Office / Technology"
-    ]
-  },
-  {
     "Id": "career-industrial-designer",
     "Name": "Industrial Designer",
     "Description": "Design physical products that balance usability, manufacturing, aesthetics, and user needs.",
@@ -7677,59 +7298,7 @@
       "Office / Travel"
     ]
   },
-  {
-    "Id": "career-airline-pilot",
-    "Name": "Commercial Pilot",
-    "Description": "Fly passenger and cargo aircraft while following strict aviation safety and licensing requirements.",
-    "Category": "Science",
-    "Icon": "✈️",
-    "SalaryRangeIndia": "INR 8-30 LPA",
-    "FutureDemand": "Very High",
-    "EducationPath": "Choose PCM, meet DGCA medical and eligibility requirements, complete flight training, and obtain the required commercial pilot licences.",
-    "EntranceExams": [
-      "DGCA pilot examinations",
-      "Flight school selection"
-    ],
-    "KeySkills": [
-      "Aviation knowledge",
-      "Decision-making",
-      "Communication",
-      "Discipline"
-    ],
-    "Workplaces": [
-      "Airlines",
-      "Charter companies",
-      "Aviation operators"
-    ],
-    "RoadmapSteps": [
-      "Choose PCM in Classes 11-12 and check DGCA eligibility and medical requirements.",
-      "Complete required ground-school and aviation examinations.",
-      "Complete approved flight training and required flying hours.",
-      "Obtain the required licence and build experience toward airline pilot roles."
-    ],
-    "TopColleges": [
-      "Rajiv Gandhi Academy for Aviation Technology",
-      "Indira Gandhi Rashtriya Uran Akademi",
-      "Approved DGCA flight schools"
-    ],
-    "CareerCategories": [
-      "Aviation",
-      "Defence"
-    ],
-    "Interests": [
-      "Travel and aviation",
-      "Technology"
-    ],
-    "PreferredSubjects": [
-      "Physics",
-      "Mathematics"
-    ],
-    "WorkStyles": [
-      "Travel",
-      "Cockpit / Aviation"
-    ]
-  },
-  {
+   {
     "Id": "career-aircraft-maintenance-engineer",
     "Name": "Aircraft Maintenance Engineer",
     "Description": "Inspect, maintain, and certify aircraft systems for safe operation.",
