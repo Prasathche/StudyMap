@@ -9,14 +9,15 @@
 
     <ContentPage.Resources>
         <Style x:Key="SectionTitleStyle" TargetType="Label">
-            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontFamily" Value="OpenSansSemibold" />
+            <Setter Property="FontSize" Value="26" />
             <Setter Property="FontAttributes" Value="Bold" />
             <Setter Property="TextColor" Value="#17203B" />
         </Style>
 
         <Style x:Key="SubTextStyle" TargetType="Label">
             <Setter Property="FontSize" Value="14" />
-            <Setter Property="TextColor" Value="#5C667F" />
+            <Setter Property="TextColor" Value="#7D849A" />
         </Style>
     </ContentPage.Resources>
 
@@ -54,68 +55,37 @@
                     <Border.StrokeShape><RoundRectangle CornerRadius="24" /></Border.StrokeShape>
                     <VerticalStackLayout Spacing="10">
                         <Label Text="Select career path" FontAttributes="Bold" TextColor="#17203B" FontSize="16" />
-
-                        <Border Stroke="#E8E8EA" StrokeThickness="1" BackgroundColor="White"
-                                Padding="4" HorizontalOptions="Fill">
+                        <Border Stroke="#E8E8EA" StrokeThickness="1" BackgroundColor="White" Padding="4" HorizontalOptions="Fill">
                             <Border.StrokeShape><RoundRectangle CornerRadius="14" /></Border.StrokeShape>
                             <Grid ColumnDefinitions="*,48" ColumnSpacing="4" HorizontalOptions="Fill">
-                                <Entry x:Name="CareerSearchEntry"
-                                       Grid.Column="0"
-                                       Placeholder="Type or select a career"
-                                       TextColor="#17203B"
-                                       PlaceholderColor="#5C667F"
-                                       FontSize="15"
-                                       TextChanged="OnCareerSearchTextChanged"
-                                       Focused="OnCareerSearchFocused"
-                                       Unfocused="OnCareerSearchUnfocused"
-                                       ReturnType="Search"
-                                       VerticalOptions="Center" />
-
-                                <Button x:Name="CareerClearButton"
-                                        Grid.Column="1"
-                                        Text="×"
-                                        FontSize="22"
-                                        FontAttributes="Bold"
-                                        TextColor="#17203B"
-                                        BackgroundColor="#EDEFF7"
-                                        CornerRadius="24"
-                                        WidthRequest="48"
-                                        HeightRequest="48"
-                                        Padding="0"
-                                        IsVisible="False"
-                                        Command="{Binding ClearCareerCommand}"
-                                        Clicked="OnClearCareerClicked"
-                                        HorizontalOptions="Center"
-                                        VerticalOptions="Center"
+                                <Entry x:Name="CareerSearchEntry" Grid.Column="0" Placeholder="Type or select a career"
+                                       TextColor="#17203B" PlaceholderColor="#5C667F" FontSize="15"
+                                       TextChanged="OnCareerSearchTextChanged" Focused="OnCareerSearchFocused"
+                                       Unfocused="OnCareerSearchUnfocused" ReturnType="Search" VerticalOptions="Center" />
+                                <Button x:Name="CareerClearButton" Grid.Column="1" Text="×" FontSize="22"
+                                        FontAttributes="Bold" TextColor="#17203B" BackgroundColor="#EDEFF7"
+                                        CornerRadius="24" WidthRequest="48" HeightRequest="48" Padding="0"
+                                        IsVisible="False" Command="{Binding ClearCareerCommand}"
+                                        Clicked="OnClearCareerClicked" HorizontalOptions="Center" VerticalOptions="Center"
                                         SemanticProperties.Description="Clear selected career" />
                             </Grid>
                         </Border>
-
-                        <Border x:Name="CareerSuggestionsBorder"
-                                IsVisible="False"
-                                Stroke="#E8E8EA"
-                                StrokeThickness="1"
-                                BackgroundColor="White"
-                                Padding="4"
-                                HeightRequest="260">
+                        <Border x:Name="CareerSuggestionsBorder" IsVisible="False" Stroke="#E8E8EA"
+                                StrokeThickness="1" BackgroundColor="White" Padding="4" HeightRequest="260">
                             <Border.StrokeShape><RoundRectangle CornerRadius="14" /></Border.StrokeShape>
-                            <CollectionView x:Name="CareerSuggestionsView"
-                                            SelectionMode="Single"
-                                            SelectionChanged="OnCareerSuggestionSelected"
-                                            VerticalScrollBarVisibility="Always">
+                            <CollectionView x:Name="CareerSuggestionsView" SelectionMode="Single"
+                                            SelectionChanged="OnCareerSuggestionSelected" VerticalScrollBarVisibility="Always">
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid Padding="12,10" ColumnDefinitions="Auto,*" ColumnSpacing="10">
                                             <Label Text="🔎" FontSize="15" VerticalOptions="Center" />
                                             <Label Grid.Column="1" Text="{Binding CareerName}" FontSize="15"
-                                                   TextColor="#17203B" VerticalOptions="Center"
-                                                   LineBreakMode="TailTruncation" />
+                                                   TextColor="#17203B" VerticalOptions="Center" LineBreakMode="TailTruncation" />
                                         </Grid>
                                     </DataTemplate>
                                 </CollectionView.ItemTemplate>
                             </CollectionView>
                         </Border>
-
                         <Label Text="Timeline" Style="{StaticResource SectionTitleStyle}" />
                     </VerticalStackLayout>
                 </Border>
@@ -130,26 +100,20 @@
                         <VerticalStackLayout Spacing="10" VerticalOptions="Start" HorizontalOptions="Start">
                             <Frame BackgroundColor="{Binding AccentColor}" WidthRequest="46" HeightRequest="46"
                                    CornerRadius="23" HasShadow="False" Padding="10" VerticalOptions="Start">
-                                <Label Text="{Binding Icon}" HorizontalOptions="Center"
-                                       VerticalOptions="Center" FontSize="22" />
+                                <Label Text="{Binding Icon}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="22" />
                             </Frame>
-                            <BoxView Color="#D5D8E8" WidthRequest="2" VerticalOptions="FillAndExpand"
-                                     HeightRequest="120" HorizontalOptions="Center" />
+                            <BoxView Color="#D5D8E8" WidthRequest="2" VerticalOptions="FillAndExpand" HeightRequest="120" HorizontalOptions="Center" />
                         </VerticalStackLayout>
-
                         <Border Grid.Column="1" BackgroundColor="White" Stroke="#E8E8EA" StrokeThickness="1"
                                 Padding="14" HorizontalOptions="Fill" VerticalOptions="Start">
                             <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
                             <VerticalStackLayout Spacing="10">
-                                <Label Text="{Binding Title}" FontSize="16" FontAttributes="Bold"
-                                       TextColor="#17203B" LineBreakMode="WordWrap" />
-                                <Label Text="{Binding Description}" FontSize="13" TextColor="#5C667F"
-                                       LineBreakMode="WordWrap" MaxLines="4" />
+                                <Label Text="{Binding Title}" FontSize="16" FontAttributes="Bold" TextColor="#17203B" LineBreakMode="WordWrap" />
+                                <Label Text="{Binding Description}" FontSize="13" TextColor="#5C667F" LineBreakMode="WordWrap" MaxLines="4" />
                                 <Button Text="View Details"
                                         Command="{Binding Source={x:Reference RoadmapPage}, Path=BindingContext.ViewStageDetailsCommand}"
-                                        CommandParameter="{Binding .}" BackgroundColor="#4A61F8"
-                                        TextColor="White" CornerRadius="14" HeightRequest="48"
-                                        FontAttributes="Bold" HorizontalOptions="Fill" />
+                                        CommandParameter="{Binding .}" BackgroundColor="#4A61F8" TextColor="White"
+                                        CornerRadius="14" HeightRequest="48" FontAttributes="Bold" HorizontalOptions="Fill" />
                             </VerticalStackLayout>
                         </Border>
                     </Grid>
