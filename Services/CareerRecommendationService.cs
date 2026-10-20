@@ -6,10 +6,10 @@ namespace StudyMap.Services;
 /// Rule-based (no AI, no external API) recommendation engine for the
 /// "Not Sure What to Choose" career discovery module.
 ///
-/// The scoring model deliberately gives more importance to career direction
-/// and activities than to broad subjects. This prevents shared subjects such
-/// as Mathematics + Computers from making unrelated specialist careers rank
-/// above the student's actual interests.
+/// Directional activities and career interests are intentionally weighted
+/// more strongly than school subjects. This prevents a broad subject such as
+/// Mathematics from making unrelated engineering or science careers outrank
+/// a student's actual career direction.
 /// </summary>
 public class CareerRecommendationService
 {
@@ -42,9 +42,6 @@ public class CareerRecommendationService
             var matchedSignals = new List<string>();
             var score = 0.0;
 
-            // Score each selected questionnaire signal once. The previous
-            // implementation scored every career tag that happened to match,
-            // which allowed broad aliases to inflate specialist careers.
             foreach (var signal in tagScores)
             {
                 if (signal.Value == 0)
@@ -58,19 +55,17 @@ public class CareerRecommendationService
                 }
             }
 
-            // A negative Mathematics response should actually count against
-            // math-heavy careers rather than being lost in the alias matching.
+            // A negative Mathematics response should count against genuinely
+            // mathematics-heavy careers.
             if (tagScores.TryGetValue("Mathematics", out var mathWeight) && mathWeight < 0 &&
                 IsMathHeavyCareer(evidence))
             {
                 score += mathWeight * 2;
             }
 
-            // Specialist careers need their domain to be supported by the
-            // student's answers. For example, Quantitative Researcher should
-            // not outrank Software Engineer just because both use computers
-            // and mathematics. Finance/markets/research signals are required
-            // to give a quantitative-finance career a strong score.
+            // Specialist domains need explicit supporting signals. For example,
+            // Biomedical Engineer should not become a strong recommendation
+            // merely because the student likes Mathematics and puzzles.
             score -= GetMissingDomainPenalty(evidence, tagScores);
 
             if (score <= 0)
@@ -189,13 +184,13 @@ public class CareerRecommendationService
         var normalizedSignal = Normalize(signal);
         var normalizedEvidence = evidence.Select(Normalize).ToList();
 
-        // High-value directional signals. These are intentionally controlled
-        // rather than using the previous broad "technology => everything
-        // technical" alias expansion.
+        // Keep aliases deliberately narrow. A broad alias such as
+        // Mathematics -> Engineering was the reason careers such as
+        // Biomedical Engineer could score too highly.
         string[] aliases = normalizedSignal switch
         {
             "creating technology" => [
-                "technology", "computers", "computer science", "information technology",
+                "technology", "computer science", "information technology",
                 "software", "software development", "programming", "coding",
                 "artificial intelligence", "machine learning", "cybersecurity"
             ],
@@ -204,30 +199,30 @@ public class CareerRecommendationService
                 "software", "software development", "programming", "coding"
             ],
             "technology problems" => [
-                "technology", "computers", "computer science", "information technology",
+                "technology", "computer science", "information technology",
                 "software", "software development", "programming", "coding",
                 "artificial intelligence", "machine learning", "cybersecurity"
             ],
             "technology" => [
-                "technology", "computers", "computer science", "information technology",
+                "technology", "computer science", "information technology",
                 "software", "software development", "programming", "coding",
                 "artificial intelligence", "machine learning", "cybersecurity"
             ],
             "solving puzzles" => [
                 "solving puzzles", "problem-solving", "problem solving", "logical thinking",
-                "programming", "debugging", "analysis", "analytical"
+                "programming", "debugging", "system design"
             ],
             "logical thinking" => [
                 "logical thinking", "problem-solving", "problem solving", "programming",
-                "debugging", "analysis", "analytical", "statistics", "probability"
+                "debugging", "statistics", "probability"
             ],
             "problem solving" => [
                 "problem-solving", "problem solving", "logical thinking", "programming",
-                "debugging", "analysis", "analytical", "system design"
+                "debugging", "system design"
             ],
             "working with numbers" => [
                 "working with numbers", "mathematics", "statistics", "probability",
-                "financial modelling", "financial modeling", "accounting", "analysis"
+                "financial modelling", "financial modeling", "accounting"
             ],
             "business & economics" => [
                 "business & economics", "business & finance", "business", "finance",
@@ -247,14 +242,14 @@ public class CareerRecommendationService
             ],
             "research and discovery" => [
                 "research and discovery", "science & research", "research", "laboratory",
-                "analysis", "statistics", "probability"
+                "statistics", "probability"
             ],
             "science & research" => [
                 "science & research", "research", "science", "laboratory", "research and discovery"
             ],
             "mathematics" => [
-                "mathematics", "statistics", "probability", "financial modelling",
-                "financial modeling", "quantitative", "engineering", "data science"
+                "mathematics", "statistics", "probability", "quantitative",
+                "financial modelling", "financial modeling", "mathematical"
             ],
             "computers" => [
                 "computers", "computer science", "information technology", "technology",
@@ -267,6 +262,7 @@ public class CareerRecommendationService
             return normalizedEvidence.Contains(normalizedSignal);
 
         return aliases.Any(alias => normalizedEvidence.Any(evidenceValue =>
+            evidenceValue.Equals(alias, StringComparison.OrdinalIgnoreCase) ||
             evidenceValue.Contains(alias, StringComparison.OrdinalIgnoreCase)));
     }
 
@@ -286,8 +282,6 @@ public class CareerRecommendationService
     {
         var penalty = 0;
 
-        // Finance/markets is the important discriminator for quantitative
-        // finance careers. Mathematics + Computers alone must not be enough.
         if (ContainsAny(evidence, "finance", "markets", "investment", "investments", "financial modelling", "financial modeling", "fintech", "quantitative") &&
             !HasAnyPositiveSignal(signals,
                 "business & economics", "business & finance", "understanding money and investments",
@@ -296,11 +290,15 @@ public class CareerRecommendationService
             penalty += 5;
         }
 
-        if (ContainsAny(evidence, "healthcare", "medicine", "hospital", "clinical", "medical") &&
+        // Healthcare/medical careers need a health or biology signal. This
+        // prevents Biomedical Engineer and similar careers from winning on
+        // generic mathematics + problem-solving overlap.
+        if (ContainsAny(evidence, "healthcare", "medicine", "hospital", "clinical", "medical", "biomedical") &&
             !HasAnyPositiveSignal(signals,
-                "biology", "discovering how the human body works", "healthcare", "health-related problems", "helping people"))
+                "biology", "discovering how the human body works", "healthcare",
+                "health-related problems", "helping people"))
         {
-            penalty += 4;
+            penalty += 5;
         }
 
         if (ContainsAny(evidence, "law", "legal", "public service", "government") &&
@@ -363,14 +361,14 @@ public class CareerRecommendationService
                 AllowMultiple = true,
                 Options =
                 [
-                    Opt("q1-math", "Mathematics", "🔢", "Mathematics"),
-                    Opt("q1-science", "Science", "🔬", "Science"),
-                    Opt("q1-biology", "Biology", "🧬", "Biology"),
-                    Opt("q1-computers", "Computers", "💻", "Computers"),
-                    Opt("q1-business", "Business & Economics", "📈", "Business & Economics"),
-                    Opt("q1-languages", "Languages", "🗣️", "Languages"),
-                    Opt("q1-art", "Art & Design", "🎨", "Art & Design"),
-                    Opt("q1-social", "Social Studies", "🌍", "Social Studies"),
+                    OptSubject("q1-math", "Mathematics", "🔢", "Mathematics"),
+                    OptSubject("q1-science", "Science", "🔬", "Science"),
+                    OptSubject("q1-biology", "Biology", "🧬", "Biology"),
+                    OptSubject("q1-computers", "Computers", "💻", "Computers"),
+                    OptSubject("q1-business", "Business & Economics", "📈", "Business & Economics"),
+                    OptSubject("q1-languages", "Languages", "🗣️", "Languages"),
+                    OptSubject("q1-art", "Art & Design", "🎨", "Art & Design"),
+                    OptSubject("q1-social", "Social Studies", "🌍", "Social Studies"),
                 ]
             },
             new CareerQuestion
@@ -380,14 +378,14 @@ public class CareerRecommendationService
                 AllowMultiple = true,
                 Options =
                 [
-                    Opt("q2-puzzles", "Solving puzzles", "🧩", "Solving puzzles"),
-                    Opt("q2-building", "Building things", "🛠️", "Building things"),
-                    Opt("q2-helping", "Helping people", "🤝", "Helping people"),
-                    Opt("q2-designing", "Creating designs", "🖌️", "Creating designs"),
-                    Opt("q2-computers", "Working with computers", "💻", "Working with computers"),
-                    Opt("q2-leading", "Leading a team", "👥", "Leading a team"),
-                    Opt("q2-writing", "Writing or communicating", "✍️", "Writing or communicating"),
-                    Opt("q2-understanding", "Understanding how things work", "⚙️", "Understanding how things work"),
+                    OptActivity("q2-puzzles", "Solving puzzles", "🧩", "Solving puzzles"),
+                    OptActivity("q2-building", "Building things", "🛠️", "Building things"),
+                    OptActivity("q2-helping", "Helping people", "🤝", "Helping people"),
+                    OptActivity("q2-designing", "Creating designs", "🖌️", "Creating designs"),
+                    OptActivity("q2-computers", "Working with computers", "💻", "Working with computers"),
+                    OptActivity("q2-leading", "Leading a team", "👥", "Leading a team"),
+                    OptActivity("q2-writing", "Writing or communicating", "✍️", "Writing or communicating"),
+                    OptActivity("q2-understanding", "Understanding how things work", "⚙️", "Understanding how things work"),
                 ]
             },
             new CareerQuestion
@@ -517,8 +515,6 @@ public class CareerRecommendationService
             }
         };
 
-        // Every question gets a neutral escape hatch. Selecting this option
-        // contributes no score; it simply means the student has no preference.
         foreach (var question in questions)
         {
             question.Options.Add(new CareerQuestionOption
@@ -540,6 +536,24 @@ public class CareerRecommendationService
             Text = text,
             Icon = icon,
             TagWeights = [new CareerTagWeight { Tag = tag, Weight = 2 }]
+        };
+
+    private static CareerQuestionOption OptSubject(string id, string text, string icon, string tag) =>
+        new()
+        {
+            Id = id,
+            Text = text,
+            Icon = icon,
+            TagWeights = [new CareerTagWeight { Tag = tag, Weight = 1 }]
+        };
+
+    private static CareerQuestionOption OptActivity(string id, string text, string icon, string tag) =>
+        new()
+        {
+            Id = id,
+            Text = text,
+            Icon = icon,
+            TagWeights = [new CareerTagWeight { Tag = tag, Weight = 3 }]
         };
 
     private static CareerQuestionOption OptWeighted(string id, string text, string icon, string tag, int weight) =>
@@ -572,4 +586,3 @@ public class CareerRecommendationService
     private static CareerQuestionOption OptNoTag(string id, string text, string icon) =>
         new() { Id = id, Text = text, Icon = icon, TagWeights = [] };
 }
-
