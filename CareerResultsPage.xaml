@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:StudyMap.Views"
              x:Class="StudyMap.CareerResultsPage"
              Shell.NavBarIsVisible="False"
              BackgroundColor="#F0F4FF">
@@ -47,20 +48,8 @@
         <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
             <VerticalStackLayout Padding="20,18,20,32" Spacing="16">
 
-                <!-- Important Disclaimer -->
-                <Border BackgroundColor="#FFF8E8" Stroke="#F3C46B" StrokeThickness="1" Padding="14,12">
-                    <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
-                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
-                        <Border Grid.Column="0" BackgroundColor="#F57C00" WidthRequest="34" HeightRequest="34" Padding="0" VerticalOptions="Start">
-                            <Border.StrokeShape><RoundRectangle CornerRadius="17" /></Border.StrokeShape>
-                            <Label Text="i" FontFamily="OpenSansSemibold" FontSize="19" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
-                        </Border>
-                        <VerticalStackLayout Grid.Column="1" Spacing="4">
-                            <Label Text="Important Note" FontFamily="OpenSansSemibold" FontSize="14" TextColor="#8A4B08" />
-                            <Label Text="These recommendations are for educational and career-exploration purposes only. They are based on your answers and are intended to help you explore possibilities, not to provide a definitive career assessment. Interests and strengths can change over time. Please verify important education and career details with official sources before making decisions." FontSize="12.5" TextColor="#6F6048" LineBreakMode="WordWrap" />
-                        </VerticalStackLayout>
-                    </Grid>
-                </Border>
+                <!-- Discover is the personalized recommendation page, so keep the disclaimer prominent here. -->
+                <views:InformationDisclaimerView Mode="Prominent" />
 
                 <Border x:Name="NoMatchBanner" Style="{StaticResource SectionCard}" IsVisible="False">
                     <Border.StrokeShape><RoundRectangle CornerRadius="18" /></Border.StrokeShape>
