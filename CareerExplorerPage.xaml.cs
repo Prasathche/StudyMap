@@ -53,15 +53,23 @@ public partial class CareerExplorerPage : ContentPage
     private void OnSearchTextChanged(object? sender, TextChangedEventArgs e)
     {
         // TextChanged is the authoritative search event. This also fires when
-        // the Entry clear (X) button removes the text, so the full list returns.
+        // the Entry clear button removes the text, so the full list returns.
         _searchText = e.NewTextValue?.Trim() ?? string.Empty;
+        ClearSearchButton.IsVisible = !string.IsNullOrWhiteSpace(_searchText);
         ApplyFilters();
     }
 
     private void OnSearchCompleted(object? sender, EventArgs e)
     {
         _searchText = SearchEntry?.Text?.Trim() ?? string.Empty;
+        ClearSearchButton.IsVisible = !string.IsNullOrWhiteSpace(_searchText);
         ApplyFilters();
+    }
+
+    private void OnClearSearchClicked(object? sender, EventArgs e)
+    {
+        SearchEntry.Text = string.Empty;
+        SearchEntry.Focus();
     }
 
     private void OnCategoryClicked(object? sender, EventArgs e)
