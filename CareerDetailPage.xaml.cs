@@ -42,9 +42,7 @@ public partial class CareerDetailPage : ContentPage
     {
         if (string.IsNullOrWhiteSpace(id)) return;
 
-        LoadingOverlay.IsVisible = true;
         await _vm.LoadCareerAsync(id);
-        LoadingOverlay.IsVisible = false;
 
         if (_vm.Career is not null)
         {
