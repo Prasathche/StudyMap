@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudyMap.CareerDetailPage"
@@ -140,6 +140,23 @@
         <!-- ═══════ Scrollable Body ═══════ -->
         <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
             <VerticalStackLayout Padding="16,14,16,32" Spacing="14">
+
+                <!-- Important Disclaimer -->
+                <Border BackgroundColor="#FFF8E8" Stroke="#F3C46B" StrokeThickness="1" Padding="14,12">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+                        <Border Grid.Column="0" BackgroundColor="#F57C00" WidthRequest="34" HeightRequest="34" Padding="0" VerticalOptions="Start">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="17" /></Border.StrokeShape>
+                            <Label Text="i" FontFamily="OpenSansSemibold" FontSize="19" TextColor="White"
+                                   HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label Text="Important Note" FontFamily="OpenSansSemibold" FontSize="14" TextColor="#8A4B08" />
+                            <Label Text="This information is for educational and career-exploration purposes only. Salaries, entrance requirements, demand and career opportunities may change over time and vary by location and individual experience. Please verify important details with official sources before making decisions."
+                                   FontSize="12.5" TextColor="#6F6048" LineBreakMode="WordWrap" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
 
                 <!-- Action Buttons Row -->
                 <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
