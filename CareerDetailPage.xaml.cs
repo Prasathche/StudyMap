@@ -51,7 +51,6 @@ public partial class CareerDetailPage : ContentPage
             BuildInternationalOpportunity(_vm.Career);
             BuildSkillChips(_vm.Career.KeySkills);
             BuildExamChips(_vm.Career.EntranceExams);
-            BuildBulletList(SalaryInsightsLayout, _vm.Career.SalaryInsights, "#B85C26", "#FFF2E7");
             BuildStepList(RoadmapLayout, _vm.Career.RoadmapSteps, "#1A56C6", "#DCEEFF");
             BuildBulletList(CollegesLayout, _vm.Career.TopColleges, "#2F5FAF", "#EEF5FF");
             BuildBulletList(WorkplacesLayout, _vm.Career.Workplaces, "#6A1B9A", "#EDD5F7");
