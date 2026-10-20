@@ -1,4 +1,4 @@
-﻿using StudyMap.Services;
+using StudyMap.Services;
 using StudyMap.ViewModels;
 
 namespace StudyMap;
@@ -63,7 +63,7 @@ public partial class StreamSelectionPage : ContentPage
             $"{nameof(StreamCareerListPage)}?streamName=Arts");
     }
 
-    private async void OnNotSureTapped(object? sender, TappedEventArgs e)
+    private async void OnNotSureTapped(object? sender, EventArgs e)
     {
         await AnimateTap(notSureCard);
         await Shell.Current.GoToAsync($"//{nameof(CareerDiscoveryPage)}");
