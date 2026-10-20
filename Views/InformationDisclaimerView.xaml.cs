@@ -41,7 +41,7 @@ public partial class InformationDisclaimerView : ContentView
         if (page is null)
             return;
 
-        await page.DisplayAlertAsync(
+        await page.DisplayAlert(
             "About this information",
             "This information is for educational and career-exploration purposes only. Career paths, salaries, entrance requirements, demand and career opportunities may change over time and vary by location, institution and individual experience. Please verify important details with official sources and consult teachers, parents or qualified professionals before making important education or career decisions.",
             "OK");
