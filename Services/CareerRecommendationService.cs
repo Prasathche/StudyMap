@@ -255,7 +255,7 @@ public class CareerRecommendationService
         {
             new CareerQuestion { Number = 1, Text = "Which subjects do you enjoy studying the most?", AllowMultiple = true, Options =
             [
-                OptSubject("q1-math", "Mathematics", "🔢", "Mathematics"), OptSubject("q1-science", "Science", "🔬", "Science & Research"), OptSubject("q1-computers", "Computer / IT", "💻", "Technology"), OptSubject("q1-biology", "Biology", "🧬", "Biology"), OptSubject("q1-languages", "English / Languages", "🗣️", "Communication"), OptSubject("q1-social", "Social Science", "🌍", "Law & Public Service"), OptSubject("q1-business", "Business / Commerce", "📈", "Business & Finance"), OptSubject("q1-art", "Art / Design", "🎨", "Design & Media")
+                OptSubject("q1-math", "Mathematics", "🔢", "Mathematics"), OptSubject("q1-science", "Science", "🔬", "Science & Research"), OptSubject("q1-computers", "Computer / IT", "💻", "Technology"), OptSubject("q1-biology", "Biology", "🧬", "Biology"), OptSubject("q1-languages", "English / Languages", "🗣️", "Communication"), OptSubject("q1-social", "Social Science", "🌍", "Law & Public Service"), OptSubject("q1-business", "Business / Commerce", "📈", "Business & Finance"), OptSubject("q1-economics", "Economics", "📊", "Business & Finance"), OptSubject("q1-art", "Art / Design", "🎨", "Design & Media")
             ]},
             new CareerQuestion { Number = 2, Text = "What do you usually enjoy doing when you have free time?", AllowMultiple = true, Options =
             [
