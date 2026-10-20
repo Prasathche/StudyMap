@@ -2,6 +2,10 @@
   {
     "Id": "career-doctor",
     "Name": "Doctor",
+    "SearchAliases": [
+      "MBBS",
+      "Medical Doctor"
+    ],
     "Description": "Diagnose, treat, and manage patient care across hospitals, clinics, and speciality centres.",
     "Category": "Science",
     "Icon": "🩺",
@@ -11,9 +15,7 @@
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCB in Classes 11-12, clear NEET-UG, complete MBBS, then pursue internship and optional MD/MS specialization.",
     "EntranceExams": [
-      "NEET-UG",
-      "INI-CET",
-      "NEET-PG"
+      "NEET-UG"
     ],
     "KeySkills": [
       "Clinical diagnosis",
@@ -28,9 +30,9 @@
     ],
     "RoadmapSteps": [
       "Choose PCB in Classes 11-12.",
-      "Prepare for NEET-UG and INI-CET to unlock strong entry options.",
+      "Prepare for NEET-UG for undergraduate medical admission.",
       "Complete MBBS with internship and build strong clinical fundamentals.",
-      "Build experience in hospitals or clinics before choosing a specialization like medicine, surgery, or pediatrics."
+      "After MBBS, consider NEET-PG or INI-CET for MD/MS specialization, then build experience in hospitals or clinics."
     ],
     "SalaryInsights": [
       "Entry-level opportunities often begin around INR 6-9 LPA, depending on city, training, and internship exposure.",
@@ -51,7 +53,7 @@
     ],
     "PreferredSubjects": [
       "Biology",
-      "Science"
+      "Chemistry"
     ],
     "WorkStyles": [
       "With a small team",
@@ -61,6 +63,9 @@
   {
     "Id": "career-dentist",
     "Name": "Dentist",
+    "SearchAliases": [
+      "BDS"
+    ],
     "Description": "Treat oral health issues, improve dental hygiene, and perform restorative procedures.",
     "Category": "Science",
     "Icon": "🦷",
@@ -70,8 +75,7 @@
     "FutureDemand": "High",
     "EducationPath": "Take PCB in Classes 11-12, qualify NEET-UG, complete BDS, and build clinical experience or specialization.",
     "EntranceExams": [
-      "NEET-UG",
-      "NEET-MDS"
+      "NEET-UG"
     ],
     "KeySkills": [
       "Manual precision",
@@ -86,9 +90,9 @@
     ],
     "RoadmapSteps": [
       "Take PCB in Classes 11-12.",
-      "Prepare for NEET-UG and later NEET-MDS if you want to specialize.",
+      "Prepare for NEET-UG for BDS admission.",
       "Complete BDS with clinical postings and internship.",
-      "Gain hands-on experience in dental clinics or hospitals and then choose practice, residency, or specialization."
+      "Build hands-on experience in dental clinics or hospitals; consider NEET-MDS later if you want postgraduate specialization."
     ],
     "SalaryInsights": [
       "Entry-level opportunities often begin around INR 4-7 LPA, depending on city, training, and internship exposure.",
@@ -109,7 +113,7 @@
     ],
     "PreferredSubjects": [
       "Biology",
-      "Science"
+      "Chemistry"
     ],
     "WorkStyles": [
       "Independently",
@@ -119,6 +123,10 @@
   {
     "Id": "career-nurse",
     "Name": "Nurse",
+    "SearchAliases": [
+      "BSc Nursing",
+      "GNM"
+    ],
     "Description": "Support treatment, monitor patients, and coordinate day-to-day clinical care.",
     "Category": "Science",
     "Icon": "💉",
@@ -168,7 +176,7 @@
     ],
     "PreferredSubjects": [
       "Biology",
-      "Science"
+      "Chemistry"
     ],
     "WorkStyles": [
       "With a small team",
@@ -178,6 +186,10 @@
   {
     "Id": "career-software-engineer",
     "Name": "Software Engineer",
+    "SearchAliases": [
+      "Software Developer",
+      "Developer"
+    ],
     "Description": "Build apps, websites, and enterprise systems using programming, testing, and product thinking.",
     "Category": "Science",
     "Icon": "💻",
@@ -238,6 +250,9 @@
   {
     "Id": "career-data-scientist",
     "Name": "Data Scientist",
+    "SearchAliases": [
+      "Data Science"
+    ],
     "Description": "Use statistics, machine learning, and business understanding to turn data into decisions.",
     "Category": "Science",
     "Icon": "📊",
@@ -299,6 +314,7 @@
   {
     "Id": "career-civil-engineer",
     "Name": "Civil Engineer",
+    "SearchAliases": [],
     "Description": "Plan and execute roads, bridges, housing, and infrastructure projects.",
     "Category": "Science",
     "Icon": "🏗️",
@@ -309,8 +325,7 @@
     "EducationPath": "Study PCM, complete B.Tech/B.E. in Civil Engineering, and gain site, design, or project management experience.",
     "EntranceExams": [
       "JEE Main",
-      "State engineering CETs",
-      "GATE"
+      "State engineering CETs"
     ],
     "KeySkills": [
       "Structural planning",
@@ -325,9 +340,9 @@
     ],
     "RoadmapSteps": [
       "Study PCM and explore core engineering fundamentals.",
-      "Prepare for JEE Main, state engineering CETs, or strong civil engineering programs.",
+      "Prepare for JEE Main, state engineering CETs, or relevant university admissions.",
       "Complete a civil engineering degree and learn design tools, estimation, and project basics.",
-      "Build experience on sites, in design offices, or public infrastructure projects before moving into project management or higher studies."
+      "Build experience on sites, in design offices, or public infrastructure projects; consider GATE later for postgraduate study or selected public-sector pathways."
     ],
     "SalaryInsights": [
       "Entry-level opportunities often begin around INR 4-7 LPA, depending on city, training, and internship exposure.",
@@ -358,6 +373,7 @@
   {
     "Id": "career-architect",
     "Name": "Architect",
+    "SearchAliases": [],
     "Description": "Design buildings and spaces that balance function, safety, and aesthetics.",
     "Category": "Science",
     "Icon": "📐",
@@ -479,6 +495,9 @@
   {
     "Id": "career-investment-banker",
     "Name": "Investment Banker",
+    "SearchAliases": [
+      "Investment Banking"
+    ],
     "Description": "Support fundraising, mergers, valuations, and strategic financial transactions.",
     "Category": "Commerce",
     "Icon": "💹",
@@ -489,8 +508,7 @@
     "EducationPath": "Take Commerce or PCM, complete BBA, B.Com, Economics, or MBA Finance, and build finance, valuation, and Excel skills.",
     "EntranceExams": [
       "CUET",
-      "CAT",
-      "NMAT"
+      "University admissions"
     ],
     "KeySkills": [
       "Financial modelling",
@@ -538,6 +556,7 @@
   {
     "Id": "career-business-analyst",
     "Name": "Business Analyst",
+    "SearchAliases": [],
     "Description": "Translate business needs into process and product improvements using data and stakeholder input.",
     "Category": "Commerce",
     "Icon": "📈",
@@ -598,6 +617,7 @@
   {
     "Id": "career-financial-planner",
     "Name": "Financial Planner",
+    "SearchAliases": [],
     "Description": "Advise clients on savings, insurance, investments, and long-term wealth goals.",
     "Category": "Commerce",
     "Icon": "💰",
@@ -607,9 +627,8 @@
     "FutureDemand": "High",
     "EducationPath": "Choose Commerce, complete B.Com/BBA/Economics, and pursue NISM, CFP, or investment advisory certifications.",
     "EntranceExams": [
-      "CFP certification",
-      "NISM exams",
-      "CAT"
+      "CUET",
+      "University admissions"
     ],
     "KeySkills": [
       "Investment planning",
@@ -657,6 +676,7 @@
   {
     "Id": "career-marketing-manager",
     "Name": "Marketing Manager",
+    "SearchAliases": [],
     "Description": "Lead branding, digital campaigns, product promotion, and market growth strategy.",
     "Category": "Commerce",
     "Icon": "📣",
@@ -715,9 +735,10 @@
       "Creative Studio"
     ]
   },
-   {
+  {
     "Id": "career-supply-chain-manager",
     "Name": "Supply Chain Manager",
+    "SearchAliases": [],
     "Description": "Oversee sourcing, warehousing, logistics, and product movement from supplier to customer.",
     "Category": "Commerce",
     "Icon": "🚚",
@@ -727,9 +748,8 @@
     "FutureDemand": "High",
     "EducationPath": "Complete graduation in Commerce, Management, or Engineering and build specialization in logistics and operations.",
     "EntranceExams": [
-      "CAT",
-      "SNAP",
-      "Operations and logistics certifications"
+      "CUET",
+      "University admissions"
     ],
     "KeySkills": [
       "Operations planning",
@@ -778,6 +798,10 @@
   {
     "Id": "career-lawyer",
     "Name": "Lawyer",
+    "SearchAliases": [
+      "Law",
+      "LLB"
+    ],
     "Description": "Advise clients, interpret laws, draft legal documents, and represent matters in courts and tribunals.",
     "Category": "Arts",
     "Icon": "⚖️",
@@ -837,6 +861,9 @@
   {
     "Id": "career-psychologist",
     "Name": "Psychologist",
+    "SearchAliases": [
+      "Psychology"
+    ],
     "Description": "Study behavior and mental health and support clients through assessment and therapy.",
     "Category": "Arts",
     "Icon": "🧠",
@@ -897,13 +924,14 @@
   {
     "Id": "career-journalist",
     "Name": "Journalist",
+    "SearchAliases": [],
     "Description": "Research, report, and publish stories across print, television, and digital media.",
     "Category": "Arts",
     "Icon": "📰",
     "AccentColor": "#FFD6A5",
     "IsPopular": false,
     "SalaryRangeIndia": "INR 3-10 LPA",
-    "FutureDemand": "Steady",
+    "FutureDemand": "Stable",
     "EducationPath": "Choose Arts or any stream, complete journalism, mass communication, or media studies, and build a writing and reporting portfolio.",
     "EntranceExams": [
       "CUET",
@@ -956,6 +984,9 @@
   {
     "Id": "career-graphic-designer",
     "Name": "Graphic Designer",
+    "SearchAliases": [
+      "Graphic Design"
+    ],
     "Description": "Create visual identities, campaigns, layouts, and digital assets for brands and products.",
     "Category": "Arts",
     "Icon": "🖌️",
@@ -1014,6 +1045,10 @@
   {
     "Id": "career-ui-ux-designer",
     "Name": "UI/UX Designer",
+    "SearchAliases": [
+      "UI Designer",
+      "UX Designer"
+    ],
     "Description": "Design digital experiences that are intuitive, attractive, and aligned with user needs.",
     "Category": "Arts",
     "Icon": "🎨",
@@ -1074,6 +1109,7 @@
   {
     "Id": "career-fashion-designer",
     "Name": "Fashion Designer",
+    "SearchAliases": [],
     "Description": "Create clothing lines, styling concepts, and fashion collections for brands or labels.",
     "Category": "Arts",
     "Icon": "👗",
@@ -1132,6 +1168,7 @@
   {
     "Id": "career-hotel-manager",
     "Name": "Hotel Manager",
+    "SearchAliases": [],
     "Description": "Manage hospitality operations, guest experience, food services, and property performance.",
     "Category": "Arts",
     "Icon": "🏨",
@@ -1191,6 +1228,7 @@
   {
     "Id": "career-interior-designer",
     "Name": "Interior Designer",
+    "SearchAliases": [],
     "Description": "Plan interiors for homes, offices, and commercial spaces with functional and aesthetic design.",
     "Category": "Arts",
     "Icon": "🛋️",
@@ -1249,6 +1287,10 @@
   {
     "Id": "career-ias-officer",
     "Name": "IAS Officer",
+    "SearchAliases": [
+      "IAS",
+      "Indian Administrative Service"
+    ],
     "Description": "Lead district administration, policy execution, and public governance through the civil services.",
     "Category": "Arts",
     "Icon": "🏛️",
@@ -1307,6 +1349,10 @@
   {
     "Id": "career-ips-officer",
     "Name": "IPS Officer",
+    "SearchAliases": [
+      "IPS",
+      "Indian Police Service"
+    ],
     "Description": "Lead policing, internal security, law enforcement, and crime prevention operations.",
     "Category": "Arts",
     "Icon": "👮",
@@ -1363,6 +1409,7 @@
   {
     "Id": "career-defence-officer",
     "Name": "Defence Officer",
+    "SearchAliases": [],
     "Description": "Serve in the Army, Navy, or Air Force as a commissioned officer in operations, strategy, and leadership roles.",
     "Category": "Science",
     "Icon": "🪖",
@@ -1409,12 +1456,12 @@
       "Engineering"
     ],
     "Interests": [
-      "Leading a team",
-      "Protecting the environment"
+      "Leadership",
+      "Protecting the country"
     ],
     "PreferredSubjects": [
-      "Mathematics",
-      "Science"
+      "Physics",
+      "Mathematics"
     ],
     "WorkStyles": [
       "With lots of people",
@@ -1424,6 +1471,10 @@
   {
     "Id": "career-pilot",
     "Name": "Commercial Pilot",
+    "SearchAliases": [
+      "Pilot",
+      "Airline Pilot"
+    ],
     "Description": "Fly passenger or cargo aircraft and manage safe navigation and cockpit operations.",
     "Category": "Science",
     "Icon": "✈️",
@@ -1482,6 +1533,7 @@
   {
     "Id": "career-biotechnologist",
     "Name": "Biotechnologist",
+    "SearchAliases": [],
     "Description": "Work with living systems to develop solutions in healthcare, agriculture, food, and research.",
     "Category": "Science",
     "Icon": "🧬",
@@ -1542,6 +1594,7 @@
   {
     "Id": "career-agricultural-scientist",
     "Name": "Agricultural Scientist",
+    "SearchAliases": [],
     "Description": "Improve crop yield, soil health, irrigation, and sustainable farming systems through research and field science.",
     "Category": "Science",
     "Icon": "🌾",
@@ -1600,6 +1653,10 @@
   {
     "Id": "career-physiotherapist",
     "Name": "Physiotherapist",
+    "SearchAliases": [
+      "Physio",
+      "Physiotherapy"
+    ],
     "Description": "Help patients recover movement, reduce pain, and improve rehabilitation after injury or illness.",
     "Category": "Science",
     "Icon": "🦴",
@@ -1658,6 +1715,7 @@
   {
     "Id": "career-radiologic-technologist",
     "Name": "Radiology Technologist",
+    "SearchAliases": [],
     "Description": "Operate imaging equipment such as X-ray, CT, and MRI machines to support diagnosis.",
     "Category": "Science",
     "Icon": "🩻",
@@ -1716,6 +1774,7 @@
   {
     "Id": "career-occupational-therapist",
     "Name": "Occupational Therapist",
+    "SearchAliases": [],
     "Description": "Support children and adults in improving daily living, sensory, and motor-function abilities.",
     "Category": "Science",
     "Icon": "🧩",
@@ -1775,6 +1834,7 @@
   {
     "Id": "career-animator",
     "Name": "Animator",
+    "SearchAliases": [],
     "Description": "Create motion graphics, character animation, and visual storytelling for films, games, and digital media.",
     "Category": "Arts",
     "Icon": "🎬",
@@ -1834,6 +1894,7 @@
   {
     "Id": "career-social-worker",
     "Name": "Social Worker",
+    "SearchAliases": [],
     "Description": "Work with communities and institutions to improve welfare, inclusion, child rights, and development outcomes.",
     "Category": "Arts",
     "Icon": "🌍",
@@ -1894,6 +1955,10 @@
   {
     "Id": "career-content-creator",
     "Name": "Content Creator",
+    "SearchAliases": [
+      "Creator",
+      "Content Creation"
+    ],
     "Description": "Build digital content for video, social media, education, and brand storytelling platforms.",
     "Category": "Arts",
     "Icon": "📹",
@@ -1963,12 +2028,12 @@
     "AccentColor": "#7C3AED",
     "IsPopular": true,
     "SalaryRangeIndia": "INR 2.5-8 LPA",
-    "FutureDemand": "Steady demand across hospitals, retail pharmacies, pharmaceutical companies, and clinical research.",
+    "FutureDemand": "Stable",
     "EducationPath": "Choose PCB or PCM in Class 11-12, then complete D.Pharm, B.Pharm, Pharm.D, or M.Pharm as required for the role.",
     "EntranceExams": [
-      "NEET",
       "CUET",
-      "State pharmacy entrance exams"
+      "State pharmacy entrance exams",
+      "University admissions"
     ],
     "KeySkills": [
       "Pharmacology",
@@ -1998,7 +2063,14 @@
       "Jamia Hamdard",
       "ICT Mumbai",
       "Manipal College of Pharmaceutical Sciences"
-    ]
+    ],
+    "CareerCategories": [],
+    "Interests": [],
+    "PreferredSubjects": [
+      "Biology",
+      "Chemistry"
+    ],
+    "WorkStyles": []
   },
   {
     "Id": "police-officer",
@@ -2016,7 +2088,7 @@
     "AccentColor": "#2563EB",
     "IsPopular": true,
     "SalaryRangeIndia": "INR 3-12 LPA",
-    "FutureDemand": "Stable government career with ongoing demand for policing, investigation, cybercrime, and public-safety roles.",
+    "FutureDemand": "Stable",
     "EducationPath": "Complete Class 12 for constable-level roles, graduation for sub-inspector roles, or graduation plus UPSC Civil Services for IPS.",
     "EntranceExams": [
       "UPSC Civil Services Examination",
@@ -2051,61 +2123,21 @@
     "TopColleges": [
       "Sardar Vallabhbhai Patel National Police Academy",
       "State Police Training Academies"
-    ]
-  },
-  {
-    "Id": "advocate",
-    "Name": "Advocate",
-    "SearchAliases": [
-      "Lawyer",
-      "LLB",
-      "Attorney",
-      "Legal Professional"
     ],
-    "Description": "Advises clients on legal matters, represents them in courts and tribunals, drafts legal documents, and specializes in areas such as criminal, corporate, civil, or constitutional law.",
-    "Category": "Arts",
-    "Icon": "⚖️",
-    "AccentColor": "#B45309",
-    "IsPopular": true,
-    "SalaryRangeIndia": "INR 3-15+ LPA",
-    "FutureDemand": "Strong demand in litigation, corporate law, compliance, intellectual property, technology law, and legal advisory services.",
-    "EducationPath": "Complete a five-year integrated law degree after Class 12 or a three-year LLB after graduation, then clear the All India Bar Examination.",
-    "EntranceExams": [
-      "CLAT",
-      "AILET",
-      "LSAT India",
-      "SLAT",
-      "All India Bar Examination"
+    "CareerCategories": [
+      "Law & Public Service"
     ],
-    "KeySkills": [
-      "Legal research",
-      "Argumentation",
-      "Drafting",
-      "Communication",
-      "Critical thinking"
+    "Interests": [
+      "Protecting people",
+      "Leadership"
     ],
-    "Workplaces": [
-      "Courts",
-      "Law firms",
-      "Corporate legal departments",
-      "Government departments",
-      "Independent practice"
+    "PreferredSubjects": [
+      "Civics",
+      "Physical Education"
     ],
-    "RoadmapSteps": [
-      "Choose a five-year integrated LLB after Class 12 or complete graduation before a three-year LLB.",
-      "Prepare for CLAT, AILET, or university-specific law entrance exams.",
-      "Complete internships with advocates, courts, law firms, or corporate legal teams.",
-      "Enroll with a State Bar Council and clear the All India Bar Examination to practice."
-    ],
-    "SalaryInsights": [
-      "Income can vary significantly by city, specialization, experience, law firm, and independent practice.",
-      "Corporate, intellectual-property, technology, and litigation specializations can provide strong long-term growth."
-    ],
-    "TopColleges": [
-      "NLSIU Bengaluru",
-      "NALSAR Hyderabad",
-      "NLU Delhi",
-      "Faculty of Law Delhi University"
+    "WorkStyles": [
+      "With people",
+      "Field / Public Service"
     ]
   },
   {
@@ -2123,7 +2155,7 @@
     "AccentColor": "#DB2777",
     "IsPopular": true,
     "SalaryRangeIndia": "Variable",
-    "FutureDemand": "Growing opportunity through digital commerce, technology startups, local businesses, manufacturing, services, and social enterprises.",
+    "FutureDemand": "High",
     "EducationPath": "Any stream can lead to entrepreneurship. Build business, communication, finance, marketing, product, and problem-solving skills through courses and practical projects.",
     "EntranceExams": [
       "CUET",
@@ -2161,63 +2193,31 @@
       "IIM Bangalore",
       "Indian School of Business",
       "IIT Bombay SINE"
+    ],
+    "CareerCategories": [
+      "Business & Finance"
+    ],
+    "Interests": [
+      "Business",
+      "Creating products"
+    ],
+    "PreferredSubjects": [
+      "Business & Economics",
+      "Mathematics"
+    ],
+    "WorkStyles": [
+      "Independently",
+      "With people"
     ]
   },
   {
-    "Id": "civil-services-officer",
-    "Name": "Civil Services Officer",
-    "SearchAliases": [
-      "IAS",
-      "UPSC",
-      "Civil Servant",
-      "District Collector"
-    ],
-    "Description": "Works in government administration, public policy, development programs, and district or ministry-level leadership through services such as IAS, IPS, IFS, and IRS.",
-    "Category": "Government",
-    "Icon": "🏛️",
-    "AccentColor": "#0F766E",
-    "IsPopular": true,
-    "SalaryRangeIndia": "INR 7-20+ LPA",
-    "FutureDemand": "Highly stable public-service career with opportunities in administration, policy, diplomacy, taxation, policing, and development.",
-    "EducationPath": "Complete graduation in any discipline, then prepare for the UPSC Civil Services Examination.",
-    "EntranceExams": [
-      "UPSC Civil Services Examination"
-    ],
-    "KeySkills": [
-      "Current affairs",
-      "Public administration",
-      "Writing",
-      "Leadership",
-      "Decision making"
-    ],
-    "Workplaces": [
-      "Central government ministries",
-      "State governments",
-      "District administration",
-      "Indian missions abroad",
-      "Revenue and tax departments"
-    ],
-    "RoadmapSteps": [
-      "Complete graduation in a subject that supports your interests and strengths.",
-      "Build a strong foundation in current affairs, governance, history, economics, and writing.",
-      "Clear UPSC Prelims, Mains, and Personality Test stages.",
-      "Complete training at the assigned civil-services academy and begin service."
-    ],
-    "SalaryInsights": [
-      "Salary follows government pay structures and includes eligible allowances.",
-      "Long-term value includes public impact, stability, leadership opportunities, and structured promotions."
-    ],
-    "TopColleges": [
-      "Lal Bahadur Shastri National Academy of Administration",
-      "Sardar Vallabhbhai Patel National Police Academy"
-    ]
-  },
-   {
     "Id": "career-mechanical-engineer",
     "Name": "Mechanical Engineer",
+    "SearchAliases": [],
     "Description": "Design and improve machines, products, and mechanical systems.",
     "Category": "Science",
     "Icon": "⚙️",
+    "AccentColor": "#E5E7EB",
     "IsPopular": true,
     "SalaryRangeIndia": "INR 4-14 LPA",
     "FutureDemand": "High",
@@ -2243,6 +2243,7 @@
       "Complete a Mechanical Engineering degree with labs, projects, and internships.",
       "Start in design, manufacturing, maintenance, automotive, or product engineering and specialize with experience."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IIT Bombay",
@@ -2267,9 +2268,12 @@
   {
     "Id": "career-electrical-engineer",
     "Name": "Electrical Engineer",
+    "SearchAliases": [],
     "Description": "Design, operate, and maintain electrical power and control systems.",
     "Category": "Science",
     "Icon": "⚡",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-14 LPA",
     "FutureDemand": "High",
     "EducationPath": "Study PCM and complete B.E./B.Tech in Electrical Engineering.",
@@ -2294,6 +2298,7 @@
       "Complete Electrical Engineering with projects and internships.",
       "Start in power, automation, manufacturing, renewable energy, or electrical design."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IIT Bombay",
@@ -2318,9 +2323,12 @@
   {
     "Id": "career-electronics-engineer",
     "Name": "Electronics Engineer",
+    "SearchAliases": [],
     "Description": "Develop electronic circuits, devices, and embedded systems.",
     "Category": "Science",
     "Icon": "🔌",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-15 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCM and complete Electronics or Electronics and Communication Engineering.",
@@ -2345,6 +2353,7 @@
       "Complete an electronics degree with hardware and embedded projects.",
       "Build experience in electronics, embedded systems, semiconductor, or product engineering."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Hyderabad",
       "IIT Madras",
@@ -2370,9 +2379,12 @@
   {
     "Id": "career-chemical-engineer",
     "Name": "Chemical Engineer",
+    "SearchAliases": [],
     "Description": "Design processes that transform raw materials into useful chemicals, fuels, foods, and materials.",
     "Category": "Science",
     "Icon": "🧪",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-14 LPA",
     "FutureDemand": "High",
     "EducationPath": "Study PCM and complete Chemical Engineering.",
@@ -2397,6 +2409,7 @@
       "Complete Chemical Engineering with laboratory and industrial exposure.",
       "Start in process, production, quality, energy, or pharmaceutical engineering."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Bombay",
       "IIT Madras",
@@ -2422,9 +2435,12 @@
   {
     "Id": "career-aerospace-engineer",
     "Name": "Aerospace Engineer",
+    "SearchAliases": [],
     "Description": "Design and test aircraft, spacecraft, propulsion, and aerospace systems.",
     "Category": "Science",
     "Icon": "🚀",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCM and complete Aerospace or Aeronautical Engineering.",
@@ -2449,6 +2465,7 @@
       "Complete an aerospace-related degree with aircraft or space projects.",
       "Enter aerospace R&D, aviation, defence, or pursue postgraduate specialization."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IIT Bombay",
@@ -2474,9 +2491,12 @@
   {
     "Id": "career-automobile-engineer",
     "Name": "Automobile Engineer",
+    "SearchAliases": [],
     "Description": "Design, test, and improve vehicles and automotive systems.",
     "Category": "Science",
     "Icon": "🚗",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-14 LPA",
     "FutureDemand": "High",
     "EducationPath": "Study PCM and complete Mechanical or Automobile Engineering.",
@@ -2501,6 +2521,7 @@
       "Complete Mechanical or Automobile Engineering with vehicle projects.",
       "Start in automotive design, manufacturing, testing, EVs, or mobility technology."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "VIT Vellore",
@@ -2526,9 +2547,12 @@
   {
     "Id": "career-robotics-engineer",
     "Name": "Robotics Engineer",
+    "SearchAliases": [],
     "Description": "Build robots and intelligent automated machines.",
     "Category": "Science",
     "Icon": "🤖",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM and pursue Mechanical, Electronics, Robotics, or Mechatronics Engineering.",
@@ -2553,6 +2577,7 @@
       "Complete a relevant engineering degree and build robotics projects.",
       "Enter robotics, automation, industrial systems, or research and specialize in AI-enabled robotics."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Hyderabad",
       "IIT Madras",
@@ -2578,9 +2603,12 @@
   {
     "Id": "career-mechatronics-engineer",
     "Name": "Mechatronics Engineer",
+    "SearchAliases": [],
     "Description": "Combine mechanical, electronics, control, and software engineering to build smart machines.",
     "Category": "Science",
     "Icon": "🦾",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-15 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM and pursue Mechatronics or related engineering.",
@@ -2605,6 +2633,7 @@
       "Complete Mechatronics or related engineering with automation projects.",
       "Start in robotics, industrial automation, product development, or smart manufacturing."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "MIT Manipal",
       "SRM Institute of Science and Technology",
@@ -2630,9 +2659,12 @@
   {
     "Id": "career-biomedical-engineer",
     "Name": "Biomedical Engineer",
+    "SearchAliases": [],
     "Description": "Develop medical devices, equipment, and technologies that improve healthcare.",
     "Category": "Science",
     "Icon": "🩻",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-14 LPA",
     "FutureDemand": "High",
     "EducationPath": "Study PCM or relevant science subjects and pursue Biomedical Engineering or a related degree.",
@@ -2657,6 +2689,7 @@
       "Complete Biomedical Engineering with medical technology projects.",
       "Work in medical devices, healthcare technology, clinical engineering, or research."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Hyderabad",
       "IIT Bombay",
@@ -2682,9 +2715,12 @@
   {
     "Id": "career-environmental-engineer",
     "Name": "Environmental Engineer",
+    "SearchAliases": [],
     "Description": "Develop engineering solutions for pollution, waste, water, and environmental protection.",
     "Category": "Science",
     "Icon": "🌱",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-12 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM and complete Environmental or Civil Engineering with environmental specialization.",
@@ -2709,6 +2745,7 @@
       "Complete engineering with environmental projects and internships.",
       "Start in water, waste, pollution control, sustainability, or environmental consulting."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Kanpur",
       "IIT Bombay",
@@ -2734,9 +2771,12 @@
   {
     "Id": "career-industrial-engineer",
     "Name": "Industrial Engineer",
+    "SearchAliases": [],
     "Description": "Improve productivity, quality, processes, and efficiency in organizations.",
     "Category": "Science",
     "Icon": "🏭",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-14 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCM and complete Industrial, Production, or Mechanical Engineering.",
@@ -2761,6 +2801,7 @@
       "Complete an engineering degree with operations and process projects.",
       "Start in process improvement, quality, operations, supply chain, or consulting."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Kharagpur",
       "IIT Bombay",
@@ -2786,9 +2827,12 @@
   {
     "Id": "career-production-engineer",
     "Name": "Production Engineer",
+    "SearchAliases": [],
     "Description": "Plan and improve manufacturing processes, equipment, and production quality.",
     "Category": "Science",
     "Icon": "🏗️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-12 LPA",
     "FutureDemand": "High",
     "EducationPath": "Study PCM and complete Production, Mechanical, or Industrial Engineering.",
@@ -2813,6 +2857,7 @@
       "Complete engineering with manufacturing projects and internships.",
       "Start in production, quality, process engineering, or plant operations."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Kharagpur",
       "NIT Trichy",
@@ -2837,11 +2882,14 @@
   {
     "Id": "career-petroleum-engineer",
     "Name": "Petroleum Engineer",
+    "SearchAliases": [],
     "Description": "Develop technologies for extracting, processing, and managing oil and gas resources.",
     "Category": "Science",
     "Icon": "🛢️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
-    "FutureDemand": "Medium",
+    "FutureDemand": "Moderate",
     "EducationPath": "Choose PCM and complete Petroleum Engineering or a related engineering degree.",
     "EntranceExams": [
       "JEE Main",
@@ -2864,6 +2912,7 @@
       "Complete Petroleum Engineering or related engineering.",
       "Enter drilling, reservoir, production, energy, or transition-focused roles and consider postgraduate specialization."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT (ISM) Dhanbad",
       "RGIPT Amethi",
@@ -2889,9 +2938,12 @@
   {
     "Id": "career-marine-engineer",
     "Name": "Marine Engineer",
+    "SearchAliases": [],
     "Description": "Operate and maintain propulsion, power, and engineering systems on ships.",
     "Category": "Science",
     "Icon": "🚢",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "High",
     "EducationPath": "Study PCM and complete Marine Engineering with required maritime training.",
@@ -2916,6 +2968,7 @@
       "Complete Marine Engineering and required sea training.",
       "Start as a junior engineer at sea and progress through maritime certification and experience."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Indian Maritime University",
       "Tolani Maritime Institute",
@@ -2941,9 +2994,12 @@
   {
     "Id": "career-metallurgical-engineer",
     "Name": "Metallurgical Engineer",
+    "SearchAliases": [],
     "Description": "Study metals, alloys, materials, and manufacturing processes.",
     "Category": "Science",
     "Icon": "🔩",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-13 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCM and complete Metallurgical or Materials Engineering.",
@@ -2968,6 +3024,7 @@
       "Complete Metallurgy or Materials Engineering with laboratory projects.",
       "Work in materials testing, manufacturing, metals, automotive, aerospace, or R&D."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Bombay",
       "IIT Kharagpur",
@@ -2993,9 +3050,12 @@
   {
     "Id": "career-mining-engineer",
     "Name": "Mining Engineer",
+    "SearchAliases": [],
     "Description": "Plan safe and efficient extraction of minerals and natural resources.",
     "Category": "Science",
     "Icon": "⛏️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-14 LPA",
     "FutureDemand": "High",
     "EducationPath": "Study PCM and complete Mining Engineering.",
@@ -3020,6 +3080,7 @@
       "Complete Mining Engineering with field exposure.",
       "Start in mine planning, safety, operations, or mineral processing and progress through experience."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT (ISM) Dhanbad",
       "NIT Rourkela",
@@ -3045,9 +3106,12 @@
   {
     "Id": "career-instrumentation-engineer",
     "Name": "Instrumentation Engineer",
+    "SearchAliases": [],
     "Description": "Design measurement, control, and automation systems used in industry.",
     "Category": "Science",
     "Icon": "🎛️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-14 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCM and complete Instrumentation or Electronics and Instrumentation Engineering.",
@@ -3072,6 +3136,7 @@
       "Complete Instrumentation Engineering with automation projects.",
       "Start in process control, industrial automation, instrumentation, or plant engineering."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Kharagpur",
       "NIT Trichy",
@@ -3097,9 +3162,12 @@
   {
     "Id": "career-renewable-energy-engineer",
     "Name": "Renewable Energy Engineer",
+    "SearchAliases": [],
     "Description": "Design and improve solar, wind, battery, and clean-energy systems.",
     "Category": "Science",
     "Icon": "☀️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-15 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM and pursue Electrical, Mechanical, Energy, or Renewable Energy Engineering.",
@@ -3124,6 +3192,7 @@
       "Complete an engineering degree with renewable-energy projects.",
       "Build experience in solar, wind, storage, grid integration, or energy consulting."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IIT Bombay",
@@ -3150,9 +3219,12 @@
   {
     "Id": "career-data-analyst",
     "Name": "Data Analyst",
+    "SearchAliases": [],
     "Description": "Turn business and operational data into useful insights and decisions.",
     "Category": "Science",
     "Icon": "📈",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-14 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Study Mathematics and pursue Statistics, Economics, Computer Science, Engineering, or related degrees.",
@@ -3178,6 +3250,7 @@
       "Complete a quantitative or technology degree and learn Excel, SQL, and visualization.",
       "Start as a data analyst and progress toward analytics, business intelligence, or data science."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "ISI Kolkata",
@@ -3203,9 +3276,12 @@
   {
     "Id": "career-data-engineer",
     "Name": "Data Engineer",
+    "SearchAliases": [],
     "Description": "Build reliable data pipelines, platforms, and systems for analytics and AI.",
     "Category": "Science",
     "Icon": "🗄️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 6-22 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM and pursue Computer Science, IT, Mathematics, or related engineering.",
@@ -3231,6 +3307,7 @@
       "Complete a CS, IT, or quantitative degree and learn databases, Python, and cloud tools.",
       "Start in data engineering or backend roles and progress toward data platforms and architecture."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IIT Hyderabad",
@@ -3255,9 +3332,15 @@
   {
     "Id": "career-ai-engineer",
     "Name": "AI / Machine Learning Engineer",
+    "SearchAliases": [
+      "AI Engineer",
+      "ML Engineer"
+    ],
     "Description": "Build intelligent systems using machine learning, data, and software engineering.",
     "Category": "Science",
     "Icon": "🧠",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 7-30 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM and pursue Computer Science, AI, Mathematics, Statistics, or related engineering.",
@@ -3283,6 +3366,7 @@
       "Complete a quantitative or computing degree and learn ML through projects.",
       "Start in software or ML roles and specialize in generative AI, computer vision, NLP, or AI systems."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IIT Hyderabad",
@@ -3308,9 +3392,14 @@
   {
     "Id": "career-cybersecurity-analyst",
     "Name": "Cybersecurity Analyst",
+    "SearchAliases": [
+      "Cyber Security"
+    ],
     "Description": "Protect systems, networks, applications, and data from cyber threats.",
     "Category": "Science",
     "Icon": "🔐",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM or computer subjects and pursue Computer Science, IT, or Cybersecurity.",
@@ -3336,6 +3425,7 @@
       "Complete a computing degree and learn networking, Linux, and security fundamentals.",
       "Start in SOC, security testing, or IT security and specialize in threat intelligence, cloud, or application security."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIIT Hyderabad",
       "IIT Kanpur",
@@ -3361,9 +3451,12 @@
   {
     "Id": "career-cloud-engineer",
     "Name": "Cloud Engineer",
+    "SearchAliases": [],
     "Description": "Build and operate scalable cloud infrastructure and services.",
     "Category": "Science",
     "Icon": "☁️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-20 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM and pursue Computer Science, IT, or related engineering.",
@@ -3389,6 +3482,7 @@
       "Complete a computing degree and build Linux, networking, and cloud skills.",
       "Start in cloud, DevOps, or infrastructure roles and progress toward cloud architecture."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IIIT Hyderabad",
@@ -3413,9 +3507,12 @@
   {
     "Id": "career-devops-engineer",
     "Name": "DevOps Engineer",
+    "SearchAliases": [],
     "Description": "Automate software delivery, infrastructure, monitoring, and reliable deployment.",
     "Category": "Science",
     "Icon": "🔧",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 6-22 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Study PCM and pursue Computer Science, IT, or related engineering.",
@@ -3441,6 +3538,7 @@
       "Complete a computing degree and learn Linux, Git, cloud, and automation.",
       "Start in software or infrastructure and specialize in DevOps, platform engineering, or SRE."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IIIT Hyderabad",
@@ -3465,9 +3563,14 @@
   {
     "Id": "career-full-stack-developer",
     "Name": "Full Stack Developer",
+    "SearchAliases": [
+      "Full Stack"
+    ],
     "Description": "Build complete web applications across front-end, back-end, databases, and APIs.",
     "Category": "Science",
     "Icon": "🌐",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-20 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Study PCM or computer subjects and pursue B.Tech, BCA, or B.Sc Computer Science.",
@@ -3493,6 +3596,7 @@
       "Complete a computing degree or equivalent learning path and build web projects.",
       "Start as a developer and progress into full-stack, technical lead, or product engineering roles."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IIIT Hyderabad",
@@ -3517,9 +3621,14 @@
   {
     "Id": "career-mobile-app-developer",
     "Name": "Mobile App Developer",
+    "SearchAliases": [
+      "App Developer"
+    ],
     "Description": "Create Android and iOS applications for consumers and businesses.",
     "Category": "Science",
     "Icon": "📱",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-20 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Study PCM or computer subjects and pursue Computer Science, IT, BCA, or related education.",
@@ -3545,6 +3654,7 @@
       "Complete a computing degree and build Android or iOS projects.",
       "Start in mobile development and progress toward senior, architecture, or product engineering roles."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIIT Hyderabad",
       "IIT Madras",
@@ -3569,9 +3679,12 @@
   {
     "Id": "career-game-developer",
     "Name": "Game Developer",
+    "SearchAliases": [],
     "Description": "Design and program interactive games for mobile, PC, console, and web platforms.",
     "Category": "Science",
     "Icon": "🎮",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-18 LPA",
     "FutureDemand": "High",
     "EducationPath": "Study Mathematics and Computer Science where available, then pursue computing or game-development education.",
@@ -3597,6 +3710,7 @@
       "Create small games and learn Unity, Unreal, or another engine.",
       "Build a portfolio and enter game development, technical art, gameplay, or tools roles."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "VIT Vellore",
@@ -3622,9 +3736,12 @@
   {
     "Id": "career-web-developer",
     "Name": "Web Developer",
+    "SearchAliases": [],
     "Description": "Create websites and web applications using modern web technologies.",
     "Category": "Science",
     "Icon": "🕸️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-16 LPA",
     "FutureDemand": "High",
     "EducationPath": "Study computer subjects where available and pursue Computer Science, IT, BCA, or related education.",
@@ -3650,6 +3767,7 @@
       "Build websites and web applications through projects and internships.",
       "Start as a web developer and progress into full-stack or specialized web engineering."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIIT Hyderabad",
       "VIT Vellore",
@@ -3674,9 +3792,12 @@
   {
     "Id": "career-product-manager",
     "Name": "Product Manager",
+    "SearchAliases": [],
     "Description": "Guide products from customer problem discovery through development and growth.",
     "Category": "Commerce",
     "Icon": "🧭",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 8-30 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Build strong communication, analytical, technology, and business skills through an undergraduate degree and relevant experience.",
@@ -3702,6 +3823,7 @@
       "Build projects and internships involving users, products, and data.",
       "Start in product, business analysis, design, or engineering and grow into product management."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Bombay",
       "IIM Indore",
@@ -3727,9 +3849,12 @@
   {
     "Id": "career-network-engineer",
     "Name": "Network Engineer",
+    "SearchAliases": [],
     "Description": "Design, configure, and maintain computer networks and connectivity.",
     "Category": "Science",
     "Icon": "🌐",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-16 LPA",
     "FutureDemand": "High",
     "EducationPath": "Study computer subjects and pursue Computer Science, IT, or networking-related education.",
@@ -3755,6 +3880,7 @@
       "Complete a computing degree and learn networking through labs and certifications.",
       "Start in network support or engineering and progress toward network architecture and security."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IIIT Hyderabad",
@@ -3779,9 +3905,12 @@
   {
     "Id": "career-database-administrator",
     "Name": "Database Administrator",
+    "SearchAliases": [],
     "Description": "Manage databases for performance, security, availability, and reliable data access.",
     "Category": "Science",
     "Icon": "🗃️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-16 LPA",
     "FutureDemand": "High",
     "EducationPath": "Study computer subjects and pursue Computer Science, IT, or related education.",
@@ -3807,6 +3936,7 @@
       "Complete a computing degree and gain database project experience.",
       "Start in database support or engineering and progress into administration, cloud databases, or data engineering."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IIIT Hyderabad",
@@ -3831,9 +3961,12 @@
   {
     "Id": "career-embedded-systems-engineer",
     "Name": "Embedded Systems Engineer",
+    "SearchAliases": [],
     "Description": "Develop software and hardware for connected devices and intelligent products.",
     "Category": "Science",
     "Icon": "💾",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM and pursue Electronics, ECE, Computer Engineering, or related engineering.",
@@ -3858,6 +3991,7 @@
       "Complete ECE, Electronics, or Computer Engineering with embedded projects.",
       "Start in firmware or embedded development and specialize in automotive, IoT, robotics, or devices."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IIT Hyderabad",
@@ -3883,9 +4017,12 @@
   {
     "Id": "career-iot-engineer",
     "Name": "IoT Engineer",
+    "SearchAliases": [],
     "Description": "Connect sensors, devices, software, and cloud systems to build smart products.",
     "Category": "Science",
     "Icon": "📡",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM and pursue Electronics, ECE, Computer Science, or related engineering.",
@@ -3910,6 +4047,7 @@
       "Complete a relevant engineering degree and build connected-device projects.",
       "Start in embedded, IoT, cloud, or automation roles and progress toward IoT architecture."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Hyderabad",
       "IIT Madras",
@@ -3935,9 +4073,15 @@
   {
     "Id": "career-veterinarian",
     "Name": "Veterinary Doctor",
+    "SearchAliases": [
+      "Veterinarian",
+      "Veterinary"
+    ],
     "Description": "Diagnose and treat animals and support animal health and welfare.",
     "Category": "Science",
     "Icon": "🐾",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-12 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB, qualify for veterinary admission, and complete BVSc and AH with required registration.",
@@ -3962,6 +4106,7 @@
       "Complete BVSc and AH with clinical training.",
       "Start in veterinary clinics, hospitals, farms, public services, or animal welfare and specialize later."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Madras Veterinary College",
       "IVRI Bareilly",
@@ -3987,9 +4132,12 @@
   {
     "Id": "career-optometrist",
     "Name": "Optometrist",
+    "SearchAliases": [],
     "Description": "Examine vision and provide eye-care services including corrective lenses.",
     "Category": "Science",
     "Icon": "👁️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-9 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB and complete B.Optom or an equivalent optometry program.",
@@ -4014,6 +4162,7 @@
       "Complete B.Optom with clinical training.",
       "Start in eye hospitals, clinics, optical centres, or community eye care and specialize later."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "AIIMS",
       "LV Prasad Eye Institute",
@@ -4038,9 +4187,12 @@
   {
     "Id": "career-medical-lab-technologist",
     "Name": "Medical Laboratory Technologist",
+    "SearchAliases": [],
     "Description": "Perform laboratory tests that help doctors diagnose and monitor disease.",
     "Category": "Science",
     "Icon": "🔬",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-8 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB and complete B.Sc Medical Laboratory Technology or related education.",
@@ -4065,6 +4217,7 @@
       "Complete the degree with laboratory training.",
       "Start in diagnostic labs, hospitals, pathology, or research and add specialized certifications."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "CMC Vellore",
       "AIIMS",
@@ -4090,9 +4243,12 @@
   {
     "Id": "career-respiratory-therapist",
     "Name": "Respiratory Therapist",
+    "SearchAliases": [],
     "Description": "Support patients with breathing disorders and respiratory care.",
     "Category": "Science",
     "Icon": "🫁",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-9 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB and complete a respiratory therapy or related healthcare program.",
@@ -4117,6 +4273,7 @@
       "Complete the undergraduate program with clinical training.",
       "Start in hospitals and critical care and specialize in pulmonary or intensive care."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Manipal College of Health Professions",
       "Sri Ramachandra Institute of Higher Education",
@@ -4141,9 +4298,12 @@
   {
     "Id": "career-dietitian",
     "Name": "Dietitian / Nutritionist",
+    "SearchAliases": [],
     "Description": "Use nutrition science to support health, performance, and disease management.",
     "Category": "Science",
     "Icon": "🥗",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB or relevant science subjects and pursue Nutrition, Dietetics, or Food Science.",
@@ -4168,6 +4328,7 @@
       "Complete an undergraduate degree and practical training.",
       "Start in hospitals, wellness, sports, community health, or private practice and specialize later."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "NIN Hyderabad",
       "Lady Irwin College",
@@ -4193,9 +4354,12 @@
   {
     "Id": "career-public-health-specialist",
     "Name": "Public Health Specialist",
+    "SearchAliases": [],
     "Description": "Improve health outcomes through population-level programs, policy, prevention, and research.",
     "Category": "Science",
     "Icon": "🏥",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Study science or social science and pursue public health through undergraduate and postgraduate education.",
@@ -4221,6 +4385,7 @@
       "Complete undergraduate education and consider MPH or related specialization.",
       "Start in public health programs, research, health policy, or community health."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "TISS Mumbai",
       "PHFI institutes",
@@ -4246,9 +4411,12 @@
   {
     "Id": "career-clinical-researcher",
     "Name": "Clinical Researcher",
+    "SearchAliases": [],
     "Description": "Support research studies that evaluate medicines, treatments, and healthcare interventions.",
     "Category": "Science",
     "Icon": "🧬",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-15 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB and pursue life science, pharmacy, biotechnology, or related education.",
@@ -4274,6 +4442,7 @@
       "Complete undergraduate study and gain research or internship experience.",
       "Start in clinical research operations, data, regulatory work, or trial coordination and specialize further."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "NIPER Mohali",
@@ -4299,9 +4468,12 @@
   {
     "Id": "career-speech-language-therapist",
     "Name": "Speech and Language Therapist",
+    "SearchAliases": [],
     "Description": "Assess and support communication, speech, language, and swallowing difficulties.",
     "Category": "Science",
     "Icon": "🗣️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-9 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB and pursue Speech-Language Pathology and Audiology education.",
@@ -4326,6 +4498,7 @@
       "Complete undergraduate professional training with clinical practice.",
       "Start in hospitals, rehabilitation, schools, or private clinics and specialize by age group or condition."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "AIISH Mysuru",
       "Sri Ramachandra Institute",
@@ -4351,9 +4524,12 @@
   {
     "Id": "career-audiologist",
     "Name": "Audiologist",
+    "SearchAliases": [],
     "Description": "Assess hearing and help people manage hearing and communication difficulties.",
     "Category": "Science",
     "Icon": "👂",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-9 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB and pursue Audiology and Speech-Language Pathology education.",
@@ -4378,6 +4554,7 @@
       "Complete professional education with clinical training.",
       "Start in hospitals, hearing centres, rehabilitation, or private practice and specialize later."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "AIISH Mysuru",
       "Manipal Academy of Higher Education",
@@ -4402,9 +4579,12 @@
   {
     "Id": "career-microbiologist",
     "Name": "Microbiologist",
+    "SearchAliases": [],
     "Description": "Study microorganisms and apply microbiology to healthcare, food, environment, and industry.",
     "Category": "Science",
     "Icon": "🦠",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB and pursue Microbiology or Life Sciences.",
@@ -4430,6 +4610,7 @@
       "Complete undergraduate study with laboratory experience.",
       "Start in diagnostics, pharma, food quality, research, or environmental microbiology and specialize later."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "University of Delhi",
       "Christ University",
@@ -4455,9 +4636,12 @@
   {
     "Id": "career-geneticist",
     "Name": "Geneticist",
+    "SearchAliases": [],
     "Description": "Study genes and heredity to understand disease, traits, and biological systems.",
     "Category": "Science",
     "Icon": "🧬",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCB or PCMB and pursue Genetics, Biotechnology, Life Sciences, or related education.",
@@ -4482,6 +4666,7 @@
       "Complete undergraduate education and plan for postgraduate specialization.",
       "Enter research, diagnostics, biotechnology, or genomics and develop advanced expertise."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IISc Bengaluru",
       "IIT Madras",
@@ -4507,9 +4692,12 @@
   {
     "Id": "career-biochemist",
     "Name": "Biochemist",
+    "SearchAliases": [],
     "Description": "Study chemical processes within living organisms and apply them to health and industry.",
     "Category": "Science",
     "Icon": "⚗️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-14 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB and pursue Biochemistry, Biotechnology, or Life Sciences.",
@@ -4534,6 +4722,7 @@
       "Complete undergraduate education with laboratory projects.",
       "Pursue research, pharma, diagnostics, or postgraduate specialization."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "University of Delhi",
       "IISc Bengaluru",
@@ -4559,9 +4748,12 @@
   {
     "Id": "career-physicist",
     "Name": "Physicist",
+    "SearchAliases": [],
     "Description": "Study matter, energy, forces, and the fundamental laws of nature.",
     "Category": "Science",
     "Icon": "🔭",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-16 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCM and pursue Physics through undergraduate and postgraduate study.",
@@ -4587,6 +4779,7 @@
       "Complete a Physics degree and research projects.",
       "Pursue postgraduate study or move into research, teaching, technology, or quantitative roles."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IISc Bengaluru",
       "IISER Pune",
@@ -4611,9 +4804,12 @@
   {
     "Id": "career-chemist",
     "Name": "Chemist",
+    "SearchAliases": [],
     "Description": "Study substances and chemical reactions for research, industry, medicines, and materials.",
     "Category": "Science",
     "Icon": "⚗️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-12 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB or PCM and pursue Chemistry, Applied Chemistry, or related education.",
@@ -4639,6 +4835,7 @@
       "Complete Chemistry or related undergraduate education with laboratory projects.",
       "Start in quality, pharma, chemicals, research, or pursue postgraduate specialization."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IISER Pune",
@@ -4663,9 +4860,12 @@
   {
     "Id": "career-geologist",
     "Name": "Geologist",
+    "SearchAliases": [],
     "Description": "Study rocks, minerals, Earth processes, and natural resources.",
     "Category": "Science",
     "Icon": "🪨",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-14 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCM or science subjects and pursue Geology or Earth Sciences.",
@@ -4691,6 +4891,7 @@
       "Complete Geology or Earth Science with fieldwork.",
       "Start in environmental, mining, energy, surveying, research, or government roles."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT (ISM) Dhanbad",
       "University of Delhi",
@@ -4716,9 +4917,12 @@
   {
     "Id": "career-astronomer",
     "Name": "Astronomer",
+    "SearchAliases": [],
     "Description": "Study stars, planets, galaxies, and other objects and phenomena in space.",
     "Category": "Science",
     "Icon": "🌌",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCM and pursue Physics, Astronomy, or related science education followed by research training.",
@@ -4744,6 +4948,7 @@
       "Complete a Physics or related degree with astronomy projects.",
       "Pursue postgraduate research and specialize in observational or theoretical astronomy."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IISc Bengaluru",
       "IISER Pune",
@@ -4769,9 +4974,12 @@
   {
     "Id": "career-astrophysicist",
     "Name": "Astrophysicist",
+    "SearchAliases": [],
     "Description": "Use physics and mathematics to understand stars, galaxies, black holes, and the universe.",
     "Category": "Science",
     "Icon": "🪐",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-20 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCM and pursue Physics followed by postgraduate research in astrophysics.",
@@ -4797,6 +5005,7 @@
       "Build research and computational skills during undergraduate study.",
       "Pursue postgraduate research in astrophysics and work in academia or space research."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IISc Bengaluru",
       "IISER Pune",
@@ -4822,9 +5031,12 @@
   {
     "Id": "career-environmental-scientist",
     "Name": "Environmental Scientist",
+    "SearchAliases": [],
     "Description": "Study environmental systems and help solve pollution, conservation, and sustainability challenges.",
     "Category": "Science",
     "Icon": "🌍",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-12 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose science subjects and pursue Environmental Science, Biology, Chemistry, or related education.",
@@ -4850,6 +5062,7 @@
       "Complete undergraduate study with field projects.",
       "Start in conservation, environmental consulting, sustainability, research, or government programs."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "TERI School of Advanced Studies",
       "University of Delhi",
@@ -4875,9 +5088,12 @@
   {
     "Id": "career-forensic-scientist",
     "Name": "Forensic Scientist",
+    "SearchAliases": [],
     "Description": "Apply science to evidence analysis for investigations and justice.",
     "Category": "Science",
     "Icon": "🔎",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-12 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose science subjects and pursue Forensic Science or related life science education.",
@@ -4902,6 +5118,7 @@
       "Complete undergraduate study with laboratory training.",
       "Start in forensic laboratories or government services and specialize in DNA, toxicology, digital, or analytical forensics."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "National Forensic Sciences University",
       "University of Delhi",
@@ -4927,9 +5144,12 @@
   {
     "Id": "career-marine-scientist",
     "Name": "Marine Scientist",
+    "SearchAliases": [],
     "Description": "Study oceans, marine ecosystems, organisms, and coastal environments.",
     "Category": "Science",
     "Icon": "🌊",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-14 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB and pursue Marine Biology, Oceanography, or related science education.",
@@ -4954,6 +5174,7 @@
       "Complete undergraduate study with field and laboratory projects.",
       "Pursue research or work in conservation, fisheries, climate, marine technology, or environmental consulting."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Cochin University of Science and Technology",
       "University of Madras",
@@ -4979,9 +5200,12 @@
   {
     "Id": "career-botanist",
     "Name": "Botanist",
+    "SearchAliases": [],
     "Description": "Study plants, their biology, ecology, and applications in agriculture and conservation.",
     "Category": "Science",
     "Icon": "🌿",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB and pursue Botany, Plant Science, or related education.",
@@ -5006,6 +5230,7 @@
       "Complete undergraduate study with field and laboratory work.",
       "Start in research, agriculture, conservation, education, or postgraduate study."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "University of Delhi",
       "Banaras Hindu University",
@@ -5031,9 +5256,12 @@
   {
     "Id": "career-zoologist",
     "Name": "Zoologist",
+    "SearchAliases": [],
     "Description": "Study animals, their biology, behaviour, ecology, and conservation.",
     "Category": "Science",
     "Icon": "🦓",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB and pursue Zoology, Wildlife Biology, or related education.",
@@ -5058,6 +5286,7 @@
       "Complete undergraduate study with field projects.",
       "Work in research, conservation, education, wildlife organizations, or pursue postgraduate specialization."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "University of Delhi",
       "Banaras Hindu University",
@@ -5083,9 +5312,12 @@
   {
     "Id": "career-agricultural-engineer",
     "Name": "Agricultural Engineer",
+    "SearchAliases": [],
     "Description": "Apply engineering to farm machinery, irrigation, food systems, and agricultural technology.",
     "Category": "Science",
     "Icon": "🚜",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-12 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCM and pursue Agricultural Engineering.",
@@ -5110,6 +5342,7 @@
       "Complete Agricultural Engineering with field projects.",
       "Start in farm machinery, irrigation, agritech, food processing, or rural technology."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Kharagpur",
       "Tamil Nadu Agricultural University",
@@ -5135,9 +5368,12 @@
   {
     "Id": "career-agronomist",
     "Name": "Agronomist",
+    "SearchAliases": [],
     "Description": "Improve crop production, soil use, and sustainable farming practices.",
     "Category": "Science",
     "Icon": "🌾",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB or science subjects and pursue Agriculture or Agronomy.",
@@ -5162,6 +5398,7 @@
       "Complete Agriculture with field and research experience.",
       "Start in crop advisory, agri research, agribusiness, or government agriculture programs."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Tamil Nadu Agricultural University",
       "Punjab Agricultural University",
@@ -5187,9 +5424,12 @@
   {
     "Id": "career-food-technologist",
     "Name": "Food Technologist",
+    "SearchAliases": [],
     "Description": "Develop, test, preserve, and improve food products and processes.",
     "Category": "Science",
     "Icon": "🍎",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB or PCM and pursue Food Technology or Food Science.",
@@ -5214,6 +5454,7 @@
       "Complete the degree with laboratory and industry internships.",
       "Start in quality, production, R&D, product development, or food safety."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "NIFTEM Kundli",
       "CFTRI Mysuru",
@@ -5239,9 +5480,12 @@
   {
     "Id": "career-fisheries-scientist",
     "Name": "Fisheries Scientist",
+    "SearchAliases": [],
     "Description": "Study aquatic animals and improve sustainable fisheries and aquaculture.",
     "Category": "Science",
     "Icon": "🐟",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB and pursue Fisheries Science or Aquaculture.",
@@ -5266,6 +5510,7 @@
       "Complete undergraduate study with field and aquatic laboratory work.",
       "Start in aquaculture, fisheries management, research, or government services."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Central Institute of Fisheries Education",
       "Kerala University of Fisheries and Ocean Studies",
@@ -5291,9 +5536,12 @@
   {
     "Id": "career-forestry-officer",
     "Name": "Forestry Officer",
+    "SearchAliases": [],
     "Description": "Manage forests, biodiversity, conservation, and sustainable natural resources.",
     "Category": "Science",
     "Icon": "🌲",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-15 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose science subjects and pursue Forestry, Environmental Science, or related education; competitive government exams may follow.",
@@ -5319,6 +5567,7 @@
       "Complete undergraduate study and prepare for relevant government recruitment if targeting officer roles.",
       "Build experience in conservation, forest management, wildlife, or environmental administration."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Forest Research Institute Dehradun",
       "Tamil Nadu Agricultural University",
@@ -5345,9 +5594,12 @@
   {
     "Id": "career-wildlife-biologist",
     "Name": "Wildlife Biologist",
+    "SearchAliases": [],
     "Description": "Study wildlife populations, ecosystems, and conservation strategies.",
     "Category": "Science",
     "Icon": "🐅",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-12 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB and pursue Zoology, Wildlife Biology, Ecology, or related education.",
@@ -5373,6 +5625,7 @@
       "Complete undergraduate study with field research.",
       "Pursue postgraduate specialization and work in conservation, research, wildlife management, or policy."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Wildlife Institute of India",
       "University of Delhi",
@@ -5404,6 +5657,8 @@
     "Description": "Support corporate governance, compliance, legal filings, and board processes.",
     "Category": "Commerce",
     "Icon": "📋",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-15 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose Commerce or another eligible stream and pursue the ICSI Company Secretary program.",
@@ -5428,6 +5683,7 @@
       "Complete the required examinations, training, and practical exposure.",
       "Start in corporate secretarial, compliance, governance, or legal support roles."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "ICSI",
       "University of Delhi",
@@ -5459,6 +5715,8 @@
     "Description": "Analyze costs, budgets, profitability, and financial controls for organizations.",
     "Category": "Commerce",
     "Icon": "💰",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-14 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose Commerce and pursue the CMA pathway through ICMAI.",
@@ -5483,6 +5741,7 @@
       "Complete CMA stages and practical training.",
       "Start in costing, finance, management accounting, budgeting, or business analysis."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "ICMAI",
       "University of Calcutta",
@@ -5508,9 +5767,12 @@
   {
     "Id": "career-financial-analyst",
     "Name": "Financial Analyst",
+    "SearchAliases": [],
     "Description": "Analyze financial performance, markets, investments, and business decisions.",
     "Category": "Commerce",
     "Icon": "📊",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-18 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose Commerce or a quantitative stream and pursue Finance, Economics, Commerce, or related education.",
@@ -5535,6 +5797,7 @@
       "Build financial modelling and internship experience.",
       "Start in financial analysis and progress toward investment, corporate finance, or portfolio roles."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "SRCC Delhi",
       "IIM Indore",
@@ -5560,9 +5823,12 @@
   {
     "Id": "career-actuary",
     "Name": "Actuary",
+    "SearchAliases": [],
     "Description": "Use mathematics, statistics, and risk models to solve financial uncertainty problems.",
     "Category": "Commerce",
     "Icon": "📐",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-25 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose Mathematics in Classes 11-12 and pursue actuarial exams alongside a suitable degree.",
@@ -5588,6 +5854,7 @@
       "Complete a quantitative undergraduate degree while progressing through actuarial examinations.",
       "Start in actuarial analysis, risk, insurance, or consulting and progress through professional exams."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "University of Delhi",
       "Christ University",
@@ -5614,9 +5881,12 @@
   {
     "Id": "career-economist",
     "Name": "Economist",
+    "SearchAliases": [],
     "Description": "Study markets, policy, growth, employment, and economic behaviour using data and models.",
     "Category": "Commerce",
     "Icon": "📉",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-20 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose Commerce or keep Mathematics and pursue Economics through undergraduate and postgraduate study.",
@@ -5642,6 +5912,7 @@
       "Complete Economics with statistics and research projects.",
       "Pursue postgraduate study or enter policy, banking, consulting, research, or government roles."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Delhi School of Economics",
       "SRCC Delhi",
@@ -5668,16 +5939,18 @@
   {
     "Id": "career-management-consultant",
     "Name": "Management Consultant",
+    "SearchAliases": [],
     "Description": "Help organizations solve strategy, operations, growth, and transformation problems.",
     "Category": "Commerce",
     "Icon": "💼",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 8-30 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose Commerce, Science, or Arts and build analytical and communication skills through a strong undergraduate degree and experience.",
     "EntranceExams": [
       "CUET",
-      "University admissions",
-      "CAT for MBA route"
+      "University admissions"
     ],
     "KeySkills": [
       "Problem-solving",
@@ -5696,6 +5969,7 @@
       "Build leadership and internship experience and consider an MBA later.",
       "Enter consulting, strategy, operations, or business transformation roles."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIM Ahmedabad",
       "IIM Bangalore",
@@ -5721,16 +5995,18 @@
   {
     "Id": "career-investment-analyst",
     "Name": "Investment Analyst",
+    "SearchAliases": [],
     "Description": "Research companies, markets, securities, and investment opportunities.",
     "Category": "Commerce",
     "Icon": "📈",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-20 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose Commerce with Mathematics where possible and pursue Finance, Economics, or related education.",
     "EntranceExams": [
       "CUET",
-      "University admissions",
-      "CAT for MBA route"
+      "University admissions"
     ],
     "KeySkills": [
       "Financial modelling",
@@ -5749,6 +6025,7 @@
       "Build valuation and market research skills through internships.",
       "Start in research or finance and progress toward portfolio management or investment banking."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "SRCC Delhi",
       "IIM Bangalore",
@@ -5774,9 +6051,12 @@
   {
     "Id": "career-risk-analyst",
     "Name": "Risk Analyst",
+    "SearchAliases": [],
     "Description": "Identify, quantify, and manage financial and operational risks.",
     "Category": "Commerce",
     "Icon": "🛡️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose Commerce with Mathematics where possible and pursue Finance, Economics, Statistics, or related education.",
@@ -5802,6 +6082,7 @@
       "Build risk, data, and financial modelling experience.",
       "Start in credit, market, operational, or enterprise risk and specialize later."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "SRCC Delhi",
       "IIM Indore",
@@ -5827,9 +6108,12 @@
   {
     "Id": "career-tax-consultant",
     "Name": "Tax Consultant",
+    "SearchAliases": [],
     "Description": "Help individuals and businesses understand tax compliance, planning, and reporting.",
     "Category": "Commerce",
     "Icon": "🧾",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-15 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose Commerce and pursue CA, CMA, law, or related finance and tax education.",
@@ -5855,6 +6139,7 @@
       "Complete the relevant degree and professional training.",
       "Start in tax compliance or advisory and specialize in direct tax, indirect tax, or international tax."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "ICAI",
       "SRCC Delhi",
@@ -5881,9 +6166,12 @@
   {
     "Id": "career-banking-officer",
     "Name": "Banking Officer",
+    "SearchAliases": [],
     "Description": "Serve customers and manage banking operations, lending, compliance, and financial services.",
     "Category": "Commerce",
     "Icon": "🏦",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-12 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose Commerce or another eligible stream and complete a recognized undergraduate degree followed by banking recruitment preparation.",
@@ -5909,6 +6197,7 @@
       "Prepare for banking recruitment examinations.",
       "Start in banking operations or officer roles and progress into credit, relationship, risk, or management."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "University of Delhi",
       "Christ University",
@@ -5934,9 +6223,12 @@
   {
     "Id": "career-insurance-professional",
     "Name": "Insurance Professional",
+    "SearchAliases": [],
     "Description": "Work in insurance underwriting, claims, risk, sales, analytics, or customer solutions.",
     "Category": "Commerce",
     "Icon": "🛡️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-14 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose Commerce or another eligible stream and pursue Finance, Economics, Mathematics, or related education.",
@@ -5962,6 +6254,7 @@
       "Build insurance and risk knowledge through internships or professional courses.",
       "Start in underwriting, claims, sales, analytics, or actuarial support."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "National Insurance Academy",
       "University of Delhi",
@@ -5987,9 +6280,14 @@
   {
     "Id": "career-digital-marketing-specialist",
     "Name": "Digital Marketing Specialist",
+    "SearchAliases": [
+      "Digital Marketing"
+    ],
     "Description": "Use digital channels, content, analytics, and campaigns to grow brands and businesses.",
     "Category": "Commerce",
     "Icon": "📣",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-15 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose Commerce, Arts, or another stream and build marketing, communication, analytics, and digital skills.",
@@ -6015,6 +6313,7 @@
       "Build campaigns, content, and analytics projects.",
       "Start in digital marketing and specialize in SEO, performance marketing, social media, or growth."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIM Indore",
       "Christ University",
@@ -6040,16 +6339,18 @@
   {
     "Id": "career-operations-manager",
     "Name": "Operations Manager",
+    "SearchAliases": [],
     "Description": "Improve the day-to-day performance, quality, people, and processes of an organization.",
     "Category": "Commerce",
     "Icon": "⚙️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose Commerce, Science, or Arts and pursue business, engineering, economics, or operations education.",
     "EntranceExams": [
       "CUET",
-      "University admissions",
-      "CAT for MBA route"
+      "University admissions"
     ],
     "KeySkills": [
       "Operations",
@@ -6069,6 +6370,7 @@
       "Gain operations and project experience through internships.",
       "Start in operations, process, or project roles and progress into management."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIM Mumbai",
       "IIM Indore",
@@ -6091,12 +6393,15 @@
       "Office / Operations"
     ]
   },
-   {
+  {
     "Id": "career-corporate-lawyer",
     "Name": "Corporate Lawyer",
+    "SearchAliases": [],
     "Description": "Advise companies on contracts, transactions, governance, compliance, and disputes.",
     "Category": "Arts",
     "Icon": "🏢",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 6-30 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to law; pursue an integrated law degree and specialize in corporate law.",
@@ -6122,6 +6427,7 @@
       "Complete an integrated law degree with corporate law exposure.",
       "Intern with law firms or legal teams and start in corporate law, transactions, compliance, or disputes."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "NLSIU Bengaluru",
       "NALSAR Hyderabad",
@@ -6147,9 +6453,12 @@
   {
     "Id": "career-cyber-lawyer",
     "Name": "Cyber Lawyer",
+    "SearchAliases": [],
     "Description": "Handle legal issues involving technology, data, cybercrime, privacy, and digital transactions.",
     "Category": "Arts",
     "Icon": "⚖️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-20 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Any stream can lead to law; build technology awareness and specialize in cyber and technology law.",
@@ -6175,6 +6484,7 @@
       "Complete a law degree and study cyber, privacy, and technology law.",
       "Build internships in technology legal teams or law firms and specialize further."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "NLSIU Bengaluru",
       "NALSAR Hyderabad",
@@ -6200,9 +6510,12 @@
   {
     "Id": "career-judge",
     "Name": "Judge",
+    "SearchAliases": [],
     "Description": "Interpret and apply law to resolve disputes and deliver judicial decisions.",
     "Category": "Arts",
     "Icon": "⚖️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 8-25 LPA",
     "FutureDemand": "High",
     "EducationPath": "Complete a law degree, practice or follow the applicable judicial service route, and qualify for judicial recruitment.",
@@ -6228,6 +6541,7 @@
       "Gain legal practice or prepare for the applicable judicial service examination based on eligibility.",
       "Enter judicial service and progress through experience and promotion."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "NLSIU Bengaluru",
       "NALSAR Hyderabad",
@@ -6252,9 +6566,12 @@
   {
     "Id": "career-diplomat",
     "Name": "Diplomat / Foreign Service Officer",
+    "SearchAliases": [],
     "Description": "Represent India abroad and work on international relations, policy, and diplomacy.",
     "Category": "Arts",
     "Icon": "🌍",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 8-25 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to the civil services pathway; build strong academics, communication, and current affairs knowledge.",
@@ -6278,6 +6595,7 @@
       "Prepare for UPSC Civil Services Examination and its stages.",
       "If selected for the Indian Foreign Service, complete training and serve in diplomatic and international assignments."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Delhi University",
       "Jawaharlal Nehru University",
@@ -6303,9 +6621,12 @@
   {
     "Id": "career-public-policy-analyst",
     "Name": "Public Policy Analyst",
+    "SearchAliases": [],
     "Description": "Research public problems and help design evidence-based government and social policies.",
     "Category": "Arts",
     "Icon": "📜",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to public policy; pursue Economics, Political Science, Statistics, Law, or related education.",
@@ -6331,6 +6652,7 @@
       "Build research and internship experience.",
       "Enter policy research, consulting, government programs, or postgraduate public policy."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Ashoka University",
       "JNU",
@@ -6356,9 +6678,12 @@
   {
     "Id": "career-political-scientist",
     "Name": "Political Scientist",
+    "SearchAliases": [],
     "Description": "Study political systems, institutions, behaviour, and public policy.",
     "Category": "Arts",
     "Icon": "🏛️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-14 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose Arts/Humanities and pursue Political Science through undergraduate and postgraduate study.",
@@ -6384,6 +6709,7 @@
       "Complete research projects and internships.",
       "Pursue postgraduate study or work in research, policy, media, or education."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Hindu College",
       "JNU",
@@ -6409,9 +6735,12 @@
   {
     "Id": "career-sociologist",
     "Name": "Sociologist",
+    "SearchAliases": [],
     "Description": "Study societies, communities, institutions, and social behaviour.",
     "Category": "Arts",
     "Icon": "👥",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-12 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose Arts/Humanities and pursue Sociology or related social sciences.",
@@ -6437,6 +6766,7 @@
       "Gain field research and internship experience.",
       "Pursue postgraduate study or work in research, social programs, HR, policy, or education."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Delhi School of Economics",
       "JNU",
@@ -6461,9 +6791,12 @@
   {
     "Id": "career-historian",
     "Name": "Historian",
+    "SearchAliases": [],
     "Description": "Research and interpret the past using archives, evidence, and historical methods.",
     "Category": "Arts",
     "Icon": "📚",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-12 LPA",
     "FutureDemand": "Moderate",
     "EducationPath": "Choose Arts/Humanities and pursue History through undergraduate and postgraduate study.",
@@ -6489,6 +6822,7 @@
       "Build research, writing, and archival experience.",
       "Pursue postgraduate study or work in academia, museums, archives, publishing, or heritage."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "St Stephen's College",
       "JNU",
@@ -6514,9 +6848,12 @@
   {
     "Id": "career-archaeologist",
     "Name": "Archaeologist",
+    "SearchAliases": [],
     "Description": "Study past human cultures through artifacts, sites, landscapes, and evidence.",
     "Category": "Arts",
     "Icon": "🏺",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-12 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose Arts/Humanities and pursue Archaeology, History, Anthropology, or related education.",
@@ -6542,6 +6879,7 @@
       "Gain fieldwork and heritage project experience.",
       "Pursue postgraduate specialization and work in archaeology, museums, conservation, or research."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Deccan College Pune",
       "Banaras Hindu University",
@@ -6567,9 +6905,12 @@
   {
     "Id": "career-school-counsellor",
     "Name": "School Counsellor",
+    "SearchAliases": [],
     "Description": "Support students with academic, emotional, social, and career-related concerns.",
     "Category": "Arts",
     "Icon": "🎓",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose Arts/Humanities and pursue Psychology, Education, Counselling, or related postgraduate training.",
@@ -6594,6 +6935,7 @@
       "Pursue appropriate counselling or psychology postgraduate training.",
       "Start in schools or student-support organizations and build supervised counselling experience."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "TISS Mumbai",
       "Lady Shri Ram College",
@@ -6619,9 +6961,12 @@
   {
     "Id": "career-teacher",
     "Name": "School Teacher",
+    "SearchAliases": [],
     "Description": "Teach students, design learning activities, assess progress, and support development.",
     "Category": "Arts",
     "Icon": "👩‍🏫",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose a stream aligned to the subject you want to teach, then pursue an appropriate degree and teacher education qualification.",
@@ -6647,6 +6992,7 @@
       "Complete required teacher education and eligibility requirements.",
       "Start teaching and build classroom experience and subject specialization."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Regional Institutes of Education",
       "TISS",
@@ -6671,9 +7017,12 @@
   {
     "Id": "career-special-education-teacher",
     "Name": "Special Education Teacher",
+    "SearchAliases": [],
     "Description": "Teach and support students with diverse learning and developmental needs.",
     "Category": "Arts",
     "Icon": "🌟",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose a suitable stream and pursue special education or education with required professional training.",
@@ -6698,6 +7047,7 @@
       "Complete recognized special education training and practical experience.",
       "Start in inclusive schools or special education settings and specialize in a support area."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "RIE Mysuru",
       "TISS Mumbai",
@@ -6723,9 +7073,12 @@
   {
     "Id": "career-professor",
     "Name": "Professor / Lecturer",
+    "SearchAliases": [],
     "Description": "Teach at colleges and universities while conducting research in a chosen subject.",
     "Category": "Arts",
     "Icon": "🎓",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose a subject, complete undergraduate and postgraduate study, and pursue research and teaching qualifications.",
@@ -6751,6 +7104,7 @@
       "Develop research experience and meet eligibility requirements such as NET where applicable.",
       "Start teaching and continue research, publications, and academic development."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "University of Delhi",
       "JNU",
@@ -6776,9 +7130,12 @@
   {
     "Id": "career-industrial-designer",
     "Name": "Industrial Designer",
+    "SearchAliases": [],
     "Description": "Design physical products that balance usability, manufacturing, aesthetics, and user needs.",
     "Category": "Arts",
     "Icon": "🪑",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-16 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to industrial design; pursue product or industrial design education.",
@@ -6804,6 +7161,7 @@
       "Complete product or industrial design education with prototypes.",
       "Build a portfolio and start in product design, consumer goods, mobility, or manufacturing."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Bombay",
       "NID Ahmedabad",
@@ -6829,9 +7187,12 @@
   {
     "Id": "career-vfx-artist",
     "Name": "VFX Artist",
+    "SearchAliases": [],
     "Description": "Create digital visual effects for films, games, advertising, and immersive media.",
     "Category": "Arts",
     "Icon": "✨",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-15 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to VFX; build visual skills and pursue animation, VFX, or media education.",
@@ -6857,6 +7218,7 @@
       "Build a portfolio and demo reel through projects.",
       "Start in compositing, 3D, lighting, effects, or production and specialize."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Whistling Woods International",
       "NID Ahmedabad",
@@ -6881,9 +7243,12 @@
   {
     "Id": "career-photographer",
     "Name": "Photographer",
+    "SearchAliases": [],
     "Description": "Create professional images for media, brands, events, products, and storytelling.",
     "Category": "Arts",
     "Icon": "📷",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-12 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to photography; build technical and creative skills through courses, practice, and portfolio development.",
@@ -6909,6 +7274,7 @@
       "Build a portfolio across portraits, products, events, or documentary work.",
       "Start freelance or with studios/media organizations and specialize in a niche."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "NID Ahmedabad",
       "Light and Life Academy",
@@ -6933,9 +7299,12 @@
   {
     "Id": "career-film-director",
     "Name": "Film Director",
+    "SearchAliases": [],
     "Description": "Lead the creative vision of films, videos, and visual storytelling projects.",
     "Category": "Arts",
     "Icon": "🎥",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "Variable",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to filmmaking; develop storytelling and production skills through media education and practical projects.",
@@ -6961,6 +7330,7 @@
       "Create short films and gain production experience.",
       "Build a portfolio, work through assistant roles, and develop independent directing projects."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "FTII Pune",
       "Whistling Woods International",
@@ -6985,9 +7355,12 @@
   {
     "Id": "career-screenwriter",
     "Name": "Screenwriter",
+    "SearchAliases": [],
     "Description": "Write scripts and stories for films, series, advertising, and digital video.",
     "Category": "Arts",
     "Icon": "✍️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "Variable",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to screenwriting; build writing skills through practice, literature, media education, and portfolio work.",
@@ -7013,6 +7386,7 @@
       "Write short scripts and build a portfolio.",
       "Enter as a writer, assistant writer, content writer, or through independent projects and develop credits."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "FTII Pune",
       "Satyajit Ray Film and Television Institute",
@@ -7038,9 +7412,12 @@
   {
     "Id": "career-technical-writer",
     "Name": "Technical Writer",
+    "SearchAliases": [],
     "Description": "Explain complex products, software, and processes through clear documentation.",
     "Category": "Arts",
     "Icon": "📝",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-15 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to technical writing; build English, subject knowledge, and technology skills.",
@@ -7065,6 +7442,7 @@
       "Build documentation samples and internship experience.",
       "Start in technical writing and specialize in software, engineering, healthcare, or developer documentation."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIMC",
       "University of Delhi",
@@ -7090,9 +7468,14 @@
   {
     "Id": "career-public-relations-specialist",
     "Name": "Public Relations Specialist",
+    "SearchAliases": [
+      "PR"
+    ],
     "Description": "Manage communication, reputation, media relations, and public messaging for organizations.",
     "Category": "Arts",
     "Icon": "📣",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-12 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to PR; pursue communication, journalism, media, marketing, or related education.",
@@ -7118,6 +7501,7 @@
       "Gain internships in PR, media, or corporate communications.",
       "Start in PR or communications and progress into corporate reputation, public affairs, or crisis communications."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIMC",
       "Christ University",
@@ -7143,9 +7527,12 @@
   {
     "Id": "career-event-manager",
     "Name": "Event Manager",
+    "SearchAliases": [],
     "Description": "Plan and deliver conferences, weddings, exhibitions, launches, and live experiences.",
     "Category": "Commerce",
     "Icon": "🎪",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-12 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to event management; build planning, communication, and business skills.",
@@ -7171,6 +7558,7 @@
       "Gain practical experience through college events and internships.",
       "Start in event coordination and progress into event production, corporate events, or independent entrepreneurship."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "National Institute of Event Management",
       "Christ University",
@@ -7196,9 +7584,12 @@
   {
     "Id": "career-chef",
     "Name": "Chef",
+    "SearchAliases": [],
     "Description": "Create food, manage kitchen operations, and develop menus and culinary experiences.",
     "Category": "Hospitality",
     "Icon": "👨‍🍳",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-15 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to culinary arts; pursue professional culinary education and practical kitchen training.",
@@ -7224,6 +7615,7 @@
       "Complete culinary training with kitchen internships.",
       "Start as a commis or trainee and progress through chef roles or build an independent food business."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IHM Pusa",
       "Institute of Hotel Management Chennai",
@@ -7249,9 +7641,12 @@
   {
     "Id": "career-travel-consultant",
     "Name": "Travel Consultant",
+    "SearchAliases": [],
     "Description": "Help clients plan trips, itineraries, bookings, and travel experiences.",
     "Category": "Commerce",
     "Icon": "✈️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to travel careers; build geography, communication, and tourism skills.",
@@ -7276,6 +7671,7 @@
       "Gain booking and itinerary experience through internships.",
       "Start in travel consulting and specialize in corporate, leisure, luxury, or destination travel."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Christ University",
       "IITTM",
@@ -7298,12 +7694,15 @@
       "Office / Travel"
     ]
   },
-   {
+  {
     "Id": "career-aircraft-maintenance-engineer",
     "Name": "Aircraft Maintenance Engineer",
+    "SearchAliases": [],
     "Description": "Inspect, maintain, and certify aircraft systems for safe operation.",
     "Category": "Science",
     "Icon": "🛫",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM and pursue approved aircraft maintenance engineering training under applicable aviation regulations.",
@@ -7328,6 +7727,7 @@
       "Complete academic and practical aircraft maintenance training.",
       "Obtain required licences/authorizations and work in aircraft maintenance or MRO."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Hindustan Aviation Academy",
       "Indian Institute of Aeronautics",
@@ -7353,9 +7753,12 @@
   {
     "Id": "career-cabin-crew",
     "Name": "Cabin Crew",
+    "SearchAliases": [],
     "Description": "Ensure passenger safety and service quality on commercial flights.",
     "Category": "Aviation",
     "Icon": "🧑‍✈️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to cabin crew; complete Class 12 and meet airline-specific age, language, medical, and other requirements.",
@@ -7379,6 +7782,7 @@
       "Apply through airline recruitment or approved training pathways.",
       "Complete airline training and begin flying as cabin crew, progressing to senior roles."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Airline training academies",
       "Frankfinn Institute",
@@ -7404,9 +7808,12 @@
   {
     "Id": "career-airport-manager",
     "Name": "Airport Manager",
+    "SearchAliases": [],
     "Description": "Coordinate airport operations, passenger services, safety, facilities, and stakeholders.",
     "Category": "Commerce",
     "Icon": "🛬",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any suitable stream can lead to aviation management through undergraduate study and operational experience.",
@@ -7431,6 +7838,7 @@
       "Gain airport or operations internships.",
       "Start in airport operations or passenger services and progress into management."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IITM Institute of Aeronautics",
       "Rajiv Gandhi National Aviation University",
@@ -7456,9 +7864,12 @@
   {
     "Id": "career-sports-coach",
     "Name": "Sports Coach",
+    "SearchAliases": [],
     "Description": "Train athletes and teams to improve skills, fitness, tactics, and performance.",
     "Category": "Sports",
     "Icon": "🏆",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-12 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to coaching; build expertise in a sport and pursue physical education or coaching qualifications.",
@@ -7483,6 +7894,7 @@
       "Gain coaching certifications and practical experience.",
       "Start coaching at schools or academies and progress toward elite or professional sport."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "LNIPE Gwalior",
       "Tamil Nadu Physical Education and Sports University",
@@ -7507,9 +7919,12 @@
   {
     "Id": "career-sports-psychologist",
     "Name": "Sports Psychologist",
+    "SearchAliases": [],
     "Description": "Help athletes develop mental skills, confidence, focus, resilience, and performance habits.",
     "Category": "Arts",
     "Icon": "🧠",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-15 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose Arts/Humanities with Psychology and pursue Psychology followed by appropriate postgraduate and professional training.",
@@ -7534,6 +7949,7 @@
       "Pursue postgraduate specialization and supervised professional training as required.",
       "Build experience with athletes, teams, academies, or sports organizations."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "University of Delhi",
       "TISS Mumbai",
@@ -7559,9 +7975,12 @@
   {
     "Id": "career-sports-nutritionist",
     "Name": "Sports Nutritionist",
+    "SearchAliases": [],
     "Description": "Plan nutrition strategies that support athletic training, recovery, and performance.",
     "Category": "Science",
     "Icon": "🥗",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "High",
     "EducationPath": "Choose PCB or science subjects and pursue Nutrition, Dietetics, or Sports Nutrition education.",
@@ -7587,6 +8006,7 @@
       "Gain supervised practical experience and sports nutrition knowledge.",
       "Work with athletes, teams, wellness centres, or private clients within applicable professional requirements."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "NIN Hyderabad",
       "Manipal Academy of Higher Education",
@@ -7612,9 +8032,12 @@
   {
     "Id": "career-fitness-trainer",
     "Name": "Fitness Trainer",
+    "SearchAliases": [],
     "Description": "Help people improve strength, fitness, movement, and healthy exercise habits.",
     "Category": "Sports",
     "Icon": "💪",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to fitness training; build exercise science knowledge and recognized fitness qualifications.",
@@ -7640,6 +8063,7 @@
       "Gain supervised practical experience.",
       "Start as a trainer and specialize in strength, functional fitness, youth fitness, or performance."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "LNIPE Gwalior",
       "Tamil Nadu Physical Education and Sports University",
@@ -7665,9 +8089,12 @@
   {
     "Id": "career-sports-manager",
     "Name": "Sports Manager",
+    "SearchAliases": [],
     "Description": "Manage teams, events, sponsorships, facilities, and business operations in sports.",
     "Category": "Commerce",
     "Icon": "🏟️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-15 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to sports management through business, sports management, or related education.",
@@ -7693,6 +8120,7 @@
       "Gain experience through sports events and internships.",
       "Start in sports operations, events, marketing, or partnerships and progress into management."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IISM Mumbai",
       "LNIPE Gwalior",
@@ -7718,9 +8146,12 @@
   {
     "Id": "career-climate-scientist",
     "Name": "Climate Scientist",
+    "SearchAliases": [],
     "Description": "Study climate systems and help understand and respond to climate change.",
     "Category": "Science",
     "Icon": "🌡️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM or PCB and pursue Earth Science, Physics, Environmental Science, Mathematics, or related research.",
@@ -7747,6 +8178,7 @@
       "Complete undergraduate education with research projects.",
       "Pursue postgraduate research and work in climate modelling, policy, adaptation, or environmental science."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IISc Bengaluru",
       "IISER Pune",
@@ -7772,9 +8204,12 @@
   {
     "Id": "career-sustainability-consultant",
     "Name": "Sustainability Consultant",
+    "SearchAliases": [],
     "Description": "Help organizations reduce environmental impact, improve resource efficiency, and meet sustainability goals.",
     "Category": "Commerce",
     "Icon": "♻️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Any stream can lead to sustainability; combine business, science, engineering, economics, or environmental education.",
@@ -7800,6 +8235,7 @@
       "Build sustainability projects and internships.",
       "Start in ESG, sustainability, energy, or consulting and specialize in climate, reporting, or resource management."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "TERI School of Advanced Studies",
       "IIM Bangalore",
@@ -7825,9 +8261,12 @@
   {
     "Id": "career-drone-engineer",
     "Name": "Drone Engineer",
+    "SearchAliases": [],
     "Description": "Design, build, test, and integrate unmanned aerial systems and drone technologies.",
     "Category": "Science",
     "Icon": "🚁",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM and pursue Aerospace, Electronics, Mechanical, Robotics, or related engineering.",
@@ -7853,6 +8292,7 @@
       "Complete a relevant engineering degree and build drone projects.",
       "Start in drone design, autonomy, surveying, defence, agriculture, or inspection technology."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Kanpur",
       "IIT Madras",
@@ -7879,9 +8319,12 @@
   {
     "Id": "career-ev-engineer",
     "Name": "Electric Vehicle Engineer",
+    "SearchAliases": [],
     "Description": "Develop electric powertrains, batteries, controls, and vehicle systems.",
     "Category": "Science",
     "Icon": "🔋",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-20 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM and pursue Electrical, Electronics, Mechanical, Automotive, or related engineering.",
@@ -7906,6 +8349,7 @@
       "Complete an engineering degree with EV, battery, or power electronics projects.",
       "Start in EV design, battery systems, testing, controls, or charging infrastructure."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IIT Bombay",
@@ -7932,9 +8376,12 @@
   {
     "Id": "career-battery-engineer",
     "Name": "Battery Technology Engineer",
+    "SearchAliases": [],
     "Description": "Develop and improve batteries, energy storage systems, testing, and battery management.",
     "Category": "Science",
     "Icon": "🔋",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-20 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM and pursue Chemical, Materials, Electrical, Mechanical, or related engineering.",
@@ -7960,6 +8407,7 @@
       "Complete a relevant engineering degree and build battery or energy projects.",
       "Start in battery R&D, testing, manufacturing, or energy storage and specialize."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IIT Bombay",
@@ -7986,9 +8434,12 @@
   {
     "Id": "career-space-technology-engineer",
     "Name": "Space Technology Engineer",
+    "SearchAliases": [],
     "Description": "Develop spacecraft, satellites, propulsion, avionics, and space technology systems.",
     "Category": "Science",
     "Icon": "🛰️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-20 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM and pursue Aerospace, Electronics, Mechanical, Computer Science, or related engineering.",
@@ -8014,6 +8465,7 @@
       "Complete a relevant degree with space-related projects.",
       "Enter space research, aerospace, satellite, launch, or space-tech startups and specialize."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Madras",
       "IISc Bengaluru",
@@ -8039,9 +8491,12 @@
   {
     "Id": "career-bioinformatics-scientist",
     "Name": "Bioinformatics Scientist",
+    "SearchAliases": [],
     "Description": "Use computing, statistics, and biology to analyze genomic and biological data.",
     "Category": "Science",
     "Icon": "🧬",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCB or PCMB and pursue Bioinformatics, Biotechnology, Computer Science, or related education.",
@@ -8066,6 +8521,7 @@
       "Complete undergraduate study with biology and programming projects.",
       "Pursue postgraduate specialization or enter genomics, drug discovery, diagnostics, or research."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IISc Bengaluru",
       "IIT Madras",
@@ -8093,9 +8549,12 @@
   {
     "Id": "career-quantitative-researcher",
     "Name": "Quantitative Researcher",
+    "SearchAliases": [],
     "Description": "Use mathematics, statistics, and computing to model financial markets and complex decisions.",
     "Category": "Science",
     "Icon": "📐",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 10-40 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Choose PCM and pursue Mathematics, Statistics, Computer Science, Economics, or related quantitative education.",
@@ -8122,6 +8581,7 @@
       "Build programming, probability, and research skills.",
       "Enter quantitative finance, research, risk, or data roles and pursue advanced specialization."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "ISI Kolkata",
       "IIT Bombay",
@@ -8149,9 +8609,12 @@
   {
     "Id": "career-ux-researcher",
     "Name": "UX Researcher",
+    "SearchAliases": [],
     "Description": "Study user behaviour and needs to help teams design better products and services.",
     "Category": "Arts",
     "Icon": "🔍",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 5-18 LPA",
     "FutureDemand": "Very High",
     "EducationPath": "Any stream can lead to UX research; pursue Psychology, Design, HCI, Sociology, or related education.",
@@ -8177,6 +8640,7 @@
       "Build research projects using interviews, surveys, and usability studies.",
       "Start in UX research or related product roles and specialize in qualitative or quantitative research."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "IIT Bombay",
       "NID Ahmedabad",
@@ -8203,9 +8667,12 @@
   {
     "Id": "career-cinematographer",
     "Name": "Cinematographer",
+    "SearchAliases": [],
     "Description": "Create the visual look of films, series, advertisements, and video productions through camera, lighting, and composition.",
     "Category": "Arts",
     "Icon": "🎬",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-18 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to cinematography; develop camera, lighting, visual storytelling, and production skills through film or media education and practical projects.",
@@ -8232,6 +8699,7 @@
       "Gain practical experience with cameras, lighting, framing, and short-film projects.",
       "Build a showreel and work as a camera or cinematography assistant before taking independent projects."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "FTII Pune",
       "Satyajit Ray Film and Television Institute",
@@ -8257,9 +8725,12 @@
   {
     "Id": "career-video-editor",
     "Name": "Video Editor",
+    "SearchAliases": [],
     "Description": "Turn raw video footage into engaging films, social media content, advertisements, and digital stories through editing, sound, and visual effects.",
     "Category": "Arts",
     "Icon": "🎞️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-12 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to video editing; learn editing software, storytelling, sound, and visual techniques through courses and portfolio projects.",
@@ -8287,6 +8758,7 @@
       "Create a portfolio using short films, reels, advertisements, or digital content.",
       "Gain internship or freelance experience and specialize in film, advertising, social media, or other video content."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "Whistling Woods International",
       "FTII Pune",
@@ -8312,9 +8784,12 @@
   {
     "Id": "career-game-designer",
     "Name": "Game Designer",
+    "SearchAliases": [],
     "Description": "Design gameplay, game mechanics, player experiences, stories, levels, and systems for video games.",
     "Category": "Technology",
     "Icon": "🎮",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-18 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to game design; develop game design, storytelling, visual, and basic technology skills through projects and relevant education.",
@@ -8341,6 +8816,7 @@
       "Create small playable games and build a portfolio.",
       "Gain internships or junior roles in game studios and specialize in gameplay, level design, narrative, or systems."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "NID Ahmedabad",
       "Srishti Manipal Institute",
@@ -8367,9 +8843,12 @@
   {
     "Id": "career-3d-artist",
     "Name": "3D Artist",
+    "SearchAliases": [],
     "Description": "Create 3D models, environments, characters, assets, and visual content for games, films, animation, advertising, and immersive experiences.",
     "Category": "Arts",
     "Icon": "🧊",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-15 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to 3D art; learn modelling, texturing, lighting, rendering, and animation through design or media education and portfolio projects.",
@@ -8397,6 +8876,7 @@
       "Create a strong portfolio of characters, environments, products, or other 3D assets.",
       "Gain internship or junior studio experience and specialize in games, VFX, animation, product visualization, or immersive media."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "NID Ahmedabad",
       "Srishti Manipal Institute",
@@ -8422,9 +8902,12 @@
   {
     "Id": "career-advertising-professional",
     "Name": "Advertising Professional",
+    "SearchAliases": [],
     "Description": "Develop creative campaigns, brand communication, and advertising ideas across digital, print, video, and other media.",
     "Category": "Arts",
     "Icon": "📢",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 4-15 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to advertising; develop communication, creative thinking, consumer understanding, and digital media skills through relevant education and projects.",
@@ -8451,6 +8934,7 @@
       "Create campaign concepts and a creative portfolio through college or personal projects.",
       "Gain internships in agencies or brand teams and develop expertise in creative, strategy, accounts, or digital advertising."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "MICA Ahmedabad",
       "IIMC New Delhi",
@@ -8478,9 +8962,12 @@
   {
     "Id": "career-copywriter",
     "Name": "Copywriter",
+    "SearchAliases": [],
     "Description": "Write persuasive and engaging words for advertisements, brands, websites, social media, campaigns, and digital content.",
     "Category": "Arts",
     "Icon": "✍️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "INR 3-12 LPA",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to copywriting; develop strong language, storytelling, research, and creative writing skills through practice and portfolio work.",
@@ -8508,6 +8995,7 @@
       "Create sample advertisements, headlines, scripts, social posts, and campaign concepts for a portfolio.",
       "Gain internships or freelance experience and specialize in advertising, digital content, branding, or social media."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "MICA Ahmedabad",
       "IIMC New Delhi",
@@ -8533,9 +9021,12 @@
   {
     "Id": "career-music-producer",
     "Name": "Music Producer",
+    "SearchAliases": [],
     "Description": "Create, arrange, record, edit, and produce music for films, streaming, advertising, games, artists, and other media.",
     "Category": "Arts",
     "Icon": "🎵",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
     "SalaryRangeIndia": "Variable",
     "FutureDemand": "High",
     "EducationPath": "Any stream can lead to music production; develop music, audio, software, and production skills through formal study, practice, and portfolio projects.",
@@ -8563,6 +9054,7 @@
       "Produce original tracks and build a portfolio across music, film, advertising, or digital media.",
       "Gain practical studio experience and collaborate with artists while developing an independent production style."
     ],
+    "SalaryInsights": [],
     "TopColleges": [
       "KM Music Conservatory",
       "Whistling Woods International",
