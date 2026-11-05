@@ -8,6 +8,7 @@ public partial class CareerExplorerPage : ContentPage
 {
     private const int PageSize = 30;
     private readonly CareersService _careersService = new();
+    private readonly DebouncedSearchService _searchDebouncer = new();
     private readonly List<Career> _allCareers = [];
     private List<Career> _filteredCareers = [];
     private bool _isLoaded;
@@ -52,15 +53,14 @@ public partial class CareerExplorerPage : ContentPage
 
     private void OnSearchTextChanged(object? sender, TextChangedEventArgs e)
     {
-        // TextChanged is the authoritative search event. This also fires when
-        // the Entry clear button removes the text, so the full list returns.
         _searchText = e.NewTextValue?.Trim() ?? string.Empty;
         ClearSearchButton.IsVisible = !string.IsNullOrWhiteSpace(_searchText);
-        ApplyFilters();
+        _searchDebouncer.Schedule(_searchText, _ => ApplyFilters());
     }
 
     private void OnSearchCompleted(object? sender, EventArgs e)
     {
+        _searchDebouncer.Cancel();
         _searchText = SearchEntry?.Text?.Trim() ?? string.Empty;
         ClearSearchButton.IsVisible = !string.IsNullOrWhiteSpace(_searchText);
         ApplyFilters();
@@ -68,8 +68,18 @@ public partial class CareerExplorerPage : ContentPage
 
     private void OnClearSearchClicked(object? sender, EventArgs e)
     {
+        _searchDebouncer.Cancel();
         SearchEntry.Text = string.Empty;
+        _searchText = string.Empty;
+        ClearSearchButton.IsVisible = false;
+        ApplyFilters();
         SearchEntry.Focus();
+    }
+
+    protected override void OnDisappearing()
+    {
+        _searchDebouncer.Cancel();
+        base.OnDisappearing();
     }
 
     private void OnCategoryClicked(object? sender, EventArgs e)
