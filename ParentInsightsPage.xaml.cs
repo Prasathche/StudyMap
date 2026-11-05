@@ -9,6 +9,7 @@ public partial class ParentInsightsPage : ContentPage
     private const int PageSize = 25;
 
     private readonly ParentInsightsService _service = new();
+    private readonly DebouncedSearchService _searchDebouncer = new();
     private readonly List<Career> _selectedForCompare = [];
     private List<Career> _allCareers = [];
     private List<Career> _filteredCareers = [];
@@ -97,15 +98,47 @@ public partial class ParentInsightsPage : ContentPage
         button.TextColor = selected ? Colors.White : Color.FromArgb("#7D849A");
     }
 
-    private async void OnSearchTextChanged(object? sender, TextChangedEventArgs e)
+    private void OnSearchTextChanged(object? sender, TextChangedEventArgs e)
     {
-        _searchText = e.NewTextValue ?? string.Empty;
+        _searchText = e.NewTextValue?.Trim() ?? string.Empty;
+        ClearSearchButton.IsVisible = !string.IsNullOrWhiteSpace(_searchText);
+        _searchDebouncer.Schedule(_searchText, _ => ApplyFiltersAsync());
+    }
+
+    private async void OnSearchCompleted(object? sender, EventArgs e)
+    {
+        _searchDebouncer.Cancel();
+        _searchText = SearchEntry.Text?.Trim() ?? string.Empty;
+        ClearSearchButton.IsVisible = !string.IsNullOrWhiteSpace(_searchText);
         await ApplyFiltersAsync();
     }
 
-    private async Task ApplyFiltersAsync()
+    private async void OnClearSearchClicked(object? sender, EventArgs e)
     {
-        var byCategory = await _service.GetCareersByCategoryChipAsync(_selectedChip);
+        _searchDebouncer.Cancel();
+        SearchEntry.Text = string.Empty;
+        _searchText = string.Empty;
+        ClearSearchButton.IsVisible = false;
+        await ApplyFiltersAsync();
+        SearchEntry.Focus();
+    }
+
+    protected override void OnDisappearing()
+    {
+        _searchDebouncer.Cancel();
+        base.OnDisappearing();
+    }
+
+    private Task ApplyFiltersAsync()
+    {
+        // Use the already-loaded career collection. Do not reload the JSON data
+        // or call the service for every search or category change.
+        var categoryTag = ParentInsightsService.CategoryChips
+            .FirstOrDefault(c => c.Chip == _selectedChip).Tag;
+
+        var byCategory = string.IsNullOrWhiteSpace(categoryTag) || _selectedChip == "All"
+            ? _allCareers
+            : _allCareers.Where(c => c.CareerCategories.Contains(categoryTag)).ToList();
 
         var query = _searchText.Trim();
         var filtered = string.IsNullOrWhiteSpace(query)
@@ -132,6 +165,7 @@ public partial class ParentInsightsPage : ContentPage
 
         BuildCareerCards(_filteredCareers.Take(_visibleCount).ToList());
         UpdateLoadMoreButton();
+        return Task.CompletedTask;
     }
 
     private static int GetSearchRank(Career career, string query)
