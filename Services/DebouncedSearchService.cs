@@ -18,7 +18,7 @@ public sealed class DebouncedSearchService
 
         var cancellation = new CancellationTokenSource();
         _pendingSearch = cancellation;
-        _ = RunAfterDelayAsync(query?.Trim() ?? string.Empty, applySearch, cancellation, delayMilliseconds);
+        _ = RunAfterDelayAsync(query?.Trim() ?? string.Empty, applySearch, cancellation.Token, delayMilliseconds);
     }
 
     public void Cancel()
@@ -33,17 +33,17 @@ public sealed class DebouncedSearchService
     private static async Task RunAfterDelayAsync(
         string query,
         Action<string> applySearch,
-        CancellationTokenSource cancellation,
+        CancellationToken cancellationToken,
         int delayMilliseconds)
     {
         try
         {
-            await Task.Delay(delayMilliseconds, cancellation.Token);
-            cancellation.Token.ThrowIfCancellationRequested();
+            await Task.Delay(delayMilliseconds, cancellationToken);
+            cancellationToken.ThrowIfCancellationRequested();
 
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                if (!cancellation.IsCancellationRequested)
+                if (!cancellationToken.IsCancellationRequested)
                     applySearch(query);
             });
         }
