@@ -68,8 +68,8 @@ public partial class CareerExplorerPage : ContentPage
 
     private void OnClearSearchClicked(object? sender, EventArgs e)
     {
-        _searchDebouncer.Cancel();
         SearchEntry.Text = string.Empty;
+        _searchDebouncer.Cancel();
         _searchText = string.Empty;
         ClearSearchButton.IsVisible = false;
         ApplyFilters();
@@ -79,6 +79,7 @@ public partial class CareerExplorerPage : ContentPage
     protected override void OnDisappearing()
     {
         _searchDebouncer.Cancel();
+        if (_isLoaded) ApplyFilters();
         base.OnDisappearing();
     }
 
