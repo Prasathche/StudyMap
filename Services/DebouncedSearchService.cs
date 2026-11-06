@@ -6,7 +6,7 @@ namespace StudyMap.Services;
 /// </summary>
 public sealed class DebouncedSearchService
 {
-    public const int DefaultDelayMilliseconds = 350;
+    public const int DefaultDelayMilliseconds = 600;
 
     private CancellationTokenSource? _pendingSearch;
 
