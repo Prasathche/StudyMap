@@ -9192,7 +9192,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 3-12 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the required science subjects, qualify NEET-UG, and enter a recognised BAMS programme. The course is typically 5.5 years including the compulsory internship; check the current NCISM and counselling prospectus.",
     "EntranceExams": [
@@ -9217,8 +9217,16 @@
       "Complete BAMS, including the prescribed clinical training and internship.",
       "Meet applicable registration requirements and build supervised clinical experience."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Entry-level clinic and hospital roles may start around INR 3-5 LPA.",
+      "With clinical experience or a hospital role, earnings may reach around INR 5-8 LPA.",
+      "Senior specialists and established private practitioners may earn INR 8-12 LPA or more; private-practice income varies."
+    ],
+    "TopColleges": [
+      "Government Ayurveda Medical College, Kottar",
+      "Sri Jayendra Saraswathi Ayurveda College, Chennai",
+      "National Institute of Ayurveda, Jaipur"
+    ],
     "CareerCategories": [
       "Healthcare",
       "AYUSH"
@@ -9252,7 +9260,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 2.5-8 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the required science subjects, qualify NEET-UG, and enter a recognised BHMS programme. The course is typically 5.5 years including internship; verify current NCH rules and counselling details.",
     "EntranceExams": [
@@ -9277,8 +9285,16 @@
       "Complete BHMS and the prescribed clinical training and internship.",
       "Complete applicable registration requirements before professional practice."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "New BHMS graduates may start around INR 2.5-4 LPA.",
+      "Practitioners with several years of experience may earn around INR 4-6 LPA.",
+      "Experienced practitioners and clinic owners may earn INR 6-8 LPA or more, depending on patient volume."
+    ],
+    "TopColleges": [
+      "Government Homoeopathy Medical College, Thirumangalam",
+      "Sarada Krishna Homoeopathic Medical College, Kulasekharam",
+      "National Institute of Homoeopathy, Kolkata"
+    ],
     "CareerCategories": [
       "Healthcare",
       "AYUSH"
@@ -9311,7 +9327,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the required science subjects, qualify NEET-UG, and enter a recognised BUMS programme. The course is typically 5.5 years including internship; check current NCISM regulations and counselling prospectus.",
     "EntranceExams": [
@@ -9336,8 +9352,16 @@
       "Complete BUMS with prescribed clinical training and internship.",
       "Meet applicable registration requirements and build clinical experience."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Entry-level Unani medical roles may offer around INR 3-4.5 LPA.",
+      "Practitioners with clinical experience may earn around INR 4.5-7 LPA.",
+      "Senior practitioners and clinic owners may earn INR 7-10 LPA or more; private-practice income varies."
+    ],
+    "TopColleges": [
+      "Government Unani Medical College, Chennai",
+      "Ajmal Khan Tibbiya College, Aligarh Muslim University",
+      "National Institute of Unani Medicine, Bengaluru"
+    ],
     "CareerCategories": [
       "Healthcare",
       "AYUSH"
@@ -9370,7 +9394,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the required science subjects, qualify NEET-UG, and enter a recognised BSMS programme. The course is typically 5.5 years including internship; check current NCISM regulations and counselling prospectus.",
     "EntranceExams": [
@@ -9395,8 +9419,16 @@
       "Complete BSMS, including prescribed clinical training and internship.",
       "Meet applicable registration requirements and build supervised clinical experience."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "New BSMS graduates may start around INR 3-4.5 LPA.",
+      "Experienced Siddha doctors may earn around INR 4.5-7 LPA.",
+      "Senior practitioners and clinic owners may earn INR 7-10 LPA or more depending on reputation and patient base."
+    ],
+    "TopColleges": [
+      "Government Siddha Medical College, Chennai",
+      "Government Siddha Medical College, Palayamkottai",
+      "National Institute of Siddha, Chennai"
+    ],
     "CareerCategories": [
       "Healthcare",
       "AYUSH"
@@ -9429,7 +9461,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the subjects and marks required by the relevant institution and state prospectus, then apply to a recognised BNYS programme. Admission routes vary; in Tamil Nadu, the 2026–27 state notification specifies HSC merit rather than NEET-UG. Verify the current prospectus before applying.",
     "EntranceExams": [
@@ -9453,8 +9485,16 @@
       "Complete BNYS and its prescribed clinical training and internship.",
       "Meet applicable registration and professional requirements before practice."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Entry-level BNYS roles may offer around INR 3-4.5 LPA.",
+      "Physicians with clinical and wellness-centre experience may earn around INR 4.5-7 LPA.",
+      "Senior consultants and established practitioners may earn INR 7-10 LPA or more; independent practice varies."
+    ],
+    "TopColleges": [
+      "Government Yoga and Naturopathy Medical College, Chennai",
+      "International Institute of Yoga and Naturopathy Medical Sciences, Chengalpattu",
+      "SDM College of Naturopathy and Yogic Sciences, Ujire"
+    ],
     "CareerCategories": [
       "Healthcare",
       "AYUSH"
@@ -9488,7 +9528,7 @@
     "Icon": "⚙️",
     "AccentColor": "#E5E7EB",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 3.5-18 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with Physics, Chemistry and Mathematics, then pursue B.E./B.Tech in Energy Engineering or a related branch such as Electrical, Mechanical or Renewable Energy Engineering.",
     "EntranceExams": [
@@ -9513,8 +9553,16 @@
       "Complete an engineering degree with energy systems, efficiency, and project experience.",
       "Build experience in power, renewables, energy storage, or energy consulting."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Junior energy-engineering roles commonly fall around INR 3.5-6 LPA.",
+      "Engineers with 3-7 years in energy systems, renewables or efficiency projects may earn INR 6-12 LPA.",
+      "Senior specialists and project leads may earn INR 12-18 LPA or more, depending on sector and project scale."
+    ],
+    "TopColleges": [
+      "NIT Tiruchirappalli",
+      "IIT Delhi",
+      "IIT Bombay"
+    ],
     "CareerCategories": [
       "Engineering",
       "Energy and Sustainability"
@@ -9548,7 +9596,7 @@
     "Icon": "⚙️",
     "AccentColor": "#E5E7EB",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 4-30 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with Physics, Chemistry and Mathematics, then pursue B.E./B.Tech in Electronics and Communication, Electrical, Electronics or a related engineering branch. Specialise in VLSI through projects, electives or postgraduate study.",
     "EntranceExams": [
@@ -9573,8 +9621,16 @@
       "Build digital design, HDL, verification and semiconductor project experience.",
       "Apply for VLSI, chip design, physical design or verification roles; consider postgraduate specialisation."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Entry-level VLSI roles may offer around INR 4-8 LPA; practical RTL, verification and design skills influence offers.",
+      "Engineers with 3-7 years of chip-design experience may earn around INR 8-18 LPA.",
+      "Senior design, verification and architecture specialists may earn INR 18-30 LPA or more in leading semiconductor firms."
+    ],
+    "TopColleges": [
+      "VIT Chennai",
+      "IIT Hyderabad",
+      "IIT Madras"
+    ],
     "CareerCategories": [
       "Engineering",
       "Technology"
@@ -9607,7 +9663,7 @@
     "Icon": "⚙️",
     "AccentColor": "#E5E7EB",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 3-16 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with PCM, earn a B.E./B.Tech in Civil Engineering, and typically specialise through an M.E./M.Tech or relevant structural design experience.",
     "EntranceExams": [
@@ -9632,8 +9688,16 @@
       "Develop structural analysis, design software, codes and project experience; pursue postgraduate specialisation where appropriate.",
       "Work under applicable professional and project requirements in building, bridge or infrastructure design."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Junior structural engineers commonly start around INR 3-5 LPA.",
+      "Engineers with design-code, analysis-software and project experience may earn INR 5-10 LPA.",
+      "Senior design engineers and project leads may earn INR 10-16 LPA or more on complex projects."
+    ],
+    "TopColleges": [
+      "IIT Madras",
+      "NIT Tiruchirappalli",
+      "IIT Roorkee"
+    ],
     "CareerCategories": [
       "Engineering",
       "Infrastructure"
@@ -9666,7 +9730,7 @@
     "Icon": "⚙️",
     "AccentColor": "#E5E7EB",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 3-16 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with PCM and pursue B.E./B.Tech Civil Engineering or Transportation Engineering where offered. Postgraduate study can support specialised transport planning and traffic engineering roles.",
     "EntranceExams": [
@@ -9691,8 +9755,16 @@
       "Build skills in traffic engineering, transport modelling, GIS and infrastructure planning.",
       "Start in highway, traffic, public transport or mobility planning projects."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Entry-level transportation roles may offer around INR 3-5 LPA.",
+      "Professionals with transport planning, traffic modelling or highway-project experience may earn INR 5-10 LPA.",
+      "Senior consultants and project specialists may earn INR 10-16 LPA or more."
+    ],
+    "TopColleges": [
+      "IIT Madras",
+      "NIT Tiruchirappalli",
+      "IIT Roorkee"
+    ],
     "CareerCategories": [
       "Engineering",
       "Infrastructure"
@@ -9726,7 +9798,7 @@
     "Icon": "⚙️",
     "AccentColor": "#E5E7EB",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 3-16 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with PCM and pursue B.E./B.Tech in Civil Engineering, followed by geotechnical electives, projects or postgraduate specialisation.",
     "EntranceExams": [
@@ -9751,8 +9823,16 @@
       "Develop soil testing, site investigation, foundation design and modelling skills.",
       "Build experience on infrastructure, building, transport or energy projects."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Graduate geotechnical roles commonly start around INR 3-5 LPA.",
+      "Engineers with site investigation, foundation design and soil-modelling experience may earn INR 5-10 LPA.",
+      "Senior specialists and project leads may earn INR 10-16 LPA or more on major infrastructure projects."
+    ],
+    "TopColleges": [
+      "IIT Madras",
+      "IIT Roorkee",
+      "IIT Delhi"
+    ],
     "CareerCategories": [
       "Engineering",
       "Infrastructure"
@@ -9787,7 +9867,7 @@
     "Icon": "⚙️",
     "AccentColor": "#E5E7EB",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 3-15 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 and pursue a recognised undergraduate programme such as B.Plan, or a related architecture, geography, civil engineering or social-science degree followed by planning specialisation. Entry requirements vary by programme.",
     "EntranceExams": [
@@ -9813,8 +9893,16 @@
       "Complete the planning degree and gain studio, GIS, policy and field-project experience.",
       "Work in urban development, transport, housing, regional planning or sustainability projects."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Junior planning and GIS roles may offer around INR 3-5 LPA.",
+      "Planners with 3-7 years of experience in master plans, transport or land-use projects may earn INR 5-9 LPA.",
+      "Senior planners and consultants may earn INR 9-15 LPA or more, depending on project and employer."
+    ],
+    "TopColleges": [
+      "School of Planning and Architecture, New Delhi",
+      "CEPT University, Ahmedabad",
+      "IIT Roorkee"
+    ],
     "CareerCategories": [
       "Engineering",
       "Planning and Public Policy"
@@ -9848,7 +9936,7 @@
     "Icon": "⚙️",
     "AccentColor": "#E5E7EB",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 3-18 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with PCB or PCM/PCMB depending on programme eligibility, then pursue B.Tech/B.E. Biotechnology, Genetic Engineering where available, or a related life-science degree. Advanced research roles commonly require postgraduate study.",
     "EntranceExams": [
@@ -9874,8 +9962,16 @@
       "Build laboratory, molecular biology, genomics and research project experience.",
       "Pursue postgraduate or doctoral training for specialised genetic engineering and research roles."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Entry-level biotechnology and genetic-engineering research roles may offer around INR 3-5 LPA.",
+      "Professionals with laboratory, molecular biology and genomics experience may earn INR 5-10 LPA.",
+      "Experienced specialists in biotech, genomics and R&D may earn INR 10-18 LPA or more; advanced research qualifications can be important."
+    ],
+    "TopColleges": [
+      "IIT Madras",
+      "VIT Vellore",
+      "SRM Institute of Science and Technology, Kattankulathur"
+    ],
     "CareerCategories": [
       "Science & Research",
       "Biotechnology"
@@ -9909,7 +10005,7 @@
     "Icon": "⚙️",
     "AccentColor": "#E5E7EB",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 3.5-18 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with PCM and pursue B.E./B.Tech in Chemical, Pharmaceutical, Biochemical or related engineering where offered. Pharmacy or biotechnology degrees can lead to adjacent manufacturing and process roles.",
     "EntranceExams": [
@@ -9934,8 +10030,16 @@
       "Complete the degree with process, manufacturing, quality and internship experience.",
       "Build experience in pharmaceutical production, process validation, scale-up or plant engineering."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Graduate roles in pharmaceutical manufacturing and process engineering may start around INR 3.5-6 LPA.",
+      "Engineers with validation, process scale-up and regulated-manufacturing experience may earn INR 6-11 LPA.",
+      "Senior process, technology-transfer and manufacturing specialists may earn INR 11-18 LPA or more."
+    ],
+    "TopColleges": [
+      "Institute of Chemical Technology, Mumbai",
+      "IIT (BHU) Varanasi",
+      "Anna University, Chennai"
+    ],
     "CareerCategories": [
       "Engineering",
       "Pharmaceuticals"
@@ -9971,7 +10075,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 2.5-8 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue an approved B.Sc or allied-health programme in cardiac technology/cardiovascular technology. Check current NCAHP and institution requirements.",
     "EntranceExams": [
@@ -9995,8 +10099,16 @@
       "Complete the degree with supervised clinical training.",
       "Work in cardiac diagnostics and monitoring under the relevant clinical team."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Fresh graduates commonly start around INR 2.5-4 LPA in hospitals and cardiac centres.",
+      "Technologists with 3-5 years of experience may earn around INR 4-6 LPA.",
+      "Senior technologists and specialists may earn INR 6-8 LPA or more in larger hospitals."
+    ],
+    "TopColleges": [
+      "Sri Ramachandra Faculty of Allied Health Sciences, Chennai",
+      "Madras Medical College, Chennai",
+      "Amrita Institute of Medical Sciences, Kochi"
+    ],
     "CareerCategories": [
       "Healthcare",
       "Allied Health"
@@ -10030,7 +10142,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 2-7 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised B.Sc or allied-health programme in dialysis therapy technology.",
     "EntranceExams": [
@@ -10054,8 +10166,16 @@
       "Complete the course and practical training in dialysis procedures and equipment.",
       "Work with nephrology teams in hospitals or dialysis centres."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Entry-level dialysis technologists may earn around INR 2-3.5 LPA.",
+      "With 3-5 years of experience, salaries may reach around INR 3.5-5 LPA.",
+      "Senior technologists and unit supervisors may earn INR 5-7 LPA or more."
+    ],
+    "TopColleges": [
+      "Sri Ramachandra Faculty of Allied Health Sciences, Chennai",
+      "Madras Medical College, Chennai",
+      "JKKN College of Allied Health Sciences, Namakkal"
+    ],
     "CareerCategories": [
       "Healthcare",
       "Allied Health"
@@ -10088,7 +10208,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 2.5-8 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised B.Sc or allied-health programme in operation theatre and anaesthesia technology.",
     "EntranceExams": [
@@ -10112,8 +10232,16 @@
       "Complete the programme and clinical rotations in operating theatres.",
       "Work as part of the surgical services team, following institutional protocols and scope of practice."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Fresh graduates may start around INR 2.5-4 LPA in operation theatres.",
+      "Experienced technologists may earn around INR 4-6 LPA.",
+      "Senior OT technologists and supervisors may earn INR 6-8 LPA or more in major hospitals."
+    ],
+    "TopColleges": [
+      "Sri Ramachandra Faculty of Allied Health Sciences, Chennai",
+      "Madras Medical College, Chennai",
+      "Amrita Institute of Medical Sciences, Kochi"
+    ],
     "CareerCategories": [
       "Healthcare",
       "Allied Health"
@@ -10146,7 +10274,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 2.5-8 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised anaesthesia technology/allied-health programme.",
     "EntranceExams": [
@@ -10170,8 +10298,16 @@
       "Complete the course with supervised clinical postings.",
       "Work under qualified anaesthesia professionals and follow clinical safety protocols."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Entry-level anaesthesia technologists may earn around INR 2.5-4 LPA.",
+      "With experience supporting operating rooms and critical procedures, salaries may reach INR 4-6 LPA.",
+      "Senior technologists and team leads may earn INR 6-8 LPA or more."
+    ],
+    "TopColleges": [
+      "Sri Ramachandra Faculty of Allied Health Sciences, Chennai",
+      "Madras Medical College, Chennai",
+      "JKKN College of Allied Health Sciences, Namakkal"
+    ],
     "CareerCategories": [
       "Healthcare",
       "Allied Health"
@@ -10205,7 +10341,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 2.5-8 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete the education level and subjects specified by the recognised EMT/paramedic programme. Entry routes and course duration vary by qualification and state; verify current NCAHP and institution requirements.",
     "EntranceExams": [
@@ -10229,8 +10365,16 @@
       "Maintain required life-support training and certifications.",
       "Work with ambulance or emergency-care teams within the permitted scope of practice."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "New emergency medical technologists may start around INR 2.5-4 LPA.",
+      "Experienced EMTs in hospitals and emergency services may earn around INR 4-6 LPA.",
+      "Senior emergency-care roles and team leads may earn INR 6-8 LPA or more."
+    ],
+    "TopColleges": [
+      "Sri Ramachandra Faculty of Allied Health Sciences, Chennai",
+      "Madras Medical College, Chennai",
+      "Amrita Institute of Medical Sciences, Kochi"
+    ],
     "CareerCategories": [
       "Healthcare",
       "Allied Health"
@@ -10263,7 +10407,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 2.5-8 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised critical-care technology or allied-health programme.",
     "EntranceExams": [
@@ -10287,8 +10431,16 @@
       "Complete the programme and supervised clinical training.",
       "Work with ICU teams under clinical protocols and scope-of-practice requirements."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Entry-level critical-care technologists may earn around INR 2.5-4 LPA.",
+      "With ICU experience and relevant technical skills, salaries may reach INR 4-6 LPA.",
+      "Senior technologists and ICU team leads may earn INR 6-8 LPA or more."
+    ],
+    "TopColleges": [
+      "Sri Ramachandra Faculty of Allied Health Sciences, Chennai",
+      "Madras Medical College, Chennai",
+      "JKKN College of Allied Health Sciences, Namakkal"
+    ],
     "CareerCategories": [
       "Healthcare",
       "Allied Health"
@@ -10321,7 +10473,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 2.5-8 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised B.Sc programme in radiotherapy or radiation therapy technology.",
     "EntranceExams": [
@@ -10345,8 +10497,16 @@
       "Complete the degree and practical placements in radiation oncology.",
       "Work with radiation oncology teams while following radiation safety standards."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Fresh radiotherapy technologists may start around INR 2.5-4 LPA.",
+      "Professionals with experience in treatment planning and radiation equipment may earn INR 4-6 LPA.",
+      "Senior technologists and supervisors may earn INR 6-8 LPA or more in specialised cancer centres."
+    ],
+    "TopColleges": [
+      "Madras Medical College, Chennai",
+      "Sri Ramachandra Faculty of Allied Health Sciences, Chennai",
+      "Tata Memorial Centre, Mumbai"
+    ],
     "CareerCategories": [
       "Healthcare",
       "Allied Health"
@@ -10379,7 +10539,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 3-18 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised B.Sc in cardiac perfusion/perfusion technology or an approved equivalent programme.",
     "EntranceExams": [
@@ -10403,8 +10563,16 @@
       "Complete the degree and required clinical experience.",
       "Work as part of a cardiac surgery team within the professional scope and institutional protocols."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "New perfusionists may start around INR 3-5 LPA, depending on clinical exposure and hospital.",
+      "With 3-5 years of cardiac-surgery experience, salaries may reach INR 5-9 LPA.",
+      "Experienced perfusionists in high-volume cardiac centres may earn INR 9-18 LPA or more."
+    ],
+    "TopColleges": [
+      "Sri Ramachandra Faculty of Allied Health Sciences, Chennai",
+      "Madras Medical College, Chennai",
+      "Amrita Institute of Medical Sciences, Kochi"
+    ],
     "CareerCategories": [
       "Healthcare",
       "Allied Health"
@@ -10436,7 +10604,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the subjects required by the recognised programme, then pursue an approved Physician Associate/Assistant undergraduate programme. Confirm the current NCAHP framework, programme nomenclature and institutional eligibility.",
     "EntranceExams": [
@@ -10460,8 +10628,16 @@
       "Develop clinical communication, documentation and patient-care support skills.",
       "Work under the supervision and scope specified by the healthcare institution."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Entry-level physician associates may earn around INR 3-5 LPA in hospitals.",
+      "With clinical experience and specialty exposure, salaries may reach INR 5-8 LPA.",
+      "Senior physician associates and team coordinators may earn INR 8-10 LPA or more, depending on institution and scope of practice."
+    ],
+    "TopColleges": [
+      "Sri Ramachandra Faculty of Allied Health Sciences, Chennai",
+      "Madras Medical College, Chennai",
+      "JKKN College of Allied Health Sciences, Namakkal"
+    ],
     "CareerCategories": [
       "Healthcare",
       "Allied Health"
@@ -10493,7 +10669,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 2.5-8 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised endoscopy or gastroenterology technology/allied-health programme.",
     "EntranceExams": [
@@ -10517,8 +10693,16 @@
       "Build skills in equipment preparation, reprocessing and patient safety.",
       "Work with gastroenterology and endoscopy teams under clinical protocols."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Entry-level endoscopy technologists may start around INR 2.5-4 LPA.",
+      "With experience in endoscopy suites, equipment handling and infection control, salaries may reach INR 4-6 LPA.",
+      "Senior technologists and unit supervisors may earn INR 6-8 LPA or more."
+    ],
+    "TopColleges": [
+      "Sri Ramachandra Faculty of Allied Health Sciences, Chennai",
+      "Amrita Institute of Medical Sciences, Kochi",
+      "DY Patil School of Allied Health Sciences, Navi Mumbai"
+    ],
     "CareerCategories": [
       "Healthcare",
       "Allied Health"
@@ -10550,7 +10734,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 1.8-5 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete the education level required by a recognised phlebotomy certificate, diploma or allied-health programme. Entry requirements and duration vary by programme and employer.",
     "EntranceExams": [
@@ -10573,8 +10757,16 @@
       "Demonstrate safe sample collection, identification and handling procedures.",
       "Work in diagnostic collection centres, hospitals or laboratories within the trained scope."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "New phlebotomists commonly start around INR 1.8-2.8 LPA in diagnostic labs and hospitals.",
+      "Experienced phlebotomists may earn around INR 2.8-4 LPA.",
+      "Senior collection-centre staff and supervisors may earn INR 4-5 LPA or more."
+    ],
+    "TopColleges": [
+      "Sri Ramachandra Faculty of Allied Health Sciences, Chennai",
+      "Madras Medical College, Chennai",
+      "Amrita Institute of Medical Sciences, Kochi"
+    ],
     "CareerCategories": [
       "Healthcare",
       "Allied Health"
@@ -10607,7 +10799,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised medical imaging/sonography programme with supervised clinical training. Verify current regulatory and scope-of-practice requirements.",
     "EntranceExams": [
@@ -10631,8 +10823,16 @@
       "Gain supervised clinical experience in ultrasound imaging and patient safety.",
       "Work in diagnostic imaging under applicable professional and institutional requirements."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Entry-level sonography and imaging roles may offer around INR 3-5 LPA, subject to recognised qualifications and applicable regulations.",
+      "Experienced imaging professionals may earn around INR 5-8 LPA.",
+      "Senior specialists and department leads may earn INR 8-10 LPA or more; scope of practice depends on qualification and law."
+    ],
+    "TopColleges": [
+      "Sri Ramachandra Faculty of Allied Health Sciences, Chennai",
+      "Madras Medical College, Chennai",
+      "Amrita Institute of Medical Sciences, Kochi"
+    ],
     "CareerCategories": [
       "Healthcare",
       "Allied Health"
@@ -10664,7 +10864,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 3-10 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised B.Sc Nuclear Medicine Technology or equivalent approved programme.",
     "EntranceExams": [
@@ -10688,8 +10888,16 @@
       "Develop competence in imaging equipment, radiation protection and patient preparation.",
       "Work in nuclear medicine services under applicable radiation safety and clinical regulations."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "New nuclear medicine technologists may start around INR 3-5 LPA.",
+      "With experience in imaging equipment, radiopharmaceutical handling and radiation safety, salaries may reach INR 5-8 LPA.",
+      "Senior technologists and supervisors may earn INR 8-10 LPA or more in specialised centres."
+    ],
+    "TopColleges": [
+      "Amrita Institute of Medical Sciences, Kochi",
+      "Sri Ramachandra Faculty of Allied Health Sciences, Chennai",
+      "All India Institute of Medical Sciences, New Delhi"
+    ],
     "CareerCategories": [
       "Healthcare",
       "Allied Health"
@@ -10723,7 +10931,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 2.5-8 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised neurotechnology/neurodiagnostic allied-health programme with supervised clinical training.",
     "EntranceExams": [
@@ -10747,8 +10955,16 @@
       "Build practical skills in EEG, related neurodiagnostic procedures and patient preparation.",
       "Work with neurology and sleep medicine teams within the approved scope."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Entry-level neurodiagnostic roles may offer around INR 2.5-4 LPA.",
+      "Technologists with EEG, EMG and neurophysiology experience may earn INR 4-6 LPA.",
+      "Senior specialists and lab supervisors may earn INR 6-8 LPA or more."
+    ],
+    "TopColleges": [
+      "Sri Ramachandra Faculty of Allied Health Sciences, Chennai",
+      "Madras Medical College, Chennai",
+      "Amrita Institute of Medical Sciences, Kochi"
+    ],
     "CareerCategories": [
       "Healthcare",
       "Allied Health"
@@ -10781,7 +10997,7 @@
     "Icon": "🩺",
     "AccentColor": "#D9EAFE",
     "IsPopular": false,
-    "SalaryRangeIndia": "",
+    "SalaryRangeIndia": "INR 2.5-8 LPA",
     "FutureDemand": "Varies by role and location",
     "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised respiratory or pulmonary function technology programme.",
     "EntranceExams": [
@@ -10805,8 +11021,16 @@
       "Develop practical skills in spirometry and other pulmonary function procedures.",
       "Work with respiratory and pulmonary care teams under clinical protocols."
     ],
-    "SalaryInsights": [],
-    "TopColleges": [],
+    "SalaryInsights": [
+      "Fresh pulmonary-function technologists may start around INR 2.5-4 LPA.",
+      "With experience in spirometry, pulmonary-function testing and respiratory-care workflows, salaries may reach INR 4-6 LPA.",
+      "Senior technologists and department leads may earn INR 6-8 LPA or more."
+    ],
+    "TopColleges": [
+      "Sri Ramachandra Faculty of Allied Health Sciences, Chennai",
+      "Madras Medical College, Chennai",
+      "Amrita Institute of Medical Sciences, Kochi"
+    ],
     "CareerCategories": [
       "Healthcare",
       "Allied Health"
