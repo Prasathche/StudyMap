@@ -10423,5 +10423,407 @@
     ],
     "Duration": "Typically 3–4 years including clinical training; confirm programme",
     "FutureScope": ""
+  },
+  {
+    "Id": "career-physician-associate",
+    "Name": "Physician Associate",
+    "SearchAliases": [
+      "Physician Assistant",
+      "Physician Associate Studies"
+    ],
+    "Description": "Support doctors in clinical assessment, care coordination, and selected patient-care activities under the supervision and scope defined by the employing healthcare service.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the recognised programme, then pursue an approved Physician Associate/Assistant undergraduate programme. Confirm the current NCAHP framework, programme nomenclature and institutional eligibility.",
+    "EntranceExams": [
+      "University admissions",
+      "State or institution-specific admission"
+    ],
+    "KeySkills": [
+      "Clinical assessment support",
+      "Patient communication",
+      "Medical documentation",
+      "Teamwork"
+    ],
+    "Workplaces": [
+      "Hospitals",
+      "Clinics",
+      "Specialist departments"
+    ],
+    "RoadmapSteps": [
+      "Check the current recognised programme title, eligibility and regulatory requirements.",
+      "Complete the relevant undergraduate programme with supervised clinical placements.",
+      "Develop clinical communication, documentation and patient-care support skills.",
+      "Work under the supervision and scope specified by the healthcare institution."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Healthcare and science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Chemistry"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Varies by approved programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-endoscopy-technologist",
+    "Name": "Endoscopy Technologist",
+    "SearchAliases": [
+      "Endoscopy Technician",
+      "Endoscopy Technology"
+    ],
+    "Description": "Prepare and maintain endoscopy equipment and support clinical teams during diagnostic and therapeutic endoscopic procedures.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised endoscopy or gastroenterology technology/allied-health programme.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "Endoscopy equipment",
+      "Infection prevention",
+      "Patient preparation",
+      "Clinical teamwork"
+    ],
+    "Workplaces": [
+      "Hospitals",
+      "Gastroenterology centres",
+      "Endoscopy units"
+    ],
+    "RoadmapSteps": [
+      "Verify the entry requirements and recognition status of endoscopy technology programmes.",
+      "Complete the relevant course and supervised clinical training.",
+      "Build skills in equipment preparation, reprocessing and patient safety.",
+      "Work with gastroenterology and endoscopy teams under clinical protocols."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Healthcare and science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Chemistry"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Varies by recognised programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-phlebotomist",
+    "Name": "Phlebotomist",
+    "SearchAliases": [
+      "Phlebotomy Technician",
+      "Blood Collection Technician"
+    ],
+    "Description": "Collect blood samples safely, label and handle specimens correctly, and support diagnostic laboratory workflows.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete the education level required by a recognised phlebotomy certificate, diploma or allied-health programme. Entry requirements and duration vary by programme and employer.",
+    "EntranceExams": [
+      "Institution-specific admission"
+    ],
+    "KeySkills": [
+      "Venepuncture",
+      "Patient communication",
+      "Specimen handling",
+      "Infection control"
+    ],
+    "Workplaces": [
+      "Hospitals",
+      "Diagnostic laboratories",
+      "Collection centres"
+    ],
+    "RoadmapSteps": [
+      "Compare recognised phlebotomy training programmes and their entry requirements.",
+      "Complete theoretical and supervised practical training.",
+      "Demonstrate safe sample collection, identification and handling procedures.",
+      "Work in diagnostic collection centres, hospitals or laboratories within the trained scope."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Healthcare and science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Science"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Varies by certificate or diploma programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-diagnostic-medical-sonographer",
+    "Name": "Diagnostic Medical Sonographer",
+    "SearchAliases": [
+      "Sonographer",
+      "Ultrasound Technologist",
+      "Medical Sonography"
+    ],
+    "Description": "Perform diagnostic ultrasound examinations and produce images that clinicians use to assess medical conditions.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised medical imaging/sonography programme with supervised clinical training. Verify current regulatory and scope-of-practice requirements.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "Ultrasound equipment",
+      "Patient positioning",
+      "Image acquisition",
+      "Anatomy"
+    ],
+    "Workplaces": [
+      "Hospitals",
+      "Diagnostic imaging centres",
+      "Specialist clinics"
+    ],
+    "RoadmapSteps": [
+      "Check recognised programme options and current eligibility requirements.",
+      "Complete the appropriate medical imaging or sonography programme.",
+      "Gain supervised clinical experience in ultrasound imaging and patient safety.",
+      "Work in diagnostic imaging under applicable professional and institutional requirements."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Healthcare and science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Physics"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Varies by recognised programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-nuclear-medicine-technologist",
+    "Name": "Nuclear Medicine Technologist",
+    "SearchAliases": [
+      "Nuclear Medicine Technology",
+      "Nuclear Imaging Technologist"
+    ],
+    "Description": "Prepare and administer radiopharmaceuticals as authorised and operate imaging equipment for nuclear medicine examinations under specialist supervision.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised B.Sc Nuclear Medicine Technology or equivalent approved programme.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "Nuclear imaging equipment",
+      "Radiation safety",
+      "Patient care",
+      "Precision"
+    ],
+    "Workplaces": [
+      "Nuclear medicine departments",
+      "Cancer centres",
+      "Hospitals"
+    ],
+    "RoadmapSteps": [
+      "Review current eligibility and recognised nuclear medicine technology programmes.",
+      "Complete the degree with supervised clinical training.",
+      "Develop competence in imaging equipment, radiation protection and patient preparation.",
+      "Work in nuclear medicine services under applicable radiation safety and clinical regulations."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Healthcare and science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Physics"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Typically 3–4 years including clinical training; confirm programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-neurodiagnostic-technologist",
+    "Name": "Neurodiagnostic Technologist",
+    "SearchAliases": [
+      "EEG Technologist",
+      "EMG Technologist",
+      "Neurodiagnostic Technology",
+      "Sleep Lab Technologist"
+    ],
+    "Description": "Perform neurodiagnostic tests such as EEG and support related investigations that help clinicians assess brain, nerve and sleep disorders.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised neurotechnology/neurodiagnostic allied-health programme with supervised clinical training.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "EEG setup",
+      "Neurodiagnostic equipment",
+      "Patient care",
+      "Accurate recording"
+    ],
+    "Workplaces": [
+      "Hospitals",
+      "Neurology centres",
+      "Sleep laboratories"
+    ],
+    "RoadmapSteps": [
+      "Identify recognised neurodiagnostic or neurotechnology programmes and confirm entry criteria.",
+      "Complete the course and supervised clinical postings.",
+      "Build practical skills in EEG, related neurodiagnostic procedures and patient preparation.",
+      "Work with neurology and sleep medicine teams within the approved scope."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Healthcare and science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Physics"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Varies by recognised programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-pulmonary-function-technologist",
+    "Name": "Pulmonary Function Technologist",
+    "SearchAliases": [
+      "PFT Technologist",
+      "Pulmonary Function Technology",
+      "Lung Function Technologist"
+    ],
+    "Description": "Conduct pulmonary function tests and respiratory measurements to support diagnosis and monitoring of lung conditions.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised respiratory or pulmonary function technology programme.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "Pulmonary function testing",
+      "Respiratory equipment",
+      "Patient coaching",
+      "Clinical recording"
+    ],
+    "Workplaces": [
+      "Hospitals",
+      "Pulmonary clinics",
+      "Diagnostic laboratories"
+    ],
+    "RoadmapSteps": [
+      "Check current programme eligibility and recognised respiratory technology courses.",
+      "Complete the programme with supervised clinical training.",
+      "Develop practical skills in spirometry and other pulmonary function procedures.",
+      "Work with respiratory and pulmonary care teams under clinical protocols."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Healthcare and science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Physics"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Varies by recognised programme",
+    "FutureScope": ""
   }
 ]
