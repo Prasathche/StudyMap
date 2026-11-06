@@ -132,6 +132,73 @@ public class Career
 		var name = (Name ?? string.Empty).Trim().ToLowerInvariant();
 		var key = $"{id} {name}";
 
+		// AYUSH pathways must be checked before the generic "doctor" rule below.
+		if (key.Contains("ayurvedic doctor") || key.Contains("bams"))
+			return "BAMS (Bachelor of Ayurvedic Medicine and Surgery) is the undergraduate Ayurveda degree. Admission to BAMS is through NEET-UG and the applicable AACCC/state counselling process; verify the current NCISM and prospectus requirements.";
+
+		if (key.Contains("homeopathic doctor") || key.Contains("homoeopathic doctor") || key.Contains("bhms"))
+			return "BHMS (Bachelor of Homoeopathic Medicine and Surgery) is the undergraduate Homoeopathy degree. Admission is through NEET-UG and the applicable AACCC/state counselling process; verify current NCH and prospectus requirements.";
+
+		if (key.Contains("unani medicine") || key.Contains("unani doctor") || key.Contains("bums"))
+			return "BUMS (Bachelor of Unani Medicine and Surgery) is the undergraduate Unani degree. Admission is through NEET-UG and the applicable AACCC/state counselling process; verify current NCISM and prospectus requirements.";
+
+		if (key.Contains("siddha doctor") || key.Contains("bsms"))
+			return "BSMS (Bachelor of Siddha Medicine and Surgery) is the undergraduate Siddha degree. Admission is through NEET-UG and the applicable AACCC/state counselling process; verify current NCISM and prospectus requirements.";
+
+		if (key.Contains("naturopathy") || key.Contains("bnys"))
+			return "BNYS (Bachelor of Naturopathy and Yogic Sciences) is the undergraduate naturopathy and yoga degree. Admission requirements and selection routes vary by state and institution; in Tamil Nadu, check the current HSC merit and prospectus rules rather than assuming NEET is required.";
+
+		if (key.Contains("pharmacist") || key.Contains("pharmacy"))
+			return "Pharmacy routes include D.Pharm (2 years), B.Pharm (4 years), Pharm.D (6 years after 10+2 or an eligible D.Pharm route), and Pharm.D (Post Baccalaureate, 3 years after B.Pharm). Pharm.D includes clinical training and internship/residency; verify PCI approval and current admission rules.";
+
+		if (key.Contains("vlsi"))
+			return "VLSI design is commonly pursued after B.E./B.Tech in Electronics and Communication, Electrical or Electronics Engineering, with semiconductor, digital design and verification specialisation.";
+
+		if (key.Contains("energy engineer"))
+			return "B.E./B.Tech in Energy, Electrical, Mechanical or Renewable Energy Engineering are common undergraduate routes; exact branch availability and eligibility vary by institution.";
+
+		if (key.Contains("structural engineer"))
+			return "B.E./B.Tech Civil Engineering is the usual undergraduate foundation, followed by structural engineering electives, projects or postgraduate specialisation.";
+
+		if (key.Contains("transportation engineer"))
+			return "B.E./B.Tech Civil Engineering or Transportation Engineering are common undergraduate routes, with transport planning or traffic engineering specialisation as appropriate.";
+
+		if (key.Contains("geotechnical engineer"))
+			return "B.E./B.Tech Civil Engineering is the usual undergraduate foundation, followed by geotechnical coursework, field experience or postgraduate specialisation.";
+
+		if (key.Contains("urban planner"))
+			return "B.Plan (Bachelor of Planning) is a direct undergraduate route where offered. Architecture, geography, civil engineering and related degrees can also lead to planning specialisation; check each programme's eligibility and entrance requirements.";
+
+		if (key.Contains("genetic engineer"))
+			return "B.Tech/B.E. Biotechnology or a related life-science degree can provide the undergraduate foundation. Specialised genetic engineering and research roles commonly require postgraduate study.";
+
+		if (key.Contains("pharmaceutical engineer"))
+			return "B.E./B.Tech Chemical, Pharmaceutical, Biochemical or related Engineering are possible undergraduate routes, depending on programme availability and eligibility.";
+
+		if (key.Contains("cardiac care technologist"))
+			return "A recognised undergraduate Cardiac Technology or Cardiovascular Technology programme, including supervised clinical training, is the usual route. Verify the current programme nomenclature and eligibility.";
+
+		if (key.Contains("dialysis therapy technologist"))
+			return "A recognised undergraduate Dialysis Therapy Technology or Renal Technology programme with supervised clinical training is the usual route. Verify current institutional and regulatory requirements.";
+
+		if (key.Contains("operation theatre technologist"))
+			return "A recognised undergraduate Operation Theatre Technology or Anaesthesia and Operation Theatre Technology programme with clinical placements is the usual route.";
+
+		if (key.Contains("anaesthesia technologist"))
+			return "A recognised undergraduate Anaesthesia Technology or related allied-health programme with supervised clinical training is the usual route.";
+
+		if (key.Contains("emergency medical technologist"))
+			return "Complete a recognised Emergency Medical Technology or paramedic programme. Entry qualification, award level, clinical hours and duration vary, so verify the current state and institution requirements.";
+
+		if (key.Contains("critical care technologist"))
+			return "A recognised undergraduate Critical Care Technology programme with supervised hospital and ICU clinical training is the usual route; confirm current programme eligibility.";
+
+		if (key.Contains("radiotherapy technologist"))
+			return "A recognised undergraduate Radiotherapy or Radiation Therapy Technology programme with supervised clinical training is the usual route; confirm current programme eligibility.";
+
+		if (key.Contains("perfusionist"))
+			return "A recognised undergraduate Cardiac Perfusion or Perfusion Technology programme with supervised cardiac-surgery clinical training is the usual route; confirm current programme eligibility.";
+
 		if (key.Contains("doctor") || key.Contains("physician"))
 			return "MBBS (Bachelor of Medicine and Bachelor of Surgery) is the primary undergraduate medical degree, followed by internship and postgraduate specialization if desired.";
 
