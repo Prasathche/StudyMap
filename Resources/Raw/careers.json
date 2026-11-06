@@ -2101,7 +2101,11 @@
     "SearchAliases": [
       "B.Pharm",
       "D.Pharm",
-      "Pharmacy"
+      "Pharmacy",
+      "Pharm.D",
+      "Doctor of Pharmacy",
+      "PharmD",
+      "Pharm.D (Post Baccalaureate)"
     ],
     "Description": "Dispenses medicines, guides patients on safe medicine use, and supports healthcare teams in hospitals, pharmacies, and pharmaceutical companies.",
     "Category": "Science",
@@ -2110,11 +2114,11 @@
     "IsPopular": true,
     "SalaryRangeIndia": "INR 2.5-8 LPA",
     "FutureDemand": "Stable",
-    "EducationPath": "Choose PCB or PCM in Class 11-12, then complete D.Pharm, B.Pharm, Pharm.D, or M.Pharm as required for the role.",
+    "EducationPath": "Pharmacy routes include D.Pharm (2 years), B.Pharm (4 years), and Pharm.D (6 years after 10+2 or an eligible D.Pharm route). Pharm.D (Post Baccalaureate) is a 3-year route for eligible B.Pharm graduates. For Pharm.D, 10+2 must include Physics and Chemistry plus Mathematics or Biology. Confirm that the institution and programme are approved by the Pharmacy Council of India (PCI).",
     "EntranceExams": [
-      "CUET",
-      "State pharmacy entrance exams",
-      "University admissions"
+      "State pharmacy entrance exams (where applicable)",
+      "University admissions",
+      "Institution-specific admission process"
     ],
     "KeySkills": [
       "Pharmacology",
@@ -2130,10 +2134,10 @@
       "Clinical research organizations"
     ],
     "RoadmapSteps": [
-      "Choose PCB or PCM in Class 11-12.",
-      "Complete D.Pharm, B.Pharm, or Pharm.D from a recognized institute.",
-      "Register with the State Pharmacy Council where required.",
-      "Build experience in a hospital, pharmacy, manufacturing, research, or regulatory role."
+      "Complete 10+2 with Physics and Chemistry plus Mathematics or Biology for direct Pharm.D entry; D.Pharm and B.Pharm have their own PCI-prescribed eligibility routes.",
+      "Choose the pathway: D.Pharm, B.Pharm, Pharm.D (6 years), or Pharm.D (Post Baccalaureate, 3 years after B.Pharm).",
+      "For Pharm.D, complete five academic years followed by one year of internship or residency with clinical postings; for Pharm.D (PB), complete two academic years and one year of internship or residency.",
+      "Verify PCI approval of the institution and programme, complete the required training, and meet applicable State Pharmacy Council registration requirements."
     ],
     "SalaryInsights": [
       "Entry-level pharmacists generally earn INR 2.5-5 LPA.",
@@ -2151,7 +2155,8 @@
       "Biology",
       "Chemistry"
     ],
-    "WorkStyles": []
+    "WorkStyles": [],
+    "Duration": "D.Pharm: 2 years; B.Pharm: 4 years; Pharm.D: 6 years; Pharm.D (Post Baccalaureate): 3 years"
   },
   {
     "Id": "police-officer",
@@ -9174,5 +9179,1651 @@
       "Creative Studio",
       "Independently"
     ]
+  },
+  {
+    "Id": "career-ayurvedic-doctor",
+    "Name": "Ayurvedic Doctor",
+    "SearchAliases": [
+      "BAMS",
+      "Bachelor of Ayurvedic Medicine and Surgery"
+    ],
+    "Description": "Assess health and provide care using Ayurveda principles, treatments, and preventive-health practices within the scope of professional training and regulation.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the required science subjects, qualify NEET-UG, and enter a recognised BAMS programme. The course is typically 5.5 years including the compulsory internship; check the current NCISM and counselling prospectus.",
+    "EntranceExams": [
+      "NEET-UG",
+      "AACCC UG counselling",
+      "State AYUSH counselling"
+    ],
+    "KeySkills": [
+      "Ayurveda fundamentals",
+      "Clinical assessment",
+      "Patient communication",
+      "Ethical practice"
+    ],
+    "Workplaces": [
+      "Ayurveda hospitals",
+      "AYUSH clinics",
+      "Wellness and research centres"
+    ],
+    "RoadmapSteps": [
+      "Complete Class 12 with Physics, Chemistry and Biology and meet the current eligibility rules.",
+      "Qualify NEET-UG and register for the applicable AACCC or state counselling process.",
+      "Complete BAMS, including the prescribed clinical training and internship.",
+      "Meet applicable registration requirements and build supervised clinical experience."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "AYUSH"
+    ],
+    "Interests": [
+      "Helping people",
+      "Traditional medicine",
+      "Health and wellness"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Chemistry"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "5.5 years including internship",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-homeopathic-doctor",
+    "Name": "Homeopathic Doctor",
+    "SearchAliases": [
+      "BHMS",
+      "Bachelor of Homoeopathic Medicine and Surgery",
+      "Homoeopathy"
+    ],
+    "Description": "Provide patient consultations and homeopathic care within the scope of recognised education, registration, and applicable professional regulation.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the required science subjects, qualify NEET-UG, and enter a recognised BHMS programme. The course is typically 5.5 years including internship; verify current NCH rules and counselling details.",
+    "EntranceExams": [
+      "NEET-UG",
+      "AACCC UG counselling",
+      "State AYUSH counselling"
+    ],
+    "KeySkills": [
+      "Patient consultation",
+      "Clinical documentation",
+      "Communication",
+      "Ethical practice"
+    ],
+    "Workplaces": [
+      "Homoeopathy hospitals",
+      "Clinics",
+      "AYUSH healthcare centres"
+    ],
+    "RoadmapSteps": [
+      "Complete Class 12 with Physics, Chemistry and Biology and meet current eligibility rules.",
+      "Qualify NEET-UG and participate in the applicable counselling process.",
+      "Complete BHMS and the prescribed clinical training and internship.",
+      "Complete applicable registration requirements before professional practice."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "AYUSH"
+    ],
+    "Interests": [
+      "Helping people",
+      "Health and wellness"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Chemistry"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "5.5 years including internship",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-unani-practitioner",
+    "Name": "Unani Medicine Practitioner",
+    "SearchAliases": [
+      "BUMS",
+      "Bachelor of Unani Medicine and Surgery",
+      "Unani Doctor"
+    ],
+    "Description": "Provide Unani-system healthcare through assessment, prevention, and treatment approaches within recognised professional training and regulation.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the required science subjects, qualify NEET-UG, and enter a recognised BUMS programme. The course is typically 5.5 years including internship; check current NCISM regulations and counselling prospectus.",
+    "EntranceExams": [
+      "NEET-UG",
+      "AACCC UG counselling",
+      "State AYUSH counselling"
+    ],
+    "KeySkills": [
+      "Unani medicine fundamentals",
+      "Patient assessment",
+      "Communication",
+      "Ethical practice"
+    ],
+    "Workplaces": [
+      "Unani hospitals",
+      "AYUSH clinics",
+      "Research and wellness centres"
+    ],
+    "RoadmapSteps": [
+      "Complete Class 12 with Physics, Chemistry and Biology and meet current eligibility rules.",
+      "Qualify NEET-UG and register for the applicable counselling process.",
+      "Complete BUMS with prescribed clinical training and internship.",
+      "Meet applicable registration requirements and build clinical experience."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "AYUSH"
+    ],
+    "Interests": [
+      "Helping people",
+      "Traditional medicine"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Chemistry"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "5.5 years including internship",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-siddha-doctor",
+    "Name": "Siddha Doctor",
+    "SearchAliases": [
+      "BSMS",
+      "Bachelor of Siddha Medicine and Surgery",
+      "Siddha Physician"
+    ],
+    "Description": "Provide Siddha-system healthcare through patient assessment, traditional therapeutic approaches, and preventive care within recognised professional standards.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the required science subjects, qualify NEET-UG, and enter a recognised BSMS programme. The course is typically 5.5 years including internship; check current NCISM regulations and counselling prospectus.",
+    "EntranceExams": [
+      "NEET-UG",
+      "AACCC UG counselling",
+      "Tamil Nadu AYUSH counselling"
+    ],
+    "KeySkills": [
+      "Siddha medicine fundamentals",
+      "Patient assessment",
+      "Communication",
+      "Ethical practice"
+    ],
+    "Workplaces": [
+      "Siddha hospitals",
+      "AYUSH clinics",
+      "Research centres"
+    ],
+    "RoadmapSteps": [
+      "Complete Class 12 with Physics, Chemistry and Biology and meet current eligibility rules.",
+      "Qualify NEET-UG and participate in the applicable state or All India counselling.",
+      "Complete BSMS, including prescribed clinical training and internship.",
+      "Meet applicable registration requirements and build supervised clinical experience."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "AYUSH"
+    ],
+    "Interests": [
+      "Helping people",
+      "Traditional medicine"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Chemistry"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "5.5 years including internship",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-naturopathy-yoga-physician",
+    "Name": "Naturopathy and Yoga Physician",
+    "SearchAliases": [
+      "BNYS",
+      "Bachelor of Naturopathy and Yogic Sciences",
+      "Naturopath"
+    ],
+    "Description": "Support health and wellbeing through naturopathy, yoga-based approaches, lifestyle guidance, and supervised clinical care within professional scope.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects and marks required by the relevant institution and state prospectus, then apply to a recognised BNYS programme. Admission routes vary; in Tamil Nadu, the 2026–27 state notification specifies HSC merit rather than NEET-UG. Verify the current prospectus before applying.",
+    "EntranceExams": [
+      "Tamil Nadu HSC merit-based selection (2026–27 state notification)",
+      "State or university admission process"
+    ],
+    "KeySkills": [
+      "Yoga practice",
+      "Lifestyle counselling",
+      "Patient assessment",
+      "Communication"
+    ],
+    "Workplaces": [
+      "Naturopathy hospitals",
+      "Yoga and wellness centres",
+      "Integrative health centres"
+    ],
+    "RoadmapSteps": [
+      "Complete Class 12 and verify subject and minimum-mark requirements in the current state or university prospectus.",
+      "Apply through the admission route specified for BNYS in the relevant state or institution; do not assume NEET is required everywhere.",
+      "Complete BNYS and its prescribed clinical training and internship.",
+      "Meet applicable registration and professional requirements before practice."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "AYUSH"
+    ],
+    "Interests": [
+      "Helping people",
+      "Fitness and wellbeing",
+      "Yoga"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Chemistry",
+      "Physical Education"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "5.5 years including internship (confirm current prospectus)",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-energy-engineer",
+    "Name": "Energy Engineer",
+    "SearchAliases": [
+      "Energy Engineering",
+      "Power and Energy Engineer"
+    ],
+    "Description": "Design and improve systems for energy generation, conversion, storage, efficiency, and distribution.",
+    "Category": "Science",
+    "Icon": "⚙️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with Physics, Chemistry and Mathematics, then pursue B.E./B.Tech in Energy Engineering or a related branch such as Electrical, Mechanical or Renewable Energy Engineering.",
+    "EntranceExams": [
+      "JEE Main",
+      "State engineering entrance tests",
+      "University admissions"
+    ],
+    "KeySkills": [
+      "Thermodynamics",
+      "Power systems",
+      "Energy modelling",
+      "Problem-solving"
+    ],
+    "Workplaces": [
+      "Power and utility companies",
+      "Renewable energy firms",
+      "Energy consultancies"
+    ],
+    "RoadmapSteps": [
+      "Choose PCM in Classes 11–12 and build strong Mathematics and Physics foundations.",
+      "Prepare for JEE Main, state engineering tests, or university admissions.",
+      "Complete an engineering degree with energy systems, efficiency, and project experience.",
+      "Build experience in power, renewables, energy storage, or energy consulting."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Engineering",
+      "Energy and Sustainability"
+    ],
+    "Interests": [
+      "Building things",
+      "Solving technical problems"
+    ],
+    "PreferredSubjects": [
+      "Mathematics",
+      "Physics"
+    ],
+    "WorkStyles": [
+      "Engineering / Technology",
+      "With a small team"
+    ],
+    "Duration": "Typically 4 years",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-vlsi-design-engineer",
+    "Name": "VLSI Design Engineer",
+    "SearchAliases": [
+      "VLSI Engineer",
+      "VLSI Design",
+      "Chip Design Engineer",
+      "Semiconductor Design Engineer"
+    ],
+    "Description": "Design, verify, and optimise integrated circuits and semiconductor chips used in electronic devices and computing systems.",
+    "Category": "Science",
+    "Icon": "⚙️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with Physics, Chemistry and Mathematics, then pursue B.E./B.Tech in Electronics and Communication, Electrical, Electronics or a related engineering branch. Specialise in VLSI through projects, electives or postgraduate study.",
+    "EntranceExams": [
+      "JEE Main",
+      "State engineering entrance tests",
+      "University admissions"
+    ],
+    "KeySkills": [
+      "Digital electronics",
+      "Verilog or VHDL",
+      "Circuit design",
+      "Semiconductor fundamentals"
+    ],
+    "Workplaces": [
+      "Semiconductor companies",
+      "Chip design firms",
+      "Electronics R&D centres"
+    ],
+    "RoadmapSteps": [
+      "Choose PCM and develop strong Mathematics and Physics skills.",
+      "Enter an eligible ECE, EEE or related engineering programme.",
+      "Build digital design, HDL, verification and semiconductor project experience.",
+      "Apply for VLSI, chip design, physical design or verification roles; consider postgraduate specialisation."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Engineering",
+      "Technology"
+    ],
+    "Interests": [
+      "Building things",
+      "Solving technical problems"
+    ],
+    "PreferredSubjects": [
+      "Mathematics",
+      "Physics",
+      "Computers"
+    ],
+    "WorkStyles": [
+      "Engineering / Technology",
+      "With a small team"
+    ],
+    "Duration": "Typically 4 years for B.E./B.Tech",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-structural-engineer",
+    "Name": "Structural Engineer",
+    "SearchAliases": [
+      "Structural Engineering",
+      "Structural Design Engineer"
+    ],
+    "Description": "Analyse and design safe structures such as buildings, bridges, towers, and industrial facilities.",
+    "Category": "Science",
+    "Icon": "⚙️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with PCM, earn a B.E./B.Tech in Civil Engineering, and typically specialise through an M.E./M.Tech or relevant structural design experience.",
+    "EntranceExams": [
+      "JEE Main",
+      "State engineering entrance tests",
+      "GATE (for postgraduate study)"
+    ],
+    "KeySkills": [
+      "Structural analysis",
+      "Engineering mechanics",
+      "Design codes",
+      "Structural modelling"
+    ],
+    "Workplaces": [
+      "Structural consultancies",
+      "Construction firms",
+      "Infrastructure companies"
+    ],
+    "RoadmapSteps": [
+      "Choose PCM and prepare for civil engineering admissions.",
+      "Complete B.E./B.Tech Civil Engineering.",
+      "Develop structural analysis, design software, codes and project experience; pursue postgraduate specialisation where appropriate.",
+      "Work under applicable professional and project requirements in building, bridge or infrastructure design."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Engineering",
+      "Infrastructure"
+    ],
+    "Interests": [
+      "Building things",
+      "Solving technical problems"
+    ],
+    "PreferredSubjects": [
+      "Mathematics",
+      "Physics"
+    ],
+    "WorkStyles": [
+      "Engineering / Technology",
+      "With a small team"
+    ],
+    "Duration": "4 years undergraduate; postgraduate specialisation commonly 2 years",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-transportation-engineer",
+    "Name": "Transportation Engineer",
+    "SearchAliases": [
+      "Transportation Engineering",
+      "Traffic Engineer",
+      "Highway Engineer"
+    ],
+    "Description": "Plan, design, and improve roads, highways, public transport, traffic systems, and transport networks.",
+    "Category": "Science",
+    "Icon": "⚙️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with PCM and pursue B.E./B.Tech Civil Engineering or Transportation Engineering where offered. Postgraduate study can support specialised transport planning and traffic engineering roles.",
+    "EntranceExams": [
+      "JEE Main",
+      "State engineering entrance tests",
+      "GATE (for postgraduate study)"
+    ],
+    "KeySkills": [
+      "Transport planning",
+      "Traffic analysis",
+      "GIS",
+      "Infrastructure design"
+    ],
+    "Workplaces": [
+      "Transport departments",
+      "Infrastructure consultancies",
+      "Urban planning agencies"
+    ],
+    "RoadmapSteps": [
+      "Choose PCM and prepare for engineering admissions.",
+      "Complete a civil or transportation engineering undergraduate degree.",
+      "Build skills in traffic engineering, transport modelling, GIS and infrastructure planning.",
+      "Start in highway, traffic, public transport or mobility planning projects."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Engineering",
+      "Infrastructure"
+    ],
+    "Interests": [
+      "Building things",
+      "Solving technical problems"
+    ],
+    "PreferredSubjects": [
+      "Mathematics",
+      "Physics",
+      "Geography"
+    ],
+    "WorkStyles": [
+      "Engineering / Technology",
+      "With a small team"
+    ],
+    "Duration": "Typically 4 years undergraduate",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-geotechnical-engineer",
+    "Name": "Geotechnical Engineer",
+    "SearchAliases": [
+      "Geotechnical Engineering",
+      "Soil Engineer",
+      "Foundation Engineer"
+    ],
+    "Description": "Study soil, rock, and ground conditions to design safe foundations, slopes, retaining structures, and underground works.",
+    "Category": "Science",
+    "Icon": "⚙️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with PCM and pursue B.E./B.Tech in Civil Engineering, followed by geotechnical electives, projects or postgraduate specialisation.",
+    "EntranceExams": [
+      "JEE Main",
+      "State engineering entrance tests",
+      "GATE (for postgraduate study)"
+    ],
+    "KeySkills": [
+      "Soil mechanics",
+      "Geology fundamentals",
+      "Site investigation",
+      "Foundation design"
+    ],
+    "Workplaces": [
+      "Geotechnical consultancies",
+      "Construction and infrastructure firms",
+      "Mining and energy projects"
+    ],
+    "RoadmapSteps": [
+      "Choose PCM and enter a civil engineering programme.",
+      "Complete B.E./B.Tech Civil Engineering with geotechnical coursework and field exposure.",
+      "Develop soil testing, site investigation, foundation design and modelling skills.",
+      "Build experience on infrastructure, building, transport or energy projects."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Engineering",
+      "Infrastructure"
+    ],
+    "Interests": [
+      "Building things",
+      "Solving technical problems"
+    ],
+    "PreferredSubjects": [
+      "Mathematics",
+      "Physics",
+      "Geography"
+    ],
+    "WorkStyles": [
+      "Engineering / Technology",
+      "With a small team"
+    ],
+    "Duration": "4 years undergraduate; postgraduate specialisation commonly 2 years",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-urban-planner",
+    "Name": "Urban Planner",
+    "SearchAliases": [
+      "Urban Planning",
+      "Town Planner",
+      "Regional Planner",
+      "Urban and Regional Planning"
+    ],
+    "Description": "Plan land use, housing, transport, public spaces, and infrastructure to support sustainable towns and cities.",
+    "Category": "Science",
+    "Icon": "⚙️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 and pursue a recognised undergraduate programme such as B.Plan, or a related architecture, geography, civil engineering or social-science degree followed by planning specialisation. Entry requirements vary by programme.",
+    "EntranceExams": [
+      "JEE Main Paper 2 (for programmes that use it)",
+      "University-specific entrance tests",
+      "Merit-based admissions"
+    ],
+    "KeySkills": [
+      "Spatial planning",
+      "GIS",
+      "Policy analysis",
+      "Community engagement"
+    ],
+    "Workplaces": [
+      "Urban development authorities",
+      "Planning consultancies",
+      "Government agencies",
+      "Infrastructure organisations"
+    ],
+    "RoadmapSteps": [
+      "Review B.Plan and related programme eligibility before selecting Class 11–12 subjects and entrance preparation.",
+      "Apply through the entrance or merit route specified by the institution.",
+      "Complete the planning degree and gain studio, GIS, policy and field-project experience.",
+      "Work in urban development, transport, housing, regional planning or sustainability projects."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Engineering",
+      "Planning and Public Policy"
+    ],
+    "Interests": [
+      "Building things",
+      "Solving technical problems"
+    ],
+    "PreferredSubjects": [
+      "Mathematics",
+      "Geography",
+      "Economics"
+    ],
+    "WorkStyles": [
+      "Engineering / Technology",
+      "With a small team"
+    ],
+    "Duration": "Typically 4 years for B.Plan; varies by route",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-genetic-engineer",
+    "Name": "Genetic Engineer",
+    "SearchAliases": [
+      "Genetic Engineering",
+      "Genetic Modification Engineer",
+      "Genome Engineering"
+    ],
+    "Description": "Apply molecular biology and biotechnology techniques to modify or engineer genetic material for research, medicine, agriculture, and industrial applications.",
+    "Category": "Science",
+    "Icon": "⚙️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with PCB or PCM/PCMB depending on programme eligibility, then pursue B.Tech/B.E. Biotechnology, Genetic Engineering where available, or a related life-science degree. Advanced research roles commonly require postgraduate study.",
+    "EntranceExams": [
+      "CUET",
+      "GAT-B (for eligible programmes)",
+      "JEE Main or university-specific admissions"
+    ],
+    "KeySkills": [
+      "Molecular biology",
+      "Genetics",
+      "Biotechnology",
+      "Laboratory research"
+    ],
+    "Workplaces": [
+      "Biotechnology companies",
+      "Pharmaceutical R&D",
+      "Research institutes",
+      "Agricultural biotech"
+    ],
+    "RoadmapSteps": [
+      "Choose a subject combination accepted by the target biotechnology or life-science programmes.",
+      "Enter a recognised undergraduate programme in biotechnology, genetics or a related discipline.",
+      "Build laboratory, molecular biology, genomics and research project experience.",
+      "Pursue postgraduate or doctoral training for specialised genetic engineering and research roles."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Science & Research",
+      "Biotechnology"
+    ],
+    "Interests": [
+      "Building things",
+      "Solving technical problems"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Chemistry",
+      "Mathematics"
+    ],
+    "WorkStyles": [
+      "Engineering / Technology",
+      "With a small team"
+    ],
+    "Duration": "Typically 3–4 years undergraduate; advanced research may require postgraduate study",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-pharmaceutical-engineer",
+    "Name": "Pharmaceutical Engineer",
+    "SearchAliases": [
+      "Pharmaceutical Engineering",
+      "Pharma Process Engineer",
+      "Pharma Manufacturing Engineer"
+    ],
+    "Description": "Design, operate, and improve processes and equipment used to manufacture medicines and pharmaceutical products.",
+    "Category": "Science",
+    "Icon": "⚙️",
+    "AccentColor": "#E5E7EB",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with PCM and pursue B.E./B.Tech in Chemical, Pharmaceutical, Biochemical or related engineering where offered. Pharmacy or biotechnology degrees can lead to adjacent manufacturing and process roles.",
+    "EntranceExams": [
+      "JEE Main",
+      "State engineering entrance tests",
+      "University admissions"
+    ],
+    "KeySkills": [
+      "Process engineering",
+      "Quality systems",
+      "Manufacturing",
+      "Regulatory awareness"
+    ],
+    "Workplaces": [
+      "Pharmaceutical manufacturers",
+      "Biopharma plants",
+      "Process engineering firms"
+    ],
+    "RoadmapSteps": [
+      "Choose PCM and build Mathematics, Physics and Chemistry foundations.",
+      "Apply to eligible chemical, pharmaceutical or related engineering programmes.",
+      "Complete the degree with process, manufacturing, quality and internship experience.",
+      "Build experience in pharmaceutical production, process validation, scale-up or plant engineering."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Engineering",
+      "Pharmaceuticals"
+    ],
+    "Interests": [
+      "Building things",
+      "Solving technical problems"
+    ],
+    "PreferredSubjects": [
+      "Mathematics",
+      "Physics",
+      "Chemistry"
+    ],
+    "WorkStyles": [
+      "Engineering / Technology",
+      "With a small team"
+    ],
+    "Duration": "Typically 4 years for B.E./B.Tech",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-cardiac-care-technologist",
+    "Name": "Cardiac Care Technologist",
+    "SearchAliases": [
+      "Cardiovascular Technologist",
+      "Cardiac Technology",
+      "Cardiac Technologist",
+      "ECG Technologist",
+      "ECHO Technologist"
+    ],
+    "Description": "Assist with cardiac investigations and monitoring, including ECG, echocardiography and other cardiovascular diagnostic procedures under clinical supervision.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue an approved B.Sc or allied-health programme in cardiac technology/cardiovascular technology. Check current NCAHP and institution requirements.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "ECG recording",
+      "Patient monitoring",
+      "Cardiac equipment",
+      "Clinical communication"
+    ],
+    "Workplaces": [
+      "Cardiology departments",
+      "Hospitals",
+      "Cardiac diagnostic centres"
+    ],
+    "RoadmapSteps": [
+      "Complete Class 12 and check the current entry requirements for cardiac technology programmes.",
+      "Apply to a recognised institution and verify the programme's approval and clinical placements.",
+      "Complete the degree with supervised clinical training.",
+      "Work in cardiac diagnostics and monitoring under the relevant clinical team."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Physics"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Typically 3–4 years including clinical training; confirm programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-dialysis-therapy-technologist",
+    "Name": "Dialysis Therapy Technologist",
+    "SearchAliases": [
+      "Dialysis Technologist",
+      "Dialysis Technician",
+      "Renal Technology",
+      "Dialysis Therapy Technology"
+    ],
+    "Description": "Prepare and operate dialysis equipment, monitor treatment sessions, and support kidney-care teams under clinical supervision.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised B.Sc or allied-health programme in dialysis therapy technology.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "Dialysis equipment",
+      "Patient monitoring",
+      "Infection control",
+      "Clinical documentation"
+    ],
+    "Workplaces": [
+      "Hospitals",
+      "Dialysis centres",
+      "Renal care units"
+    ],
+    "RoadmapSteps": [
+      "Complete Class 12 and review the entry criteria for dialysis therapy programmes.",
+      "Select a recognised programme with supervised clinical placements.",
+      "Complete the course and practical training in dialysis procedures and equipment.",
+      "Work with nephrology teams in hospitals or dialysis centres."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Chemistry"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Typically 3–4 years including clinical training; confirm programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-operation-theatre-technologist",
+    "Name": "Operation Theatre Technologist",
+    "SearchAliases": [
+      "OT Technologist",
+      "Operation Theatre Technology",
+      "Surgical Technology"
+    ],
+    "Description": "Prepare operating rooms, equipment, and sterile supplies and assist surgical teams with theatre operations and patient safety.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised B.Sc or allied-health programme in operation theatre and anaesthesia technology.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "Sterile technique",
+      "Surgical equipment",
+      "Team coordination",
+      "Patient safety"
+    ],
+    "Workplaces": [
+      "Hospitals",
+      "Surgical centres",
+      "Operation theatres"
+    ],
+    "RoadmapSteps": [
+      "Complete Class 12 and check eligibility for operation theatre technology programmes.",
+      "Choose a recognised institution with supervised hospital training.",
+      "Complete the programme and clinical rotations in operating theatres.",
+      "Work as part of the surgical services team, following institutional protocols and scope of practice."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Chemistry"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Typically 3–4 years including clinical training; confirm programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-anaesthesia-technologist",
+    "Name": "Anaesthesia Technologist",
+    "SearchAliases": [
+      "Anaesthesia Technology",
+      "Anesthesia Technologist",
+      "Anaesthesia Assistant"
+    ],
+    "Description": "Prepare and maintain anaesthesia equipment and support anaesthesia teams during procedures under the supervision of qualified clinicians.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised anaesthesia technology/allied-health programme.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "Anaesthesia equipment",
+      "Patient monitoring",
+      "Infection prevention",
+      "Team communication"
+    ],
+    "Workplaces": [
+      "Hospitals",
+      "Operation theatres",
+      "Critical care units"
+    ],
+    "RoadmapSteps": [
+      "Complete Class 12 and verify programme-specific subject requirements.",
+      "Apply to a recognised anaesthesia technology programme.",
+      "Complete the course with supervised clinical postings.",
+      "Work under qualified anaesthesia professionals and follow clinical safety protocols."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Chemistry"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Typically 3–4 years including clinical training; confirm programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-emergency-medical-technologist",
+    "Name": "Emergency Medical Technologist",
+    "SearchAliases": [
+      "Emergency Medical Technician",
+      "EMT",
+      "Paramedic",
+      "Trauma Care Technologist"
+    ],
+    "Description": "Provide pre-hospital emergency support, assess patients, and assist with safe transfer and emergency response within the trained scope of practice.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete the education level and subjects specified by the recognised EMT/paramedic programme. Entry routes and course duration vary by qualification and state; verify current NCAHP and institution requirements.",
+    "EntranceExams": [
+      "Institution-specific admission",
+      "State or university admission process"
+    ],
+    "KeySkills": [
+      "First response",
+      "Basic life support",
+      "Patient assessment",
+      "Emergency communication"
+    ],
+    "Workplaces": [
+      "Ambulance services",
+      "Emergency departments",
+      "Disaster response teams"
+    ],
+    "RoadmapSteps": [
+      "Research recognised EMT/paramedic programmes and confirm entry qualification and clinical hours.",
+      "Complete the approved course and required practical training.",
+      "Maintain required life-support training and certifications.",
+      "Work with ambulance or emergency-care teams within the permitted scope of practice."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Science"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Varies by approved certificate, diploma or degree programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-critical-care-technologist",
+    "Name": "Critical Care Technologist",
+    "SearchAliases": [
+      "ICU Technologist",
+      "Critical Care Technology",
+      "Intensive Care Technologist"
+    ],
+    "Description": "Support intensive-care teams by monitoring patients, maintaining critical-care equipment, and assisting with clinical procedures under supervision.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised critical-care technology or allied-health programme.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "Patient monitoring",
+      "Critical-care equipment",
+      "Infection control",
+      "Teamwork"
+    ],
+    "Workplaces": [
+      "ICUs",
+      "Hospitals",
+      "Emergency and trauma units"
+    ],
+    "RoadmapSteps": [
+      "Complete Class 12 and check programme-specific eligibility.",
+      "Select a recognised critical-care technology course with hospital placements.",
+      "Complete the programme and supervised clinical training.",
+      "Work with ICU teams under clinical protocols and scope-of-practice requirements."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Physics"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Typically 3–4 years including clinical training; confirm programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-radiotherapy-technologist",
+    "Name": "Radiotherapy Technologist",
+    "SearchAliases": [
+      "Radiation Therapy Technologist",
+      "Radiotherapy Technology",
+      "Radiation Therapy"
+    ],
+    "Description": "Prepare patients and operate radiotherapy equipment to support cancer treatment plans under the supervision of radiation oncology teams.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised B.Sc programme in radiotherapy or radiation therapy technology.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "Radiotherapy equipment",
+      "Patient positioning",
+      "Radiation safety",
+      "Precision"
+    ],
+    "Workplaces": [
+      "Cancer hospitals",
+      "Radiation oncology centres",
+      "Hospitals"
+    ],
+    "RoadmapSteps": [
+      "Complete Class 12 and review the eligibility criteria for radiotherapy programmes.",
+      "Apply to a recognised programme with supervised clinical training.",
+      "Complete the degree and practical placements in radiation oncology.",
+      "Work with radiation oncology teams while following radiation safety standards."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Physics"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Typically 3–4 years including clinical training; confirm programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-perfusionist",
+    "Name": "Perfusionist",
+    "SearchAliases": [
+      "Cardiovascular Perfusionist",
+      "Clinical Perfusion Technology",
+      "Perfusion Technology"
+    ],
+    "Description": "Operate heart-lung machines and related extracorporeal circulation equipment during selected cardiac and major surgical procedures as part of a specialist clinical team.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised B.Sc in cardiac perfusion/perfusion technology or an approved equivalent programme.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "Extracorporeal circulation",
+      "Equipment operation",
+      "Physiology",
+      "Clinical teamwork"
+    ],
+    "Workplaces": [
+      "Cardiac surgery centres",
+      "Tertiary hospitals",
+      "Specialist cardiac units"
+    ],
+    "RoadmapSteps": [
+      "Complete Class 12 and verify the current entry requirements for perfusion programmes.",
+      "Apply to a recognised institution with access to supervised cardiac-surgery training.",
+      "Complete the degree and required clinical experience.",
+      "Work as part of a cardiac surgery team within the professional scope and institutional protocols."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Physics"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Typically 3–4 years including clinical training; confirm programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-physician-associate",
+    "Name": "Physician Associate",
+    "SearchAliases": [
+      "Physician Assistant",
+      "Physician Associate Studies"
+    ],
+    "Description": "Support doctors in clinical assessment, care coordination, and selected patient-care activities under the supervision and scope defined by the employing healthcare service.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the recognised programme, then pursue an approved Physician Associate/Assistant undergraduate programme. Confirm the current NCAHP framework, programme nomenclature and institutional eligibility.",
+    "EntranceExams": [
+      "University admissions",
+      "State or institution-specific admission"
+    ],
+    "KeySkills": [
+      "Clinical assessment support",
+      "Patient communication",
+      "Medical documentation",
+      "Teamwork"
+    ],
+    "Workplaces": [
+      "Hospitals",
+      "Clinics",
+      "Specialist departments"
+    ],
+    "RoadmapSteps": [
+      "Check the current recognised programme title, eligibility and regulatory requirements.",
+      "Complete the relevant undergraduate programme with supervised clinical placements.",
+      "Develop clinical communication, documentation and patient-care support skills.",
+      "Work under the supervision and scope specified by the healthcare institution."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Healthcare and science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Chemistry"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Varies by approved programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-endoscopy-technologist",
+    "Name": "Endoscopy Technologist",
+    "SearchAliases": [
+      "Endoscopy Technician",
+      "Endoscopy Technology"
+    ],
+    "Description": "Prepare and maintain endoscopy equipment and support clinical teams during diagnostic and therapeutic endoscopic procedures.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised endoscopy or gastroenterology technology/allied-health programme.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "Endoscopy equipment",
+      "Infection prevention",
+      "Patient preparation",
+      "Clinical teamwork"
+    ],
+    "Workplaces": [
+      "Hospitals",
+      "Gastroenterology centres",
+      "Endoscopy units"
+    ],
+    "RoadmapSteps": [
+      "Verify the entry requirements and recognition status of endoscopy technology programmes.",
+      "Complete the relevant course and supervised clinical training.",
+      "Build skills in equipment preparation, reprocessing and patient safety.",
+      "Work with gastroenterology and endoscopy teams under clinical protocols."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Healthcare and science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Chemistry"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Varies by recognised programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-phlebotomist",
+    "Name": "Phlebotomist",
+    "SearchAliases": [
+      "Phlebotomy Technician",
+      "Blood Collection Technician"
+    ],
+    "Description": "Collect blood samples safely, label and handle specimens correctly, and support diagnostic laboratory workflows.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete the education level required by a recognised phlebotomy certificate, diploma or allied-health programme. Entry requirements and duration vary by programme and employer.",
+    "EntranceExams": [
+      "Institution-specific admission"
+    ],
+    "KeySkills": [
+      "Venepuncture",
+      "Patient communication",
+      "Specimen handling",
+      "Infection control"
+    ],
+    "Workplaces": [
+      "Hospitals",
+      "Diagnostic laboratories",
+      "Collection centres"
+    ],
+    "RoadmapSteps": [
+      "Compare recognised phlebotomy training programmes and their entry requirements.",
+      "Complete theoretical and supervised practical training.",
+      "Demonstrate safe sample collection, identification and handling procedures.",
+      "Work in diagnostic collection centres, hospitals or laboratories within the trained scope."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Healthcare and science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Science"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Varies by certificate or diploma programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-diagnostic-medical-sonographer",
+    "Name": "Diagnostic Medical Sonographer",
+    "SearchAliases": [
+      "Sonographer",
+      "Ultrasound Technologist",
+      "Medical Sonography"
+    ],
+    "Description": "Perform diagnostic ultrasound examinations and produce images that clinicians use to assess medical conditions.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised medical imaging/sonography programme with supervised clinical training. Verify current regulatory and scope-of-practice requirements.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "Ultrasound equipment",
+      "Patient positioning",
+      "Image acquisition",
+      "Anatomy"
+    ],
+    "Workplaces": [
+      "Hospitals",
+      "Diagnostic imaging centres",
+      "Specialist clinics"
+    ],
+    "RoadmapSteps": [
+      "Check recognised programme options and current eligibility requirements.",
+      "Complete the appropriate medical imaging or sonography programme.",
+      "Gain supervised clinical experience in ultrasound imaging and patient safety.",
+      "Work in diagnostic imaging under applicable professional and institutional requirements."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Healthcare and science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Physics"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Varies by recognised programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-nuclear-medicine-technologist",
+    "Name": "Nuclear Medicine Technologist",
+    "SearchAliases": [
+      "Nuclear Medicine Technology",
+      "Nuclear Imaging Technologist"
+    ],
+    "Description": "Prepare and administer radiopharmaceuticals as authorised and operate imaging equipment for nuclear medicine examinations under specialist supervision.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised B.Sc Nuclear Medicine Technology or equivalent approved programme.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "Nuclear imaging equipment",
+      "Radiation safety",
+      "Patient care",
+      "Precision"
+    ],
+    "Workplaces": [
+      "Nuclear medicine departments",
+      "Cancer centres",
+      "Hospitals"
+    ],
+    "RoadmapSteps": [
+      "Review current eligibility and recognised nuclear medicine technology programmes.",
+      "Complete the degree with supervised clinical training.",
+      "Develop competence in imaging equipment, radiation protection and patient preparation.",
+      "Work in nuclear medicine services under applicable radiation safety and clinical regulations."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Healthcare and science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Physics"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Typically 3–4 years including clinical training; confirm programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-neurodiagnostic-technologist",
+    "Name": "Neurodiagnostic Technologist",
+    "SearchAliases": [
+      "EEG Technologist",
+      "EMG Technologist",
+      "Neurodiagnostic Technology",
+      "Sleep Lab Technologist"
+    ],
+    "Description": "Perform neurodiagnostic tests such as EEG and support related investigations that help clinicians assess brain, nerve and sleep disorders.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised neurotechnology/neurodiagnostic allied-health programme with supervised clinical training.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "EEG setup",
+      "Neurodiagnostic equipment",
+      "Patient care",
+      "Accurate recording"
+    ],
+    "Workplaces": [
+      "Hospitals",
+      "Neurology centres",
+      "Sleep laboratories"
+    ],
+    "RoadmapSteps": [
+      "Identify recognised neurodiagnostic or neurotechnology programmes and confirm entry criteria.",
+      "Complete the course and supervised clinical postings.",
+      "Build practical skills in EEG, related neurodiagnostic procedures and patient preparation.",
+      "Work with neurology and sleep medicine teams within the approved scope."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Healthcare and science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Physics"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Varies by recognised programme",
+    "FutureScope": ""
+  },
+  {
+    "Id": "career-pulmonary-function-technologist",
+    "Name": "Pulmonary Function Technologist",
+    "SearchAliases": [
+      "PFT Technologist",
+      "Pulmonary Function Technology",
+      "Lung Function Technologist"
+    ],
+    "Description": "Conduct pulmonary function tests and respiratory measurements to support diagnosis and monitoring of lung conditions.",
+    "Category": "Science",
+    "Icon": "🩺",
+    "AccentColor": "#D9EAFE",
+    "IsPopular": false,
+    "SalaryRangeIndia": "",
+    "FutureDemand": "Varies by role and location",
+    "EducationPath": "Complete Class 12 with the subjects required by the institution, commonly Physics, Chemistry and Biology, then pursue a recognised respiratory or pulmonary function technology programme.",
+    "EntranceExams": [
+      "University admissions",
+      "State allied-health admission process"
+    ],
+    "KeySkills": [
+      "Pulmonary function testing",
+      "Respiratory equipment",
+      "Patient coaching",
+      "Clinical recording"
+    ],
+    "Workplaces": [
+      "Hospitals",
+      "Pulmonary clinics",
+      "Diagnostic laboratories"
+    ],
+    "RoadmapSteps": [
+      "Check current programme eligibility and recognised respiratory technology courses.",
+      "Complete the programme with supervised clinical training.",
+      "Develop practical skills in spirometry and other pulmonary function procedures.",
+      "Work with respiratory and pulmonary care teams under clinical protocols."
+    ],
+    "SalaryInsights": [],
+    "TopColleges": [],
+    "CareerCategories": [
+      "Healthcare",
+      "Allied Health"
+    ],
+    "Interests": [
+      "Helping people",
+      "Healthcare and science"
+    ],
+    "PreferredSubjects": [
+      "Biology",
+      "Physics"
+    ],
+    "WorkStyles": [
+      "Hospital / Healthcare",
+      "With a small team"
+    ],
+    "Duration": "Varies by recognised programme",
+    "FutureScope": ""
   }
 ]
