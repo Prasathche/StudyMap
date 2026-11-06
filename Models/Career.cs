@@ -199,6 +199,27 @@ public class Career
 		if (key.Contains("perfusionist"))
 			return "A recognised undergraduate Cardiac Perfusion or Perfusion Technology programme with supervised cardiac-surgery clinical training is the usual route; confirm current programme eligibility.";
 
+		if (key.Contains("physician associate"))
+			return "Complete a recognised Physician Associate/Assistant programme with supervised clinical placements. Check current programme nomenclature, eligibility and regulatory requirements before applying.";
+
+		if (key.Contains("endoscopy technologist"))
+			return "A recognised Endoscopy Technology or related allied-health programme with supervised clinical training is the usual route; verify current programme eligibility.";
+
+		if (key.Contains("phlebotomist"))
+			return "Complete a recognised phlebotomy certificate, diploma or allied-health programme with supervised practical training; entry requirements and duration vary.";
+
+		if (key.Contains("sonographer"))
+			return "Complete a recognised Medical Imaging or Diagnostic Medical Sonography programme with supervised clinical training; verify current eligibility and professional requirements.";
+
+		if (key.Contains("nuclear medicine technologist"))
+			return "A recognised Nuclear Medicine Technology undergraduate programme with supervised clinical training is the usual route; verify current programme eligibility and radiation-safety requirements.";
+
+		if (key.Contains("neurodiagnostic") || key.Contains("eeg technologist") || key.Contains("sleep lab technologist"))
+			return "A recognised Neurotechnology or Neurodiagnostic allied-health programme with supervised clinical training is the usual route; verify current programme eligibility.";
+
+		if (key.Contains("pulmonary function technologist"))
+			return "A recognised Respiratory or Pulmonary Function Technology programme with supervised clinical training is the usual route; verify current programme eligibility.";
+
 		if (key.Contains("doctor") || key.Contains("physician"))
 			return "MBBS (Bachelor of Medicine and Bachelor of Surgery) is the primary undergraduate medical degree, followed by internship and postgraduate specialization if desired.";
 
