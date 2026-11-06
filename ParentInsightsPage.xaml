@@ -57,6 +57,8 @@
                                FontSize="15"
                                TextColor="{StaticResource Ink}"
                                PlaceholderColor="{StaticResource Muted}"
+                           IsSpellCheckEnabled="False"
+                           IsTextPredictionEnabled="False"
                                ReturnType="Search"
                                TextChanged="OnSearchTextChanged"
                                Completed="OnSearchCompleted" />
