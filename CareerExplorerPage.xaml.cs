@@ -188,12 +188,18 @@ public partial class CareerExplorerPage : ContentPage
 
     private static int GetSearchPriority(Career career, string searchText)
     {
-        if (career.SearchAliases.Any(alias => alias.Equals(searchText, StringComparison.OrdinalIgnoreCase))) return 0;
-        if (career.SearchAliases.Any(alias => alias.StartsWith(searchText, StringComparison.OrdinalIgnoreCase))) return 1;
-        if (career.SearchAliases.Any(alias => alias.Contains(searchText, StringComparison.OrdinalIgnoreCase))) return 2;
-        if (career.Name.StartsWith(searchText, StringComparison.OrdinalIgnoreCase)) return 3;
-        if (career.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase)) return 4;
-        return 5;
+        // Prefer the actual career title over secondary qualifications or aliases.
+        // For example, "doctor" should rank Doctor and Veterinary Doctor above
+        // Pharmacist, whose alias includes "Doctor of Pharmacy".
+        if (career.Name.Equals(searchText, StringComparison.OrdinalIgnoreCase)) return 0;
+        if (career.Name.StartsWith(searchText, StringComparison.OrdinalIgnoreCase)) return 1;
+        if (career.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase)) return 2;
+
+        if (career.SearchAliases.Any(alias => alias.Equals(searchText, StringComparison.OrdinalIgnoreCase))) return 3;
+        if (career.SearchAliases.Any(alias => alias.StartsWith(searchText, StringComparison.OrdinalIgnoreCase))) return 4;
+        if (career.SearchAliases.Any(alias => alias.Contains(searchText, StringComparison.OrdinalIgnoreCase))) return 5;
+
+        return 6;
     }
 
     private static int GetMatchingAliasLength(Career career, string searchText)
