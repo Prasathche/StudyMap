@@ -174,28 +174,28 @@ public partial class ParentInsightsPage : ContentPage
         if (string.IsNullOrWhiteSpace(query))
             return 100;
 
-        var aliases = career.SearchAliases ?? [];
         var normalizedQuery = query.Trim();
+        var aliases = career.SearchAliases ?? [];
 
-        // Search aliases intentionally have priority over the display name and
-        // broader category matches. This makes common terms such as "doctor",
-        // "CA", "CS" or other aliases surface the intended career first.
-        if (aliases.Any(a => string.Equals(a.Trim(), normalizedQuery, StringComparison.OrdinalIgnoreCase)))
+        // A direct career-title match should outrank a secondary qualification
+        // or alias match. This keeps "Doctor" above "Pharmacist" for "doctor",
+        // while "Pharm.D" still finds Pharmacist through its alias.
+        if (string.Equals(career.Name.Trim(), normalizedQuery, StringComparison.OrdinalIgnoreCase))
             return 0;
 
-        if (aliases.Any(a => a.StartsWith(normalizedQuery, StringComparison.OrdinalIgnoreCase)))
+        if (career.Name.StartsWith(normalizedQuery, StringComparison.OrdinalIgnoreCase))
             return 1;
 
-        if (aliases.Any(a => a.Contains(normalizedQuery, StringComparison.OrdinalIgnoreCase)))
+        if (career.Name.Contains(normalizedQuery, StringComparison.OrdinalIgnoreCase))
             return 2;
 
-        if (string.Equals(career.Name.Trim(), normalizedQuery, StringComparison.OrdinalIgnoreCase))
+        if (aliases.Any(a => string.Equals(a.Trim(), normalizedQuery, StringComparison.OrdinalIgnoreCase)))
             return 3;
 
-        if (career.Name.StartsWith(normalizedQuery, StringComparison.OrdinalIgnoreCase))
+        if (aliases.Any(a => a.StartsWith(normalizedQuery, StringComparison.OrdinalIgnoreCase)))
             return 4;
 
-        if (career.Name.Contains(normalizedQuery, StringComparison.OrdinalIgnoreCase))
+        if (aliases.Any(a => a.Contains(normalizedQuery, StringComparison.OrdinalIgnoreCase)))
             return 5;
 
         if (career.CareerCategories.Any(t => t.Contains(normalizedQuery, StringComparison.OrdinalIgnoreCase)))
